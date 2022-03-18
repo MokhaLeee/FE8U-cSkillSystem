@@ -2,12 +2,22 @@
 
 (W.I.P.) A [Skill-lite](https://github.com/StanHash/SkillsLite.git) and [C-HAX](https://github.com/StanHash/FE-CHAX.git) style FE8U SkillSystem re-build in C, the main purpose of which is to make it properly integrated of `Skill System` & `Str/Mag Split` & `Item Effect System` and `Weapon range getter`.
 
-## Compiling
-You can directly assemble `Main.event` through [Event Assembler](https://github.com/StanHash/EventAssembler.git). 
+## Compiling (for Windows user)
 
-To make components, refer to `readme` file of [FE-CHAX by StanH](https://github.com/StanHash/FE-CHAX.git): make sure `DevkitPro`, `Python3` installed, then put [FE-Clib](https://github.com/StanHash/FE-CLib.git), [FE-CLib-Decompatible](https://github.com/boviex/FE-CLib-Decompatible.git), [EventAssember](https://github.com/StanHash/EventAssembler/releases/tag/1.0) and [PyTools](https://github.com/StanHash/FE-PyTools.git) inside `/Tools` folder, after put `Fire Emblem 8 (the U.S. ver)` clean rom named as `FE8U.gba` in the directory and finally `make hack` to build rom.
+- Clone repo with command `git clone --recursive https://github.com/MokhaLeee/FE-cHack-Template.git` or update submodules with `git submodule update --init --recursive` after cloning, or just download each submodule inside `Tools/` folder.
 
-One thing to be attention for skilled hacks: [C-Lib used here](https://github.com/MokhaLeee/FE-CLib-Mokha.git) has been updated to newest decomp, rather than [SanH ver FE-Clib](https://github.com/StanHash/FE-CLib.git).
+- have [devkitARM](https://devkitpro.org/wiki/Getting_Started) installed, and the `DEVKITARM` env variable set.
+
+- have [python 3](https://www.python.org/) installed and in your path. (the makefile *should* be able to find the correct python executable name. See [`tooks.mk`](./tooks.mk)).
+
+- Download [EventAssembler release](https://github.com/StanHash/EventAssembler/releases/tag/1.0), and unzip which in `Tools` folder.
+
+- Put `Fire Emblem 8: Scared Stones`(sha1: c25b145e37456171ada4b0d440bf88a19f4d509f) clean rom named `FE8U.gba` in directory.
+- Open `Msys2` (which will be installed on DevkitPRO installation), or `Windows terminal` and get into current folder, type command `make` or `make hack` to build rom `HACK.gba`
+
+- Further more, you can `make clean` to clean build outputs.
+
+You can directly assemble `Main.event` through [Event Assembler](https://github.com/StanHash/EventAssembler.git), and for more details, you can see tips on [StanH's CHAX](https://github.com/StanHash/FE-CHAX.git).
 
 
 ## Wizardry Organization

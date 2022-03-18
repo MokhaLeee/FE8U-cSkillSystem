@@ -1,8 +1,8 @@
-[submodule "Tools/CLib"]
-	path = Tools/CLib
+[submodule "Tools/FE-CLib"]
+	path = Tools/FE-CLib
 	url = https://github.com/StanHash/FE-CLib.git
-[submodule "Tools/PyTools"]
-	path = Tools/PyTools
+[submodule "Tools/FE-PyTools"]
+	path = Tools/FE-PyTools
 	url = https://github.com/StanHash/FE-PyTools.git
 [submodule "Tools/FE-CLib-Mokha"]
 	path = Tools/FE-CLib-Mokha
@@ -10,4 +10,3 @@
 [submodule "Tools/EventAssembler"]
 	path = Tools/EventAssembler
 	url = https://github.com/StanHash/EventAssembler.git
-

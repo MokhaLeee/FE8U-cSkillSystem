@@ -35,6 +35,8 @@ $RECYCLE.BIN/
 
 # python cache
 __pycache__
+Tools/EventAssembler*
+
 
 # =========================
 # Operating System Files

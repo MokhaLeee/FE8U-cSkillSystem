@@ -1,0 +1,12 @@
+
+FE-CLib :
+https://github.com/StanHash/FE-CLib
+
+FE-CLib-Mokha :
+https://github.com/MokhaLeee/FE-CLib-Mokha.git
+
+FE-PyTools :
+https://github.com/StanHash/FE-PyTools.git
+
+EventAssembler
+https://github.com/StanHash/EventAssembler/releases/download/1.0/EventAssembler.zip
