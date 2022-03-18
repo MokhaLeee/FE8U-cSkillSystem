@@ -1,0 +1,114 @@
+#ifndef MASTER_HACK_INSTALLER
+#define MASTER_HACK_INSTALLER
+
+
+// This file is the main file that includes Wizardry (aka Engine Hacks or Asm Hacks)
+// It plays the same role as "Master Hack Installers" from other buildfiles.
+
+#include "EssentialFixes.event"
+#include "6CDefinitions.event"
+
+// =======================
+// = CORE HACKS BL RANGE =
+// =======================
+PUSH
+ORG FreeSpaceBLRange 	//defined in custom definitions
+#define inBLRange
+	
+	#include "CoreHacks/StrMag/BLRange.event"
+	#include "CoreHacks/WeaponRange/BLRange.event"
+	
+#undef inBLRange
+POP
+
+
+// =========================
+// = CORE SUPPORTING HACKS =
+// =========================
+ALIGN 4
+
+// Mokha common functions
+#include "CoreSupport/MokhaLib/LibFun.lyn.event"
+
+#include "CoreSupport/BattleUnitHook/BattleUnitHook.event"
+#include "CoreSupport/LoadUnitHook/LoadUnitHook.event"
+#include "CoreSupport/SaveData/ExModularSave.event"
+#include "CoreSupport/PopupRework/PopupRework.event"
+#include "CoreSupport/IconDisplay/IconDisplay.event"
+#include "CoreSupport/ChapterInitHook/ChapterInitHook.event"
+#include "CoreSupport/UnitMenu/UnitMenu.event"
+#include "CoreSupport/UnitAction/UnitAction.event"
+
+// Null BWL table so we can get a free save/load space
+#include "CoreSupport/NullBwl/NullBwl.event"
+
+// Move unit support data to Bwl tables.
+// Need Null-Bwl patch installed
+#include "CoreSupport/BwlSupports/BwlSupports.event"
+
+// An external random number system
+#include "CoreSupport/External_RN/External_RN.event"
+
+// (Finally) Hook List for Core Supports
+#include "CoreSupport/HookList.event"
+
+
+
+
+
+// ========================
+// = CORE MECHANICS HACKS =
+// ========================
+ALIGN 4
+
+// Modular item menu usability, menu effect/ action routine and prep-screen item-use screen rework
+#include "CoreHacks/ItemSystem/ISR.event"
+
+#include "CoreHacks/StatusGetter/StatusGetter.event"
+#include "CoreHacks/WeaponRange/WeaponRange.event"
+#include "CoreHacks/StrMag/StrMag.event"
+#include "CoreHacks/StatScreen/StatScreen.event"
+#include "CoreHacks/LevelUpRework/LevelUpRework.event"
+
+// Skill tester and desc/icon getter, etc.
+// Need Null-Bwl and Bwl-Support patch installed
+#include "CoreHacks/SkillCore/SkillCore.event"
+
+
+
+
+
+
+
+
+
+
+// ============================
+// = ADDITIONAL FEATURE HACKS =
+// ============================
+
+#include "Features/Skills/SkillsInstaller.event"
+#include "Features/LevelUpFE16/LevelUpFE16.event"
+#include "Features/PrepScreenRework/PrepScreenRework.event"
+
+
+#include "External/_ExternPatchConfig.event"
+#include "External/MoveLimitViewFix/MoveLimitViewFix.event"
+#include "External/FE8U_Mokha_Fixs.event"
+#include "External/PortraitHeight/PortraitHeight.event"
+#include "External/HpBars/HpBars.event"
+#include "External/MovementArrowHack/MovementArrowHack.event"
+#include "External/FixWpnRnk.event"
+#include "External/SemitransparencyChanges.event"
+#include "External/StatScreenBlink/SSBlink.event"
+
+
+
+// these will be finally replaced
+#include "CoreHacks/StrMag/Combat/_Combat.event"
+#include "CoreHacks/WeaponRange/ProperRangeGetters_Internal.event"
+#include "CoreHacks/StatusGetter/InjectConGetters.event"
+#include "CoreHacks/StatusGetter/InjectHPGetters.event"
+#include "CoreHacks/StatusGetter/InjectMovGetters.event"
+
+#endif // MASTER_HACK_INSTALLER

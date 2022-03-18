@@ -1,69 +1,42 @@
-#!/bin/bash
 
-# USAGE: ./MakeHack.sh [quick]
-# If first argument is "quick", then this will not update text or tables
+# Paths
+BASE_DIR=$(dirname "$(readlink -f "$0")")
+TOOLS_DIR="$BASE_DIR/Tools"
+EA_DIR="$TOOLS_DIR/EventAssembler"
 
-base_dir=$(dirname "$(readlink -f "$0")")
 
-# defining buildfile config
+# EA main buildfile
+main_event="$BASE_DIR/Main.event"
 
-source_rom="$base_dir/FE8_clean.gba"
 
-main_event="$base_dir/ROM Buildfile.event"
+# ROMs
+source_rom="$BASE_DIR/FE8U.gba"
+target_rom="$BASE_DIR/HACK.gba"
 
-target_rom="$base_dir/SkillsTest.gba"
-target_ups="$base_dir/SkillsTest.ups" # unused, but kept for symmetry with MAKE HACK_full.cmd
 
-# defining tools
+# Tools
+EA="$EA_DIR/ColorzCore.exe"
 
-c2ea_py="$base_dir/Tools/C2EA/c2ea.py"
-textprocess_py="$base_dir/Tools/TextProcess/text-process-classic.py"
-parsefile="$base_dir/Event Assembler/Tools/ParseFile"
 
-# finding correct python version
 
-if hash python3; then
-  python3="python3"
-elif hash python 2> /dev/null && [[ $(python -c 'import sys; print(int(sys.version_info[0] > 2))') -eq 1 ]]; then
-  python3="python"
-else
-  echo "MakeHack.sh requires python 3 to be installed!" 1>&2
-  exit 1
+if [[ $1 == all ]]; then
+	
+	make clean
+	make hack
+	
 fi
 
-# do the actual building
 
-cd "$base_dir"
+if [[ $1 != all ]]; then
+	# Preparing ROM
+	cd "$BASE_DIR"
+	echo "===== Copy ROM ====="
+	cp -f "$source_rom" "$target_rom"
+	echo "Copy Target ROM .. done!"
 
-echo "Copying ROM"
-
-cp -f "$source_rom" "$target_rom" || exit 2
-
-if [[ $1 != quick ]]; then
-  # make hack full
-
-  # TABLES
-
-  echo "Processing tables"
-
-  cd "$base_dir/Tables"
-  echo | $python3 "$c2ea_py" \
-    "$source_rom"
-
-  # TEXT
-
-  echo "Processing text"
-
-  cd "$base_dir/Text"
-  echo | $python3 "$textprocess_py" \
-    "text_buildfile.txt" --parser-exe "$parsefile"
+	# Make Hack
+	cd "$BASE_DIR"
+	echo "===== Make Hack ====="
+	"$EA" A FE8 "-input:$main_event" "-output:$target_rom"
+	echo "done!"
 fi
-
-echo "Assembling"
-
-cd "$base_dir/Event Assembler"
-mono ColorzCore.exe A FE8 "-output:$target_rom" "-input:$main_event"
-
-# TODO: generate patch (would require a linux version of ups)
-
-echo "Done!"

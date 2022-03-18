@@ -1,0 +1,52 @@
+#ifndef HOOK_LIST_CORE_SUPPORT
+#define HOOK_LIST_CORE_SUPPORT
+
+// BattleUnitHook
+ALIGN 4
+Unit2BattleFuncList: // // void U2B (struct BattleUnit* bu, struct Unit* unit);
+	POIN U2B_Vanilla	
+	POIN U2B_Mag		// CoreHacks/StrMag
+	WORD 0
+
+
+
+ALIGN 4
+Battle2UnitFuncList: // // void B2U (struct Unit* unit, struct BattleUnit* bu);
+	POIN B2U_Vanilla
+	POIN B2U_Mag		// CoreHacks/StrMag
+	WORD 0
+
+
+
+// Load Unit
+ALIGN 4
+OnLoadUnitFuncList:
+	POIN LoadUnit_Mag 		// CoreHacks/StrMag/LoadUnit
+	WORD 0 
+
+
+
+// PopUp Rework
+ALIGN 4
+gBattlePopupTable:
+    PopRBattlePopup(PopR_InitWeaponBroke, 0x592420, 90)
+    PopRBattlePopup(PopR_InitWRankUp,     0x592468, 90)
+    // PopRBattlePopup(PopR_InitTest, Popup_Test, 90)
+    PopRBattlePopupEnd
+
+
+ALIGN 4
+gPromotionPopupTable:
+    PopRBattlePopup(PopR_InitSwordRankNew, gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitLanceRankNew, gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitAxeRankNew,   gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitBowRankNew,   gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitStaffRankNew, gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitAnimaRankNew, gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitLightRankNew, gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitElderRankNew, gPopup_PopR_NewWType, 90)
+	// PopRBattlePopup(PopR_InitTest, Popup_Test, 90)
+    PopRBattlePopupEnd
+
+
+#endif // HOOK_LIST_CORE_SUPPORT

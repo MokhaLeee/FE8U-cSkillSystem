@@ -1,0 +1,128 @@
+
+// Lyn Jump
+#ifndef LynJumpDefined
+	#define LynJumpDefined
+	#define LynJump(aTarget) "WORD $46C04778 $E59FC000 $E12FFF1C; POIN aTarget; "
+#endif // LynJumpDefined
+
+
+
+
+// =================================
+// ======= Prep-screen item ========
+// =================================
+
+/*
+idea:
+
+- on item effect routine:
+	rework on function: PrepScreenItemUseScreen_HandleItemEffect
+	1. if boosters, continue proc;
+	2. if romotions, or juna fruit, exec proc as vanilla,
+	3. add a proc label to handling other items. 
+
+*/
+
+#include "PrepScreenItem/PrepItem.lyn.event"
+#include "PrepScreenItem/OnModular.lyn.event"
+
+ALIGN 32
+PrepItem_newTSA:
+	#incbin "data/TSA_PrepItem.dmp"
+	// #incbin "data/TSA_PrepItem_compressed.dmp"
+	
+
+PUSH
+	// Proc code and start funcs
+	PROTECT $9CCFC $9CD14  	// StartPrepScreenItemUseScreen	
+	PROTECT $A19064 $A191A0 // gProc_PrepScreenItemUseScreen
+
+	
+	// Main proc init Display
+	PROTECT $9C4E4 $9C820 	// PrepScreenItemUseScreen_InitDisplay
+	PROTECT $9BF10 $9C0B4	// DrawPrepScreenItemUseStatLabels
+	PROTECT $9C254 $9C3EC	// DrawPrepScreenItemUseStatValues
+	PROTECT $9C0B4 $9C254	// DrawPrepScreenItemUseStatBars
+	PROTECT $9C3EC $9C4B4	// DrawPrepScreenItemUseItemUseDesc
+
+	
+	// Item handle effect
+	ORG $9CB38
+	LynJump(PrepScreenItemUseScreen_HandleItemEffect)
+	
+	PROTECT $9CB38	$9CBA8	// PrepScreenItemUseScreen_HandleItemEffect
+	PROTECT $29F00 $2A108 	// CanUnitUseItemPrepScreen
+
+	
+	// Boosters
+	ORG $9CDD4
+	LynJump(PrepItemBooster_OnInit)
+	
+	ORG $9CF48
+	LynJump(PrepItemBooster_OnIdle)
+	
+	ORG $9CF8C
+	LynJump(PrepItemBooster_OnEnd)
+	
+	ORG $9CD14
+	LynJump(PrepItemBooster_DrawPopup)
+	
+	PROTECT $A191A4 $A191C4	// gProc_StatScreenItemStatBoosterEffect
+	PROTECT $9C0D4 $9CF48	// PrepItemBooster_OnInit
+	PROTECT $9CF48 $9CF8C	// PrepItemBooster_OnIdle
+	PROTECT $9CF8C $9D014	// PrepItemBooster_OnEnd
+	PROTECT $9CD14 $9CDD4	// PrepItemBooster_DrawPopup
+	//PROTECT $2F808 $2F914	// ApplyStatBoosterAndGetMessageId // indide Str/Mag split
+
+	
+	// JunaFruit
+	ORG $9D0D4
+	LynJump(PrepItemBooster_OnInit)
+	
+	ORG $9D17C
+	LynJump(PrepItemBooster_OnIdle)
+	
+	ORG $9D1C0
+	LynJump(PrepItemBooster_OnEnd)
+	
+	PROTECT $A191C4 $A191F4	// gProc_StatScreenItemJunaFruitEffect
+	PROTECT $9D0D4 $9D17C	// PrepItemJuna_OnInit
+	PROTECT $9D17C $9D1C0	// PrepItemJuna_OnIdle
+	PROTECT $9D1C0 $9D244	// PrepItemJuna_OnEnd
+POP
+
+
+
+
+
+// =================================
+// =========== Menu item ===========
+// =================================
+
+// Modular judgement for item usability inside player phase
+#include "MenuItem/Usability.lyn.event"
+PROTECT $28870 $28C0A 	// CanUnitUseItem
+PROTECT $1773C $17754	// GetItemUseEffect
+PROTECT $2940C $294FC 	// CanUnitUseStatGainItem
+PROTECT $29504 $29518 	// CanUnitUseFruitItem
+
+
+// Modular item effect
+#include "MenuItem/MenuEffect.lyn.event"
+PROTECT $28E60 $29066 	// DoItemUse
+
+
+// Modular item-effect action routine
+#include "MenuItem/ActionEffect.lyn.event"
+PROTECT $2FC48 $2FFB0 	// ActionStaffDoorChestUseItem
+PROTECT $2F808 $2F914	// ApplyStatBoosterAndGetMessageId
+	
+
+
+
+
+// =================================
+// ========== Simple item ==========
+// =================================
+#include "SimpleEffect/SimpleEffect.lyn.event"
+

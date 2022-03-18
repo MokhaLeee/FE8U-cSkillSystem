@@ -1,0 +1,58 @@
+
+// LevelUp Screen
+#include "LevelUpScreen/LevelUpScreen.event"
+
+// Promotion
+#include "Promotion/Promotion.lyn.event"
+#include "Promotion/Promo-UserFuncs.lyn.event"
+
+// Level Up
+#include "LevelUp/LevelUp.lyn.event"
+#include "LevelUp/MLU_UserFuncs.lyn.event"
+
+// GrowthGetter
+#include "GrowthGetter/GrowthGetter.lyn.event"
+
+// Check Cap
+#include "CheckCap/CheckCap.lyn.event"
+
+// Auto Level
+#include "AutoLevel/AutoLevel.lyn.event"
+
+
+
+
+// On Modular
+#include HookList.event
+#include GrowthGetterTable.event
+
+
+
+
+
+// PROTECT
+// LevelUp Screen
+PROTECT $7352C $7388C // EkrLevelUp_InitStatsAndPutText
+PROTECT $741CC $742BA // EkrLevelUpProc_MainAnime
+
+PROTECT $7F39C $7F472 // MapAnimLevelUp_MainAnime
+PROTECT $7ED30 $7EDE8 // MapAnimLevelUp_GetActorStatBase
+PROTECT $7EC08 $7ED2C // MapAnimLevelUp_GetActorStatUp
+PROTECT $7EBA4 $7EBFC // MapAnimLevelUp_DrawActorStat
+
+// Promotion
+PROTECT $2BC00 $2BD4E // ApplyUnitDefaultPromotion
+PROTECT $2BD50 $2BE9E // ApplyUnitPromotion
+PROTECT $2BEA0 $2BF20 // GenerateBattleUnitStatGainsComparatively
+
+// Level Up
+PROTECT $2B9A0 $2B9C2 // GetStatIncrease
+PROTECT $2BA28 $2BBFC // CheckBattleUnitLevelUp
+
+// Check Cap
+PROTECT $181C8 $1829A // UnitCheckStatCaps
+PROTECT $2BF24 $2C026 // CheckBattleUnitStatCaps
+
+// Auto Level
+PROTECT $17FC4 $18062 // UnitAutolevelCore
+PROTECT $18064 $180C8 // UnitAutolevelPenalty

@@ -1,0 +1,53 @@
+#ifndef ITEM_EFFECT_REWORK
+#define ITEM_EFFECT_REWORK
+
+
+#ifndef FreeSpace
+	#define FreeSpace $B2A610
+	ORG FreeSpace
+#endif
+
+
+#include "ISR_Internal.event"
+
+
+// int (*)(struct Unit*, u16 item)
+#define InjectItemPrepUsability(item, fun) "PUSH; ORG ItemPrepUsabilityTable+item*4; POIN fun|1; POP"
+
+// void (*)(struct Proc_PrepItemUse*, u16 item)
+#define InjectItemPrepEffect(item, fun) "PUSH; ORG ItemPrepEffectTable+item*4; POIN fun|1; POP"
+
+
+
+
+
+
+// int (*)(struct Unit*, u16 item)
+#define InjectItemMenuUsability(item, fun) "PUSH; ORG ItemMenuUsabilityTable+item*4; POIN fun|1; POP"
+
+// void (*)(struct Unit*, u16 item)
+#define InjectItemMenuEffect(item, fun) "PUSH; ORG ItemMenuEffectTable+item*4; POIN fun|1; POP"
+
+// void (*)(ProcPtr)
+#define InjectItemActionEffect(item, fun) "PUSH; ORG ItemActionEffectTable+item*4; POIN fun|1; POP"
+
+
+
+
+
+
+
+
+// usability: int (*)(struct Unit*, u16 item)
+// effect: void (*)(struct Unit*, u16 item)
+// use ItemMenuEffectTable to store msg
+// then put routine & 0x80000000 
+#define SimpleItemEffect(item, usability, effect, text_id) "InjectItemPrepUsability(item,usability); PUSH; ORG ItemPrepEffectTable+item*4; POIN effect | 1 | (1<<28); POP;InjectItemMenuUsability(item, usability); PUSH; ORG ItemMenuEffectTable+item*4; WORD text_id; ORG ItemActionEffectTable+item*4;  POIN effect | 1 | (1 << 28); POP"
+
+
+SimpleItemEffect(Fire, ReturnTRUE, ReturnTRUE, 0x212)
+
+
+
+#endif // ITEM_EFFECT_REWORK
+

@@ -1,0 +1,140 @@
+
+#ifndef inBLRange
+	ERROR should inside BL Range!
+#endif
+
+PUSH
+ORG 0x016B8C
+_prIsCoveingRangeProxy:
+
+POP
+	ALIGN 4
+	_prMinFromActiveUnit:
+		SHORT 0xB500
+		SHORT 0x4905
+		SHORT 0x6809
+		BL(_prMinRangeGetterProxy) // bl Item_GetMinRange
+		SHORT 0xBD00
+	
+	_prMaxFromActiveUnit:
+		SHORT 0xB500
+		SHORT 0x4902
+		SHORT 0x6809
+		BL(_prMaxRangeGetterProxy) // bl Item_GetMaxRange
+		SHORT 0xBD00
+		
+		WORD 0x03004E50
+	
+	_prMinFromSubjectUnit:
+		SHORT 0xB500
+		SHORT 0x4905
+		SHORT 0x6809
+		BL(_prMinRangeGetterProxy) // bl Item_GetMinRange
+		SHORT 0xBD00
+	
+	_prMaxFromSubjectUnit:
+		SHORT 0xB500
+		SHORT 0x4902
+		SHORT 0x6809
+		BL(_prMaxRangeGetterProxy) // bl Item_GetMaxRange
+		SHORT 0xBD00
+		
+		WORD 0x02033F3C
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	ALIGN 4
+	_pr3AC66Hook:
+		SHORT 0xB500 // push {lr}
+		SHORT 0x1C29 // mov r1, r5
+		SHORT 0x181D // add r5, r3, r0
+		SHORT 0x1C30 // mov r0, r6
+		BL(_prMaxRangeGetterProxy) // bl Item_GetMaxRange
+		SHORT 0xBD00 // pop {pc}
+		
+	_prMaxFromR4:
+		SHORT 0xB500 // push {lr}
+		SHORT 0x1C21 // mov r1, r4
+		BL(_prMaxRangeGetterProxy) // bl Item_GetMaxRange
+		SHORT 0xBD00 // pop {pc}
+		
+	_prMinFromR5:
+		SHORT 0xB500 // push {lr}
+		SHORT 0x1C29 // mov r1, r5
+		BL(_prMinRangeGetterProxy) // bl Item_GetMinRange
+		SHORT 0xBD00 // pop {pc}
+		
+	_prMaxFromR5:
+		SHORT 0xB500 // push {lr}
+		SHORT 0x1C29 // mov r1, r5
+		BL(_prMaxRangeGetterProxy) // bl Item_GetMaxRange
+		SHORT 0xBD00 // pop {pc}
+	
+	_prIsCoveringRangeFromR5:
+		SHORT 0xB500 // push {lr}
+		SHORT 0x1C2A // mov r2, r5
+		BL(_prIsCoveingRangeProxy) // bl Item_GetMaxRange
+		SHORT 0xBD00 // pop {pc}
+
+	_prMaxFromR6:
+		SHORT 0xB500 // push {lr}
+		SHORT 0x1C31 // mov r1, r6
+		BL(_prMaxRangeGetterProxy) // bl Item_GetMaxRange
+		SHORT 0xBD00 // pop {pc}
+
+/* 	_prMaskFromR6:
+		SHORT 0xB500 // push {lr}
+		SHORT 0x1C31 // mov r1, r6
+		BL(_prMaskGetterProxy) // bl Item_GetMaxRange
+		SHORT 0xBD00 // pop {pc}  */
+	
+	ALIGN 4
+	_prMinFromSomewhereWeird:
+		SHORT 0xB510 // push {r4, lr}
+		SHORT 0x1C04 // mov r4, r0
+		SHORT 0x490D // ldr r1, =#0x3001818
+		SHORT 0x4A0D // ldr r2, =#0x203DD95
+		SHORT 0x7810 // ldrb r0, [r2]
+		SHORT 0x1840 // add  r0, r1
+		SHORT 0x7800 // ldrb r0, [r0]
+		BL(0x019430) // bl Unit_GetStruct
+		SHORT 0x1C01 // mov r1, r0
+		SHORT 0x1C20 // mov r0, r4
+		BL(_prMinRangeGetterProxy) // bl Item_GetMinRange
+		SHORT 0xBD10 // pop {r4, pc}
+	
+	ALIGN 4
+	_prMaxFromSomewhereWeird:
+		SHORT 0xB510 // push {r4, lr}
+		SHORT 0x1C04 // mov r4, r0
+		SHORT 0x4906 // ldr r1, =#0x3001818
+		SHORT 0x4A06 // ldr r2, =#0x203DD95
+		SHORT 0x7810 // ldrb r0, [r2]
+		SHORT 0x1840 // add  r0, r1
+		SHORT 0x7800 // ldrb r0, [r0]
+		BL(0x019430) // bl Unit_GetStruct
+		SHORT 0x1C01 // mov r1, r0
+		SHORT 0x1C20 // mov r0, r4
+		BL(_prMaxRangeGetterProxy) // bl Item_GetMaxRange
+		SHORT 0xBD10 // pop {r4, pc}
+	//	SHORT 0x0000 // .align
+		WORD  0x03001818
+		WORD  0x0203DD95
+	
+	ALIGN 4
+	_prMinRangeGetterProxy:
+		jumpToHack(RangeMinGetter)
+	
+	_prMaxRangeGetterProxy:
+		jumpToHack(RangeMaxGetter)
+
+	PROTECT CURRENTOFFSET-$20 CURRENTOFFSET 

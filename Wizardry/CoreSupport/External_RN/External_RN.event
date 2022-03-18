@@ -1,0 +1,16 @@
+#ifndef RNG_EXT
+#define RNG_EXT
+
+/*
+a sub R.N.G. system, and lib-function can be refered to Wizardry/_include/rn-ext.h
+
+Install:
+put function InitRNE in ChapterInitHook
+put save-Su chunk in ExModularSave: DeclSaveChunk($----, $00C, RNE_SaveSu, RNE_LoadSu)
+*/
+
+
+#include "src/rng.lyn.event"
+#include "src/save.lyn.event"
+
+#endif // RNG_EXT

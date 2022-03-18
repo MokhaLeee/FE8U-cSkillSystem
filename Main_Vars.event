@@ -1,0 +1,57 @@
+#ifndef VALUE_GLOBAL
+#define VALUE_GLOBAL
+
+// #define _thumb(p) "PUSH; ORG CURRENTOFFSET+1; p:; POP"
+
+ALIGN 4
+_thumb(ReturnTRUE)
+	SHORT $2001 $4770	// mov r0,#1; 	bx lr;
+	
+_thumb(ReturnFALSE)
+	SHORT $2000 $4770	// mov r0,#0; 	bx lr;
+
+
+// Common Save-su
+ALIGN 4
+gpCommonSaveSu:
+	WORD 0x2026E30	// 0x40
+
+gpBattleFlagSu:
+	WORD 0x2026E20	// 0x10
+
+// UnitDataExtension
+ALIGN 4
+gpUnitExtData:
+	WORD 0x02026E70	// 43(len) * 0x20(size)
+
+
+
+// RecoverableRN2
+ALIGN 4
+gpRneState:
+	WORD 0x03003600
+gpRneTmp:
+	WORD 0x03003610
+
+
+
+// SkillSystem
+ALIGN 4
+gpSkillFastList0:
+	WORD 0x03003B60	// Max = 0x20
+
+gpSkillFastList1:
+	WORD 0x03003B80	// End=3003B90
+
+/* 
+// Texts Misc (For Status Screen)
+gpCharmString:
+	SHORT CharmString
+gpLuckString:
+	SHORT LuckString
+gpStatString:
+	SHORT StatString
+gpEqpString:
+	SHORT ssWpnEqpName */
+
+#endif // VALUE_GLOBAL

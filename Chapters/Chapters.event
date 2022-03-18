@@ -1,0 +1,41 @@
+#ifndef CHAPTERS
+#define CHAPTERS
+
+// Putting each chapter in their own symbol scope
+// That way, label names can be reused between chapters
+// (Which would be useful if I had more than one at a time)
+
+{
+#include MokhaTest/MokhaTest.event
+#include MokhaTest/SF-Round-35.event
+}
+
+
+{
+// #include "PeerBlitz/PeerBlitzCh9.event"
+// #include "PeerBlitz/PeerBlitzCh9Map.event"
+}
+
+{
+// #include "FE6Ch1/FE6Chapter1.event"
+// #include "FE6Ch1/FE6Chapter1Map.event"
+}
+
+{
+// #include "CCBlitz/CCBlitzChapter27.event"
+// #include "CCBlitz/CCBlitzChapter27Map.event"
+}
+
+{
+// #include "CommBlitz/CommBlitzCh10.event"
+// #include "CommBlitz/CommBlitzCh10Map.event"
+}
+
+{
+// #include "Demo/Demo.event"
+}
+
+
+
+
+#endif // CHAPTERS

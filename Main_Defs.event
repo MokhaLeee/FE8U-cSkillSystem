@@ -1,0 +1,39 @@
+#ifndef CUSTOM_DEF
+#define CUSTOM_DEF
+
+
+	#define FreeSpaceBLRange 0x1C1EC0
+	#define FreeSpace $B2A610
+	#define FreeSpaceEnd 0xC00000	
+	
+	#define FreeSpaceFont  $EFB2E0	// End: $FE0000; size E4D20
+	#define FreeSpaceFontEnd 0xFE0000
+	
+	#define FreeSpaceText  $FE4000	// End: $FFF000; size 1B000
+	#define FreeSpaceTextEnd 0xFFF000
+	
+	#define FreeSpaceTable $E47180	// End: $EE0000; size 98E80
+	#define FreeSpaceTableEnd 0xEE0000
+	
+	#define _thumb(func) "PUSH; ORG CURRENTOFFSET+1; func:; POP"
+	#define RETURN_TRUE  "SHORT $2001 $4770"	// mov r0,#1; 	bx lr;
+	#define RETURN_FALSE "SHORT $2000 $4770"	// mov r0,#0; 	bx lr;
+	
+	// Lyn Jump
+	#define LynJumpDefined
+	#define LynJump(aTarget) "WORD $46C04778 $E59FC000 $E12FFF1C; POIN aTarget; "
+
+	
+	
+	
+	
+	// =====================================================
+	// -------------------  For Users ----------------------
+	// =====================================================
+	
+	// For Icon Display
+	#define ICON_SHEET_SKILLS 0x1
+	
+	
+
+#endif

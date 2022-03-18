@@ -1,0 +1,67 @@
+
+
+#ifndef _thumb
+	#define _thumb(p) "PUSH; ORG CURRENTOFFSET+1; p:; POP"
+#endif // _thumb
+
+#include "src/msg.lyn.event"
+// in Wizardry
+// #include InjectConGetters.event
+// #include InjectMovGetters.event
+// #include InjectHPGetters.event
+
+ALIGN 4
+prStatScreenMovGetter:
+	SHORT 0xB510 0x68E8 0x1C04 0xF000 0xF80D 0x2800 0xD103 0x2001 0x4240 0x1C03 0xE002 0x6863 0x2112 0x565B 0xBC10 0xBC02 0x4708 0x46C0
+	jumpToHack(MovGetter)
+
+PUSH
+	ORG $019150
+	jumpToHack(HpCurGetter)
+	PROTECT $19150 $1918C
+	
+	ORG $019190
+	jumpToHack(HpMaxGetter)
+	PROTECT $19190 $191AC
+	
+	ORG $0191B0
+	jumpToHack(PowGetter)
+
+	ORG CURRENTOFFSET
+	_thumb(prGotoMagGetter)
+	jumpToHack(MagGetter)
+	PROTECT $191B0 $191CC
+	
+	ORG $0191D0
+	jumpToHack(SklGetter)
+	PROTECT $191D0 $1920C
+	
+	ORG $019210
+	jumpToHack(SpdGetter)
+	PROTECT $19210 $1924C
+	
+	ORG $019250
+	jumpToHack(DefGetter)
+	PROTECT $19250 $1926C
+	
+	ORG $019270
+	jumpToHack(ResGetter)
+	PROTECT $19270 $19294
+	
+	ORG $019298
+	jumpToHack(LckGetter)
+	PROTECT $19298 $192B4
+	
+	ORG $0189B8
+	jumpToHack(AidGetter)
+	
+	ORG CURRENTOFFSET
+	_thumb(prGotoConGetter) // $0189C0
+	jumpToHack(ConGetter)
+	
+	ORG CURRENTOFFSET
+	_thumb(prGotoMovGetter) // $0189C8
+	jumpToHack(MovGetter)
+	PROTECT $189B8 $18A18
+	
+POP

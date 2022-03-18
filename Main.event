@@ -1,0 +1,81 @@
+
+#define _MAIN_
+#define _DEBUG_
+
+
+
+#include "EAstdlib.event"
+#include "Extensions/Hack Installation.txt"
+#include "Extensions/ProcDefinitions.txt"
+#include "Main_Defs.event"
+
+// Font Glyph
+ORG FreeSpaceFont
+#define IN_FONT_RANGE
+
+ASSERT (FreeSpaceFontEnd - CURRENTOFFSET)
+#undef IN_FONT_RANGE
+
+
+
+
+// Texts
+ORG FreeSpaceText
+#define IN_TEXT_RANGE
+
+	#include "Writans/text-repoint/repointedTextTable.event"
+	#include "Writans/Text.event"
+	
+	
+ASSERT (FreeSpaceTextEnd - CURRENTOFFSET)	
+#undef IN_TEXT_RANGE
+
+
+
+
+// Misc
+ORG FreeSpace
+#define IN_MAIN_HACK_RANGE	
+	#include "Main_Vars.event"
+	#include "Wizardry/Wizardry.event"
+	
+	{
+	#include "Chapters/Chapters.event"
+	}
+	
+	#include "Debug_File.event"
+
+ASSERT (FreeSpaceEnd - CURRENTOFFSET)
+#undef IN_MAIN_HACK_RANGE
+
+
+
+
+// Tables	
+ORG FreeSpaceTable
+#define IN_TABLE_RANGE
+	
+	#include "GameData/GameData.event"
+	
+	
+ASSERT (FreeSpaceTableEnd - CURRENTOFFSET)	
+#undef IN_TABLE_RANGE
+
+
+
+
+// If assertion fails, it means we ran out of free space.
+// If that happens, we want to either split out our data between different
+// sections, or start writing after the end of the ROM (offset 0x1000000+)
+
+ORG $EF2F18
+	WORD 0 0
+	
+	ALIGN 16
+	String("Skills-Lite By Mokha, version 20220223")
+	BYTE 0
+	
+	ALIGN 16
+	WORD 0 0 0 0
+	String("Contact me: MokhaLeee@git")
+	BYTE 0

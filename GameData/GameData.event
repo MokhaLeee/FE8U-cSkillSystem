@@ -1,0 +1,14 @@
+#ifndef GAME_DATA
+#define GAME_DATA
+
+#include "EAstdlib.event"
+
+#include "Constants.event"
+#include "Indices.event"
+
+
+#include "StrMag/MagCharEditor.event"
+#include "StrMag/MagClassEditor.event"
+
+
+#endif // GAME_DATA

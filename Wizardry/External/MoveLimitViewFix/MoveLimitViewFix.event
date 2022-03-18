@@ -1,0 +1,7 @@
+
+#include "_1D9DC_Loop6C_MoveLimitView.lyn.event"
+
+PUSH
+	ORG	$1D9DC
+	jumpToHack(_1D9DC_Loop6C_MoveLimitView)	
+POP

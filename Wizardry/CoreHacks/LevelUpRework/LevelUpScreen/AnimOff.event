@@ -1,0 +1,18 @@
+
+#include "src/AnimOff.lyn.event"
+
+PUSH
+ORG $7EB8C // Anim Off TSA
+POIN LU_table_TSA
+ORG $7EAD0 // Load more rows when apply TSA
+BYTE 0xFC
+
+ORG $07F30C
+jumpToHack(MapAnimLevelUp_PutWindowOnScreen)
+
+ORG $07F354
+jumpToHack(MapAnimLevelUp_PutWindowOffScreen)
+
+ORG $07F39C
+jumpToHack(MapAnimLevelUp_MainAnime)
+POP

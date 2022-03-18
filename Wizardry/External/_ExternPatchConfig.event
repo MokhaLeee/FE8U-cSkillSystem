@@ -1,0 +1,12 @@
+// If uncommented, will enable the 
+// Moudlar Portrait Height filter on Status Screen
+#define MODUALR_PROTRAIT_HEIGHT
+
+// If uncommented, will enable the Movement Arrow Hack.
+#define MOVEARROW_HACK
+
+// If uncommented, will display a Hp bar on Map Sprits
+#define HP_BARS
+
+//If uncommented, will enable Menu Semitransparency.
+#define SEMITRANSPARENCY_CHANGES

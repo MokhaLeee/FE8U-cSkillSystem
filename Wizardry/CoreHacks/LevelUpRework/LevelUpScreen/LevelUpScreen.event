@@ -1,0 +1,14 @@
+#ifndef EXPANDED_LEVEL_UP_ANIM
+#define EXPANDED_LEVEL_UP_ANIM
+
+#include "src/LevelUpScreen-Common.lyn.event"
+#include AnimOff.event
+#include AnimOn.event
+
+// Screen TSA
+ALIGN 4
+LU_table_TSA:
+	#incbin "data/TSA_LU_compressed.dmp"
+	
+
+#endif // EXPANDED_LEVEL_UP_ANIM

@@ -1,0 +1,87 @@
+## umBMagName
+ B.Magic[X]
+
+## umBMagDesc
+B.Magic[X]
+
+## umWMagName
+ W.Magic[X]
+
+## umWMagDesc
+W.Magic[X]
+
+## umMagGrayBox
+you have run out of magic uses.[X]
+
+## umSubMagGrayBox
+Magic have no effect[NL]
+on current position.[X]
+
+## umCAname
+ Combat Art[X]
+
+## umCAdesc
+Combat Art:[NL]
+Gains battle bonus[NL]
+but null double attack.[X]
+
+## umCAGrayBox
+You don't have Combat Art ![X]
+
+## umCAselectGrayBox
+you cannot use[NL]
+Combat Art here.[X]
+
+## umGambitName
+ Gambit[X]
+
+## umGambitDesc
+Gambit:[NL]
+Three House's Style AOE attack.[X]
+
+## umAOEDefaultName
+ Default[X]
+
+## umAOEDefaultDesc
+Default[X]
+
+## umAOEAssemblyName
+ Assembly[X]
+
+## umAOEAssemblyDesc
+Assembly[X]
+
+## umAOEBaszeName
+ Basze[X]
+
+## umAOEBaszeDesc
+Basze[X]
+
+## umAOEAbsorptionName
+ Absorption[X]
+
+## umAOEAbsorptionDesc
+Absorption[X]
+
+## umAOEFusilladeName
+ Fusillade[X]
+
+## umAOEFusilladeDesc
+Fusillade[X]
+
+
+## umAOEFireArrowsName
+ FireArrows[X]
+
+## umAOEFireArrowsDesc
+FireArrows[X]
+
+
+## umPrepPickSkillName
+Pick Skills[X]
+
+
+## umPrepPickSkillDesc
+Pick unit skills,[NL]
+each unit can have no[NL]
+more than 5 skills.[X]

@@ -1,0 +1,26 @@
+// Growth Getter
+ALIGN 4
+HpGrowthMods:
+	WORD 0
+
+PowGrowthMods:
+	WORD 0
+
+MagGrowthMods:
+	WORD 0
+
+SklGrowthMods:
+	WORD 0
+
+SpdGrowthMods:
+	WORD 0
+
+LckGrowthMods:
+	WORD 0
+
+DefGrowthMods:
+	WORD 0
+
+ResGrowthMods:
+	WORD 0
+	

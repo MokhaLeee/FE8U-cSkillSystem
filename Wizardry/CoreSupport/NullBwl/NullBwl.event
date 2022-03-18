@@ -1,0 +1,101 @@
+#ifndef NULL_BWL
+#define NULL_BWL
+
+// Completely remove all writing and reading processes 
+// origined by StanH, fixed by Mokha
+
+#ifndef LynJumpDefined
+	#define LynJumpDefined
+	#define LynJump(aTarget) "WORD $46C04778 $E59FC000 $E12FFF1C; POIN aTarget; "
+#endif // LynJumpDefined
+
+
+
+
+
+
+
+
+
+// New BWL
+#include src/NewBwl.lyn.event
+
+
+/* 	To be honest, there is no need to rewrite Save/Load bwl funcs
+
+PUSH	
+	ORG $0A4264
+	LynJump(NBwl_SaveBwl)
+	
+	ORG $0A421C
+	LynJump(NBwl_LoadBwl) 
+POP	
+*/
+	
+
+
+
+
+
+
+// Null BWL
+PUSH
+	#define Return_0 "SHORT $2000 $4770" //mov r0, #0; bx lr
+	ORG	$A2C2C
+		Return_0
+	ORG	$A44C8
+		Return_0
+	ORG	$A4534
+		Return_0
+		ORG	$A4602
+		SHORT $0
+		ORG	$A460A
+		SHORT $0 $0
+	ORG	$A4684
+		Return_0
+
+	ORG	$A474C
+		Return_0
+	ORG	$A478C
+		Return_0
+	ORG	$A47CC
+		Return_0
+	ORG	$A481C
+		Return_0
+	ORG	$A487C
+		Return_0
+		
+	ORG	$A49C8
+		Return_0
+	ORG	$A49FC
+		Return_0
+	ORG	$A4A34
+		Return_0
+	ORG	$A4CFC
+		Return_0
+
+
+	ORG	$A4140
+	SHORT	$2000	$0
+
+	ORG	$A4904
+		Return_0
+
+	//
+	ORG	$A4928
+		Return_0
+	ORG	$A4958
+		Return_0
+	ORG	$A4978
+		Return_0
+	ORG	$A49A4
+		Return_0
+		
+		
+	ORG	$A481C
+		Return_0	
+POP
+
+
+
+#endif // NULL_BWL

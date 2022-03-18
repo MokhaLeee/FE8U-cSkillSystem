@@ -1,0 +1,10 @@
+
+#ifndef SKILL_CORE
+	ERROR Need Skill-Core installed!
+#endif // SKILL_CORE
+
+
+#include SkillsDef.event
+
+#include "BlowSkills/BlowSkills.event"
+

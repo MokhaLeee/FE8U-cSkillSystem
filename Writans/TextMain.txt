@@ -1,0 +1,23 @@
+# 0x212
+Lysithea[X]
+
+# 0x213
+Dimitri[X]
+
+#0x21D
+Flayn[X]
+
+#0x21C
+Edelgard[X]
+
+#0x4EC
+Skl[X]
+
+#0xD4C msgCharmName
+Charm[X]
+
+#include strings/StatusScreen.txt
+#include strings/Menu.txt
+#include strings/Skills_Blow.txt
+#include strings/Skills_BattleMisc.txt
+#include strings/CombatArt.txt

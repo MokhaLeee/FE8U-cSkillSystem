@@ -1,0 +1,65 @@
+
+// EkrLevelUp_InitStatsAndPutText
+#include "src/AnimOn.lyn.event"
+
+
+
+
+
+
+PUSH
+// TSA
+ORG $73D90 
+POIN LU_table_TSA
+ORG $73D98 // Anime on TSA decompress dest
+WORD 0x20235A8
+
+
+// promo: Make sure class and level changes occur in the right place
+ORG $7393C
+WORD 0x20176F0
+ORG $7397C
+WORD 0x2017700
+ORG $737FC
+BYTE 0x50
+
+
+// promo: Make sure lv/class bar flipps at right place
+// TODO
+ORG $074658
+BYTE $17 	// $27
+ORG $07465C
+BYTE $37 	// $47
+ORG $074672
+BYTE $1E	// $2E
+ORG $074676
+BYTE $41 	// $51
+
+
+
+// Init and loop for update windows offset
+ORG $074598
+jumpToHack(EkrLevelUp_UpdateHBlankRule)
+
+
+// Init Status and put text on BGs routine
+// called from proc-function: EkrLevelUpProc_InitLevelUpBox( from 0x8759350)
+ORG $07352C
+jumpToHack(EkrLevelUp_InitStatsAndPutText)
+
+
+// if promo, draw new class name and number
+ORG $074040
+jumpToHack(EkrLevelUpProc_Promo_DrawNewClassNameLv)
+
+
+// If not promo, draw new level
+// if promo, end window-scroll
+ORG $07411C
+jumpToHack(EkrLevelUpProc_DrawNewLevel)
+
+
+// Proc-Loop to display each stat up APs 
+ORG $0741CC
+jumpToHack(EkrLevelUpProc_MainAnime)
+POP

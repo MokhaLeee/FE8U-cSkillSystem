@@ -1,0 +1,64 @@
+#ifndef  SKILL_CORE
+#define SKILL_CORE
+
+#ifndef BWL_SUPPORT
+	ERROR Skill core need Null-Bwl and Bwl-Support installed !
+#endif // BWL_SUPPORT
+
+
+#include "Core/Tester.lyn.event"
+#include "Core/Getter.lyn.event"
+#include "Core/SkillFastList.lyn.event"
+
+
+// Skill Info
+ALIGN 4
+SkillInfoTable:
+	//8*0x100 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+
+#define InjectSkillInfo(aSkillId, aSkillInfo) "PUSH; ORG SkillInfoTable+4*(aSkillId); POIN (aSkillInfo); POP"
+
+
+
+
+
+// Skill Tester
+ALIGN 4
+SkillTester:
+	POIN JudgeSkillFast
+
+
+
+
+
+// Skill Icon Display
+#ifndef ICON_DISPLAY_INCLUDED
+	ERROR Need core-support of Patch: IconDisplay from StanHash/SkillsLite!
+#endif // ICON_DISPLAY_INCLUDED
+
+InjectIconSheet(ICON_SHEET_SKILLS, GetSkillIconGfx)
+
+
+
+
+// Stat Screen
+// Skill Page
+#include "SkillPage/DrawSkill.lyn.event"
+#include "SkillPage/rText.lyn.event"
+
+PUSH
+// Null draw-Bwl to draw skill-page
+	ORG $086FAC
+	jumpToHack(DrawSkillPage)
+	PROTECT $86FAC $870A0
+POP
+
+#endif // SKILL_CORE

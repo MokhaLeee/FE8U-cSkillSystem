@@ -1,0 +1,35 @@
+#ifdef MODUALR_PROTRAIT_HEIGHT
+	
+PUSH
+	ORG $5C24
+	jumpToHack(new_ShouldPortraitBeSmol)
+POP
+
+#include "src/PortraitHeight.lyn.event"
+
+ALIGN 4
+gpPortraitHeightList:
+	POIN PortraitHeightList
+
+// By Portrait Index
+ALIGN 4
+PortraitHeightList:
+
+	// Vanilla
+//	BYTE $10	// Lute	
+	BYTE $19	// Amelia
+	BYTE $21	// Ewan
+	BYTE $23	// Dozla
+	BYTE $26	// Myrrh
+	
+	// Extern
+//	BYTE $2		// Eirika
+//	BYTE $4		// Seth
+//	BYTE $F		// Innes
+	
+	// End
+	BYTE 0
+
+
+ALIGN 4	
+#endif // MODUALR_PROTRAIT_HEIGHT

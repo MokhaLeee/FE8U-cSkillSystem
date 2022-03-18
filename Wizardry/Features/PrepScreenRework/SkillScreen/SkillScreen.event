@@ -1,0 +1,10 @@
+ALIGN 4
+
+NUM_umPrepPickSkillName:
+	SHORT umPrepPickSkillName
+
+NUM_umPrepPickSkillDesc:
+	SHORT umPrepPickSkillDesc
+
+ALIGN 4
+#include "SkillScreen.lyn.event"

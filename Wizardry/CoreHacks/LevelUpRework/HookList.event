@@ -1,0 +1,27 @@
+
+// On Check Unit Status up for LevelUp
+ALIGN 4
+OnLevelUpFuncList:
+	// POIN MLU_SetBuStatUp // Replaced by MLU_SwitchStyle
+	POIN MLU_SwitchStyle
+	WORD 0
+
+
+// called on Battle2Unit-promotion
+// void MLU_PromoGain (struct Unit* unit, u8 classId)
+ALIGN 4
+OnPromoteFuncList:
+	POIN MLU_PromoGain_Vanilla
+	POIN MLU_PromoGain_Mag
+	WORD 0
+
+
+// Set BattleUnit* Status-up
+ALIGN 4
+MakePromoteGainsFuncList:
+	POIN MLU_PromoDiff_Vanilla
+	POIN MLU_PromoDiff_Mag
+	WORD 0
+
+
+

@@ -1,0 +1,45 @@
+#ifndef PREP_SCREEN_REWORK
+#define PREP_SCREEN_REWORK
+
+
+
+#ifndef FreeSpace
+	#define FreeSpace $B2A610
+	ORG FreeSpace
+#endif
+
+
+
+
+#include "src/PrepMain.lyn.event"
+#include "src/PrepAtMenu.lyn.event"
+#include "src/PrepMapView.lyn.event"
+
+#include "SkillScreen/SkillScreen.event"
+
+
+PUSH
+ORG $010988
+POIN newProcCmd_PrepMain
+
+ORG $01DB48
+POIN newProcCmd_PrepMain
+
+ORG $033C0C
+POIN newProcCmd_PrepMain
+
+ORG $0342F0
+POIN newProcCmd_PrepMain
+
+ORG $034310
+POIN newProcCmd_PrepMain
+
+// To fix a UI bug on map-view
+// for now no better idea
+ORG $08D09C
+SHORT $E01C
+
+POP
+
+
+#endif // PREP_SCREEN_REWORK

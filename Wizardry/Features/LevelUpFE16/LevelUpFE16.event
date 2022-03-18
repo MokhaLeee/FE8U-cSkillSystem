@@ -1,0 +1,8 @@
+#ifndef RNG_EXT
+	ERROR 3DS/Switch style level up need random-number-extension patch installed !
+#endif // RNG_EXT
+
+#include "src/CheckLU.lyn.event"
+
+
+// Note: Put function MLU_SwitchStyle into HookList of ModLU: OnLevelUpFuncList

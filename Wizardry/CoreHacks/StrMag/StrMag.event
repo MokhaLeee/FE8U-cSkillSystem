@@ -1,0 +1,65 @@
+#ifndef STR_MAG_SPLIT_CORE
+#define STR_MAG_SPLIT_CORE
+
+#ifndef ITEM_EFFECT_REWORK
+	ERROR Need Item-Effect-Rework support installed !
+#endif // ITEM_EFFECT_REWORK
+
+#ifndef Item_Mag_Booster
+	#define Item_Mag_Booster 0xBC
+#endif
+
+
+ITEM_MAG_BOOSTER_ID: 
+	BYTE Item_Mag_Booster
+	ALIGN 4
+
+
+
+#ifndef ItemIcon_Mag_Booster
+	#define ItemIcon_Mag_Booster 0xCA
+#endif
+
+PUSH
+	ORG ( $5926F4 + ItemIcon_Mag_Booster * 0x80 )
+	#incbin "data/SpiritDust.dmp"
+	
+	// Item_Mag_Booster Icon
+	ORG $809B10 + Item_Mag_Booster * 36 + 0x1D
+	BYTE ItemIcon_Mag_Booster
+POP
+
+
+
+
+
+
+// in Wizardry
+// #include "Combat/_Combat.event"
+
+// Misc Getter
+#include "Getter/MagGetterMisc.lyn.event"
+
+
+
+
+// Mag Booster
+InjectItemMenuUsability(Item_Mag_Booster, CanUnitUseStatGainItem)
+InjectItemActionEffect(Item_Mag_Booster, ExecStatBooster)
+InjectItemPrepUsability(Item_Mag_Booster, CanUnitUseStatGainItem)
+InjectItemPrepEffect(Item_Mag_Booster, DoPrepEff_Booster)
+
+
+
+// All in HookList of Core-Support or Level-Up-Rework
+#include "OnHook/LoadUnit/LoadUnitMag.lyn.event"
+#include "OnHook/BattleUnit/BattleUnitMag.lyn.event"
+#include "OnHook/SaveData/SaveMag.lyn.event"
+#include "OnHook/LevelUp/MagPromotion.lyn.event"
+
+
+
+
+
+
+#endif // STR_MAG_SPLIT_CORE

@@ -1,0 +1,9 @@
+
+ALIGN 4
+RangeMaxModify:
+	WORD 0
+
+ALIGN 4
+// Unused
+RangeMinModify:
+	WORD 0

@@ -1,0 +1,51 @@
+#ifndef STATUS_GETTER
+#define STATUS_GETTER
+
+#include "MSG_Internal.event"
+
+// for test
+ALIGN 4
+MSG_Add1:
+	SHORT $2001 $4770 // mov r0, #1; bx lr
+
+
+
+// Modular core
+ALIGN 4
+HpMaxModify:
+	WORD 0
+
+PowModify:
+	// POIN MSG_Add1 | 1
+	WORD 0
+
+MagModify:
+	WORD 0
+
+SpdModify:
+	WORD 0
+
+SklModify:
+	WORD 0
+
+LckModify:
+	WORD 0
+
+DefModify:
+	WORD 0
+
+ResModify:
+	WORD 0
+
+ConModify:
+	WORD 0
+
+MovModify:
+	WORD 0
+
+AidModify:
+	WORD 0
+
+
+
+#endif // STATUS_GETTER

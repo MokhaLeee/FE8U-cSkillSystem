@@ -1,0 +1,33 @@
+#ifndef FE8U_MOKHA_FIXS
+#define FE8U_MOKHA_FIXS
+
+
+
+PUSH
+
+// Sub-Attack menu( Weapon select menu)
+// Portrait's eye will wink
+ORG $22C0A
+SHORT 0 0
+
+ORG $005EA8
+SHORT 0 0
+
+
+
+// Will Use Supply in Prologue
+ORG $31646
+SHORT $0
+
+
+
+
+
+POP
+
+
+
+
+
+
+#endif // FE8U_MOKHA_FIXS

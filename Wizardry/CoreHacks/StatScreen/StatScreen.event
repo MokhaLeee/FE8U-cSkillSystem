@@ -1,0 +1,28 @@
+#ifndef STATUS_SCREEN
+#define STATUS_SCREEN
+
+// Draw Pages
+#include "DrawPages/DrawPageLeft.lyn.event"
+#include "DrawPages/DrawPageUnit.lyn.event"
+
+// Help Box
+#include "HelpBox/HelpBox.event"
+
+
+
+PUSH
+	ORG $86E44
+	LynJump(StatScreen_DrawLeftText)
+	
+	ORG $87184
+	LynJump(StatScreen_DrawPage1)
+	
+	// Make sure rescue debuff arrow at true place
+	ORG $0883C2
+	BYTE $48
+	PROTECT $088384 $08843A
+	
+	
+POP
+
+#endif // STATUS_SCREEN

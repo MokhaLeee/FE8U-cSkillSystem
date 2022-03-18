@@ -1,0 +1,97 @@
+#ifndef SKILLS_BLOWSKILLS_INSTALLED
+#define SKILLS_BLOWSKILLS_INSTALLED
+
+
+
+// Index
+ALIGN 4
+BlowDartingID:	BYTE SKILLID_BlowDarting
+BlowDeathID:	BYTE SKILLID_BlowDeath
+BlowArmoredID:	BYTE SKILLID_BlowArmored
+BlowFiendishID:	BYTE SKILLID_BlowFiendish
+BlowWardingID:	BYTE SKILLID_BlowWarding
+BlowDuelistID:	BYTE SKILLID_BlowDuelist
+BlowUncannyID:	BYTE SKILLID_BlowUncanny
+
+
+
+
+
+
+// Info
+ALIGN 4
+SkillInfo_BlowDarting:
+	/* desc */ SHORT msg_SD_BlowDarting
+	/* pad  */ SHORT 0
+	/* icon */ POIN SI_BlowDarting
+	
+
+SkillInfo_BlowDeath:
+	/* desc */ SHORT msg_SD_BlowDeath
+	/* pad  */ SHORT 0
+	/* icon */ POIN SI_BlowDeath
+
+SkillInfo_BlowArmored:
+	/* desc */ SHORT msg_SD_BlowArmored
+	/* pad  */ SHORT 0
+	/* icon */ POIN SI_BlowArmored
+
+SkillInfo_BlowFiendish:
+	/* desc */ SHORT msg_SD_BlowFiendish
+	/* pad  */ SHORT 0
+	/* icon */ POIN SI_BlowFiendish
+
+SkillInfo_BlowWarding:
+	/* desc */ SHORT msg_SD_BlowWarding
+	/* pad  */ SHORT 0
+	/* icon */ POIN	SI_BlowWarding
+	
+SkillInfo_BlowDuelist:
+	/* desc */ SHORT msg_SD_BlowDuelist
+	/* pad  */ SHORT 0
+	/* icon */ POIN SI_BlowDuelist
+
+SkillInfo_BlowUncanny:
+	/* desc */ SHORT msg_SD_BlowUncanny
+	/* pad  */ SHORT 0
+	/* icon */ POIN SI_BlowUncanny
+
+
+InjectSkillInfo(SKILLID_BlowDarting, SkillInfo_BlowDarting)
+InjectSkillInfo(SKILLID_BlowDeath, SkillInfo_BlowDeath)
+InjectSkillInfo(SKILLID_BlowArmored, SkillInfo_BlowArmored)
+InjectSkillInfo(SKILLID_BlowFiendish, SkillInfo_BlowFiendish)
+InjectSkillInfo(SKILLID_BlowWarding, SkillInfo_BlowWarding)
+InjectSkillInfo(SKILLID_BlowDuelist, SkillInfo_BlowDuelist)
+InjectSkillInfo(SKILLID_BlowUncanny, SkillInfo_BlowUncanny)
+
+
+
+
+// Icon
+SI_BlowArmored:
+	#incbin "Icons/BlowArmored.dmp"
+
+SI_BlowDarting:
+	#incbin "Icons/BlowDarting.dmp"
+
+SI_BlowDeath:
+	#incbin "Icons/BlowDeath.dmp"
+	
+SI_BlowDuelist:
+	#incbin "Icons/BlowDuelist.dmp"
+
+SI_BlowFiendish:
+	#incbin "Icons/BlowFiendish.dmp"	
+
+SI_BlowUncanny:
+	#incbin "Icons/BlowUncanny.dmp"	
+
+SI_BlowWarding:
+	#incbin "Icons/BlowWarding.dmp"
+
+
+
+
+
+#endif // SKILLS_BLOWSKILLS_INSTALLED

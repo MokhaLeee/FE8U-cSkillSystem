@@ -1,0 +1,33 @@
+#ifndef BATTLE_UNIT_HOOK
+#define BATTLE_UNIT_HOOK
+
+
+
+#include "src/Core.lyn.event"
+#include "src/User_Funcs.lyn.event"
+
+PROTECT $2A584 $2A668 // InitBattleUnit
+PROTECT $2C1EC $2C2D4 // UpdateUnitFromBattle
+
+/* 
+
+// void U2B (struct BattleUnit* bu, struct Unit* unit);
+// void B2U (struct Unit* unit, struct BattleUnit* bu);
+
+ALIGN 4
+Unit2BattleFuncList:
+	POIN U2B_Vanilla	
+	POIN U2B_Mag		// CoreHacks/StrMag
+	WORD 0
+
+
+
+ALIGN 4
+Battle2UnitFuncList:
+	POIN B2U_Vanilla
+	POIN B2U_Mag		// CoreHacks/StrMag
+	WORD 0 
+
+*/
+
+#endif // BATTLE_UNIT_HOOK

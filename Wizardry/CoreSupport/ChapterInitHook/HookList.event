@@ -1,0 +1,6 @@
+
+ALIGN 4
+ChapterInitFuncList:
+	POIN InitRNE
+	// POIN ResetUnitsMagic
+	WORD $0

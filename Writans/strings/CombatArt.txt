@@ -1,0 +1,68 @@
+## CA_MagAtk
+Attack Res[X]
+
+## CA_PhyAtk
+Attack Def[X]
+
+## CAN_WrathStrike
+ Wrath Strike[X]
+
+## CAD_WrathStrike
+Wrath Strike[X]
+
+
+## CAN_Grounder
+ Grounder[X]
+
+## CAD_Grounder
+Grounder[X]
+
+
+## CAN_BaneOfMonsters
+ Bane Monsters[X]
+
+## CAD_BaneOfMonsters
+Effective against Monsters[X]
+
+
+
+
+
+
+
+
+## CAN_TempestLance
+ Tempest Lance[X]
+
+## CAD_TempestLance
+Tempest Lance[X]
+
+
+## CAN_Knightkneeler
+ Knight Kneeler[X]
+
+## CAD_Knightkneeler
+Effective against Cavalry enemies[X]
+
+
+
+
+
+
+
+
+
+## CAN_CurvedShot
+ Curved Shot[X]
+
+## CAD_CurvedShot
+Curved Shot[X]
+
+
+## CAN_HeavyDraw
+ Heavy Draw[X]
+
+## CAD_HeavyDraw
+Heavy Draw[X]
+
+

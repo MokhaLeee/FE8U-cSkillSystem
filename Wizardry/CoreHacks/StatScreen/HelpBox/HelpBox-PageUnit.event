@@ -1,0 +1,64 @@
+PUSH
+ORG $889D8
+POIN RText_PageUnit
+POP
+
+// See more in SkillCore/SkillPage/rText.c
+
+ALIGN 4
+RText_PageUnit:
+	// Line 1
+	HB_P0_Str:
+	RMenu(HB_P0_Skill0,HB_P0_Mag,HB_P0_Name,HB_P0_Lck,0x66,0x18,0x546)
+	
+	HB_P0_Mag:
+	RMenu(HB_P0_Str,HB_P0_Skl,HB_P0_Name,HB_P0_Mov,0x66,0x28,0x547)
+	
+	HB_P0_Skl:
+	RMenu(HB_P0_Mag,HB_P0_Spd,HB_P0_Name,HB_P0_Con,0x66,0x38,0x548)
+	
+	HB_P0_Spd:
+	RMenu(HB_P0_Skl,HB_P0_Def,HB_P0_Name,HB_P0_Aid,0x66,0x48,0x549)
+	
+	HB_P0_Def:
+	RMenu(HB_P0_Spd,HB_P0_Res,HB_P0_Name,HB_P0_Trv,0x66,0x58,0x54B)
+	
+	HB_P0_Res:
+	RMenu(HB_P0_Def,HB_P0_Skill0,HB_P0_Class,HB_P0_Stat,0x66,0x68,0x54C)
+	
+	
+	// Line 2
+	HB_P0_Lck:
+	RMenu(HB_P0_Skill2,HB_P0_Mov,HB_P0_Str,HB_P0_Name,0xA6,0x18,0x54A)
+	
+	HB_P0_Mov:
+	RMenu(HB_P0_Lck,HB_P0_Con,HB_P0_Mag,HB_P0_Name,0xA6,0x28,0x54D)
+	
+	HB_P0_Con:
+	RMenu(HB_P0_Mov,HB_P0_Aid,HB_P0_Skl,HB_P0_Name,0xA6,0x38,0x54E)
+	
+	HB_P0_Aid:
+	RMenu(HB_P0_Con,HB_P0_Trv,HB_P0_Spd,HB_P0_Name,0xA6,0x48,0x54F)
+	
+	HB_P0_Trv:
+	RMenu(HB_P0_Aid,HB_P0_Stat,HB_P0_Def,HB_P0_Name,0xA6,0x58,0x550)
+	
+	HB_P0_Stat:
+	RMenu(HB_P0_Trv,HB_P0_Skill2,HB_P0_Res,HB_P0_Class,0xA6,0x68,0x552,ConditionGetter)
+	
+	
+	// Left
+	HB_P0_Name:
+	RMenu(HB_P0_HP,HB_P0_Class,HB_P0_Trv,HB_P0_Spd,0x18,0x50,0x0,NameDescGetter)
+	
+	HB_P0_Class:
+	RMenu(HB_P0_Name,HB_P0_Level,HB_P0_Stat,HB_P0_Res,0x6,0x68,0x6E8,ClassDescGetter)
+	
+	HB_P0_Level:
+	RMenu(HB_P0_Class,HB_P0_HP,HB_P0_Stat,HB_P0_Exp,0x6,0x78,0x542)
+	
+	HB_P0_Exp:
+	RMenu(HB_P0_Class,HB_P0_HP,HB_P0_Level,HB_P0_Res,0x26,0x78,0x543)
+	
+	HB_P0_HP:
+	RMenu(HB_P0_Level,HB_P0_Name,HB_P0_Stat,HB_P0_Res,0x6,0x88,0x544)

@@ -1,0 +1,28 @@
+#define POPR_0D 0x0D
+#define POPR_0E 0x0E
+
+#include "src/core.lyn.event"
+#include "src/component.lyn.event"
+
+PopRSetPopupCodeHandlers(POPR_0D, PopRComponent_Icon)
+PopRSetPopupCodeHandlers(POPR_0E, PopRComponent_Text)
+
+
+ALIGN 4
+Popup_Test:
+	Popup_SetSound(0x5A)
+
+	Popup_SetColor(0)
+	Popup_StringId(0x212)
+	
+	Popup_Space(1)
+	WORD POPR_0D 0
+	Popup_Space(1)
+
+	Popup_SetColor(2)
+	WORD POPR_0E 0
+
+	Popup_SetColor(0)
+	Popup_StringId(0x22) // ".[X]"
+
+	Popup_End

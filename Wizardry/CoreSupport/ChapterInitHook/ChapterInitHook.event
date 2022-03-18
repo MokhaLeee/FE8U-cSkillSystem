@@ -1,0 +1,18 @@
+#ifndef MOKHA_CHAPTER_INIT_HOOK
+#define MOKHA_CHAPTER_INIT_HOOK
+PUSH
+ORG $59A224
+POIN ChapterInitHook
+POP
+
+PROTECT $59A224 $59A228 // inside proc
+PROTECT $1550C $15544 // MapMain_StartIntroFx
+
+ALIGN 4
+#include "src/ChapInitCore.lyn.event"
+
+ALIGN 4
+#include HookList.event
+
+
+#endif // MOKHA_CHAPTER_INIT_HOOK
