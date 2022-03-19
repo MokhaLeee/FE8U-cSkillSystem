@@ -1,10 +1,10 @@
 # FE8U c-Skill-System Mokha-build
 
-(W.I.P.) A [Skill-lite](https://github.com/StanHash/SkillsLite.git) and [C-HAX](https://github.com/StanHash/FE-CHAX.git) style FE8U SkillSystem re-build in C, the main purpose of which is to make it properly integrated of `Skill System` & `Str/Mag Split` & `Item Effect System` and `Weapon range getter`.
+A W.I.P. project of [Skill-lite](https://github.com/StanHash/SkillsLite.git) and [C-HAX](https://github.com/StanHash/FE-CHAX.git) style FE8U SkillSystem rebuild in C, the main purpose of which is to make it properly integrated of `Skill System` & `Str/Mag Split` & `Item Effect System` and `Weapon range getter`.
 
 ## Compiling (for Windows user)
 
-- Clone repo with command `git clone --recursive https://github.com/MokhaLeee/FE-cHack-Template.git` or update submodules with `git submodule update --init --recursive` after cloning, or just download each submodule inside `Tools/` folder.
+- Clone repo with command `git clone --recursive https://github.com/MokhaLeee/FE8U-cSkillSystem.git` or update submodules with `git submodule update --init --recursive` after cloning, or just download each submodule inside `Tools/` folder.
 
 - have [devkitARM](https://devkitpro.org/wiki/Getting_Started) installed, and the `DEVKITARM` env variable set.
 
@@ -13,12 +13,17 @@
 - Download [EventAssembler release](https://github.com/StanHash/EventAssembler/releases/tag/1.0), and unzip which in `Tools` folder.
 
 - Put `Fire Emblem 8: Scared Stones`(sha1: c25b145e37456171ada4b0d440bf88a19f4d509f) clean rom named `FE8U.gba` in directory.
-- Open `Msys2` (which will be installed on DevkitPRO installation), or `Windows terminal` and get into current folder, type command `make` or `make hack` to build rom `HACK.gba`
+- Open `Msys2` (which will be installed on DevkitPRO installation), or `Windows terminal` and get into current folder, type command `make` or `make hack` to build rom `FE-cSkillSys.gba`
 
 - Further more, you can `make clean` to clean build outputs.
 
 You can directly assemble `Main.event` through [Event Assembler](https://github.com/StanHash/EventAssembler.git), and for more details, you can see tips on [StanH's CHAX](https://github.com/StanHash/FE-CHAX.git).
 
+BTW, since I may update the repository of C-Lib from time to time, so I suggest you update each submodels any time you want to use this template through commands:
+```
+git submodule sync
+git submodule update --init
+```
 
 ## Wizardry Organization
 

@@ -11,7 +11,7 @@ main_event="$BASE_DIR/Main.event"
 
 # ROMs
 source_rom="$BASE_DIR/FE8U.gba"
-target_rom="$BASE_DIR/SkillSys.gba"
+target_rom="$BASE_DIR/FE-cSkillSys.gba"
 
 
 # Tools
