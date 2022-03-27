@@ -344,7 +344,7 @@ s8 CanUnitUseStatGainItem(struct Unit* unit, int item)
 	gStatGainSimUnit.conBonus = unit->conBonus + bonuses->conBonus;
 	
 	*GetMagAt(&gStatGainSimUnit) = 
-		*GetMagAt(&gStatGainSimUnit) + ((u8*)bonuses)[9];
+		*GetMagAt(unit) + ((u8*)bonuses)[9];
 	
 	UnitCheckStatCaps(&gStatGainSimUnit);
 
