@@ -33,7 +33,7 @@ void DrawSkillPage(void) {
 		DrawIcon(
 			TM_PAGEFRAME + TILEMAP_INDEX(X + 4 + 2*i, Y), 
 			SKILL_ICON(list->skills[i]), 
-			TILEREF(0, 4)
+			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS)
 		);
 		
 		if ( i > 5 )

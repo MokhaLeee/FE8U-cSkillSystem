@@ -12,7 +12,7 @@ and leave unit+0x38 as pad (for skill learning?)
 
 enum{
 	// unit skill list length
-	UNIT_SKILL_COUNT = 6,
+	UNIT_SKILL_COUNT = 5, // tip: max support = 7, 2 Bytes free
 	
 	// skill id range ( 1 ~ 0xFF )
 	SKILL_MAX_COUNT = 100,

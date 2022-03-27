@@ -119,7 +119,9 @@ struct PrepScreenUnitList {
 
 // UI
 #define gPrepTexts gUnknown_0201117C
+#define gPrepUnitTexts gUnknown_02013598
 extern struct TextHandle gPrepTexts[]; // 0201117C
+extern struct TextHandle gPrepUnitTexts[]; // 02013598
 extern void DisplayPrepScreenMenuHelpText();
 void DrawPrepScreenMenuFrameAt(int x, int y);
 
@@ -194,6 +196,8 @@ void PrepScreenMapMenu_OnEnd(struct Proc_SALLYCURSOR*);
 // static void (*PrepSpecialChar_OnEnd)() = (const void*) 0x8096C21;
 // static void (*PrepSpecialChar_BlinkButtonStart)() = (const void*) 0x8096BC5;
 // static void (*PrepSpecialChar_BlinkButtonB)() = (const void*) 0x8096BE1;
+
+// extern u16 gUnknown_08A1D510[]; // gGfx_PrepButton
 
 // others
 void EndPrepScreen();

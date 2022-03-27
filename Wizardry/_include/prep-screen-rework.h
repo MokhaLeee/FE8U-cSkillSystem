@@ -46,9 +46,16 @@ enum{
 	CMD_PREPMENU_VIEWMAP = 5,
 	CMD_PREPMENU_FORMATION = 6,
 	
+	CMD_PREPMENU_SKILLS = 7,
 };
 
 extern const struct ProcCmd newProcCmd_PrepMain[];
 
 void StartNewPrepAtMenu(struct newProc_PrepMain*);
 void StartNewPrepMapView(struct newProc_PrepMain*);
+
+
+
+// Skill Screen
+void StartPrepScreenSkillsMenu(struct Proc_AtMenu*);
+

@@ -29,6 +29,8 @@ static void AtMenu_OnEnd_80962E0(struct Proc_AtMenu* proc);
 static void newPrepMenu_StartSubMenu(struct Proc_AtMenu* proc);
 static void newPrepMenu_OnSubMenuEnd(struct Proc_AtMenu* proc);
 
+static void newPrepMenuEffect_Skills(struct Proc_AtMenu* proc);
+
 
 
 
@@ -46,7 +48,7 @@ enum{
 
 
 
-const struct ProcCmd newProcCmd_PrepAtMenu[] = {
+const static struct ProcCmd newProcCmd_PrepAtMenu[] = {
 	
 	PROC_NAME	("PREP_NEW_ATMENU"),
 	PROC_CALL	(newPrepMenu_OnInit),
@@ -100,7 +102,7 @@ PROC_LABEL (LABEL_PREPMENU_SUBMENU),
 	PROC_YIELD,
 	PROC_CALL	(newPrepMenu_OnSubMenuEnd),
 	PROC_YIELD,
-	PROC_CALL	((void*)0x8033621), // (StartProc_PrepMapDrawButtonObj),
+	PROC_CALL	((void*)0x8033621), 		// (StartProc_PrepMapDrawButtonObj),
 	PROC_CALL	(BMapDispResume), 			// UnlockGameGraphicsLogic
 	PROC_GOTO	(LABEL_PREPMENU_ONINIT), 	// Go back on init map
 
@@ -188,9 +190,10 @@ void newPrepMenu_StartMenuAndDrawText (struct Proc_AtMenu* proc){
 		0x57A // Select which units to@001[N]field this battle. The[N]number is restricted.[X]
 	);
 	
+	// Pick Units
 	SetPrepScreenMenuItem(
-		CMD_PREPMENU_VIEWMAP,
-		newPrepMenuEffect_PickUnits,
+		CMD_PREPMENU_SKILLS,
+		newPrepMenuEffect_Skills,
 		TEXT_COLOR_NORMAL,
 		NUM_umPrepPickSkillName,
 		NUM_umPrepPickSkillDesc
@@ -290,6 +293,10 @@ void newPrepMenu_StartSubMenu(struct Proc_AtMenu* proc){
 		case CMD_PREPMENU_OPTION:
 			PrepScreenProc_StartConfigMenu(proc);
 			break;
+			
+		case CMD_PREPMENU_SKILLS: // new hack for pick skills:
+			StartPrepScreenSkillsMenu(proc);
+			break;
 		
 		default:
 			break;
@@ -311,6 +318,14 @@ void newPrepMenu_OnSubMenuEnd(struct Proc_AtMenu* proc){
 // =======================================================
 // =================== Button Press ======================
 // =======================================================
+
+void newPrepMenuEffect_Skills(struct Proc_AtMenu* proc){
+	
+	proc->cur_cmd = CMD_PREPMENU_SKILLS;
+	proc->state = 1;
+	Proc_Goto(proc, LABEL_PREPMENU_SUBMENU_FADEIN);
+}
+
 
 void newPrepMenuEffect_PickUnits(struct Proc_AtMenu* proc){
 	

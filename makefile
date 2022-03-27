@@ -7,7 +7,7 @@ EVENT_MAIN := Main.event
 
 # ROMs
 ROM_SOURCE := FE8U.gba
-ROM_TARGET := FE-cSkillSys.gba
+ROM_TARGET := SkillSys.gba
 
 include make_tools.mk
 

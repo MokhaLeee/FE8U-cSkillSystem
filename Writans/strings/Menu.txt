@@ -78,7 +78,7 @@ FireArrows[X]
 
 
 ## umPrepPickSkillName
-Pick Skills[X]
+Skills[X]
 
 
 ## umPrepPickSkillDesc
