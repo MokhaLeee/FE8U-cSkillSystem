@@ -1,0 +1,59 @@
+
+ALIGN 4
+#include "src/FE16Icon.lyn.event"
+
+InjectIconSheet(ICON_SHEET_MASTERY, GetFE16MasteryIconGfx)
+
+ALIGN 4
+IconSheet_FE16Mastery:
+	POIN 	Icon_Sword	Icon_Lance	Icon_Axe	Icon_Bow	Icon_Brawl
+	POIN	Icon_Reason	Icon_Faith	Icon_Auth	Icon_Riding	Icon_Flying
+	POIN	Icon_Heavy
+	WORD	0
+
+
+ALIGN 4
+Icon_Sword:
+	#incbin "Icons/Icon_Sword.4bpp"
+
+ALIGN 4
+Icon_Axe:
+	#incbin "Icons/Icon_Axe.4bpp"
+
+ALIGN 4	
+Icon_Lance:	
+	#incbin "Icons/Icon_Lance.4bpp"
+
+ALIGN 4
+Icon_Bow:
+	#incbin "Icons/Icon_Bow.4bpp"
+
+ALIGN 4
+Icon_Brawl:
+	#incbin "Icons/Icon_Brawl.4bpp"
+
+ALIGN 4
+Icon_Reason:
+	#incbin "Icons/Icon_Reason.4bpp"
+
+ALIGN 4	
+Icon_Faith:
+	#incbin "Icons/Icon_Faith.4bpp"
+
+ALIGN 4
+Icon_Auth:
+	#incbin "Icons/Icon_Authority.4bpp"
+
+ALIGN 4
+Icon_Riding:
+	#incbin "Icons/Icon_Riding.4bpp"
+
+ALIGN 4
+Icon_Flying:
+	#incbin "Icons/Icon_Flying.4bpp"
+
+ALIGN 4
+Icon_Heavy:
+	#incbin "Icons/Icon_Heavy.4bpp"
+
+	

@@ -28,4 +28,5 @@ int _IsPointer(u32 it);
 #include "popup-rework.h"
 #include "prep-screen-rework.h"
 
+#include "gbafe16-features.h"
 
