@@ -15,7 +15,6 @@
 #include "src/PrepAtMenu.lyn.event"
 #include "src/PrepMapView.lyn.event"
 
-#include "SkillScreen/SkillScreen.event"
 
 
 PUSH

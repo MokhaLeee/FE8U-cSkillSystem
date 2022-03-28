@@ -26,7 +26,8 @@ static void PrepSkill_UnitSelectLoop (struct Proc_PrepUnit* proc);
 // On Draw
 static void PrepSkill_InitTexts();
 static void PrepSkill_DrawPickTotalBar(struct Unit* unit, int config); // config: 0->init, 1->update
-static void PrepSkill_DrawRightSkillWindow(struct Unit* unit);
+static void PrepSkill_DrawWindowGfx(void);
+static void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit);
 
 
 
@@ -127,11 +128,10 @@ void PrepSkill_OnInit (struct Proc_PrepUnit* proc){
 
 void PrepSkill_InitScreen (struct Proc_PrepUnit* proc){
 
-	static void (*PrepUnit_InitGfx)(void) = (const void*) 0x809A875;
 	static void (*PrepUnit_InitSMS)(ProcPtr) = (const void*) 0x809A8F9;
 	static void (*PrepUnit_DrawLeftUnitName)(struct Unit*) = (const void*) 0x809A931;
 	static void (*PrepUnit_DrawUnitListNames)(struct Proc_PrepUnit*, int) = (const void*) 0x809A581;
-	//static void (*PrepUnit_DrawText_Pick_Left)(struct Proc_PrepUnit*,int) = (const void*) 0x809AAF1;
+
 	extern void Get6CDifferedLoop6C(void* func, ProcPtr);
 	extern void sub_809A66C(struct Proc_PrepUnit*); // Called on SMS proc on-end
 	extern void sub_809ADC8(struct Proc_PrepUnit*); // Set proc+0x30?
@@ -174,7 +174,7 @@ void PrepSkill_InitScreen (struct Proc_PrepUnit* proc){
 	
 	// Init TextHandles
 	PrepSkill_InitTexts();
-	PrepUnit_InitGfx();
+	PrepSkill_DrawWindowGfx();
 	
 	BG_EnableSyncByMask(0b1111);
 	SetDefaultColorEffects();
@@ -204,7 +204,7 @@ void PrepSkill_InitScreen (struct Proc_PrepUnit* proc){
 	
 	PrepUnit_DrawLeftUnitName(unit);
 	PrepSkill_DrawPickTotalBar(unit, 0);
-	PrepSkill_DrawRightSkillWindow(unit);
+	PrepSkill_DrawLeftSkillsIcon(unit);
 	
 	
 	NewGreenTextColorManager((ProcPtr)proc);
@@ -315,7 +315,7 @@ void PrepSkill_DrawPickTotalBar(struct Unit* unit, int config){
 }
 
 
-void PrepSkill_DrawRightSkillWindow(struct Unit* unit){
+void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit){
 	
 	struct SkillFastTesterList* list;
 	
@@ -392,6 +392,42 @@ void PrepSkill_DrawRightSkillWindow(struct Unit* unit){
 }
 
 
+
+
+
+
+void PrepSkill_DrawWindowGfx(void){
+	
+	// 0x809A874
+	extern u16 Gfx_PrepSkillScreen[]; // gfx
+	extern u16 Gfx_PrepSkillScreen2[]; // gfx2
+	extern u16 Gfx_PrepSkillHelpButton[]; // gfx3
+	extern u16 Pal_PrepSkillScreen[]; // pal
+	extern u16 Tsa_PrepSkillScreen[]; // tsa
+	static void (*Prep_DrawChapterGoal)(int, int) = (const void*) 0x8095A45;
+
+	
+	ResetIconGraphics_();
+	LoadUiFrameGraphics();
+	LoadObjUIGfx();
+	
+	LoadIconPalettes(4); // item icon
+	
+	Prep_DrawChapterGoal(0x6000, 8);
+	
+	CopyDataWithPossibleUncomp(Gfx_PrepSkillScreen2, (void*)0x06006000);
+	CopyDataWithPossibleUncomp(Gfx_PrepSkillScreen, (void*)0x06000440);
+	CopyDataWithPossibleUncomp(Gfx_PrepSkillHelpButton, (void*)0x6010800); // gGfx_PrepButton
+	
+	
+	CopyDataWithPossibleUncomp(Tsa_PrepSkillScreen, gGenericBuffer);
+	CallARM_FillTileRect(gBG1TilemapBuffer, gGenericBuffer, 0x1000);
+	
+	CopyToPaletteBuffer(Pal_PrepSkillScreen, 0x1E0, 0x20);
+	CopyToPaletteBuffer(Pal_PrepSkillScreen, 0x320, 0x20);
+	EnablePaletteSync();
+	
+}
 
 
 

@@ -1,0 +1,13 @@
+#ifndef COMMON_SPACE
+#define COMMON_SPACE
+
+/* now in Main_Vars.event
+ALIGN 4
+gpCommonSpace:
+	WORD 0x2026E30	// 0x40 
+*/
+
+#include "src/CommonSpace.lyn.event"
+
+
+#endif // COMMON_SPACE

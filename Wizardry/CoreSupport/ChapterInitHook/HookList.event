@@ -2,5 +2,6 @@
 ALIGN 4
 ChapterInitFuncList:
 	POIN InitRNE
+	POIN Reset_CommonSpace
 	// POIN ResetUnitsMagic
 	WORD $0

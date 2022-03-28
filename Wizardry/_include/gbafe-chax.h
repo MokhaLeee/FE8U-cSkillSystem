@@ -21,9 +21,11 @@ int _IsPointer(u32 it);
 #include "range-getter.h"
 #include "map-master.h"
 #include "skill-system.h"
+#include "common-space.h"
 #include "rn-ext.h"
 #include "null-bwl.h"
 #include "item-system.h"
 #include "popup-rework.h"
 #include "prep-screen-rework.h"
+
 

@@ -61,4 +61,10 @@ PUSH
 	PROTECT $86FAC $870A0
 POP
 
+
+
+// Prep Screen Pick-Skill Page
+#include "PrepSkillScreen/PrepSkillScreen.event"
+
+
 #endif // SKILL_CORE

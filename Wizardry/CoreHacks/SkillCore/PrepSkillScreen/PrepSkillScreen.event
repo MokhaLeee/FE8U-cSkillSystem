@@ -1,0 +1,41 @@
+ALIGN 4
+
+NUM_umPrepPickSkillName:
+	SHORT umPrepPickSkillName
+
+NUM_umPrepPickSkillDesc:
+	SHORT umPrepPickSkillDesc
+
+ALIGN 4
+#include "src/PrepSkillScreen.lyn.event"
+#include "src/PrepSkillsList.lyn.event"
+
+
+ALIGN 4
+Gfx_PrepSkillScreen:
+	#incbin "data/Gfx_PrepSkillScreen.4bpplz"
+
+ALIGN 4
+Pal_PrepSkillScreen:
+	#incbin "data/Gfx_PrepSkillScreen.gbapal"
+
+ALIGN 4
+Gfx_PrepSkillScreen2:
+	#incbin "data/Gfx_PrepSkillScreen2.4bpplz"
+
+
+// Same as Pal_PrepSkillScreen
+// So we don't use this
+ALIGN 4
+Pal_PrepSkillScreen2:
+	#incbin "data/Gfx_PrepSkillScreen2.gbapal"
+
+ALIGN 4
+Tsa_PrepSkillScreen:
+	#incbin "data/Tsa_PrepSkillScreen.tsalz"
+
+
+
+ALIGN 4
+Gfx_PrepSkillHelpButton:
+	#incbin "data/Gfx_PrepSkillHelpButton.4bpplz"

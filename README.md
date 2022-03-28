@@ -23,6 +23,7 @@ BTW, since I may update the repository of C-Lib from time to time, so I suggest 
 ```
 git submodule sync
 git submodule update --init
+git submodule update --remote
 ```
 
 ## Wizardry Organization

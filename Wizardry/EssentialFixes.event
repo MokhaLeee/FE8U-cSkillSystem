@@ -61,10 +61,11 @@ POP
   BYTE $10
   ORG $224414
   SHORT $67b0 $0300 $0010
-
+  
+/* 
 //Fix Weak Promoted Enemies (credit Gryz)
   ORG $180b4
-  SHORT $2a00 $dc00 $2201
+  SHORT $2a00 $dc00 $2201 */
 
 //Hold A to speed up movement (credit Gryz)
   ORG $794ee

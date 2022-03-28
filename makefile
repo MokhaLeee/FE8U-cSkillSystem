@@ -44,6 +44,7 @@ $(ROM_TARGET): $(EVENT_MAIN) $(EVENT_DEPENDS) $(ROM_SOURCE)
 	$(NOTIFY_PROCESS)
 	@cp -f $(ROM_SOURCE) $(ROM_TARGET)
 	@$(EA) A FE8 -output:$(ROM_TARGET) -input:$(EVENT_MAIN) $(EAFLAGS) || (rm $(ROM_TARGET) && false)
+	@cat "$(ROM_SOURCE:.gba=.sym)" >> "$(ROM_TARGET:.gba=.sym)" || true
 	@rm -rf $(CACHE_DIR)
 
 ifeq ($(MAKECMDGOALS),clean)
@@ -54,7 +55,7 @@ endif
 # = COMPONENT RULES =
 # ===================
 
-#include make_spritans.mk
+include make_spritans.mk
 include make_writans.mk
 include make_game-data.mk
 include make_wizardry.mk

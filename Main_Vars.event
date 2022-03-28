@@ -13,10 +13,10 @@ _thumb(ReturnFALSE)
 
 // Common Save-su
 ALIGN 4
-gpCommonSaveSu:
+gpCommonSpace:
 	WORD 0x2026E30	// 0x40
 
-gpBattleFlagSu:
+gpBattleFlagExt:
 	WORD 0x2026E20	// 0x10
 
 // UnitDataExtension

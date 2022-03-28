@@ -156,6 +156,10 @@ gSuspendSaveChunks:
 	DeclSaveChunk($1F78, $0089, MSu_SaveUnitMag, MSu_LoadUnitMag)
 	DeclSaveChunk($2008, $000C, RNE_SaveSu, RNE_LoadSu)
 	
+	// Common Space: 0x40 + BattleFlagExt: 0x10
+	DeclSaveChunk($2014, $0040, MSu_SaveCommonSpace, MSu_LoadCommonSpace)
+	DeclSaveChunk($2054, $0010, MSu_SaveBattleFlagExt, MSu_LoadBattleFlagExt)
+	
 	// ends at $2014
 	// free up to $2E78 ($F00 free bytes)
 
