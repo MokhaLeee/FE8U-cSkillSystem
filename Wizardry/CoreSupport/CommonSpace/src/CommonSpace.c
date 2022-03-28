@@ -5,7 +5,7 @@ extern u8* gpCommonSpace;
 
 
 // For ChapterInitHook
-void Reset_CommonSpace(void){
+void ResetCommonSpace(void){
 	
 	for( int i = 0; i < MAX_SIZE_COMMON_SAPCE; i++ )
 		gpCommonSpace[i] = 0;

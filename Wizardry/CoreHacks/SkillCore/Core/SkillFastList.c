@@ -53,6 +53,7 @@ int GetSklFastListLen(struct Unit* unit) {
 }
 
 
+// On Chapter Init
 void ResetSkillFastList(void){
 	
 	gpSkillFastList0->unit_id = 0;

@@ -102,7 +102,7 @@ struct Proc_PrepUnit {
 	/* 32 */ u16 unk_32;
 	/* 34 */ u8 pad_34[0x36 - 0x34];
 	/* 36 */ u8 scroll_val; // each px to scroll at each frame
-	/* 37 */ u8 unk_37;
+	/* 37 */ u8 button_blank;
 	/* 38 */ u8 pad_38[0x3C - 0x38];
 	/* 3C */ u16 unk_3C;
 };
