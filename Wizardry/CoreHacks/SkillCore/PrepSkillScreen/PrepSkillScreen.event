@@ -1,10 +1,30 @@
 ALIGN 4
 
-NUM_umPrepPickSkillName:
-	SHORT umPrepPickSkillName
+msgAt_PrepPickSkillName:
+	SHORT msg_PrepPickSkillName
 
-NUM_umPrepPickSkillDesc:
-	SHORT umPrepPickSkillDesc
+msgAt_PrepPickSkillDesc:
+	SHORT msg_PrepPickSkillDesc
+
+msgAt_PrepSkillMenu_PickSkillName:
+	SHORT msg_PrepSkillMenu_PickSkillName
+
+msgAt_PrepSkillMenu_PickSkillDesc:
+	SHORT msg_PrepSkillMenu_PickSkillDesc
+
+msgAt_PrepSkillMenu_PickCombatName:
+	SHORT msg_PrepSkillMenu_PickCombatName
+
+msgAt_PrepSkillMenu_PickCombatDesc:
+	SHORT msg_PrepSkillMenu_PickCombatDesc
+
+msgAt_PrepSkillMenu_PickBattalionName:
+	SHORT msg_PrepSkillMenu_PickBattalionName
+
+msgAt_PrepSkillMenu_PickBattalionDesc:
+	SHORT msg_PrepSkillMenu_PickBattalionDesc
+
+
 
 ALIGN 4
 #include "src/PrepSkillScreen.lyn.event"
@@ -13,7 +33,7 @@ ALIGN 4
 
 ALIGN 4
 Gfx_PrepSkillScreen:
-	#incbin "data/Gfx_PrepSkillScreen.4bpplz"
+	#incbin "data/Gfx_PrepSkillScreen.4bpp.lz"
 
 ALIGN 4
 Pal_PrepSkillScreen:
@@ -21,7 +41,7 @@ Pal_PrepSkillScreen:
 
 ALIGN 4
 Gfx_PrepSkillScreen2:
-	#incbin "data/Gfx_PrepSkillScreen2.4bpplz"
+	#incbin "data/Gfx_PrepSkillScreen2.4bpp.lz"
 
 
 // Same as Pal_PrepSkillScreen
@@ -32,10 +52,13 @@ Pal_PrepSkillScreen2:
 
 ALIGN 4
 Tsa_PrepSkillScreen:
-	#incbin "data/Tsa_PrepSkillScreen.tsalz"
+	#incbin "data/Tsa_PrepSkillScreen.tsa.lz"
 
+ALIGN 4
+Tsa_PrepSkillScreenSubMenu:
+	#incbin "data/Tsa_PrepSkillScreenSubMenu.tsa.lz"
 
 
 ALIGN 4
 Gfx_PrepSkillHelpButton:
-	#incbin "data/Gfx_PrepSkillHelpButton.4bpplz"
+	#incbin "data/Gfx_PrepSkillHelpButton.4bpp.lz"

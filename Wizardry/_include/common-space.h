@@ -20,7 +20,7 @@ enum{
 
 
 //extern void* gpCommonSpace;
-void Reset_CommonSpace(void);
+void ResetCommonSpace(void);
 
 /*************** Useage: *******************
 a common space and will save in Suspend data, which defined as "gpCommonSaveSu" in _Val_Global.event
@@ -36,7 +36,7 @@ extern u8* gpCommonSpace;
 You can also define it as any struct as you need.
 
 Tips:
-1. Don't forget use function "Reset_CommonSpace()" if you want to make your own system!
+1. Don't forget use function "ResetCommonSpace()" if you want to make your own system!
 2. Don't forget to check out whether Common-Space is used on current timing!
 3. Don't forget to add notes as below anytime you use common space!
 

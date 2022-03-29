@@ -8,7 +8,7 @@
 // Screen TSA
 ALIGN 4
 LU_table_TSA:
-	#incbin "data/TSA_LU_compressed.dmp"
+	#incbin "data/LevelUpScreen.tsa.lz"
 	
 
 #endif // EXPANDED_LEVEL_UP_ANIM

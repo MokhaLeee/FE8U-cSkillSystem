@@ -35,7 +35,7 @@ $(PORTRAIT_INSTALLER): $(PORTRAIT_LIST) $(shell $(PORTRAIT_PROCESS) $(PORTRAIT_L
 	@$(PNG2DMP) $< -po $@ --palette-only
 
 # Compress TSA
-%.tsalz: %.tsa
+%.lz: %
 	$(NOTIFY_PROCESS)
 	@$(COMPRESS) $< $@
 
@@ -55,6 +55,6 @@ ifeq ($(MAKECMDGOALS),clean)
     $(PORTRAITS:.png=_frames.dmp) $(PORTRAITS:.png=_minimug.dmp)
 
   CLEAN_FILES += $(PORTRAIT_INSTALLER) $(PORTRAIT_GENERATED)
-  CLEAN_FILES += $(PNG_FILES:.png=.4bpp) $(PNG_FILES:.png=.4bpplz) $(PNG_FILES:.png=.gbapal)
-  CLEAN_FILES += $(TSA_FILES:.tsa=.tsalz)
+  CLEAN_FILES += $(PNG_FILES:.png=.4bpp) $(PNG_FILES:.png=.4bpp.lz) $(PNG_FILES:.png=.gbapal)
+  CLEAN_FILES += $(TSA_FILES:.tsa=.tsa.lz)
 endif

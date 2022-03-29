@@ -42,6 +42,7 @@ EAFLAGS :=
 
 $(ROM_TARGET): $(EVENT_MAIN) $(EVENT_DEPENDS) $(ROM_SOURCE)
 	$(NOTIFY_PROCESS)
+	@rm -rf $(ROM_TARGET:.gba=.sym)
 	@cp -f $(ROM_SOURCE) $(ROM_TARGET)
 	@$(EA) A FE8 -output:$(ROM_TARGET) -input:$(EVENT_MAIN) $(EAFLAGS) || (rm $(ROM_TARGET) && false)
 	@cat "$(ROM_SOURCE:.gba=.sym)" >> "$(ROM_TARGET:.gba=.sym)" || true

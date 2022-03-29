@@ -9,6 +9,7 @@ and leave unit+0x38 as pad (for skill learning?)
 ********************/
 
 #define SKILL_ICON(aSkillId) ((1 << 8) + (aSkillId))
+#define SKILL_VALID(aSkillId) ( (aSkillId > 0) && (aSkillId < 0xFF) )
 
 enum{
 	// unit skill list length
@@ -40,7 +41,7 @@ extern struct SkillInfo const* const SkillInfoTable[];
  * @param skillId the id of the skill to check for
  * @return non-zero if the unit has the given skill
  */
-int (*SkillTester) (struct Unit*, u8 skill_id);
+extern int (*SkillTester) (struct Unit*, u8 skill_id);
 int JudgeSkill(struct Unit*, u8 skill_id);
 int JudgeSkillFast(struct Unit*, u8 skill_id);
 
@@ -63,6 +64,10 @@ void NullUnitSkills(struct Unit*);
 
 
 
-// Misc Getter
-const void* GetSkillIconGfx(u8 skill_id);
-int GetSkillDescMsg(u8 skill_id);
+// Misc
+int AddSkill(struct Unit*, int skill_id);
+int RemoveSkill(struct Unit*, int skill_id);
+const void* GetSkillIconGfx(int skill_id);
+int GetSkillDescMsg(int skill_id);
+int GetUnitRamSkillCount(struct Unit*);
+

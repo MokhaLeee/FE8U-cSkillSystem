@@ -190,124 +190,148 @@ __TEXTPROCESSD73:
 setText($D73, __TEXTPROCESSD73)
 
 __TEXTPROCESSD74:
-#incbin ".TextEntries\TextMainumPrepPickSkillName.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_SD_BlowDarting.fetxt.dmp"
 setText($D74, __TEXTPROCESSD74)
 
 __TEXTPROCESSD75:
-#incbin ".TextEntries\TextMainumPrepPickSkillDesc.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_SD_BlowDeath.fetxt.dmp"
 setText($D75, __TEXTPROCESSD75)
 
 __TEXTPROCESSD76:
-#incbin ".TextEntries\TextMainmsg_SD_BlowDarting.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_SD_BlowArmored.fetxt.dmp"
 setText($D76, __TEXTPROCESSD76)
 
 __TEXTPROCESSD77:
-#incbin ".TextEntries\TextMainmsg_SD_BlowDeath.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_SD_BlowFiendish.fetxt.dmp"
 setText($D77, __TEXTPROCESSD77)
 
 __TEXTPROCESSD78:
-#incbin ".TextEntries\TextMainmsg_SD_BlowArmored.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_SD_BlowWarding.fetxt.dmp"
 setText($D78, __TEXTPROCESSD78)
 
 __TEXTPROCESSD79:
-#incbin ".TextEntries\TextMainmsg_SD_BlowFiendish.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_SD_BlowDuelist.fetxt.dmp"
 setText($D79, __TEXTPROCESSD79)
 
 __TEXTPROCESSD7A:
-#incbin ".TextEntries\TextMainmsg_SD_BlowWarding.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_SD_BlowUncanny.fetxt.dmp"
 setText($D7A, __TEXTPROCESSD7A)
 
 __TEXTPROCESSD7B:
-#incbin ".TextEntries\TextMainmsg_SD_BlowDuelist.fetxt.dmp"
+#incbin ".TextEntries\TextMainSD_Vantage.fetxt.dmp"
 setText($D7B, __TEXTPROCESSD7B)
 
 __TEXTPROCESSD7C:
-#incbin ".TextEntries\TextMainmsg_SD_BlowUncanny.fetxt.dmp"
+#incbin ".TextEntries\TextMainSD_VantageBattalion.fetxt.dmp"
 setText($D7C, __TEXTPROCESSD7C)
 
 __TEXTPROCESSD7D:
-#incbin ".TextEntries\TextMainSD_Vantage.fetxt.dmp"
+#incbin ".TextEntries\TextMainSD_Desperation.fetxt.dmp"
 setText($D7D, __TEXTPROCESSD7D)
 
 __TEXTPROCESSD7E:
-#incbin ".TextEntries\TextMainSD_VantageBattalion.fetxt.dmp"
+#incbin ".TextEntries\TextMainSD_DesperationBattalion.fetxt.dmp"
 setText($D7E, __TEXTPROCESSD7E)
 
 __TEXTPROCESSD7F:
-#incbin ".TextEntries\TextMainSD_Desperation.fetxt.dmp"
+#incbin ".TextEntries\TextMainSD_QuickRiposte.fetxt.dmp"
 setText($D7F, __TEXTPROCESSD7F)
 
 __TEXTPROCESSD80:
-#incbin ".TextEntries\TextMainSD_DesperationBattalion.fetxt.dmp"
+#incbin ".TextEntries\TextMainCA_MagAtk.fetxt.dmp"
 setText($D80, __TEXTPROCESSD80)
 
 __TEXTPROCESSD81:
-#incbin ".TextEntries\TextMainSD_QuickRiposte.fetxt.dmp"
+#incbin ".TextEntries\TextMainCA_PhyAtk.fetxt.dmp"
 setText($D81, __TEXTPROCESSD81)
 
 __TEXTPROCESSD82:
-#incbin ".TextEntries\TextMainCA_MagAtk.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAN_WrathStrike.fetxt.dmp"
 setText($D82, __TEXTPROCESSD82)
 
 __TEXTPROCESSD83:
-#incbin ".TextEntries\TextMainCA_PhyAtk.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAD_WrathStrike.fetxt.dmp"
 setText($D83, __TEXTPROCESSD83)
 
 __TEXTPROCESSD84:
-#incbin ".TextEntries\TextMainCAN_WrathStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAN_Grounder.fetxt.dmp"
 setText($D84, __TEXTPROCESSD84)
 
 __TEXTPROCESSD85:
-#incbin ".TextEntries\TextMainCAD_WrathStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAD_Grounder.fetxt.dmp"
 setText($D85, __TEXTPROCESSD85)
 
 __TEXTPROCESSD86:
-#incbin ".TextEntries\TextMainCAN_Grounder.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAN_BaneOfMonsters.fetxt.dmp"
 setText($D86, __TEXTPROCESSD86)
 
 __TEXTPROCESSD87:
-#incbin ".TextEntries\TextMainCAD_Grounder.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAD_BaneOfMonsters.fetxt.dmp"
 setText($D87, __TEXTPROCESSD87)
 
 __TEXTPROCESSD88:
-#incbin ".TextEntries\TextMainCAN_BaneOfMonsters.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAN_TempestLance.fetxt.dmp"
 setText($D88, __TEXTPROCESSD88)
 
 __TEXTPROCESSD89:
-#incbin ".TextEntries\TextMainCAD_BaneOfMonsters.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAD_TempestLance.fetxt.dmp"
 setText($D89, __TEXTPROCESSD89)
 
 __TEXTPROCESSD8A:
-#incbin ".TextEntries\TextMainCAN_TempestLance.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAN_Knightkneeler.fetxt.dmp"
 setText($D8A, __TEXTPROCESSD8A)
 
 __TEXTPROCESSD8B:
-#incbin ".TextEntries\TextMainCAD_TempestLance.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAD_Knightkneeler.fetxt.dmp"
 setText($D8B, __TEXTPROCESSD8B)
 
 __TEXTPROCESSD8C:
-#incbin ".TextEntries\TextMainCAN_Knightkneeler.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAN_CurvedShot.fetxt.dmp"
 setText($D8C, __TEXTPROCESSD8C)
 
 __TEXTPROCESSD8D:
-#incbin ".TextEntries\TextMainCAD_Knightkneeler.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAD_CurvedShot.fetxt.dmp"
 setText($D8D, __TEXTPROCESSD8D)
 
 __TEXTPROCESSD8E:
-#incbin ".TextEntries\TextMainCAN_CurvedShot.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAN_HeavyDraw.fetxt.dmp"
 setText($D8E, __TEXTPROCESSD8E)
 
 __TEXTPROCESSD8F:
-#incbin ".TextEntries\TextMainCAD_CurvedShot.fetxt.dmp"
+#incbin ".TextEntries\TextMainCAD_HeavyDraw.fetxt.dmp"
 setText($D8F, __TEXTPROCESSD8F)
 
 __TEXTPROCESSD90:
-#incbin ".TextEntries\TextMainCAN_HeavyDraw.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepPickSkillName.fetxt.dmp"
 setText($D90, __TEXTPROCESSD90)
 
 __TEXTPROCESSD91:
-#incbin ".TextEntries\TextMainCAD_HeavyDraw.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepPickSkillDesc.fetxt.dmp"
 setText($D91, __TEXTPROCESSD91)
+
+__TEXTPROCESSD92:
+#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickSkillName.fetxt.dmp"
+setText($D92, __TEXTPROCESSD92)
+
+__TEXTPROCESSD93:
+#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickSkillDesc.fetxt.dmp"
+setText($D93, __TEXTPROCESSD93)
+
+__TEXTPROCESSD94:
+#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickCombatName.fetxt.dmp"
+setText($D94, __TEXTPROCESSD94)
+
+__TEXTPROCESSD95:
+#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickCombatDesc.fetxt.dmp"
+setText($D95, __TEXTPROCESSD95)
+
+__TEXTPROCESSD96:
+#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickBattalionName.fetxt.dmp"
+setText($D96, __TEXTPROCESSD96)
+
+__TEXTPROCESSD97:
+#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickBattalionDesc.fetxt.dmp"
+setText($D97, __TEXTPROCESSD97)
 
 }
 
