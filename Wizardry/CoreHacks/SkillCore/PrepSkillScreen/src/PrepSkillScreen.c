@@ -187,7 +187,7 @@ static void PrepSkill_OnEnd (struct Proc_PrepUnit* proc){
 void PrepSkill_InitScreen (struct Proc_PrepUnit* proc){
 
 	static void (*PrepUnit_InitSMS)(ProcPtr) = (const void*) 0x809A8F9;
-	static void (*PrepUnit_DrawUnitListNames)(struct Proc_PrepUnit*, int) = (const void*) 0x809A581;
+	// static void (*PrepUnit_DrawUnitListNames)(struct Proc_PrepUnit*, int) = (const void*) 0x809A581;
 
 	extern void Get6CDifferedLoop6C(void* func, ProcPtr);
 	extern void sub_809ADC8(struct Proc_PrepUnit*); // Set proc+0x30?
@@ -279,8 +279,8 @@ void PrepSkill_UnitSelectLoop (struct Proc_PrepUnit* proc){
 	
 	// This is a loop function!
 	
-	static void (*PrepUnit_DrawUnitListNames)(struct Proc_PrepUnit*, int) = (const void*) 0x809A581;
-	static int (*ShouldPrepUnitMenuScroll)(struct Proc_PrepUnit*) = (const void*) 0x809AD91;
+	// static void (*PrepUnit_DrawUnitListNames)(struct Proc_PrepUnit*, int) = (const void*) 0x809A581;
+	// static int (*ShouldPrepUnitMenuScroll)(struct Proc_PrepUnit*) = (const void*) 0x809AD91;
 	static void (*PrepMenu_UpdateTsaScroll)(int) = (const void*) 0x809A645;
 	extern void sub_809AE10(struct Proc_PrepUnit*);
 	

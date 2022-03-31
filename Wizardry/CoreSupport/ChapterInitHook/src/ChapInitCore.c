@@ -10,6 +10,7 @@ void ChapterInitHook(struct Proc* E_MAPMAIN){
 	
 	while(*it)
 		(*it++)(E_MAPMAIN);
+
 	
 	// Vanilla
 	MapMain_StartIntroFx(E_MAPMAIN);

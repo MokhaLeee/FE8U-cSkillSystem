@@ -15,12 +15,17 @@ struct PrepSkillsList* MakeUnitPrepSkillsList(struct Unit* unit){
 	
 	gpCommonSpace->unit_index = unit->index;
 	
-	gpCommonSpace->total[PREP_SKLSUB_LEFT_RAM] = 2;
-	gpCommonSpace->skills_ram[0] = 0x14;
+	gpCommonSpace->total[PREP_SKLSUB_LEFT_RAM] = 5;
+	gpCommonSpace->skills_ram[0] = 0x12;
 	gpCommonSpace->skills_ram[1] = 0x13;
+	gpCommonSpace->skills_ram[2] = 0x14;
+	gpCommonSpace->skills_ram[3] = 0x15;
+	gpCommonSpace->skills_ram[4] = 0x16;
+
 	
-	gpCommonSpace->total[PREP_SKLSUB_LEFT_ROM] = 1;
+	gpCommonSpace->total[PREP_SKLSUB_LEFT_ROM] = 2;
 	gpCommonSpace->skills_rom[0] = 0x17;
+	gpCommonSpace->skills_rom[1] = 0x18;
 	
 	gpCommonSpace->total[PREP_SKLSUB_LEFT_CA] = 3;
 	gpCommonSpace->skills_CombatArt[0] = 1;

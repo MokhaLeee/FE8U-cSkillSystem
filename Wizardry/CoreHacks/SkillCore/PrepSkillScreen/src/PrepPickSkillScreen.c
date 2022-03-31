@@ -134,6 +134,7 @@ void PrepPickSkill_InitScreen (struct Proc_PrepSkillSubList* proc){
 	BG_SetPosition( 2, 0, 0);
 	BG_SetPosition( 3, 0, 0);
 	
+	EndGreenTextColorManager();
 	PrepPickSkillList_InitTexts();
 	PrepPickSkillList_DrawWindowGfx();
 	
@@ -161,8 +162,7 @@ void PrepPickSkill_InitScreen (struct Proc_PrepSkillSubList* proc){
 	
 	// Parallel to update skill-desc
 	StartParallerWorkerWithParam(PrepPickSkillList_UpdateSkillDesc, 0, proc);
-	
-	NewGreenTextColorManager((ProcPtr)proc);
+
 	LoadDialogueBoxGfx(BG_SCREEN_ADDR(0x29), 5);
 	RestartScreenMenuScrollingBg();
 }
@@ -174,7 +174,7 @@ void PrepPickSkill_InitScreen (struct Proc_PrepSkillSubList* proc){
 void PrepPickSkill_MainLoop(struct Proc_PrepSkillSubList* proc){
 	
 	struct PrepSkillsList* list;
-	const u16 key_pre = gKeyStatusPtr->repeatedKeys;
+	int xHand, yHand;
 	
 	list = GetUnitPrepSkillsList(proc->unit);
 	
@@ -192,42 +192,128 @@ void PrepPickSkill_MainLoop(struct Proc_PrepSkillSubList* proc){
 	
 	// W.I,P.
 	// DPAD
-	if( DPAD_LEFT & key_pre ){
-		if( 0 == proc->list_index )
-			goto goto_fail;
-		else
-			proc->list_index--;
-	} // DPAD_LEFT
+	switch (gKeyStatusPtr->repeatedKeys)
+	{
+		case DPAD_LEFT:
+			if( 0 != proc->list_index )
+				proc->list_index--;
+			else if( PREP_SKLSUB_RIGHT == proc->list_type )
+				proc->list_type = PREP_SKLSUB_LEFT_RAM;
+			break;
+		
+		case DPAD_RIGHT:
+			if( proc->list_index < (list->total[proc->list_type]-1) )
+				proc->list_index++;
+			else if( PREP_SKLSUB_RIGHT != proc->list_type )
+			{
+				proc->list_type = PREP_SKLSUB_RIGHT;
+				proc->list_index = 0;
+			}
+			break;
+		
+		case DPAD_UP:
+			switch( proc->list_type )
+			{
+				case PREP_SKLSUB_RIGHT:
+					if( proc->list_index >= 6 )
+						proc->list_index -= 6;
+					break;
+				
+				case PREP_SKLSUB_LEFT_RAM:
+					proc->list_type = PREP_SKLSUB_RIGHT;
+					proc->list_index = 0;
+					break;
+				
+				case PREP_SKLSUB_LEFT_ROM:
+					proc->list_type = PREP_SKLSUB_LEFT_RAM;
+					proc->list_index = 0;
+					break;
+					
+				default:
+					break;	
+			}
+			break;
+		
+		case DPAD_DOWN:
+			switch( proc->list_type )
+			{
+				case PREP_SKLSUB_RIGHT:
+					if( (proc->list_index+6) < list->total[proc->list_type] )
+						proc->list_index += 6;
+					else
+					{
+						proc->list_type = PREP_SKLSUB_LEFT_RAM;
+						proc->list_index = 0;
+					}	
+					break;
+				
+				case PREP_SKLSUB_LEFT_RAM:
+					proc->list_type = PREP_SKLSUB_LEFT_ROM;
+					proc->list_index = 0;
+					break;
+				
+				case PREP_SKLSUB_LEFT_ROM:
+					break;
+				
+				default:
+					break;
+					
+			}
+			break;
+		
+		default:
+			break;
+	}
+	// DPAD End
 	
-	if( DPAD_RIGHT & key_pre ){
-		if( list->total[proc->list_type] < proc->list_index )
-			goto goto_fail;
-		else
-			proc->list_index++;
-			
-	} // DPAD_LEFT
 
 	
-	if( (proc->list_type_pre == proc->list_type) && (proc->list_index_pre == proc->list_index) )
+	if( 
+		(proc->list_type_pre == proc->list_type) && 
+		(proc->list_index_pre == proc->list_index) )
 		goto goto_fail;
 	
 	// W.I.P.
 	proc->list_type_pre = proc->list_type;
 	proc->list_index_pre = proc->list_index;
 	
+	// Parallel to update skill-desc
+	StartParallerWorkerWithParam(PrepPickSkillList_UpdateSkillDesc, 0, proc);
+	
 	// M4a
 	if( 0 == gRAMChapterData.unk41_8)
 		m4aSongNumStart(0x65);
 	
-	PrepDrawHand(
-		0x78 + 0x10 * proc->list_index,
-		0x28,
-		0, 0x800);
+	
+	// Draw Hand
+	switch ( proc->list_type )
+	{
+		
+		case PREP_SKLSUB_LEFT_RAM:
+			xHand = 0x10 + 0x10 * proc->list_index;
+			yHand = 0x38;
+			break;
+		
+		case PREP_SKLSUB_LEFT_ROM:
+			xHand = 0x10 + 0x10 * _lib_mod(proc->list_index, 5);
+			yHand = 0x58 + 0x10 * _lib_div(proc->list_index, 5);
+			break;
+			
+			
+		case PREP_SKLSUB_RIGHT:
+		default:
+			xHand = 0x78 + 0x10 * _lib_mod(proc->list_index, 6);
+			yHand = 0x28 + 0x10 * _lib_div(proc->list_index, 6);
+			break;
+	}
+	
+	PrepDrawHand( xHand, yHand, 0, 0x800);
 	
 goto_fail:
 	return;
 }
 
+ 
 
 
 
@@ -284,9 +370,9 @@ void PrepPickSkillList_InitTexts(){
 	Text_Init(&gStatScreen.text[5], 3); 	// "none"
 	
 	// For skill desc
-	Text_Init(&gStatScreen.text[6], 0x10); 
-	Text_Init(&gStatScreen.text[7], 0x10);
-	Text_Init(&gStatScreen.text[8], 0x10);
+	Text_Init(&gStatScreen.text[6], 0x11); 
+	Text_Init(&gStatScreen.text[7], 0x11);
+	Text_Init(&gStatScreen.text[8], 0x11);
 	
 }
 
@@ -434,7 +520,7 @@ void PrepPickSkillList_UpdateSkillDesc(struct Proc_PrepSkillSubList* proc){
 	}
 	
 	if( skill_id == proc->skill_id_pre )
-		// return;
+		return;
 	
 	proc->skill_id_pre = skill_id;
 	

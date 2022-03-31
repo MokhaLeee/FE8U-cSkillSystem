@@ -255,3 +255,105 @@ void PrepSkill_DrawBattalionBar(struct Unit* unit, int config){
 	
 }
 
+
+
+
+
+
+
+
+
+
+
+// 0x809AD91
+int ShouldPrepUnitMenuScroll(struct Proc_PrepUnit* proc){
+	
+	/*
+	yDiff_cur / 0x10	-> 	当前列表最上层的line
+	list_num_cur 		->	鼠标指代的当前列表序号
+	*/
+	
+	
+	int line = proc->yDiff_cur / 0x10;
+	int handLine = proc->list_num_cur / 2;
+	int maxLine = GetPrepScreenUnitListSize() / 2;
+	
+	// Judge up
+	// 1. handLine 位于 line 之上
+	// 2. line 并非 line 0
+	if( handLine < line )
+		if( line > 0 )
+			return 1;
+
+	// Judge down
+	// 1. handLine已经达到line+5
+	// 2. handLine 并非最后一行
+	if( handLine > (line + 4) )
+		if( handLine < maxLine )
+			return 1;
+	
+	return 0;
+
+	
+	
+}
+
+
+
+
+
+
+
+// 0x809A581
+void PrepUnit_DrawUnitListNames(struct Proc_PrepUnit* proc, int line){
+	
+	extern int IsCharacterForceDeployed(int char_id);
+	
+	int list_index, text_index, newLine;
+	struct Unit* unit;
+	
+	// it use 14 TextHandle to store 6 line of 12 Units;
+	// then put them on BG2
+	// then handle the bg-offset!
+	
+	// newLine = line % 7;
+	
+	newLine = line;
+	
+	while(newLine > 6)
+		newLine = newLine - 7;
+	
+	
+	// just add 2 units' name
+	for( int i = 0; i < 2; i++ )
+	{
+		text_index = newLine * 2 + i;
+		list_index = line * 2 + i;
+		
+		if( list_index >= GetPrepScreenUnitListSize() )
+			continue;
+		
+		unit = GetPrepScreenUnitListEntry(list_index);
+		
+		
+		Text_Clear( &gPrepUnitTexts[text_index] );
+		
+		DrawTextInline(
+			&gPrepUnitTexts[text_index],
+			TILEMAP_LOCATED( gBG2TilemapBuffer, 0x10 + i * 7 , line * 2 ),
+			0 == (unit->state & US_NOT_DEPLOYED)
+				? TEXT_COLOR_NORMAL
+				: TEXT_COLOR_GRAY,
+			0, 0,
+			GetStringFromIndex(unit->pCharacterData->nameTextId) );
+		
+	} // for
+	
+	BG_EnableSyncByMask(0b100);
+}
+
+
+
+
+
+

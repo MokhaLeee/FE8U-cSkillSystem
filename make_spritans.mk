@@ -25,9 +25,6 @@ $(PORTRAIT_INSTALLER): $(PORTRAIT_LIST) $(shell $(PORTRAIT_PROCESS) $(PORTRAIT_L
 	$(NOTIFY_PROCESS)
 	@$(PNG2DMP) $< -o $@
 
-%.4bpplz: %.png
-	$(NOTIFY_PROCESS)
-	@$(PNG2DMP) $< -o $@ --lz77
 
 # Palette
 %.gbapal: %.png

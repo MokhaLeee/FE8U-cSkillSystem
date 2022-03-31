@@ -34,7 +34,7 @@ enum{
 	// list length
 	PREPSKILL_LISTLEN_RAM = 5,
 	PREPSKILL_LISTLEN_ROM = 10,
-	PREPSKILL_LISTLEN_ALL = 15,
+	PREPSKILL_LISTLEN_ALL = 24,
 	PREPSKILL_LISTLEN_CA = 5,
 	
 };
@@ -106,6 +106,8 @@ void PrepSkill_DrawWindowGfx(void);
 void PrepSkill_DrawPickTotalBar(struct Unit* unit, int config); // config: 0->init, 1->update
 void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit, int config);
 void PrepSkill_DrawBattalionBar(struct Unit* unit, int config);
+void PrepUnit_DrawUnitListNames(struct Proc_PrepUnit*, int);
+int ShouldPrepUnitMenuScroll(struct Proc_PrepUnit*);
 
 
 // Skills List
