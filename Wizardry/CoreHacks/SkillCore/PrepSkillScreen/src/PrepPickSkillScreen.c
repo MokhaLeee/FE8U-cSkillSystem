@@ -2,6 +2,25 @@
 #include "PrepSkill.h"
 
 
+enum{
+	// Proc: Proc_PrepSkillSubList's label
+	LABEL_PREPSLILLSLIST_INIT = 0,
+	LABEL_PREPSLILLSLIST_IDLE,
+	LABEL_PREPSLILLSLIST_REMOVE,
+	LABEL_PREPSLILLSLIST_POST_REMOVE,
+	LABEL_PREPSLILLSLIST_ADD,
+	LABEL_PREPSLILLSLIST_POST_ADD,
+	LABEL_PREPSLILLSLIST_STATSCREEN,
+	LABEL_PREPSLILLSLIST_END,
+	
+
+	
+	// state for Proc_PrepSkillSubList + 0x29
+	STATE_PREPSUB_NORMAL,
+	STATE_PREPSUB_REPLACE_INRIGHT,
+	STATE_PREPSUB_REPLACE_INLEFT,
+};
+
 
 // ========================================
 // ======= There will added in cLib =======
@@ -24,6 +43,9 @@ extern void RestartScreenMenuScrollingBg();
 static void (*StartParallerWorkerWithParam)( void* func, int param, ProcPtr) = (const void*) 0x80ACE21; // func(ProcPtr,int param)
 extern void DeleteEach6CDifferedLoop();
 
+// For StatScreen
+extern void sub_809B4C0(ProcPtr);
+extern void sub_809B014(ProcPtr);
 
 
 
@@ -36,11 +58,13 @@ static void PrepPickSkillList_DrawRightBarTexts(struct Unit*, int config);
 static void PrepPickSkillList_DrawTotalSkill(struct Unit*);
 static void PrepPickSkillList_UpdateSkillDesc(struct Proc_PrepSkillSubList* proc);
 
+static void PrepPickSkill_OnEnd(struct Proc_PrepSkillSubList* proc);
 static void PrepPickSkill_InitSkillsList (struct Proc_PrepSkillSubList* proc);
 static void PrepPickSkill_InitScreen (struct Proc_PrepSkillSubList* proc);
 static void PrepPickSkill_MainLoop(struct Proc_PrepSkillSubList* proc);
 
-
+static void PrepPickSkillList_StartStatScreen(struct Proc_PrepSkillSubList* proc);
+static void PrepPickSkillList_PostStatScreen(struct Proc_PrepSkillSubList* proc);
 
 
 
@@ -53,6 +77,7 @@ static void PrepPickSkill_MainLoop(struct Proc_PrepSkillSubList* proc);
 const static struct ProcCmd gProc_PrepSkillPickSkillList[] = {
 	
 	PROC_NAME	("PREP_SKILLSCREEN_PICKSKILLS"),
+	PROC_SET_END_CB (PrepPickSkill_OnEnd),
 
 // Init
 PROC_LABEL (LABEL_PREPSLILLSLIST_INIT),
@@ -69,8 +94,19 @@ PROC_LABEL (LABEL_PREPSLILLSLIST_IDLE),
 	PROC_YIELD,
 	PROC_REPEAT	(PrepPickSkill_MainLoop),
 	
+
+// Stat Screen
+PROC_LABEL (LABEL_PREPSLILLSLIST_STATSCREEN),
+	PROC_CALL	(sub_809B4C0),
+	PROC_SLEEP	(2),
+	PROC_CALL	(sub_809B014),
+	PROC_CALL	(PrepPickSkillList_StartStatScreen), // Here Start StatScreen
+	PROC_YIELD,
+	PROC_CALL	(PrepPickSkillList_PostStatScreen),
+	PROC_GOTO	(LABEL_PREPSLILLSLIST_INIT),
 	
 
+// End
 PROC_LABEL (LABEL_PREPSLILLSLIST_END),
 	PROC_CALL	(DeleteEach6CDifferedLoop),
 	PROC_CALL_ARG (NewFadeOut, 0x8),
@@ -78,6 +114,14 @@ PROC_LABEL (LABEL_PREPSLILLSLIST_END),
 	PROC_END,
 };
 
+
+void PrepPickSkill_OnEnd(struct Proc_PrepSkillSubList* proc){
+	
+	static void (*SetPrepScreenUnitListCharID)(int index) = (const void*) 0x80953C1;
+	
+	SetPrepScreenUnitListCharID(proc->unit->pCharacterData->number);
+	
+}
 
 
 
@@ -179,6 +223,7 @@ void PrepPickSkill_MainLoop(struct Proc_PrepSkillSubList* proc){
 	list = GetUnitPrepSkillsList(proc->unit);
 	
 	// Handle normal button
+	
 	if( B_BUTTON & gKeyStatusPtr->newKeys )
 	{
 		if( 0 == gRAMChapterData.unk41_8)
@@ -186,8 +231,18 @@ void PrepPickSkill_MainLoop(struct Proc_PrepSkillSubList* proc){
 		
 		Proc_Goto(proc, LABEL_PREPSLILLSLIST_END);
 		return;
+		
 	} // B_BUTTON
 	
+	if( R_BUTTON & gKeyStatusPtr->newKeys )
+	{
+		Proc_Goto(proc, LABEL_PREPSLILLSLIST_STATSCREEN);
+		return;
+		
+	} // R_BUTTON
+	
+	
+
 	
 	
 	// W.I,P.
@@ -266,7 +321,6 @@ void PrepPickSkill_MainLoop(struct Proc_PrepSkillSubList* proc){
 	}
 	// DPAD End
 	
-
 	
 	if( 
 		(proc->list_type_pre == proc->list_type) && 
@@ -314,6 +368,33 @@ goto_fail:
 }
 
  
+
+
+
+// Stat Screen
+
+void PrepPickSkillList_StartStatScreen(struct Proc_PrepSkillSubList* proc){
+	
+	// refer to 809B504
+	
+	SetStatScreenConfig(0x11);
+	
+	StartStatScreen(proc->unit, (ProcPtr)proc);
+	
+}
+
+void PrepPickSkillList_PostStatScreen(struct Proc_PrepSkillSubList* proc){
+	
+	// refer to 809B520
+	
+	static int (*GetNewPrepUnitListIndexAfterStatScreen)() = (const void*) 0x8095675;
+	
+	InitPrepScreenUnitList();
+	proc->unit = GetPrepScreenUnitListEntry( GetNewPrepUnitListIndexAfterStatScreen() );
+	
+}
+
+
 
 
 

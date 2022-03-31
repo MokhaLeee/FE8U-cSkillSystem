@@ -2,6 +2,20 @@
 #include "PrepSkill.h"
 
 
+enum{
+	// Proc: Prep-SkillScreen's label
+	LABEL_PREPSKILL_INIT = 0,
+	LABEL_PREPSKILL_UNITLOOP,
+	LABEL_PREPSKILL_STATSCREEN,
+	LABEL_PREPSKILL_SUBMENU,
+	LABEL_PREPSKILL_SUBMENU_END,
+	LABEL_PREPSKILL_SUBLIST,
+	
+	LABEL_PREPSKILL_END,
+};
+
+
+
 // ========================================
 // ======= There will added in cLib =======
 // ========================================
@@ -740,6 +754,12 @@ void PrepSkill_StartSubList(struct Proc_PrepUnit* proc){
 	
 }
 void PrepSkill_PostSubList(struct Proc_PrepUnit* proc){
+	
+	static int (*GetNewPrepUnitListIndexAfterStatScreen)() = (const void*) 0x8095675;
+	
+	proc->list_num_cur = GetNewPrepUnitListIndexAfterStatScreen();
+	proc->list_num_pre = proc->list_num_cur;
+	
 	return;
 }
 

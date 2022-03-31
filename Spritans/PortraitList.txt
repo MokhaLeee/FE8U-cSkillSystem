@@ -1,4 +1,6 @@
 
-#                       Index MouthX MouthY EyesX EyesY IndexDefinition
-"Portraits/Florina.png" 0x04  2      7      3     5     MUG_FLORINA
-"Portraits/Lysithea.png" 0x2  2      6      2     4     MUG_LYSITHEA
+#                         Index MouthX MouthY EyesX EyesY IndexDefinition
+"Portraits/Lysithea.png"  0x02  2      6      2     4     MUG_LYSITHEA
+"Portraits/Eru.png"       0x0F  3      5      3     3     MUG_ERU
+"Portraits/Dimitri.png"   0x04  2      6      3     4     MUG_DIMITRI
+"Portraits/Flayn.png"     0x10  4      5      4     3     MUG_FLAYN
