@@ -1,5 +1,14 @@
-ALIGN 4
 
+ALIGN 4
+#include "src/Common-PrepSkillsList.lyn.event"
+#include "src/Common-PrepSkill_OnDraw.lyn.event"
+#include "src/PrepSkillScreen.lyn.event"
+#include "src/PrepPickSkillScreen.lyn.event"
+
+
+
+// msg
+ALIGN 4
 msgAt_PrepPickSkillName:
 	SHORT msg_PrepPickSkillName
 
@@ -26,11 +35,10 @@ msgAt_PrepSkillMenu_PickBattalionDesc:
 
 
 
-ALIGN 4
-#include "src/PrepSkillScreen.lyn.event"
-#include "src/PrepSkillsList.lyn.event"
 
 
+
+// Gfx
 ALIGN 4
 Gfx_PrepSkillScreen:
 	#incbin "data/Gfx_PrepSkillScreen.4bpp.lz"
@@ -58,6 +66,15 @@ ALIGN 4
 Tsa_PrepSkillScreenSubMenu:
 	#incbin "data/Tsa_PrepSkillScreenSubMenu.tsa.lz"
 
+
+
+ALIGN 4
+Gfx_PrepPickSkillScreen:
+	#incbin "data/Gfx_PrepPickSkillScreen.4bpp.lz"
+
+ALIGN 4
+Tsa_PrepSubPickSkillScreen:
+	#incbin "data/Tsa_PrepSubPickSkillScreen.tsa.lz"
 
 ALIGN 4
 Gfx_PrepSkillHelpButton:

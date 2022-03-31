@@ -51,11 +51,17 @@ enum{
 
 extern const struct ProcCmd newProcCmd_PrepMain[];
 
+
+
+// Global Functions
 void StartNewPrepAtMenu(struct newProc_PrepMain*);
 void StartNewPrepMapView(struct newProc_PrepMain*);
-
-
-
-// Skill Screen
 void StartPrepScreenSkillsMenu(struct Proc_AtMenu*);
+
+
+
+// More infomations inside SkillCore/PrepSkillScreen/PrepSkill.h
+
+
+
 
