@@ -19,7 +19,7 @@ A W.I.P. project of [Skill-lite](https://github.com/StanHash/SkillsLite.git) and
 
 You can directly assemble `Main.event` through [Event Assembler](https://github.com/StanHash/EventAssembler.git), and for more details, you can see tips on [StanH's CHAX](https://github.com/StanHash/FE-CHAX.git).
 
-BTW, since I may update the repository of C-Lib from time to time, so I suggest you update each submodels any time you want to use this template through commands:
+BTW, since I may update the repository of C-Lib from time to time, so I suggest you update each submodels any time you want to compile this through commands:
 ```
 git submodule sync
 git submodule update --init
@@ -38,10 +38,11 @@ git submodule update --remote
 	* `Icon display`
 	* `Battle-unit hook`
 	* `Load unit hook`
-	* `Brief BWL`:  null all entries to BWL table except load & save routines. 
+	* `Null BWL`:  null all entries to BWL table except load & save routines. 
 	* `BWL Supports`:  put unit support RAM data into new BWL table, rather than unit struct. 
 	* `Cahpter Init hook`: Add a function hook list when start or restart chapter.
-	
+	* `Common Space`: a common & free space with 0x40 long and will save in Suspend data, for more details, see `common-space.h`
+	* `External RNG`: a sub R.N.G. system for FE16 style level up status up.
 	
 	
 * Core Hacks
@@ -69,7 +70,9 @@ git submodule update --remote
 		* Skill tester
 		* `Skill fast list`: make two skill fast lists in RAM space for judge unit skill faster.
 		* Skill desc & name & icon-gfx etc. getter
-		* Draw skill page.
+		* Add skill etc. misc functions
+		* Draw skill page
+		* Draw prep-screen pick-skill page
 	* `Item effect rework`
 		* Modular item menu usability
 		* Modular item menu effect
@@ -84,7 +87,7 @@ git submodule update --remote
 	* `FE16 style level up`: use `rn-ext` system for 3DS/FE16 style level.
 	* `Skills installer` (W.I.P.)
 		* Blow skills
-	
+	* `Prep-Screen Rework`
 	
 * External Patches: other hackers' work
 
