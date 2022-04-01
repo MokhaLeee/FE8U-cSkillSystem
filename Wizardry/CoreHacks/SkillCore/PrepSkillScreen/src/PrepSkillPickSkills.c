@@ -194,6 +194,8 @@ void PrepPickSkill_InitScreen (struct Proc_PrepSkillSubList* proc){
 	PrepScreen_DrawHandGfxMaybe(0x600, 0x1);
 	PrepDrawHand( 0x78, 0x28, 0, 0x800);
 	
+	// Skill sub Obj
+	StartProc_PrepSkillObj(proc);
 	
 	// BG Scroll
 	PrepStartScroll(proc, 0xE0, 0x20, 0x200, 2);
@@ -629,7 +631,7 @@ void PrepPickSkillList_UpdateSkillDesc(struct Proc_PrepSkillSubList* proc){
 		
 		
 		
-		
+		// w.i.p. for chinese
 		while( 1 != *str++ ) // '\n'
 			if( 0 == *str )
 				return;

@@ -88,6 +88,11 @@ struct PrepSkillsList* GetUnitPrepSkillsList(struct Unit* unit);
 int PrepSkillAddRamSkillFromList(struct Unit* unit, u8 skill_id);
 
 
+// Objs
+void StartProc_PrepSkillObj(ProcPtr parent);
+void EndProc_PrepSkillObj(ProcPtr parent);
+
+
 
 
 // Global functions

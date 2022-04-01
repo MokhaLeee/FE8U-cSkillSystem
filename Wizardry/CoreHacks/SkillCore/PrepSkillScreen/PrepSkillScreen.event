@@ -1,9 +1,11 @@
 
 ALIGN 4
-#include "src/Common-PrepSkillsList.lyn.event"
-#include "src/Common-PrepSkill_OnDraw.lyn.event"
+#include "src/PrepSkill-ListMisc.lyn.event"
+#include "src/PrepSkill-OnDraw.lyn.event"
+#include "src/PrepSkill-Obj.lyn.event"
+
 #include "src/PrepSkillScreen.lyn.event"
-#include "src/PrepPickSkillScreen.lyn.event"
+#include "src/PrepSkillPickSkills.lyn.event"
 
 
 
@@ -68,6 +70,7 @@ Tsa_PrepSkillScreenSubMenu:
 
 
 
+// Pick Skill Window
 ALIGN 4
 Gfx_PrepPickSkillScreen:
 	#incbin "data/Gfx_PrepPickSkillScreen.4bpp.lz"
@@ -76,6 +79,13 @@ ALIGN 4
 Tsa_PrepSubPickSkillScreen:
 	#incbin "data/Tsa_PrepSubPickSkillScreen.tsa.lz"
 
+
+
+// Skill state Obj
 ALIGN 4
-Gfx_PrepSkillHelpButton:
-	#incbin "data/Gfx_PrepSkillHelpButton.4bpp.lz"
+Gfx_PrepPickSkillObjs:
+	#incbin "data/Gfx_PrepPickSkillObj.4bpp.lz"
+
+ALIGN 4
+Pal_PrepPickSkillObjs:
+	#incbin "data/Gfx_PrepPickSkillObj.gbapal"
