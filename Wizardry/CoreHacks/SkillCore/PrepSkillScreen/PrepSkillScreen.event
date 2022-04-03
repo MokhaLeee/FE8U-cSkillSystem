@@ -83,9 +83,21 @@ Tsa_PrepSubPickSkillScreen:
 
 // Skill state Obj
 ALIGN 4
-Gfx_PrepPickSkillObjs:
-	#incbin "data/Gfx_PrepPickSkillObj.4bpp.lz"
+Gfx_ObjSkill:
+	#incbin "data/Obj_Skill.4bpp.lz"
 
 ALIGN 4
-Pal_PrepPickSkillObjs:
-	#incbin "data/Gfx_PrepPickSkillObj.gbapal"
+Pal_ObjSkill:
+	#incbin "data/Obj_Skill.gbapal"
+
+
+
+// Obj window
+ALIGN 4
+Gfx_ObjWindow:
+	#incbin "data/Obj_Window.4bpp.lz"
+
+ALIGN 4
+Pal_ObjWindow:
+	#incbin "data/Obj_Window.gbapal"
+	

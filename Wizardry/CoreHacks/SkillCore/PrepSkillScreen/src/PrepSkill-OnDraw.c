@@ -29,6 +29,8 @@ void PrepSkill_DrawWindowGfx(void){
 }
 
 
+
+
 void PrepSkill_DrawPickTotalBar(struct Unit* unit, int config){
 	
 	// 0x809AAF1

@@ -159,9 +159,9 @@ PROC_LABEL (LABEL_PREPSKILL_SUBLIST),
 
 // End
 PROC_LABEL	(LABEL_PREPSKILL_END),
-	PROC_CALL	(DeleteEach6CDifferedLoop),
 	PROC_CALL_ARG (NewFadeOut, 0x8),
 	PROC_WHILE	(FadeOutExists),
+	PROC_CALL	(DeleteEach6CDifferedLoop),
 	PROC_END
 }; 
 
@@ -254,6 +254,7 @@ void PrepSkill_InitScreen (struct Proc_PrepUnit* proc){
 	// Init SMS
 	PrepUnit_InitSMS(proc);
 	Get6CDifferedLoop6C(PrepSkill_UpdateSMSsAndObjs, proc);
+	
 	
 	// Hand
 	ResetPrepScreenHandCursor(proc);

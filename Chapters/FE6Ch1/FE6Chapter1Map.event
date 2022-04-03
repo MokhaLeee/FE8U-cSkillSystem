@@ -24,8 +24,34 @@
 
 ALIGN 4
 MapData:
-  #incbin "DemoMap_data.dmp"
+  #incbin "FE6Chapter1Map_data.dmp"
 
-SetChapterData(0, 0x01, 0, 0x02, 0x03, 0x04, MapData, 0x05, 0, 0)
+SetChapterData(0, 0x01, 0, 0x02, 0x03, 0x04, MapData, 0x05, 0, 0x06)
+
+ALIGN 4
+VillageA_Destroyed:
+  SHORT $E1C $E20 $E24 $E9C $EA0 $EA4 $F1C $F20 $F24
+
+ALIGN 4
+VillageB_Destroyed:
+  SHORT $E1C $E20 $E24 $E9C $EA0 $EA4 $F1C $F20 $F24
+
+ALIGN 4
+VillageA_Closed:
+  SHORT $80
+
+ALIGN 4
+VillageB_Closed:
+  SHORT $80
+
+ALIGN 4
+MapChangesData:
+  TileMap(0, 11, 17, 3, 3, VillageA_Destroyed)
+  TileMap(1, 3, 7, 3, 3, VillageB_Destroyed)
+  TileMap(2, 12, 19, 1, 1, VillageA_Closed)
+  TileMap(3, 4, 9, 1, 1, VillageB_Closed)
+  TileMapEnd
+
+EventPointerTable(0x06, MapChangesData)
 
 }

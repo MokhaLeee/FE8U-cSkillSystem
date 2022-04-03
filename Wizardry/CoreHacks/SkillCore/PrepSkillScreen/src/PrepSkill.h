@@ -2,25 +2,33 @@
 
 enum{
 	// On draw config
-	
 	ON_DRAW_CONFIG_INIT = 0,
 	ON_DRAW_CONFIG_UPDATE = 1,
-};
 
-
-
-enum{
-	// Sub-menu items
 	
+	// for Objs
+	// Real VRAM Offset to uncompress: OBJ_VRAM0 + _VOBJ
+	// Real Palette index: 0x10 + _PAL
+	SKILLOBJ_VOBJ = 0x3000, 
+	SKILLOBJ_PAL = 0x3,
+
+	OBJWINDOW_VOBJ = 0x4000,
+	OBJWINDOW_PAL = 0x6,
+	OBJWINDOW_XPOS = 0x70,
+	OBJWINDOW_YPOS = 0x58,
+	OBJWINDOW_LENGTH = 5,
+	OBJWINDOW_HEIGHT = 4,
+	
+	
+
+	// Sub-menu items	
 	MENUITEM_PREPSKILL_SKILL = 0,
 	MENUITEM_PREPSKILL_COMBAT,
 	MENUITEM_PREPSKILL_BATTALION,
 	
 	MENUITEM_PREPSKILL_NULL = 0xFF,
 	
-};
 
-enum{
 	// list type for proc-skill-sublist + 0x29
 	PREP_SKLSUB_RIGHT = 0,
 	PREP_SKLSUB_LEFT_RAM,
@@ -90,7 +98,10 @@ int PrepSkillAddRamSkillFromList(struct Unit* unit, u8 skill_id);
 
 // Objs
 void StartProc_PrepSkillObj(ProcPtr parent);
-void EndProc_PrepSkillObj(ProcPtr parent);
+void EndProc_PrepSkillObj();
+
+void PrepSkill_InitObjWindowGfx();
+void PrepSkill_UpdateObjWindow(int x, int y, int length, int height);
 
 
 

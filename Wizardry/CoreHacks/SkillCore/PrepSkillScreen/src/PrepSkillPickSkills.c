@@ -97,6 +97,7 @@ PROC_LABEL (LABEL_PREPSLILLSLIST_IDLE),
 
 // Stat Screen
 PROC_LABEL (LABEL_PREPSLILLSLIST_STATSCREEN),
+	PROC_CALL	(EndProc_PrepSkillObj),
 	PROC_CALL	(sub_809B4C0),
 	PROC_SLEEP	(2),
 	PROC_CALL	(sub_809B014),
@@ -168,7 +169,7 @@ void PrepPickSkill_InitScreen (struct Proc_PrepSkillSubList* proc){
 	BG_Fill(gBG1TilemapBuffer, 0);
 	BG_Fill(gBG2TilemapBuffer, 0);
 	
-	gLCDControlBuffer.bg0cnt.priority = 0b10;
+	gLCDControlBuffer.bg0cnt.priority = 0b00;
 	gLCDControlBuffer.bg1cnt.priority = 0b10;
 	gLCDControlBuffer.bg2cnt.priority = 0b01;
 	gLCDControlBuffer.bg3cnt.priority = 0b11;
@@ -194,7 +195,7 @@ void PrepPickSkill_InitScreen (struct Proc_PrepSkillSubList* proc){
 	PrepScreen_DrawHandGfxMaybe(0x600, 0x1);
 	PrepDrawHand( 0x78, 0x28, 0, 0x800);
 	
-	// Skill sub Obj
+	// Skill Obj misc
 	StartProc_PrepSkillObj(proc);
 	
 	// BG Scroll
@@ -530,7 +531,7 @@ void PrepPickSkillList_DrawTotalSkill(struct Unit* unit){
 	if( 0 == list->total[PREP_SKLSUB_RIGHT] )
 		DrawTextInline(
 			&gStatScreen.text[3],
-			TILEMAP_LOCATED( gBG0TilemapBuffer, 0xF, 0x5),
+			TILEMAP_LOCATED( gBG2TilemapBuffer, 0xF, 0x5),
 			TEXT_COLOR_NORMAL, 0, 0,
 			"None" );
 	else		
@@ -544,7 +545,7 @@ void PrepPickSkillList_DrawTotalSkill(struct Unit* unit){
 			
 			
 			DrawIcon(
-				TILEMAP_LOCATED( gBG0TilemapBuffer, xPos, yPos),
+				TILEMAP_LOCATED( gBG2TilemapBuffer, xPos, yPos),
 				SKILL_ICON(list->skills_all[i]), 
 				TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) 
 			);

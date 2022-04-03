@@ -2,20 +2,9 @@
 #include "PrepSkill.h"
 
 
-// ========================================
-// ======= Static Func Definitions ========
-// ========================================
 
-struct Proc_PrepSkillObj{
-	
-	/* 00 */ PROC_HEADER;
-	/* 29 */ u8 time;
-	
-};
-
-
-static void PrepSkillObj_OnDraw(struct Proc_PrepSkillObj* proc);
-static void PrepSkillObj_OnUpdate(struct Proc_PrepSkillObj* proc);
+static void PrepSkillObj_OnInit(ProcPtr proc);
+static void PrepSkillObj_OnUpdate(ProcPtr proc);
 
 
 // ========================================
@@ -24,17 +13,11 @@ static void PrepSkillObj_OnUpdate(struct Proc_PrepSkillObj* proc);
 
 
 
-
-enum{
-	SKILLOBJ_VRAMOFF = 0x2000,
-	SKILLOBJ_PALID = 0x3,
-};
-
 const static struct ProcCmd gProc_PrepSkillPutObj[] = {
 	
 	PROC_NAME	("PREPSKILL_OBJ"),
 	
-	PROC_CALL	(PrepSkillObj_OnDraw),
+	PROC_CALL	(PrepSkillObj_OnInit),
 	PROC_REPEAT	(PrepSkillObj_OnUpdate),
 	
 	PROC_END,
@@ -43,37 +26,85 @@ const static struct ProcCmd gProc_PrepSkillPutObj[] = {
 
 
 
-void PrepSkillObj_OnDraw(struct Proc_PrepSkillObj* proc){
+void PrepSkillObj_OnInit(ProcPtr proc){
 	
-	extern u16 Gfx_PrepPickSkillObjs[];
-	extern u16 Pal_PrepPickSkillObjs[];
 	
-	// Gfx
-	CopyDataWithPossibleUncomp( Gfx_PrepPickSkillObjs, OBJ_VRAM0 + SKILLOBJ_VRAMOFF ); 
+	// Skill tips
+	extern u16 Gfx_ObjSkill[];
+	extern u16 Pal_ObjSkill[];
 	
-	// Palette
-	// (aSrc, aPalId, aPalCount)
-	ApplyPalettes(Pal_PrepPickSkillObjs, SKILLOBJ_PALID + 0x10, 1);
+	CopyDataWithPossibleUncomp( Gfx_ObjSkill, OBJ_VRAM0 + SKILLOBJ_VOBJ ); 
+	ApplyPalettes(Pal_ObjSkill, SKILLOBJ_PAL + 0x10, 1);
 	
-	// timer
-	proc->time = 0;
+	
+	// Window Obj
+	extern u16 Gfx_ObjWindow[];
+	extern u16 Pal_ObjWindow[];
+	
+	CopyDataWithPossibleUncomp(Gfx_ObjWindow, OBJ_VRAM0 + OBJWINDOW_VOBJ);
+	ApplyPalettes(Pal_ObjWindow, OBJWINDOW_PAL + 0x10, 1);
+	
+}
+
+
+
+void PrepSkillObj_OnUpdate(ProcPtr proc){
+	
+	// 注意！
+	// 在相同优先度的情况下，Obj在图层的上下顺序也与插入的顺序有关
+	// 越后插入的图层优先级越高
+	// 由于我们不得不将Window和Skill tips同时放置于0b01优先级
+	// 因而二者必须放在同一个函数中，并将 PutObjWindow 放置于 skill-tips之后，以确保window能够将tips覆盖
+	// 但是这样一来我们也不得不在这里配置窗口框
+	
+	static void (*PutObjWindow)(int x, int y, int length, int height, int oam2) = (const void*) 0x809A31D;
+	
+	
+	// Cursor
+	DisplayCursor(0x98 + gGameState.camera.x, 0x28 + 1 + gGameState.camera.y, 1);
+	
+	
+	
+	
+	// Skill tips
+	if( GetGameClock() & (1 << 5) )
+	{
+		PutSprite(4, 
+			0x80, 
+			0x28, 
+			gObject_8x16, 
+			OAM2_PAL(SKILLOBJ_PAL) + 
+				OAM2_LAYER(0b01) + 
+				OAM2_CHR(SKILLOBJ_VOBJ / 0x20));
+		
+		PutSprite( 4,
+			0x90, 
+			0x28, 
+			gObject_8x16, 
+			OAM2_PAL(SKILLOBJ_PAL) + 
+				OAM2_LAYER(0b01) + 
+				OAM2_CHR(SKILLOBJ_VOBJ / 0x20 + 1));
+	}
+	
+	
+	
+	
+	// Obj Window
+	PutObjWindow(
+		OBJWINDOW_XPOS,
+		OBJWINDOW_YPOS,
+		OBJWINDOW_LENGTH,
+		OBJWINDOW_HEIGHT,
+		OAM2_PAL(OBJWINDOW_PAL) +
+			OAM2_LAYER(0b01) +
+			OAM2_CHR(OBJWINDOW_VOBJ / 0x20) );
 	
 }
 
 
 
-void PrepSkillObj_OnUpdate(struct Proc_PrepSkillObj* proc){
-	
-	proc->time++;
-	
-	if( (proc->time & 0x3F) < 0x20 )
-		return;
-	
-	PutSprite(4, 0x10 * 0x8, 0x5 * 8, gObject_8x16, OAM2_PAL(SKILLOBJ_PALID) + SKILLOBJ_VRAMOFF / 0x20);
-	PutSprite(4, 0x12 * 0x8, 0x5 * 8, gObject_8x16, OAM2_PAL(SKILLOBJ_PALID) + SKILLOBJ_VRAMOFF / 0x20 + 1);
-	
-	
-}
+
+
 
 
 
@@ -83,12 +114,13 @@ void PrepSkillObj_OnUpdate(struct Proc_PrepSkillObj* proc){
 // =======================================================
 void StartProc_PrepSkillObj(ProcPtr parent){
 	
-	if( NULL == Proc_Find(gProc_PrepSkillPutObj) )
-		Proc_Start(gProc_PrepSkillPutObj, parent);
+	Proc_EndEach(gProc_PrepSkillPutObj);
+
+	Proc_Start(gProc_PrepSkillPutObj, parent);
 	
 }
 
-void EndProc_PrepSkillObj(ProcPtr parent){
+void EndProc_PrepSkillObj(){
 	
 	Proc_EndEach(gProc_PrepSkillPutObj);
 	
