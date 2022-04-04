@@ -80,5 +80,6 @@
 #define msg_PrepSkillMenu_PickCombatDesc $D95
 #define msg_PrepSkillMenu_PickBattalionName $D96
 #define msg_PrepSkillMenu_PickBattalionDesc $D97
+#define msg_PrepPickSkill_FailAddSkill $D98
 
 #endif // TEXT_DEFINITIONS_WRITANS_TEXTMAIN_TXT

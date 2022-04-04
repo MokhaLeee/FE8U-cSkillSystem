@@ -26,6 +26,7 @@ const static struct ProcCmd gProc_PrepSkillPutObj[] = {
 
 
 
+
 void PrepSkillObj_OnInit(ProcPtr proc){
 	
 	
@@ -57,19 +58,16 @@ void PrepSkillObj_OnUpdate(ProcPtr proc){
 	// 因而二者必须放在同一个函数中，并将 PutObjWindow 放置于 skill-tips之后，以确保window能够将tips覆盖
 	// 但是这样一来我们也不得不在这里配置窗口框
 	
-	static void (*PutObjWindow)(int x, int y, int length, int height, int oam2) = (const void*) 0x809A31D;
-	
 	
 	// Cursor
 	DisplayCursor(0x98 + gGameState.camera.x, 0x28 + 1 + gGameState.camera.y, 1);
 	
 	
 	
-	
 	// Skill tips
 	if( GetGameClock() & (1 << 5) )
 	{
-		PutSprite(4, 
+		PutSprite(5, 
 			0x80, 
 			0x28, 
 			gObject_8x16, 
@@ -77,7 +75,7 @@ void PrepSkillObj_OnUpdate(ProcPtr proc){
 				OAM2_LAYER(0b01) + 
 				OAM2_CHR(SKILLOBJ_VOBJ / 0x20));
 		
-		PutSprite( 4,
+		PutSprite( 5,
 			0x90, 
 			0x28, 
 			gObject_8x16, 
@@ -89,15 +87,7 @@ void PrepSkillObj_OnUpdate(ProcPtr proc){
 	
 	
 	
-	// Obj Window
-	PutObjWindow(
-		OBJWINDOW_XPOS,
-		OBJWINDOW_YPOS,
-		OBJWINDOW_LENGTH,
-		OBJWINDOW_HEIGHT,
-		OAM2_PAL(OBJWINDOW_PAL) +
-			OAM2_LAYER(0b01) +
-			OAM2_CHR(OBJWINDOW_VOBJ / 0x20) );
+	
 	
 }
 

@@ -24,3 +24,7 @@ Battalion[X]
 
 ## msg_PrepSkillMenu_PickBattalionDesc
 Pick Battalion[X]
+
+## msg_PrepPickSkill_FailAddSkill
+This skill is not removable as[NL]
+inherent to character or class.[X]

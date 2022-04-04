@@ -35,8 +35,8 @@ msgAt_PrepSkillMenu_PickBattalionName:
 msgAt_PrepSkillMenu_PickBattalionDesc:
 	SHORT msg_PrepSkillMenu_PickBattalionDesc
 
-
-
+msgAt_PrepPickSkill_FailAddSkill:
+	SHORT msg_PrepPickSkill_FailAddSkill
 
 
 

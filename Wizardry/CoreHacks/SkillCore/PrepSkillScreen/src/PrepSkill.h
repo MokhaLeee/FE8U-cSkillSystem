@@ -11,14 +11,9 @@ enum{
 	// Real Palette index: 0x10 + _PAL
 	SKILLOBJ_VOBJ = 0x3000, 
 	SKILLOBJ_PAL = 0x3,
-
+	
 	OBJWINDOW_VOBJ = 0x4000,
 	OBJWINDOW_PAL = 0x6,
-	OBJWINDOW_XPOS = 0x70,
-	OBJWINDOW_YPOS = 0x58,
-	OBJWINDOW_LENGTH = 5,
-	OBJWINDOW_HEIGHT = 4,
-	
 	
 
 	// Sub-menu items	

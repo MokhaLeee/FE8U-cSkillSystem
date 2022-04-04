@@ -6,11 +6,13 @@ enum{
 	// Proc: Proc_PrepSkillSubList's label
 	LABEL_PREPSLILLSLIST_INIT = 0,
 	LABEL_PREPSLILLSLIST_IDLE,
+	LABEL_PREPSLILLSLIST_FAIL_REMOVE,
 	LABEL_PREPSLILLSLIST_REMOVE,
 	LABEL_PREPSLILLSLIST_POST_REMOVE,
 	LABEL_PREPSLILLSLIST_ADD,
 	LABEL_PREPSLILLSLIST_POST_ADD,
 	LABEL_PREPSLILLSLIST_STATSCREEN,
+	
 	LABEL_PREPSLILLSLIST_END,
 	
 
@@ -22,6 +24,9 @@ enum{
 };
 
 
+extern u16 msgAt_PrepPickSkill_FailAddSkill;
+
+
 // ========================================
 // ======= There will added in cLib =======
 // ========================================
@@ -31,8 +36,10 @@ extern int FadeInExists();
 
 // OAM Misc
 static void (*PrepDrawHand)(int x, int y, int, int) = (const void*) 0x80AD51D;
+extern void HidePrepScreenHandCursor();
 extern void ResetPrepScreenHandCursor(ProcPtr);
 static void (*PrepScreen_DrawHandGfxMaybe)(int, int) = (const void*) 0x80AD4A1;
+static void (*PutObjWindow)(int x, int y, int length, int height, int oam2) = (const void*) 0x809A31D;
 
 // BG Scroll
 extern int NewFadeOut(ProcPtr);
@@ -52,20 +59,22 @@ extern void sub_809B014(ProcPtr);
 // ========================================
 // ======= Static Func Definitions ========
 // ========================================
-static void PrepPickSkillList_InitTexts();
-static void PrepPickSkillList_DrawWindowGfx(void);
-static void PrepPickSkillList_DrawRightBarTexts(struct Unit*, int config);
-static void PrepPickSkillList_DrawTotalSkill(struct Unit*);
-static void PrepPickSkillList_UpdateSkillDesc(struct Proc_PrepSkillSubList* proc);
+static void PrepPickSkill_InitTexts();
+static void PrepPickSkill_DrawWindowGfx(void);
+static void PrepPickSkill_DrawRightBarTexts(struct Unit*, int config);
+static void PrepPickSkill_DrawTotalSkill(struct Unit*);
+static void PrepPickSkill_UpdateSkillDesc(struct Proc_PrepSkillSubList* proc);
 
 static void PrepPickSkill_OnEnd(struct Proc_PrepSkillSubList* proc);
 static void PrepPickSkill_InitSkillsList (struct Proc_PrepSkillSubList* proc);
 static void PrepPickSkill_InitScreen (struct Proc_PrepSkillSubList* proc);
 static void PrepPickSkill_MainLoop(struct Proc_PrepSkillSubList* proc);
 
-static void PrepPickSkillList_StartStatScreen(struct Proc_PrepSkillSubList* proc);
-static void PrepPickSkillList_PostStatScreen(struct Proc_PrepSkillSubList* proc);
-
+static void PrepPickSkill_StartStatScreen(struct Proc_PrepSkillSubList* proc);
+static void PrepPickSkill_PostStatScreen(struct Proc_PrepSkillSubList* proc);
+static void PrepPickSkill_FailAddSkillPre(struct Proc_PrepSkillSubList* proc);
+static void PrepPickSkill_FailAddSkillIdle(struct Proc_PrepSkillSubList* proc);
+static void PrepPickSkill_FailAddSkillPreReturnMainLoop(struct Proc_PrepSkillSubList* proc);
 
 
 
@@ -101,10 +110,20 @@ PROC_LABEL (LABEL_PREPSLILLSLIST_STATSCREEN),
 	PROC_CALL	(sub_809B4C0),
 	PROC_SLEEP	(2),
 	PROC_CALL	(sub_809B014),
-	PROC_CALL	(PrepPickSkillList_StartStatScreen), // Here Start StatScreen
+	PROC_CALL	(PrepPickSkill_StartStatScreen), // Here Start StatScreen
 	PROC_YIELD,
-	PROC_CALL	(PrepPickSkillList_PostStatScreen),
+	PROC_CALL	(PrepPickSkill_PostStatScreen),
 	PROC_GOTO	(LABEL_PREPSLILLSLIST_INIT),
+	
+
+// When pick rom skill in right list
+PROC_LABEL (LABEL_PREPSLILLSLIST_FAIL_REMOVE),
+	PROC_YIELD,
+	PROC_CALL	(PrepPickSkill_FailAddSkillPre),
+	PROC_YIELD,
+	PROC_REPEAT	(PrepPickSkill_FailAddSkillIdle),
+	PROC_CALL	(PrepPickSkill_FailAddSkillPreReturnMainLoop),
+	PROC_GOTO	(LABEL_PREPSLILLSLIST_IDLE),
 	
 
 // End
@@ -180,8 +199,8 @@ void PrepPickSkill_InitScreen (struct Proc_PrepSkillSubList* proc){
 	BG_SetPosition( 3, 0, 0);
 	
 	EndGreenTextColorManager();
-	PrepPickSkillList_InitTexts();
-	PrepPickSkillList_DrawWindowGfx();
+	PrepPickSkill_InitTexts();
+	PrepPickSkill_DrawWindowGfx();
 	
 	
 	BG_EnableSyncByMask(0b1111);
@@ -204,11 +223,11 @@ void PrepPickSkill_InitScreen (struct Proc_PrepSkillSubList* proc){
 	// Draw Text Icons
 	PrepUnit_DrawLeftUnitName(proc->unit);
 	PrepSkill_DrawLeftSkillsIcon(proc->unit, ON_DRAW_CONFIG_INIT);
-	PrepPickSkillList_DrawRightBarTexts(proc->unit, ON_DRAW_CONFIG_INIT);
-	PrepPickSkillList_DrawTotalSkill(proc->unit);
+	PrepPickSkill_DrawRightBarTexts(proc->unit, ON_DRAW_CONFIG_INIT);
+	PrepPickSkill_DrawTotalSkill(proc->unit);
 	
 	// Parallel to update skill-desc
-	StartParallerWorkerWithParam(PrepPickSkillList_UpdateSkillDesc, 0, proc);
+	StartParallerWorkerWithParam(PrepPickSkill_UpdateSkillDesc, 0, proc);
 
 	LoadDialogueBoxGfx(BG_SCREEN_ADDR(0x29), 5);
 	RestartScreenMenuScrollingBg();
@@ -237,14 +256,18 @@ void PrepPickSkill_MainLoop(struct Proc_PrepSkillSubList* proc){
 		
 	} // B_BUTTON
 	
-	if( R_BUTTON & gKeyStatusPtr->newKeys )
+	else if( R_BUTTON & gKeyStatusPtr->newKeys )
 	{
 		Proc_Goto(proc, LABEL_PREPSLILLSLIST_STATSCREEN);
 		return;
 		
 	} // R_BUTTON
 	
-	
+	else if( A_BUTTON & gKeyStatusPtr->newKeys )
+	{
+		Proc_Goto(proc, LABEL_PREPSLILLSLIST_FAIL_REMOVE);
+		return;
+	} // A_BUTTON
 
 	
 	
@@ -335,7 +358,7 @@ void PrepPickSkill_MainLoop(struct Proc_PrepSkillSubList* proc){
 	proc->list_index_pre = proc->list_index;
 	
 	// Parallel to update skill-desc
-	StartParallerWorkerWithParam(PrepPickSkillList_UpdateSkillDesc, 0, proc);
+	StartParallerWorkerWithParam(PrepPickSkill_UpdateSkillDesc, 0, proc);
 	
 	// M4a
 	if( 0 == gRAMChapterData.unk41_8)
@@ -376,7 +399,7 @@ goto_fail:
 
 // Stat Screen
 
-void PrepPickSkillList_StartStatScreen(struct Proc_PrepSkillSubList* proc){
+void PrepPickSkill_StartStatScreen(struct Proc_PrepSkillSubList* proc){
 	
 	// refer to 809B504
 	
@@ -386,7 +409,7 @@ void PrepPickSkillList_StartStatScreen(struct Proc_PrepSkillSubList* proc){
 	
 }
 
-void PrepPickSkillList_PostStatScreen(struct Proc_PrepSkillSubList* proc){
+void PrepPickSkill_PostStatScreen(struct Proc_PrepSkillSubList* proc){
 	
 	// refer to 809B520
 	
@@ -402,11 +425,133 @@ void PrepPickSkillList_PostStatScreen(struct Proc_PrepSkillSubList* proc){
 
 
 
+
+// when try remove a rom skill
+
+void PrepPickSkill_FailAddSkillPre(struct Proc_PrepSkillSubList* proc){
+	
+	char* str;
+	
+	HidePrepScreenHandCursor();
+	
+	
+	str = GetStringFromIndex( msgAt_PrepPickSkill_FailAddSkill );
+	
+	TileMap_FillRect(
+		TILEMAP_LOCATED( gBG0TilemapBuffer, 0xD, 0x6),
+		0x5, 0x1 , 0 );
+	
+	
+	for( int line = 0; line < 2; line++ )
+	{
+		
+		Text_Clear(&gStatScreen.text[0xB + line]);
+		
+		DrawTextInline(
+			&gStatScreen.text[0xB + line],
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 0xD, 0x6 + 2 * line),
+			TEXT_COLOR_NORMAL, 0, 0,
+			str );
+		
+
+		
+		// w.i.p. for chinese
+		while( 1 != *str++ ) // '\n'
+			if( 0 == *str )
+				goto goto_return;
+	
+	}
+
+	
+	
+goto_return:		
+	BG_EnableSyncByMask(0b01);
+}
+
+void PrepPickSkill_FailAddSkillIdle(struct Proc_PrepSkillSubList* proc){
+	
+	enum{
+		
+		OBJWINDOW0_XPOS = 0x60,
+		OBJWINDOW0_YPOS = 0x2E,
+		OBJWINDOW0_LENGTH = 0x11,
+		OBJWINDOW0_HEIGHT = 4,
+	};
+		
+	
+	if( (A_BUTTON | B_BUTTON) & gKeyStatusPtr->newKeys )
+	{
+		// remove text
+		TileMap_FillRect(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 0xD, 0x6),
+			0x10, 0x3 , 0 );
+		
+		Proc_Break(proc);
+		return;
+	} // A_BUTTON
+	
+	// Obj Window
+	PutObjWindow(
+		OBJWINDOW0_XPOS,
+		OBJWINDOW0_YPOS,
+		OBJWINDOW0_LENGTH,
+		OBJWINDOW0_HEIGHT,
+		OAM2_PAL(OBJWINDOW_PAL) +
+			OAM2_LAYER(0b01) +
+			OAM2_CHR(OBJWINDOW_VOBJ / 0x20) );
+	
+}
+void PrepPickSkill_FailAddSkillPreReturnMainLoop(struct Proc_PrepSkillSubList* proc){
+	
+	int xHand, yHand;
+	
+	
+	
+	
+	// Draw Hand
+	switch ( proc->list_type )
+	{
+		
+		case PREP_SKLSUB_LEFT_RAM:
+			xHand = 0x10 + 0x10 * proc->list_index;
+			yHand = 0x38;
+			break;
+		
+		case PREP_SKLSUB_LEFT_ROM:
+			xHand = 0x10 + 0x10 * _lib_mod(proc->list_index, 5);
+			yHand = 0x58 + 0x10 * _lib_div(proc->list_index, 5);
+			break;
+			
+			
+		case PREP_SKLSUB_RIGHT:
+		default:
+			xHand = 0x78 + 0x10 * _lib_mod(proc->list_index, 6);
+			yHand = 0x28 + 0x10 * _lib_div(proc->list_index, 6);
+			break;
+	}
+	
+	PrepDrawHand( xHand, yHand, 0, 0x800);
+	
+	
+	BG_EnableSyncByMask(0b01);
+	return;
+	
+}
+
+
+
+
+
+
+
+
+
+
 // =======================================================
 // ====================== On Draw ========================
 // =======================================================
 
-void PrepPickSkillList_DrawWindowGfx(void){
+void PrepPickSkill_DrawWindowGfx(void){
 	
 	// 0x809A874
 	extern u16 Gfx_PrepPickSkillScreen[]; // gfx
@@ -433,7 +578,7 @@ void PrepPickSkillList_DrawWindowGfx(void){
 }
 
 
-void PrepPickSkillList_InitTexts(){
+void PrepPickSkill_InitTexts(){
 	
 	Font_InitForUIDefault();
 	
@@ -442,26 +587,37 @@ void PrepPickSkillList_InitTexts(){
 	Text_Init(&gPrepUnitTexts[0x10], 8);	// "Combat Arts"
 	// Text_Init(&gPrepUnitTexts[0x11], 6);	// "Battalion"
 	Text_Init(&gPrepUnitTexts[0x12], 3);	// "none" for left RAM skills
-	Text_Init(&gStatScreen.text[2], 3); 	// "none" for left ROM skills
-	Text_Init(&gStatScreen.text[3], 3); 	// "none" for left CombatArts
+	Text_Init(&gStatScreen.text[0x2], 3); 	// "none" for left ROM skills
+	Text_Init(&gStatScreen.text[0x3], 3); 	// "none" for left CombatArts
 	
 	// Two for right-upper bar
-	Text_Init(&gStatScreen.text[0], 3); 	// "pick"
-	Text_Init(&gStatScreen.text[1], 6); 	// "total skill"
+	Text_Init(&gStatScreen.text[0x0], 3); 	// "pick"
+	Text_Init(&gStatScreen.text[0x1], 6); 	// "total skill"
 	
 	// Two for Right skill list
-	Text_Init(&gStatScreen.text[4], 4); 	// "Skills"
-	Text_Init(&gStatScreen.text[5], 3); 	// "none"
+	Text_Init(&gStatScreen.text[0x4], 4); 	// "Skills"
+	Text_Init(&gStatScreen.text[0x5], 3); 	// "none"
+	
+	// For Obj-window text
+	Text_Init(&gStatScreen.text[0xB], 0x11);
+	Text_Init(&gStatScreen.text[0xC], 0x11);
+	Text_Init(&gStatScreen.text[0xD], 0x11);
+	
+	// For Unit Name
+	Text_Init(&gPrepUnitTexts[0x13], 7);
+	Text_Init(&gPrepUnitTexts[0x14], 10);
+	Text_Init(&gPrepUnitTexts[0x15], 15);
 	
 	// For skill desc
-	Text_Init(&gStatScreen.text[6], 0x11); 
-	Text_Init(&gStatScreen.text[7], 0x11);
-	Text_Init(&gStatScreen.text[8], 0x11);
+	Text_Init(&gStatScreen.text[0x6], 0x11); 
+	Text_Init(&gStatScreen.text[0x7], 0x11);
+	Text_Init(&gStatScreen.text[0x8], 0x11);
+	
 	
 }
 
 
-void PrepPickSkillList_DrawRightBarTexts(struct Unit* unit, int config){
+void PrepPickSkill_DrawRightBarTexts(struct Unit* unit, int config){
 	
 	// config: 0->init, 1->update
 	
@@ -519,7 +675,7 @@ void PrepPickSkillList_DrawRightBarTexts(struct Unit* unit, int config){
 }
 
 
-void PrepPickSkillList_DrawTotalSkill(struct Unit* unit){
+void PrepPickSkill_DrawTotalSkill(struct Unit* unit){
 	
 	struct PrepSkillsList* list;
 	
@@ -572,7 +728,7 @@ void PrepPickSkillList_DrawTotalSkill(struct Unit* unit){
 // ================== Parallel Worker ====================
 // =======================================================
 
-void PrepPickSkillList_UpdateSkillDesc(struct Proc_PrepSkillSubList* proc){
+void PrepPickSkill_UpdateSkillDesc(struct Proc_PrepSkillSubList* proc){
 	
 	const int xStart = 0xD;
 	const int yStart = 0xD;
@@ -618,7 +774,7 @@ void PrepPickSkillList_UpdateSkillDesc(struct Proc_PrepSkillSubList* proc){
 	
 	TileMap_FillRect(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart, yStart),
-		6, 0x10 , 0 );
+		6, 0x6 , 0 );
 	
 	for( int line = 0; line < 3; line++ )
 	{
@@ -635,9 +791,12 @@ void PrepPickSkillList_UpdateSkillDesc(struct Proc_PrepSkillSubList* proc){
 		// w.i.p. for chinese
 		while( 1 != *str++ ) // '\n'
 			if( 0 == *str )
-				return;
+				goto goto_end;
 	
 	}
+	
+goto_end:
+	BG_EnableSyncByMask(0b01);
 }
 
 

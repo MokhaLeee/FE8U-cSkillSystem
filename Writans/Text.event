@@ -333,6 +333,10 @@ __TEXTPROCESSD97:
 #incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickBattalionDesc.fetxt.dmp"
 setText($D97, __TEXTPROCESSD97)
 
+__TEXTPROCESSD98:
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_FailAddSkill.fetxt.dmp"
+setText($D98, __TEXTPROCESSD98)
+
 }
 
 #endif // TEXT_INSTALLER_WRITANS_TEXTMAIN_TXT
