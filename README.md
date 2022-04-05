@@ -42,13 +42,12 @@ git submodule update --remote
 	* `BWL Supports`:  put unit support RAM data into new BWL table, rather than unit struct. 
 	* `Cahpter Init hook`: Add a function hook list when start or restart chapter.
 	* `Common Space`: a common & free space with 0x40 long and will save in Suspend data, for more details, see `common-space.h`
-	* `External RNG`: a sub R.N.G. system for FE16 style level up status up.
+	* `Random number extensions`: make a sub-rng system for 3DS/FE16 style unit level up, see more in `rn-ext.h`
 	
 	
 * Core Hacks
 
 	* `Str/mag split`: a rework to split unit strength and magic power in C.
-	* `Random number extensions`: make a sub-rng system for 3DS/FE16 style unit level up, see more in `rn-ext.h`
 	* `Status getter`: modular functions to get unit status with MAG & CON & MOV getter.
 	* `Range getter master`: modular functions to get weapon attack range.
 		* `Modular range getter`
