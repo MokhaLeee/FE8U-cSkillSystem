@@ -1021,7 +1021,7 @@ void PrepPickSkil_ConfirmReplaceSkillIdle(struct Proc_PrepPickSkill* proc){
 	
 	// Cursor
 	DisplayCursor(
-		0x10 + gGameState.camera.x + 0x10 + 0x10 * proc->list_index,
+		0x10 + gGameState.camera.x + 0x10 * proc->list_index,
 		0x3A + gGameState.camera.y,
 		2);
 	
