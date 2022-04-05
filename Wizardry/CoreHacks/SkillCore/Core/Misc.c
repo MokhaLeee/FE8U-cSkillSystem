@@ -21,6 +21,16 @@ int GetSkillDescMsg(int skill_id){
 }
 
 
+
+
+// Add skill misc
+void ResetUnitRamSkillsList(struct Unit* unit){
+	
+	for( int i = 0; i < UNIT_SKILL_COUNT; i++ )
+		unit->supports[i] = 0;
+	
+}
+
 int AddSkill(struct Unit* unit, int skill_id){
 	
 	int i;

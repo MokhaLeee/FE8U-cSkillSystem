@@ -336,6 +336,9 @@ void PrepSkill_UnitSelectLoop (struct Proc_PrepUnit* proc){
 	
 	else if( A_BUTTON & gKeyStatusPtr->newKeys )
 	{
+		if( 0 == gRAMChapterData.unk41_8)
+			m4aSongNumStart(0x6A);
+		
 		Proc_Goto(proc, LABEL_PREPSKILL_SUBMENU);
 		return;
 	} // A_BUTTON

@@ -51,40 +51,69 @@ void PrepSkillObj_OnInit(ProcPtr proc){
 
 void PrepSkillObj_OnUpdate(ProcPtr proc){
 	
-	// 注意！
-	// 在相同优先度的情况下，Obj在图层的上下顺序也与插入的顺序有关
-	// 越后插入的图层优先级越高
-	// 由于我们不得不将Window和Skill tips同时放置于0b01优先级
-	// 因而二者必须放在同一个函数中，并将 PutObjWindow 放置于 skill-tips之后，以确保window能够将tips覆盖
-	// 但是这样一来我们也不得不在这里配置窗口框
-	
-	
-	// Cursor
-	DisplayCursor(0x98 + gGameState.camera.x, 0x28 + 1 + gGameState.camera.y, 1);
-	
-	
+	struct Unit* unit;
+	struct PrepSkillsList* list;
 	
 	// Skill tips
+	if( !IsPrepSkillListValid() )
+		return;
+	
+	// On Init
+	list = gpCommonSpace;
+	unit = GetUnit(list->unit_index);
+	
+	
 	if( GetGameClock() & (1 << 5) )
-	{
+		return;
+	
+	
+	// RAM 
+	for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_RAM]; i++ )
 		PutSprite(5, 
-			0x80, 
-			0x28, 
+			0x18 + 0x10 * i, 
+			0x38, 
 			gObject_8x16, 
 			OAM2_PAL(SKILLOBJ_PAL) + 
-				OAM2_LAYER(0b01) + 
+				OAM2_LAYER(0b00) + 
 				OAM2_CHR(SKILLOBJ_VOBJ / 0x20));
-		
-		PutSprite( 5,
-			0x90, 
-			0x28, 
+	
+	
+	
+	// ROM 
+	for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_ROM]; i++ )
+		PutSprite(5, 
+			0x18 + 0x10 * _lib_mod(i, 5), 
+			0x58 + 0x10 * _lib_div(i, 5),
 			gObject_8x16, 
 			OAM2_PAL(SKILLOBJ_PAL) + 
-				OAM2_LAYER(0b01) + 
+				OAM2_LAYER(0b00) + 
 				OAM2_CHR(SKILLOBJ_VOBJ / 0x20 + 1));
+	
+	
+	// Right
+	for( int i = 0; i < list->total[PREP_SKLSUB_RIGHT]; i++ )
+	{
+		u8 skill_id = list->skills_all[i];
+		
+		if( IsPrepSkillRom(unit, skill_id) )
+			PutSprite(5, 
+				0x80 + 0x10 * _lib_mod(i, 6), 
+				0x28 + 0x10 * _lib_div(i, 6),
+				gObject_8x16, 
+				OAM2_PAL(SKILLOBJ_PAL) + 
+					OAM2_LAYER(0b01) + 
+					OAM2_CHR(SKILLOBJ_VOBJ / 0x20 + 1));
+					
+		else if( isPrepSkillEquippedRAM(unit, skill_id) )
+			PutSprite(5, 
+				0x80 + 0x10 * _lib_mod(i, 6), 
+				0x28 + 0x10 * _lib_div(i, 6),
+				gObject_8x16, 
+				OAM2_PAL(SKILLOBJ_PAL) + 
+					OAM2_LAYER(0b01) + 
+					OAM2_CHR(SKILLOBJ_VOBJ / 0x20));
 	}
-	
-	
+				
 	
 	
 	

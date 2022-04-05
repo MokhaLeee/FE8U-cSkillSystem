@@ -51,11 +51,11 @@
 #define msg_SD_BlowWarding $D78
 #define msg_SD_BlowDuelist $D79
 #define msg_SD_BlowUncanny $D7A
-#define SD_Vantage $D7B
-#define SD_VantageBattalion $D7C
-#define SD_Desperation $D7D
-#define SD_DesperationBattalion $D7E
-#define SD_QuickRiposte $D7F
+#define msg_SD_Vantage $D7B
+#define msg_SD_VantageBattalion $D7C
+#define msg_SD_Desperation $D7D
+#define msg_SD_DesperationBattalion $D7E
+#define msg_SD_QuickRiposte $D7F
 #define CA_MagAtk $D80
 #define CA_PhyAtk $D81
 #define CAN_WrathStrike $D82
@@ -81,5 +81,8 @@
 #define msg_PrepSkillMenu_PickBattalionName $D96
 #define msg_PrepSkillMenu_PickBattalionDesc $D97
 #define msg_PrepPickSkill_FailAddSkill $D98
+#define msg_PrepPickSkill_TryRemoveSkill $D99
+#define msg_PrepPickSkill_TryAddSkill $D9A
+#define msg_PrepPickSkill_TryReplaceSkill $D9B
 
 #endif // TEXT_DEFINITIONS_WRITANS_TEXTMAIN_TXT

@@ -24,7 +24,7 @@ enum{
 	MENUITEM_PREPSKILL_NULL = 0xFF,
 	
 
-	// list type for proc-skill-sublist + 0x29
+	// list-type for proc-skill-sublist + 0x29
 	PREP_SKLSUB_RIGHT = 0,
 	PREP_SKLSUB_LEFT_RAM,
 	PREP_SKLSUB_LEFT_ROM,
@@ -56,7 +56,7 @@ struct PrepSkillsList{
 };
 
 
-struct Proc_PrepSkillSubList{
+struct Proc_PrepPickSkill{
 	/* 00 */ PROC_HEADER;
 	/* 29 */ u8 state;
 	
@@ -66,6 +66,8 @@ struct Proc_PrepSkillSubList{
 	/* 32 */ u8 list_index_pre;
 	/* 33 */ u8 list_type;
 	/* 34 */ u8 list_type_pre;
+	/* 35 */ u8 list_index_replace;
+	/* 36 */ u8 yeah;
 };
 
 // need gpCommonSpace!
@@ -87,8 +89,10 @@ int ShouldPrepUnitMenuScroll(struct Proc_PrepUnit*);
 void InitPrepSkillsList(void);
 struct PrepSkillsList* MakeUnitPrepSkillsList(struct Unit* unit);
 struct PrepSkillsList* GetUnitPrepSkillsList(struct Unit* unit);
-
 int PrepSkillAddRamSkillFromList(struct Unit* unit, u8 skill_id);
+int IsPrepSkillListValid();
+int IsPrepSkillRom(struct Unit* unit, u8 skill_id);
+int isPrepSkillEquippedRAM(struct Unit* unit, u8 skill_id);
 
 
 // Objs

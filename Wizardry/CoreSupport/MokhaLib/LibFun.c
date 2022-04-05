@@ -14,7 +14,7 @@ int _lib_mod(int a, int b){
 	if( a < b )
 		return a;
 	
-	while( a > 0 )
+	while( a >= b )
 		a -= b;
 	
 	return a;
@@ -29,7 +29,7 @@ int _lib_div(int a, int b){
 	if( a < b )
 		return 0;
 	
-	for( ; a > 0; a = a - b )
+	for( ; a >= b; a = a - b )
 		res++;
 	
 	return res;

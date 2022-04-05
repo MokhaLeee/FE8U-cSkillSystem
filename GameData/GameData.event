@@ -6,9 +6,12 @@
 #include "Constants.event"
 #include "Indices.event"
 
-
+// Str-Mag split
 #include "StrMag/MagCharEditor.event"
 #include "StrMag/MagClassEditor.event"
 
+// Skill system
+#include "Skills/CharSkillRomList.event"
+#include "Skills/ClassSkillRomList.event"
 
 #endif // GAME_DATA

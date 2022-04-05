@@ -7,4 +7,5 @@
 #include SkillsDef.event
 
 #include "BlowSkills/BlowSkills.event"
+#include "BattleOrderSkills/BattleOrderSkills.event"
 

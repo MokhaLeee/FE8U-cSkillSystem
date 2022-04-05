@@ -22,6 +22,7 @@ Battle2UnitFuncList: // // void B2U (struct Unit* unit, struct BattleUnit* bu);
 ALIGN 4
 OnLoadUnitFuncList:
 	POIN LoadUnit_Mag 		// CoreHacks/StrMag/LoadUnit
+	POIN LoadUnit_LoadSkill // SkillCore/OnModular
 	WORD 0 
 
 

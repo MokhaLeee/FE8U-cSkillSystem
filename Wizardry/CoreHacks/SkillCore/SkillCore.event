@@ -8,6 +8,7 @@
 
 #include "Core/Tester.lyn.event"
 #include "Core/Misc.lyn.event"
+#include "Core/OnModular.lyn.event"
 #include "Core/SkillFastList.lyn.event"
 
 

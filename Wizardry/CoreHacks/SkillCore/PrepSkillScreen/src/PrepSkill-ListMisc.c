@@ -1,7 +1,6 @@
 #include "gbafe-chax.h"
 #include "PrepSkill.h"
 
-static void EnsureSkillAllListHaveTotalSkill();
 
 void InitPrepSkillsList(void){
 	ResetCommonSpace();
@@ -11,30 +10,108 @@ void InitPrepSkillsList(void){
 // W.I.P.
 struct PrepSkillsList* MakeUnitPrepSkillsList(struct Unit* unit){
 	
+	const struct SkillROMList* char_rom_list = &CharSkillRomList[unit->pCharacterData->number]; 
+	const struct SkillROMList* class_rom_list = &ClassSkillRomList[unit->pClassData->number];
+	struct SkillFastTesterList* list;
+	
 	InitPrepSkillsList();
+	list = GetOrMakeSklFastList(unit);
 	
 	gpCommonSpace->unit_index = unit->index;
+	gpCommonSpace->total[PREP_SKLSUB_LEFT_RAM] = 0;
+	gpCommonSpace->total[PREP_SKLSUB_LEFT_ROM] = 0;
+	gpCommonSpace->total[PREP_SKLSUB_LEFT_CA] = 0;
 	
-	gpCommonSpace->total[PREP_SKLSUB_LEFT_RAM] = 5;
-	gpCommonSpace->skills_ram[0] = 0x12;
-	gpCommonSpace->skills_ram[1] = 0x13;
-	gpCommonSpace->skills_ram[2] = 0x14;
-	gpCommonSpace->skills_ram[3] = 0x15;
-	gpCommonSpace->skills_ram[4] = 0x16;
-
+	// RAM Skills
+	for( int i = 0; i < UNIT_SKILL_COUNT; i++ )
+	{
+		if( SKILL_VALID( unit->supports[i] ) )
+		{
+			int count = gpCommonSpace->total[PREP_SKLSUB_LEFT_RAM];
+			
+			gpCommonSpace->skills_ram[count] = unit->supports[i];
+			gpCommonSpace->total[PREP_SKLSUB_LEFT_RAM]++;
+			
+		}
+	}
 	
-	gpCommonSpace->total[PREP_SKLSUB_LEFT_ROM] = 2;
-	gpCommonSpace->skills_rom[0] = 0x17;
-	gpCommonSpace->skills_rom[1] = 0x18;
 	
-	gpCommonSpace->total[PREP_SKLSUB_LEFT_CA] = 3;
+	// ROM Skills
+	for( int i = 0; i < list->cnt; i++ )
+	{
+		if( !isPrepSkillEquippedRAM(unit, list->skills[i]) )
+		{
+			int count = gpCommonSpace->total[PREP_SKLSUB_LEFT_ROM];
+			gpCommonSpace->skills_rom[count] = list->skills[i];
+			gpCommonSpace->total[PREP_SKLSUB_LEFT_ROM]++;
+		}
+	}
+	
+	
+	
+	// Combat Arts
 	gpCommonSpace->skills_CombatArt[0] = 1;
 	gpCommonSpace->skills_CombatArt[1] = 1;
 	gpCommonSpace->skills_CombatArt[2] = 2;
 	
+	
+	// Battalion
 	gpCommonSpace->skills_battalion = 1;
 	
-	EnsureSkillAllListHaveTotalSkill();
+	
+	// Total Skills: add rom-skills
+	// Character
+	for( int i = 0; i < 4; i++ )
+	{
+		if( gpCommonSpace->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+			break;
+		
+		if( SKILL_VALID(char_rom_list->default_rom_skill[i]) )
+			gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = char_rom_list->default_rom_skill[i];
+		
+		if( SKILL_VALID(char_rom_list->default_ram_skill[i]) )
+			gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = char_rom_list->default_ram_skill[i];
+	}
+	
+	if( unit->level >= 10 )
+		for( int i = 0; i < 4; i++ )
+		{
+			if( gpCommonSpace->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+				break;
+		
+			if( SKILL_VALID(char_rom_list->master_rom_skill[i]) )
+				gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = char_rom_list->master_rom_skill[i];
+			
+			if( SKILL_VALID(char_rom_list->master_ram_skill[i]) )
+				gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = char_rom_list->master_ram_skill[i];
+		}
+		
+	// Class
+	for( int i = 0; i < 4; i++ )
+	{
+		if( gpCommonSpace->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+			break;
+		
+		if( SKILL_VALID(class_rom_list->default_rom_skill[i]) )
+			gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = class_rom_list->default_rom_skill[i];
+		
+		if( SKILL_VALID(class_rom_list->default_ram_skill[i]) )
+			gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = class_rom_list->default_ram_skill[i];
+	}
+	
+	if( unit->level >= 10 )
+		for( int i = 0; i < 4; i++ )
+		{
+			if( gpCommonSpace->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+				break;
+		
+			if( SKILL_VALID(class_rom_list->master_rom_skill[i]) )
+				gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = class_rom_list->master_rom_skill[i];
+			
+			if( SKILL_VALID(class_rom_list->master_ram_skill[i]) )
+				gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = class_rom_list->master_ram_skill[i];
+		}
+	
 	
 	return gpCommonSpace;
 }
@@ -51,37 +128,7 @@ struct PrepSkillsList* GetUnitPrepSkillsList(struct Unit* unit){
 }
 
 
-void EnsureSkillAllListHaveTotalSkill(){
-	
-	int count = 0;
-	
-	
-	// RAM
-	for( int i = 0; i < PREPSKILL_LISTLEN_RAM; i++ )
-	{
-		if( 0 == gpCommonSpace->skills_ram[i] )
-			continue;
-		
-		gpCommonSpace->skills_all[count++] = gpCommonSpace->skills_ram[i];
-	}
-	
-	// ROM
-	for( int i = 0; i < PREPSKILL_LISTLEN_ROM; i++ )
-	{
-		if( 0 == gpCommonSpace->skills_rom[i] )
-			continue;
-		
-		gpCommonSpace->skills_all[count++] = gpCommonSpace->skills_rom[i];
-	}
-	
-	// counter
-	gpCommonSpace->total[PREP_SKLSUB_RIGHT] = count;
-	
-	// free others
-	for( int i = count; i <= PREPSKILL_LISTLEN_ALL; i++ )
-		gpCommonSpace->skills_all[i] = 0;
-	
-}
+
 
 
 int PrepSkillAddRamSkillFromList(struct Unit* unit, u8 skill_id){
@@ -110,4 +157,46 @@ int PrepSkillAddRamSkillFromList(struct Unit* unit, u8 skill_id){
 
 }
 
+
+
+
+
+
+
+
+
+
+
+// Misc judgement
+int IsPrepSkillListValid(){
+	
+	return !(0 == gpCommonSpace->unit_index);
+}
+
+
+int IsPrepSkillRom(struct Unit* unit, const u8 skill_id){
+	
+	struct PrepSkillsList* list;
+	
+	list = GetUnitPrepSkillsList(unit);
+	
+	for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_ROM]; i++ )
+		if( skill_id == list->skills_rom[i] )
+			return 1;
+	
+	return 0;
+}
+
+int isPrepSkillEquippedRAM(struct Unit* unit, u8 skill_id){
+	
+	struct PrepSkillsList* list;
+	
+	list = GetUnitPrepSkillsList(unit);
+	
+	for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_RAM]; i++ )
+		if( skill_id == list->skills_ram[i] )
+			return 1;
+	
+	return 0;
+}
 

@@ -28,32 +28,32 @@ SkillInfo_BlowDarting:
 
 SkillInfo_BlowDeath:
 	/* desc */ SHORT msg_SD_BlowDeath
-	/* pad  */ SHORT 0
+	/* name */ SHORT 0
 	/* icon */ POIN SI_BlowDeath
 
 SkillInfo_BlowArmored:
 	/* desc */ SHORT msg_SD_BlowArmored
-	/* pad  */ SHORT 0
+	/* name */ SHORT 0
 	/* icon */ POIN SI_BlowArmored
 
 SkillInfo_BlowFiendish:
 	/* desc */ SHORT msg_SD_BlowFiendish
-	/* pad  */ SHORT 0
+	/* name */ SHORT 0
 	/* icon */ POIN SI_BlowFiendish
 
 SkillInfo_BlowWarding:
 	/* desc */ SHORT msg_SD_BlowWarding
-	/* pad  */ SHORT 0
+	/* name */ SHORT 0
 	/* icon */ POIN	SI_BlowWarding
 	
 SkillInfo_BlowDuelist:
 	/* desc */ SHORT msg_SD_BlowDuelist
-	/* pad  */ SHORT 0
+	/* name */ SHORT 0
 	/* icon */ POIN SI_BlowDuelist
 
 SkillInfo_BlowUncanny:
 	/* desc */ SHORT msg_SD_BlowUncanny
-	/* pad  */ SHORT 0
+	/* name */ SHORT 0
 	/* icon */ POIN SI_BlowUncanny
 
 
@@ -70,25 +70,25 @@ InjectSkillInfo(SKILLID_BlowUncanny, SkillInfo_BlowUncanny)
 
 // Icon
 SI_BlowArmored:
-	#incbin "Icons/BlowArmored.dmp"
+	#incbin "Icons/BlowArmored.4bpp"
 
 SI_BlowDarting:
-	#incbin "Icons/BlowDarting.dmp"
+	#incbin "Icons/BlowDarting.4bpp"
 
 SI_BlowDeath:
-	#incbin "Icons/BlowDeath.dmp"
+	#incbin "Icons/BlowDeath.4bpp"
 	
 SI_BlowDuelist:
-	#incbin "Icons/BlowDuelist.dmp"
+	#incbin "Icons/BlowDuelist.4bpp"
 
 SI_BlowFiendish:
-	#incbin "Icons/BlowFiendish.dmp"	
+	#incbin "Icons/BlowFiendish.4bpp"	
 
 SI_BlowUncanny:
-	#incbin "Icons/BlowUncanny.dmp"	
+	#incbin "Icons/BlowUncanny.4bpp"	
 
 SI_BlowWarding:
-	#incbin "Icons/BlowWarding.dmp"
+	#incbin "Icons/BlowWarding.4bpp"
 
 
 

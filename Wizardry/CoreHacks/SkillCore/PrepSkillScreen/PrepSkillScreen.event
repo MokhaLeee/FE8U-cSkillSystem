@@ -38,6 +38,16 @@ msgAt_PrepSkillMenu_PickBattalionDesc:
 msgAt_PrepPickSkill_FailAddSkill:
 	SHORT msg_PrepPickSkill_FailAddSkill
 
+msgAt_PrepPickSkill_TryRemoveSkill:
+	SHORT msg_PrepPickSkill_TryRemoveSkill
+
+msgAt_PrepPickSkill_TryAddSkill:
+	SHORT msg_PrepPickSkill_TryAddSkill
+
+msgAt_PrepPickSkill_TryReplaceSkill:
+	SHORT msg_PrepPickSkill_TryReplaceSkill
+
+
 
 
 // Gfx

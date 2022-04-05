@@ -218,23 +218,23 @@ __TEXTPROCESSD7A:
 setText($D7A, __TEXTPROCESSD7A)
 
 __TEXTPROCESSD7B:
-#incbin ".TextEntries\TextMainSD_Vantage.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_SD_Vantage.fetxt.dmp"
 setText($D7B, __TEXTPROCESSD7B)
 
 __TEXTPROCESSD7C:
-#incbin ".TextEntries\TextMainSD_VantageBattalion.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_SD_VantageBattalion.fetxt.dmp"
 setText($D7C, __TEXTPROCESSD7C)
 
 __TEXTPROCESSD7D:
-#incbin ".TextEntries\TextMainSD_Desperation.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_SD_Desperation.fetxt.dmp"
 setText($D7D, __TEXTPROCESSD7D)
 
 __TEXTPROCESSD7E:
-#incbin ".TextEntries\TextMainSD_DesperationBattalion.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_SD_DesperationBattalion.fetxt.dmp"
 setText($D7E, __TEXTPROCESSD7E)
 
 __TEXTPROCESSD7F:
-#incbin ".TextEntries\TextMainSD_QuickRiposte.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_SD_QuickRiposte.fetxt.dmp"
 setText($D7F, __TEXTPROCESSD7F)
 
 __TEXTPROCESSD80:
@@ -336,6 +336,18 @@ setText($D97, __TEXTPROCESSD97)
 __TEXTPROCESSD98:
 #incbin ".TextEntries\TextMainmsg_PrepPickSkill_FailAddSkill.fetxt.dmp"
 setText($D98, __TEXTPROCESSD98)
+
+__TEXTPROCESSD99:
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_TryRemoveSkill.fetxt.dmp"
+setText($D99, __TEXTPROCESSD99)
+
+__TEXTPROCESSD9A:
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_TryAddSkill.fetxt.dmp"
+setText($D9A, __TEXTPROCESSD9A)
+
+__TEXTPROCESSD9B:
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_TryReplaceSkill.fetxt.dmp"
+setText($D9B, __TEXTPROCESSD9B)
 
 }
 

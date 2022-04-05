@@ -1,0 +1,51 @@
+ALIGN 4
+SkillInfo_Vantage:
+	/* desc */ SHORT msg_SD_Vantage
+	/* pad  */ SHORT 0
+	/* icon */ POIN SI_Vantage
+	
+SkillInfo_VantageBattalion:
+	/* desc */ SHORT msg_SD_VantageBattalion
+	/* pad  */ SHORT 0
+	/* icon */ POIN SI_VantageBattalion
+	
+SkillInfo_Desperation:
+	/* desc */ SHORT msg_SD_Desperation
+	/* pad  */ SHORT 0
+	/* icon */ POIN SI_Desperation
+	
+SkillInfo_DesperationBattalion:
+	/* desc */ SHORT msg_SD_DesperationBattalion
+	/* pad  */ SHORT 0
+	/* icon */ POIN SI_DesperationBattalion
+	
+SkillInfo_QuickRiposte:
+	/* desc */ SHORT msg_SD_QuickRiposte
+	/* pad  */ SHORT 0
+	/* icon */ POIN SI_QuickRiposte
+
+
+InjectSkillInfo(SKILLID_Vantage, SkillInfo_Vantage)
+InjectSkillInfo(SKILLID_VantageBattalion, SkillInfo_VantageBattalion)
+InjectSkillInfo(SKILLID_Desperation, SkillInfo_Desperation)
+InjectSkillInfo(SKILLID_DesperationBattalion, SkillInfo_DesperationBattalion)
+InjectSkillInfo(SKILLID_QuickRiposte, SkillInfo_QuickRiposte)
+
+
+
+// Icons
+ALIGN 4
+SI_Vantage:
+	#incbin "Icons/Vantage.4bpp"
+
+SI_VantageBattalion:
+	#incbin "Icons/VantageBattalion.4bpp"
+
+SI_Desperation:
+	#incbin "Icons/Desperation.4bpp"
+	
+SI_DesperationBattalion:
+	#incbin "Icons/DesperationBattalion.4bpp"
+
+SI_QuickRiposte:
+	#incbin "Icons/QuickRiposte.4bpp"

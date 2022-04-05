@@ -18,10 +18,29 @@
 // Battle Misc(0x20)
 #define SKILLID_Vantage 				0x20	// 待伏
 #define SKILLID_VantageBattalion 		0x21
-
-#define SKILLID_Desperation 			0x22
-#define SKILLID_DesperationBattalion 	0x23	// 猛攻
-
+#define SKILLID_Desperation 			0x22	// 猛攻
+#define SKILLID_DesperationBattalion 	0x23	
 #define SKILLID_QuickRiposte 			0x24	// 回击
+
+
+
+
+
+// for
+cSkillIndex_BlowDarting:				BYTE SKILLID_BlowDarting
+cSkillIndex_BlowDeath:					BYTE SKILLID_BlowDeath
+cSkillIndex_BlowArmored:				BYTE SKILLID_BlowArmored
+cSkillIndex_BlowFiendish:				BYTE SKILLID_BlowFiendish
+cSkillIndex_BlowWarding:				BYTE SKILLID_BlowWarding
+cSkillIndex_BlowDuelist:				BYTE SKILLID_BlowDuelist
+cSkillIndex_BlowUncanny:				BYTE SKILLID_BlowUncanny
+
+cSkillIndex_Vantage:					BYTE SKILLID_Vantage
+cSkillIndex_VantageBattalion:			BYTE SKILLID_VantageBattalion
+cSkillIndex_Desperation:				BYTE SKILLID_Desperation
+cSkillIndex_DesperationBattalion:		BYTE SKILLID_DesperationBattalion
+cSkillIndex_QuickRiposte:				BYTE SKILLID_QuickRiposte
+
+ALIGN 4
 
 #endif // SKILL_ID_DEFINITIONS

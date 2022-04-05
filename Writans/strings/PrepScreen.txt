@@ -28,3 +28,16 @@ Pick Battalion[X]
 ## msg_PrepPickSkill_FailAddSkill
 This skill is not removable as[NL]
 inherent to character or class.[X]
+
+## msg_PrepPickSkill_TryRemoveSkill
+             Remove skill ?[NL]
+        Yeah     Nope[X]
+
+
+## msg_PrepPickSkill_TryAddSkill
+             Add skill ?[NL]
+        Yeah     Nope[X]
+
+## msg_PrepPickSkill_TryReplaceSkill
+             Replace skill ?[NL]
+        Yeah     Nope[X]

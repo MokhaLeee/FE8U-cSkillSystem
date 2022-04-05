@@ -23,10 +23,37 @@ enum{
 };
 
 
+// for ROM skill
+struct SkillROMList{
+	
+	/* 00 */ u8 default_rom_skill[4];
+	/* 04 */ u8 master_rom_skill[4];
+	/* 08 */ u8 default_ram_skill[4];
+	/* 0C */ u8 master_ram_skill[4];
+	/* 10 */
+};
+
+extern const struct SkillROMList CharSkillRomList[], ClassSkillRomList[];
+
+struct SkillMasteryList{
+	
+	/* 00 */ u8 skill_E[2];
+	/* 02 */ u8 skill_D[2];
+	/* 04 */ u8 skill_C[2];
+	/* 06 */ u8 skill_B[2];
+	/* 08 */ u8 skill_A[2];
+	/* 0A */ u8 skill_S[2];
+	/* 0C */
+};
+
+extern const struct SkillMasteryList MasterySkills[];
+
+
+
 // For make skill information list (main list)
 struct SkillInfo {
 	/* 00 */ u16 msg_desc;			// description text id
-	/* 02 */ u8 pad_02[0x4 - 0x2];
+	/* 02 */ u16 msg_name;
 	/* 04 */ const void* icon;		// icon gfx pointer	
 };
 
@@ -41,9 +68,9 @@ extern struct SkillInfo const* const SkillInfoTable[];
  * @param skillId the id of the skill to check for
  * @return non-zero if the unit has the given skill
  */
-extern int (*SkillTester) (struct Unit*, u8 skill_id);
-int JudgeSkill(struct Unit*, u8 skill_id);
-int JudgeSkillFast(struct Unit*, u8 skill_id);
+extern int (*SkillTester) (struct Unit*, const u8 skill_id);
+int JudgeSkill(struct Unit*, const u8 skill_id);
+int JudgeSkillFast(struct Unit*, const u8 skill_id);
 
 
 
@@ -65,6 +92,7 @@ void NullUnitSkills(struct Unit*);
 
 
 // Misc
+void ResetUnitRamSkillsList(struct Unit*);
 int AddSkill(struct Unit*, int skill_id);
 int RemoveSkill(struct Unit*, int skill_id);
 const void* GetSkillIconGfx(int skill_id);

@@ -36,6 +36,8 @@ void PrepSkill_DrawPickTotalBar(struct Unit* unit, int config){
 	// 0x809AAF1
 	// config: 0->init, 1->update
 	
+	struct PrepSkillsList* list = GetUnitPrepSkillsList(unit);
+	
 	if( ON_DRAW_CONFIG_INIT == config )
 	{
 		Text_Clear(&gStatScreen.text[0]);
@@ -68,13 +70,17 @@ void PrepSkill_DrawPickTotalBar(struct Unit* unit, int config){
 	
 	DrawDecNumber(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, 0x12, 0x1),
-		TEXT_COLOR_BLUE,
-		unit->index );
+		0 == (5 - list->total[PREP_SKLSUB_LEFT_RAM])
+			? TEXT_COLOR_GRAY
+			: TEXT_COLOR_BLUE,
+		5 - list->total[PREP_SKLSUB_LEFT_RAM] );
 	
 	DrawDecNumber(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, 0x1B, 0x1),
-		TEXT_COLOR_BLUE,
-		unit->index );
+		(5 == list->total[PREP_SKLSUB_LEFT_RAM])
+			? TEXT_COLOR_GREEN
+			: TEXT_COLOR_BLUE,
+		list->total[PREP_SKLSUB_LEFT_RAM] );
 		
 	
 	// On End
@@ -193,7 +199,10 @@ void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 	else
 		for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_ROM]; i++ )
 			DrawIcon(
-				TILEMAP_LOCATED( gBG0TilemapBuffer, 2 + i * 2, 11 ),
+				TILEMAP_LOCATED( 
+					gBG0TilemapBuffer, 
+					0x2 + 2 * _lib_mod(i, 5), 
+					0xB + 2 * _lib_div(i, 5) ),
 				SKILL_ICON(list->skills_rom[i]), 
 				TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
 	
