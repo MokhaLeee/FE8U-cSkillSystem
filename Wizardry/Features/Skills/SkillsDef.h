@@ -13,3 +13,10 @@ extern uint8_t cSkillIndex_VantageBattalion;
 extern uint8_t cSkillIndex_Desperation;
 extern uint8_t cSkillIndex_DesperationBattalion;
 extern uint8_t cSkillIndex_QuickRiposte;
+
+extern uint8_t cSkillIndex_SwordBreaker;
+extern uint8_t cSkillIndex_AxeBreaker;
+extern uint8_t cSkillIndex_LanceBreaker;
+extern uint8_t cSkillIndex_BowBreaker;
+extern uint8_t cSkillIndex_TomeBreaker;
+extern uint8_t cSkillIndex_FistBreaker;

@@ -22,3 +22,34 @@ unit attacks with battalion <[NL]
 Quick Riposte: [NL]
 If unit is attacked with HP >[NL]
 50%, double attacks.[X]
+
+
+## msg_SD_SwordBreaker
+Sword Breaker: Grants Hit/Avo[NL]
++20 when using a lance against[NL]
+sword users.[X]
+
+## msg_SD_AxeBreaker
+Axe Breaker: Grants Hit/Avo[NL]
++20 when using a sword[NL]
+against axe users.[X]
+
+## msg_SD_LanceBreaker
+Lance Breaker: Grants Hit/Avo[NL]
++20 when using an axe[NL]
+against lance users.[X]
+
+## msg_SD_BowBreaker
+Bow Breaker: Grants Hit/Avo[NL]
++20 when using magic against[NL]
+bow users.[X]
+
+## msg_SD_FistBreaker
+Fist Breaker: Grants Hit/Avo[NL]
++20 when using a bow against[NL]
+a brawling foe.[X]
+
+## msg_SD_TomeBreaker
+Tome Breaker: Grants Hit/Avo[NL]
++20 when brawling against[NL]
+magic users.[X]

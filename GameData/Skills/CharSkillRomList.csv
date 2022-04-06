@@ -1,6 +1,6 @@
 INLINE CharSkillRomList,default_rom_skill0,default_rom_skill1,default_rom_skill2,default_rom_skill3,master_rom_skill0,master_rom_skill1,master_rom_skill2,master_rom_skill3,default_ram_skill0,default_ram_skill1,default_ram_skill2,default_ram_skill3,master_ram_skill0,master_ram_skill1,master_ram_skill2,master_ram_skill3
 0x00 (No one/Not referenced),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-0x01 Eirika,SKILLID_BlowDarting,0,SKILLID_BlowFiendish,0,0,0,0,0,SKILLID_BlowDeath,SKILLID_BlowFiendish,SKILLID_BlowWarding,SKILLID_BlowUncanny,SKILLID_BlowDuelist,0,0,0
+0x01 Eirika,SKILLID_BlowDarting,0,SKILLID_BlowFiendish,0,0,0,0,0,SKILLID_BlowDeath,SKILLID_BlowFiendish,cSkillIndex_FistBreaker,SKILLID_BlowUncanny,SKILLID_BlowDuelist,0,0,0
 0x02 Seth,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 0x03 Gilliam,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 0x04 Franz,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

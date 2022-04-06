@@ -8,4 +8,5 @@
 
 #include "BlowSkills/BlowSkills.event"
 #include "BattleOrderSkills/BattleOrderSkills.event"
+#include "BattleTrangle/BattleTrangle.event"
 

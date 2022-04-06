@@ -14,6 +14,10 @@ void DisplayUnitEffectRange(struct Unit* unit){
 	
 	u8 useFlag;
 	
+	BmMapFill(gBmMapMovement,NU_MOVE_MAP);
+	BmMapFill(gBmMapOther,NU_MOVE2_MAP);
+	BmMapFill(gBmMapRange,NU_RANGE_MAP);
+	
 	GenerateUnitMovementMapExt(
 		gActiveUnit, 
 		MovGetter(gActiveUnit) - gActionData.moveCount 
@@ -24,7 +28,7 @@ void DisplayUnitEffectRange(struct Unit* unit){
 		return;
 	}
 	
-	BmMapFill(gBmMapOther,NU_MOVE2_MAP);
+	
 	
 	useFlag = GetUnitWeaponUsabilityBits(unit);
 	
@@ -123,8 +127,8 @@ void GenerateUnitStandingReachRange(struct Unit* unit, int mask) {
 
 void GenerateUnitCompleteStaffRange(struct Unit* unit) {
 	
-    int mask = GetUnitStaffReachBits(unit);
-    BmMapFill(gBmMapRange,NU_RANGE_MAP);
+	int mask = GetUnitStaffReachBits(unit);
+	BmMapFill(gBmMapRange,NU_RANGE_MAP);
 	
 	for( int y = 0; y < gBmMapSize.y; y++ )
 		for( int x = 0; x < gBmMapSize.x; x++ ) {

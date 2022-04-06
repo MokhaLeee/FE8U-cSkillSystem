@@ -22,6 +22,12 @@
 #define SKILLID_DesperationBattalion 	0x23	
 #define SKILLID_QuickRiposte 			0x24	// 回击
 
+#define SKILLID_SwordBreaker			0x25
+#define SKILLID_AxeBreaker				0x26
+#define SKILLID_LanceBreaker			0x27
+#define SKILLID_BowBreaker				0x28
+#define SKILLID_TomeBreaker				0x29
+#define SKILLID_FistBreaker				0x2A
 
 
 
@@ -40,6 +46,13 @@ cSkillIndex_VantageBattalion:			BYTE SKILLID_VantageBattalion
 cSkillIndex_Desperation:				BYTE SKILLID_Desperation
 cSkillIndex_DesperationBattalion:		BYTE SKILLID_DesperationBattalion
 cSkillIndex_QuickRiposte:				BYTE SKILLID_QuickRiposte
+
+cSkillIndex_SwordBreaker:				BYTE SKILLID_SwordBreaker
+cSkillIndex_AxeBreaker:					BYTE SKILLID_AxeBreaker
+cSkillIndex_LanceBreaker:				BYTE SKILLID_LanceBreaker
+cSkillIndex_BowBreaker:					BYTE SKILLID_BowBreaker
+cSkillIndex_TomeBreaker:				BYTE SKILLID_TomeBreaker
+cSkillIndex_FistBreaker:				BYTE SKILLID_FistBreaker
 
 ALIGN 4
 
