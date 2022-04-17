@@ -1,6 +1,18 @@
 #ifndef GAME_DATA
 #define GAME_DATA
 
+
+// at the begining of FreeSpaceTable
+#include TablePointerList.event
+
+
+
+
+// Tables
+
+
+
+
 #include "EAstdlib.event"
 
 #include "Constants.event"

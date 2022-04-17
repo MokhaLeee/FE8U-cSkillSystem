@@ -1,0 +1,21 @@
+ALIGN 4
+
+// Str Mag
+pUnitMagicTable:
+	POIN UnitMagicTable
+	
+pClassMagicTable:
+	POIN ClassMagicTable
+	
+
+
+
+// SkillSystem
+pSkillInfoTable:
+	POIN SkillInfoTable
+
+pCharSkillRomList:
+	POIN CharSkillRomList
+
+PClassSkillRomList:
+	POIN ClassSkillRomList
