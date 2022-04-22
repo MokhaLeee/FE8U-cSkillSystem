@@ -173,10 +173,16 @@ PROC_LABEL (LABEL_PREPMAP_END),
 
 void newPrepMap_OnInit (struct newProc_PrepMapView* proc){
 	
+	extern u16 Pal_PrepHelpButton[];
+	
+	ApplyPalettes(Pal_PrepHelpButton, 0x12, 1);
+	
 	proc->yDiff = 0;
 	proc->xDiff = 0;
 	proc->unk_4A = 0;
 	proc->maybe_ap = 0;
+	
+	
 	
 	if( CMD_PREPMENU_FORMATION == proc->cur_cmd )
 	{

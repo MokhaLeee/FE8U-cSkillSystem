@@ -83,7 +83,7 @@ void PrepSkillObj_OnUpdate(ProcPtr proc){
 	for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_ROM]; i++ )
 		PutSprite(5, 
 			0x18 + 0x10 * _lib_mod(i, 5), 
-			0x58 + 0x10 * _lib_div(i, 5),
+			0x48 + 0x10 * _lib_div(i, 5),
 			gObject_8x16, 
 			OAM2_PAL(SKILLOBJ_PAL) + 
 				OAM2_LAYER(0b00) + 

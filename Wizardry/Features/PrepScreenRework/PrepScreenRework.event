@@ -15,7 +15,9 @@
 #include "src/PrepAtMenu.lyn.event"
 #include "src/PrepMapView.lyn.event"
 
-
+ALIGN 4
+Pal_PrepHelpButton:
+	#incbin "data/Gfx_PrepHelpButton.gbapal"
 
 PUSH
 ORG $010988
@@ -35,8 +37,8 @@ POIN newProcCmd_PrepMain
 
 // To fix a UI bug on map-view
 // for now no better idea
-ORG $08D09C
-SHORT $E01C
+// ORG $08D09C
+// SHORT $E01C
 
 POP
 

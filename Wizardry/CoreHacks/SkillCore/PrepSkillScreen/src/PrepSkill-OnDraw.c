@@ -80,7 +80,8 @@ void PrepSkill_DrawPickTotalBar(struct Unit* unit, int config){
 		(5 == list->total[PREP_SKLSUB_LEFT_RAM])
 			? TEXT_COLOR_GREEN
 			: TEXT_COLOR_BLUE,
-		list->total[PREP_SKLSUB_LEFT_RAM] );
+		list->total[PREP_SKLSUB_LEFT_RAM] + list->total[PREP_SKLSUB_LEFT_ROM] );
+		
 		
 	
 	// On End
@@ -134,7 +135,7 @@ void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 		
 		DrawTextInline(
 			&gPrepUnitTexts[0x10],
-			TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 0xF),
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 13),
 			TEXT_COLOR_GOLD,
 			0, 0, 
 			"Combat Arts");
@@ -157,10 +158,10 @@ void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 	
 	TileMap_FillRect(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 11),
-		0xB, 0x3, 0);
+		0xB, 0x1, 0);
 	
 	TileMap_FillRect(
-		TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 17),
+		TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 15),
 		0xB, 0x1, 0);
 	
 	TileMap_FillRect(
@@ -212,14 +213,14 @@ void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 	if( 0 == list->total[PREP_SKLSUB_LEFT_CA] )
 		DrawTextInline(
 			&gPrepUnitTexts[0x12],
-			TILEMAP_LOCATED( gBG0TilemapBuffer, 2, 17),
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 2, 15),
 			TEXT_COLOR_GRAY,
 			0, 0, 
 			"None");
 	else
 		for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_CA]; i++ )
 			DrawIcon(
-				TILEMAP_LOCATED( gBG0TilemapBuffer, 2 + i * 2, 17 ),
+				TILEMAP_LOCATED( gBG0TilemapBuffer, 2 + i * 2, 15 ),
 				MASTERY_ICON(list->skills_CombatArt[i]), 
 				TILEREF(0, STATSCREEN_BGPAL_EXTICONS) );
 	

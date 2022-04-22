@@ -29,15 +29,16 @@ void DrawSkillPage(void) {
 	
 	Text_Draw(text, TM_PAGEFRAME + TILEMAP_INDEX(X, Y));
 	
-	for( int i = 0; i < list->cnt; i++ ) {
+	for( int i = 0; i < list->cnt; i++ ) 
+	{
 		DrawIcon(
-			TM_PAGEFRAME + TILEMAP_INDEX(X + 4 + 2*i, Y), 
+			TM_PAGEFRAME + TILEMAP_INDEX(X + 3 + 2*i, Y), 
 			SKILL_ICON(list->skills[i]), 
 			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS)
 		);
 		
-		if ( i > 5 )
+		if( i > 5 )
 			break;
-	
-	} // for
+	}
 }
+

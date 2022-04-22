@@ -73,7 +73,9 @@ ALIGN 4
 // Need Null-Bwl and Bwl-Support patch installed
 #include "CoreHacks/SkillCore/SkillCore.event"
 
-
+// Battle System: check battle order
+// check skill: vantage & despration & QuickRiposte
+#include "CoreHacks/BattleOrder/BattleOrder.event"
 
 
 

@@ -67,6 +67,7 @@ static void PrepPickSkill_DrawWindowGfx(void);
 static void PrepPickSkill_DrawRightBarTexts(struct Unit*, int config);
 static void PrepPickSkill_DrawTotalSkill(struct Unit*);
 static void PrepPickSkill_UpdateSkillDesc(struct Proc_PrepPickSkill* proc);
+static void PrepPickSkill_DrawLeftSkillsIcon(struct Unit* unit, int config);
 
 static void PrepPickSkill_OnEnd(struct Proc_PrepPickSkill* proc);
 static void PrepPickSkill_InitSkillsList (struct Proc_PrepPickSkill* proc);
@@ -233,6 +234,7 @@ void PrepPickSkill_InitScreen (struct Proc_PrepPickSkill* proc){
 	BG_Fill(gBG0TilemapBuffer, 0);
 	BG_Fill(gBG1TilemapBuffer, 0);
 	BG_Fill(gBG2TilemapBuffer, 0);
+	ResetIconGraphics();
 	
 	gLCDControlBuffer.bg0cnt.priority = 0b00;
 	gLCDControlBuffer.bg1cnt.priority = 0b10;
@@ -265,7 +267,7 @@ void PrepPickSkill_InitScreen (struct Proc_PrepPickSkill* proc){
 	
 	// Draw Text Icons
 	PrepUnit_DrawLeftUnitName(proc->unit);
-	PrepSkill_DrawLeftSkillsIcon(proc->unit, ON_DRAW_CONFIG_INIT);
+	PrepPickSkill_DrawLeftSkillsIcon(proc->unit, ON_DRAW_CONFIG_INIT);
 	PrepPickSkill_DrawRightBarTexts(proc->unit, ON_DRAW_CONFIG_INIT);
 	PrepPickSkill_DrawTotalSkill(proc->unit);
 	
@@ -414,7 +416,9 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 				
 				case PREP_SKLSUB_LEFT_ROM:
 					proc->list_type = PREP_SKLSUB_LEFT_RAM;
-					proc->list_index = 0;
+					
+					if( proc->list_index >= list->total[PREP_SKLSUB_LEFT_RAM] )
+						proc->list_index = list->total[PREP_SKLSUB_LEFT_RAM] - 1;
 					break;
 					
 				default:
@@ -437,10 +441,13 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 				
 				case PREP_SKLSUB_LEFT_RAM:
 					proc->list_type = PREP_SKLSUB_LEFT_ROM;
-					proc->list_index = 0;
+					
+					if( proc->list_index >= list->total[PREP_SKLSUB_LEFT_ROM] )
+						proc->list_index = list->total[PREP_SKLSUB_LEFT_ROM] - 1;
 					break;
 				
 				case PREP_SKLSUB_LEFT_ROM:
+					// now rom list is default < 5
 					if( (proc->list_index+5) < list->total[PREP_SKLSUB_LEFT_ROM] )
 						proc->list_index += 5;
 					break;
@@ -490,7 +497,7 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 		
 		case PREP_SKLSUB_LEFT_ROM:
 			xHand = 0x10 + 0x10 * _lib_mod(proc->list_index, 5);
-			yHand = 0x58 + 0x10 * _lib_div(proc->list_index, 5);
+			yHand = 0x48 + 0x10 * _lib_div(proc->list_index, 5);
 			break;
 			
 			
@@ -1205,9 +1212,9 @@ void PrepPickSkill_InitTexts(){
 	Text_Init(&gPrepUnitTexts[0x15], 15);
 	
 	// For skill desc
-	Text_Init(&gStatScreen.text[0x6], 0x11); 
-	Text_Init(&gStatScreen.text[0x7], 0x11);
-	Text_Init(&gStatScreen.text[0x8], 0x11);
+	Text_Init(&gStatScreen.text[0x6], 0x15); 
+	Text_Init(&gStatScreen.text[0x7], 0x15);
+	Text_Init(&gStatScreen.text[0x8], 0x15);
 	
 	
 }
@@ -1268,7 +1275,7 @@ void PrepPickSkill_DrawRightBarTexts(struct Unit* unit, int config){
 		(5 == list->total[PREP_SKLSUB_LEFT_RAM])
 			? TEXT_COLOR_GREEN
 			: TEXT_COLOR_BLUE,
-		list->total[PREP_SKLSUB_LEFT_RAM] );
+		list->total[PREP_SKLSUB_LEFT_RAM] + list->total[PREP_SKLSUB_LEFT_ROM] );
 		
 	
 	// On End
@@ -1315,7 +1322,106 @@ void PrepPickSkill_DrawTotalSkill(struct Unit* unit){
 
 
 
+void PrepPickSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
+	
+	struct PrepSkillsList* list;
+	
+	if( ON_DRAW_CONFIG_INIT == config )
+	{
+		// Clear TextHandle
+		Text_Clear( &gPrepUnitTexts[0xE] );
+		Text_Clear( &gPrepUnitTexts[0xF] );
+		Text_Clear( &gPrepUnitTexts[0x10] );
+		
+		
+		// TileMap_FillRect(u16 *dest, int width, int height, int fillValue)
+		TileMap_FillRect(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 5),
+			0xB, 0x2, 0);
+		
+		TileMap_FillRect(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 9),
+			0xB, 0x2, 0);
+			
+		TileMap_FillRect(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 0xF),
+			0xB, 0x2, 0);
+		
+		TileMap_FillRect(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 0xF, 0x11),
+			0x6, 0x2, 0);
+		
+		// Draw Text
+		DrawTextInline(
+			&gPrepUnitTexts[0xE],
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 5),
+			TEXT_COLOR_GOLD,
+			0, 0, 
+			"Equiped Skills");
+		
+	} // ON_DRAW_CONFIG_INIT
+	
+	
+	// Clear Icons
+	ResetIconGraphics_();
+	
+	
+	// Clear Text
+	Text_Clear( &gPrepUnitTexts[0x12] );
+	
+	
+	// Clear Screen
+	TileMap_FillRect(
+		TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 7),
+		0xB, 0x1, 0);
+	
+	TileMap_FillRect(
+		TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 9),
+		0xB, 0x1, 0);
+	
+	
+	
+	list = GetUnitPrepSkillsList(unit);
+	
+	// RAM Skills
+	if( 0 == list->total[PREP_SKLSUB_LEFT_RAM] )
+		DrawTextInline(
+			&gPrepUnitTexts[0x12],
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 2, 7),
+			TEXT_COLOR_GRAY,
+			0, 0, 
+			"None");
+	else
+		for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_RAM]; i++ )
+			DrawIcon(
+				TILEMAP_LOCATED( gBG0TilemapBuffer, 2 + i * 2, 7 ),
+				SKILL_ICON(list->skills_ram[i]), 
+				TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
+	
+	
+	
+	// ROM Skills
+	if( 0 == list->total[PREP_SKLSUB_LEFT_ROM] )
+		DrawTextInline(
+			&gPrepUnitTexts[0x12],
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 2, 9),
+			TEXT_COLOR_GRAY,
+			0, 0, 
+			"None");
+	else
+		for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_ROM]; i++ )
+			DrawIcon(
+				TILEMAP_LOCATED( 
+					gBG0TilemapBuffer, 
+					0x2 + 2 * _lib_mod(i, 5), 
+					0x9 + 2 * _lib_div(i, 5) ),
+				SKILL_ICON(list->skills_rom[i]), 
+				TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
+	
 
+
+	
+}
 
 
 
@@ -1332,7 +1438,7 @@ void PrepPickSkill_DrawTotalSkill(struct Unit* unit){
 
 void PrepPickSkill_UpdateSkillDesc(struct Proc_PrepPickSkill* proc){
 	
-	const int xStart = 0xD;
+	const int xStart = 0x6;
 	const int yStart = 0xD;
 	
 	struct PrepSkillsList* list;

@@ -18,14 +18,13 @@ default_rom_skill1
 NEDU
 NULL
 
-default_rom_skill2
+null0
 2
 1
 NEDU
 NULL
 
-
-default_rom_skill3
+null1
 3
 1
 NEDU
@@ -44,13 +43,13 @@ master_rom_skill1
 NEDU
 NULL
 
-master_rom_skill2
+null2
 6
 1
 NEDU
 NULL
 
-master_rom_skill3
+null3
 7
 1
 NEDU

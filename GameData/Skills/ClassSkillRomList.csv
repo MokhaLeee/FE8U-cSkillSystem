@@ -1,4 +1,4 @@
-INLINE ClassSkillRomList,default_rom_skill0,default_rom_skill1,default_rom_skill2,default_rom_skill3,master_rom_skill0,master_rom_skill1,master_rom_skill2,master_rom_skill3,default_ram_skill0,default_ram_skill1,default_ram_skill2,default_ram_skill3,master_ram_skill0,master_ram_skill1,master_ram_skill2,master_ram_skill3
+INLINE ClassSkillRomList,default_rom_skill0,default_rom_skill1,null0,null1,master_rom_skill0,master_rom_skill1,null0,null1,default_ram_skill0,default_ram_skill1,default_ram_skill2,default_ram_skill3,master_ram_skill0,master_ram_skill1,master_ram_skill2,master_ram_skill3
 None,0,0,0,0,0,0,0,0,SKILLID_Vantage,SKILLID_VantageBattalion,SKILLID_Desperation,SKILLID_DesperationBattalion,SKILLID_FistBreaker,SKILLID_AxeBreaker,SKILLID_LanceBreaker,SKILLID_BowBreaker
 Ephraim Lord,0,0,0,0,0,0,0,0,SKILLID_Vantage,SKILLID_VantageBattalion,SKILLID_Desperation,SKILLID_DesperationBattalion,SKILLID_FistBreaker,SKILLID_AxeBreaker,SKILLID_LanceBreaker,SKILLID_BowBreaker
 Eirika Lord,0,0,0,0,0,0,0,0,SKILLID_Vantage,SKILLID_VantageBattalion,SKILLID_Desperation,SKILLID_DesperationBattalion,SKILLID_FistBreaker,SKILLID_AxeBreaker,SKILLID_LanceBreaker,SKILLID_BowBreaker
@@ -38,7 +38,7 @@ Wyvern Knight,0,0,0,0,0,0,0,0,SKILLID_Vantage,SKILLID_VantageBattalion,SKILLID_D
 Wyvern Knight (F),0,0,0,0,0,0,0,0,SKILLID_Vantage,SKILLID_VantageBattalion,SKILLID_Desperation,SKILLID_DesperationBattalion,SKILLID_FistBreaker,SKILLID_AxeBreaker,SKILLID_LanceBreaker,SKILLID_BowBreaker
 Mage,0,0,0,0,0,0,0,0,SKILLID_Vantage,SKILLID_VantageBattalion,SKILLID_Desperation,SKILLID_DesperationBattalion,SKILLID_FistBreaker,SKILLID_AxeBreaker,SKILLID_LanceBreaker,SKILLID_BowBreaker
 Mage (F),0,0,0,0,0,0,0,0,SKILLID_Vantage,SKILLID_VantageBattalion,SKILLID_Desperation,SKILLID_DesperationBattalion,SKILLID_FistBreaker,SKILLID_AxeBreaker,SKILLID_LanceBreaker,SKILLID_BowBreaker
-Sage,0,0,0,0,0,0,0,0,SKILLID_Vantage,SKILLID_VantageBattalion,SKILLID_Desperation,SKILLID_DesperationBattalion,SKILLID_FistBreaker,SKILLID_AxeBreaker,SKILLID_LanceBreaker,SKILLID_BowBreaker
+Sage,0,0,0,0,0,0,0,0,SKILLID_Vantage,0,SKILLID_Desperation,SKILLID_DesperationBattalion,SKILLID_FistBreaker,SKILLID_AxeBreaker,SKILLID_LanceBreaker,SKILLID_BowBreaker
 Sage (F),0,0,0,0,0,0,0,0,SKILLID_Vantage,SKILLID_VantageBattalion,SKILLID_Desperation,SKILLID_DesperationBattalion,SKILLID_FistBreaker,SKILLID_AxeBreaker,SKILLID_LanceBreaker,SKILLID_BowBreaker
 Mage Knight,0,0,0,0,0,0,0,0,SKILLID_Vantage,SKILLID_VantageBattalion,SKILLID_Desperation,SKILLID_DesperationBattalion,SKILLID_FistBreaker,SKILLID_AxeBreaker,SKILLID_LanceBreaker,SKILLID_BowBreaker
 Mage Knight (F),0,0,0,0,0,0,0,0,SKILLID_Vantage,SKILLID_VantageBattalion,SKILLID_Desperation,SKILLID_DesperationBattalion,SKILLID_FistBreaker,SKILLID_AxeBreaker,SKILLID_LanceBreaker,SKILLID_BowBreaker

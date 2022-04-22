@@ -61,4 +61,4 @@ RText_PageUnit:
 	RMenu(HB_P0_Class,HB_P0_HP,HB_P0_Level,HB_P0_Res,0x26,0x78,0x543)
 	
 	HB_P0_HP:
-	RMenu(HB_P0_Level,HB_P0_Name,HB_P0_Stat,HB_P0_Res,0x6,0x88,0x544)
+	RMenu(HB_P0_Level,HB_P0_Name,HB_P0_Skill6,HB_P0_Res,0x6,0x88,0x544)

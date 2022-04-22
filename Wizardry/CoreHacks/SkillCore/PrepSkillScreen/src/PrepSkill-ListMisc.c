@@ -7,6 +7,7 @@ void InitPrepSkillsList(void){
 }
 
 
+
 // W.I.P.
 struct PrepSkillsList* MakeUnitPrepSkillsList(struct Unit* unit){
 	
@@ -21,6 +22,7 @@ struct PrepSkillsList* MakeUnitPrepSkillsList(struct Unit* unit){
 	gpCommonSpace->total[PREP_SKLSUB_LEFT_RAM] = 0;
 	gpCommonSpace->total[PREP_SKLSUB_LEFT_ROM] = 0;
 	gpCommonSpace->total[PREP_SKLSUB_LEFT_CA] = 0;
+	gpCommonSpace->total[PREP_SKLSUB_RIGHT] = 0;
 	
 	// RAM Skills
 	for( int i = 0; i < UNIT_SKILL_COUNT; i++ )
@@ -28,6 +30,9 @@ struct PrepSkillsList* MakeUnitPrepSkillsList(struct Unit* unit){
 		if( SKILL_VALID( unit->supports[i] ) )
 		{
 			int count = gpCommonSpace->total[PREP_SKLSUB_LEFT_RAM];
+			
+			if( count >= PREPSKILL_LISTLEN_RAM )
+				break;
 			
 			gpCommonSpace->skills_ram[count] = unit->supports[i];
 			gpCommonSpace->total[PREP_SKLSUB_LEFT_RAM]++;
@@ -42,7 +47,12 @@ struct PrepSkillsList* MakeUnitPrepSkillsList(struct Unit* unit){
 		if( !isPrepSkillEquippedRAM(unit, list->skills[i]) )
 		{
 			int count = gpCommonSpace->total[PREP_SKLSUB_LEFT_ROM];
+			
+			if( count >= PREPSKILL_LISTLEN_ROM )
+				break;
+			
 			gpCommonSpace->skills_rom[count] = list->skills[i];
+			
 			gpCommonSpace->total[PREP_SKLSUB_LEFT_ROM]++;
 		}
 	}
@@ -62,54 +72,47 @@ struct PrepSkillsList* MakeUnitPrepSkillsList(struct Unit* unit){
 	// Total Skills: add rom-skills
 	// Character
 	for( int i = 0; i < 4; i++ )
-	{
+	{	
+		if( SKILL_VALID(char_rom_list->default_ram_skill[i]) )
+			gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] 
+				= char_rom_list->default_ram_skill[i];
+		
 		if( gpCommonSpace->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
 			break;
-		
-		if( SKILL_VALID(char_rom_list->default_rom_skill[i]) )
-			gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = char_rom_list->default_rom_skill[i];
-		
-		if( SKILL_VALID(char_rom_list->default_ram_skill[i]) )
-			gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = char_rom_list->default_ram_skill[i];
 	}
 	
 	if( unit->level >= 10 )
 		for( int i = 0; i < 4; i++ )
 		{
-			if( gpCommonSpace->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-				break;
-		
-			if( SKILL_VALID(char_rom_list->master_rom_skill[i]) )
-				gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = char_rom_list->master_rom_skill[i];
 			
 			if( SKILL_VALID(char_rom_list->master_ram_skill[i]) )
-				gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = char_rom_list->master_ram_skill[i];
+				gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] 
+					= char_rom_list->master_ram_skill[i];
+			
+			if( gpCommonSpace->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+				break;
 		}
 		
 	// Class
 	for( int i = 0; i < 4; i++ )
-	{
+	{	
+		if( SKILL_VALID(class_rom_list->default_ram_skill[i]) )
+			gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] 
+				= class_rom_list->default_ram_skill[i];
+		
 		if( gpCommonSpace->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
 			break;
-		
-		if( SKILL_VALID(class_rom_list->default_rom_skill[i]) )
-			gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = class_rom_list->default_rom_skill[i];
-		
-		if( SKILL_VALID(class_rom_list->default_ram_skill[i]) )
-			gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = class_rom_list->default_ram_skill[i];
 	}
 	
 	if( unit->level >= 10 )
 		for( int i = 0; i < 4; i++ )
-		{
+		{			
+			if( SKILL_VALID(class_rom_list->master_ram_skill[i]) )
+				gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] 
+					= class_rom_list->master_ram_skill[i];
+			
 			if( gpCommonSpace->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
 				break;
-		
-			if( SKILL_VALID(class_rom_list->master_rom_skill[i]) )
-				gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = class_rom_list->master_rom_skill[i];
-			
-			if( SKILL_VALID(class_rom_list->master_ram_skill[i]) )
-				gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] = class_rom_list->master_ram_skill[i];
 		}
 	
 	

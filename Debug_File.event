@@ -18,6 +18,10 @@ PUSH
 	ORG $8B3C35		
 	BYTE Fire GuidingRing 0xBC
 	
+	// Eirika Speed
+	ORG $803D73
+	BYTE 20
+	
 	ORG $8B3C51
 	BYTE Mage		// O'Neill class
 	BYTE 0

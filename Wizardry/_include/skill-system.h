@@ -26,8 +26,10 @@ enum{
 // for ROM skill
 struct SkillROMList{
 	
-	/* 00 */ u8 default_rom_skill[4];
-	/* 04 */ u8 master_rom_skill[4];
+	/* 00 */ u8 default_rom_skill[2];
+			 u8 pad_02[2];
+	/* 04 */ u8 master_rom_skill[2];
+			 u8 pad_04[2];
 	/* 08 */ u8 default_ram_skill[4];
 	/* 0C */ u8 master_ram_skill[4];
 	/* 10 */

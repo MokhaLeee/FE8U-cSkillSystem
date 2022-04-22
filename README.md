@@ -79,8 +79,9 @@ git submodule update --remote
 		* Modular item prep-screen usability
 		* Modular item prep-item effect
 		
-		
-		
+	* `Battle order`: check  function battle-unwind and can unit double attack	
+	
+	
 * Features
 
 	* `FE16 style level up`: use `rn-ext` system for 3DS/FE16 style level.

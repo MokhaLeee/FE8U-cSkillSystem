@@ -49,39 +49,46 @@ const struct HelpBoxInfo HB_P0_Skill2;
 const struct HelpBoxInfo HB_P0_Skill3;
 const struct HelpBoxInfo HB_P0_Skill4;
 const struct HelpBoxInfo HB_P0_Skill5;
+const struct HelpBoxInfo HB_P0_Skill6;
 
 const struct HelpBoxInfo HB_P0_Skill0 =
 {
 	&HB_P0_Res, &HB_P0_Str, &HB_P0_HP, &HB_P0_Skill1,
-	136, 136, 0, HbRedirect_Skill, HbPopuplate_Skill,
+	0x80, 0x88, 0, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
 const struct HelpBoxInfo HB_P0_Skill1 =
 {
 	&HB_P0_Res, &HB_P0_Str, &HB_P0_Skill0, &HB_P0_Skill2,
-	152, 136, 1, HbRedirect_Skill, HbPopuplate_Skill,
+	0x90, 0x88, 1, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
 const struct HelpBoxInfo HB_P0_Skill2 =
 {
 	&HB_P0_Stat, &HB_P0_Lck, &HB_P0_Skill1, &HB_P0_Skill3,
-	168, 136, 2, HbRedirect_Skill, HbPopuplate_Skill,
+	0xA0, 0x88, 2, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
 const struct HelpBoxInfo HB_P0_Skill3 =
 {
 	&HB_P0_Stat, &HB_P0_Lck, &HB_P0_Skill2, &HB_P0_Skill4,
-	184, 136, 3, HbRedirect_Skill, HbPopuplate_Skill,
+	0xB0, 0x88, 3, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
 const struct HelpBoxInfo HB_P0_Skill4 =
 {
     &HB_P0_Stat, &HB_P0_Lck, &HB_P0_Skill3, &HB_P0_Skill5,
-    200, 136, 4, HbRedirect_Skill, HbPopuplate_Skill,
+    0xC0, 0x88, 4, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
 const struct HelpBoxInfo HB_P0_Skill5 =
 {
-    &HB_P0_Stat, &HB_P0_Lck, &HB_P0_Skill4, &HB_P0_HP,
-    216, 136, 5, HbRedirect_Skill, HbPopuplate_Skill,
+    &HB_P0_Stat, &HB_P0_Lck, &HB_P0_Skill4, &HB_P0_Skill6,
+    0xD0, 0x88, 5, HbRedirect_Skill, HbPopuplate_Skill,
+};
+
+const struct HelpBoxInfo HB_P0_Skill6 =
+{
+    &HB_P0_Stat, &HB_P0_Lck, &HB_P0_Skill5, &HB_P0_HP,
+    0xE0, 0x88, 6, HbRedirect_Skill, HbPopuplate_Skill,
 };

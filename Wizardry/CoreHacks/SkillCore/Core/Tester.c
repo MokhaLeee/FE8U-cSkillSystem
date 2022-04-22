@@ -19,25 +19,24 @@ static int JudgeSkillROM(struct Unit* unit, const u8 skill_id){
 	
 	// Character
 	
-	for( int i = 0; i < 4; i++ )
+	for( int i = 0; i < 2; i++ )
 		if( skill_id == char_rom_list->default_rom_skill[i] )
 			return 1;
 	
 	if( unit->level >= 10 )
-		for( int i = 0; i < 4; i++ )
+		for( int i = 0; i < 2; i++ )
 			if( skill_id == char_rom_list->master_rom_skill[i] )
 				return 1;
 	
 	
 	// Class
 	
-	
-	for( int i = 0; i < 4; i++ )
+	for( int i = 0; i < 2; i++ )
 		if( skill_id == class_rom_list->default_rom_skill[i] )
 			return 1;
 	
 	if( unit->level >= 10 )
-		for( int i = 0; i < 4; i++ )
+		for( int i = 0; i < 2; i++ )
 			if( skill_id == class_rom_list->master_rom_skill[i] )
 				return 1;
 	
