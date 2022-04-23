@@ -73,9 +73,8 @@ ALIGN 4
 // Need Null-Bwl and Bwl-Support patch installed
 #include "CoreHacks/SkillCore/SkillCore.event"
 
-// Battle System: check battle order
-// check skill: vantage & despration & QuickRiposte
-#include "CoreHacks/BattleOrder/BattleOrder.event"
+// Battle System: BattleOrder & 
+#include "CoreHacks/BattleSystem/BattleSystem.event"
 
 
 
@@ -88,7 +87,13 @@ ALIGN 4
 // = ADDITIONAL FEATURE HACKS =
 // ============================
 
+// Skill infos installer
 #include "Features/Skills/SkillsInstaller.event"
+
+// Skill activation anime installer
+#include "Features/SkillAnimInstaller/SkillAnimInstaller.event"
+
+
 #include "Features/LevelUpFE16/LevelUpFE16.event"
 #include "Features/PrepScreenRework/PrepScreenRework.event"
 #include "Features/FE16Icon/FE16Icon.event"

@@ -1,0 +1,35 @@
+#ifndef BATTLE_SYSTEM_REWORK
+#define BATTLE_SYSTEM_REWORK
+
+// ====================================================
+//                         Core
+// ====================================================
+
+#include "Core/BattleSystemCore.lyn.event"
+
+	PROTECT $2AE90 $2AED0		// ClearBattleHits
+	PROTECT $2B83C $2B92C		// BattleGenerateHit
+
+
+
+// ====================================================
+//                    Battle Order
+// ====================================================
+
+// check battle order
+// check skill: vantage & despration & QuickRiposte
+
+#include "BattleOrder/BattleOrder.lyn.event"
+
+	PROTECT $2AED0 $2AF7C		// BattleUnwind
+	PROTECT $2AF90 $2B018		// BattleCheckDoubling
+	PROTECT $2B018 $2B080		// BattleGenerateRoundHits
+	PROTECT $2B080 $2B094		// GetBattleUnitHitCount
+
+
+
+
+
+
+
+#endif // BATTLE_SYSTEM_REWORK

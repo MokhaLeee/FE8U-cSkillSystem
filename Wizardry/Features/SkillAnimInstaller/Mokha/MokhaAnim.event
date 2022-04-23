@@ -1,0 +1,51 @@
+//Generated with Skill Animation Creator.
+
+#incbin skillanimtemplate.dmp
+POIN Frames
+POIN TSAList
+POIN GraphicsList
+POIN PalettesList
+WORD 0x3d1 //sound id
+
+Frames:    //SHORT image duration
+SHORT 0 5
+SHORT 1 10
+SHORT 2 15
+SHORT 0xFFFF
+ALIGN 4
+
+TSAList:
+POIN TSA_Mokha001
+POIN TSA_Mokha002
+POIN TSA_Mokha003
+
+GraphicsList:
+POIN Graphics_Mokha001
+POIN Graphics_Mokha002
+POIN Graphics_Mokha003
+
+PalettesList:
+POIN Pal_Mokha001
+POIN Pal_Mokha002
+POIN Pal_Mokha003
+
+TSA_Mokha001:
+#incbin "Mokha001.map.bin"
+TSA_Mokha002:
+#incbin "Mokha002.map.bin"
+TSA_Mokha003:
+#incbin "Mokha003.map.bin"
+
+Graphics_Mokha001:
+#incbin "Mokha001.img.bin"
+Graphics_Mokha002:
+#incbin "Mokha002.img.bin"
+Graphics_Mokha003:
+#incbin "Mokha003.img.bin"
+
+Pal_Mokha001:
+#incbin "Mokha001.pal.bin"
+Pal_Mokha002:
+#incbin "Mokha002.pal.bin"
+Pal_Mokha003:
+#incbin "Mokha003.pal.bin"

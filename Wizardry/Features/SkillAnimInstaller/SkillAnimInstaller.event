@@ -1,0 +1,31 @@
+
+#ifndef _thumb
+	#define _thumb(func) "PUSH; ORG CURRENTOFFSET+1; func:; POP"
+#endif // _thumb
+
+
+
+
+
+ALIGN 4
+_thumb(SureShotAnim)
+{
+  #include "SureShot/SureShotAnim.event"
+}
+
+
+ALIGN 4
+_thumb(MokhaAnim)
+{
+  #include "Mokha/MokhaAnim.event"
+}
+
+
+
+
+
+InjectSkillAnimation(SKILLID_Vantage, MokhaAnim)
+InjectSkillAnimation(SKILLID_VantageBattalion, MokhaAnim)
+InjectSkillAnimation(SKILLID_Desperation, MokhaAnim)
+InjectSkillAnimation(SKILLID_DesperationBattalion, MokhaAnim)
+InjectSkillAnimation(SKILLID_QuickRiposte, MokhaAnim)

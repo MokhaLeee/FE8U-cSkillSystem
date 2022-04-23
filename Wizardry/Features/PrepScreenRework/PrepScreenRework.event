@@ -37,6 +37,7 @@ POIN newProcCmd_PrepMain
 
 // To fix a UI bug on map-view
 // for now no better idea
+// 2022.04.22: fixed
 // ORG $08D09C
 // SHORT $E01C
 

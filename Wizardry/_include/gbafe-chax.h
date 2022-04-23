@@ -34,6 +34,7 @@ int _lib_div(int a, int b);
 #include "item-system.h"
 #include "popup-rework.h"
 #include "prep-screen-rework.h"
+#include "battle-system.h"
 
 #include "gbafe16-features.h"
 

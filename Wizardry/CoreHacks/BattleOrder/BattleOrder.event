@@ -1,7 +1,0 @@
-
-#include "src/BattleOrder.lyn.event"
-
-	PROTECT $2aed0 $2aed0+16	// BattleUnwind
-	PROTECT $2af90 $2af90+16	// BattleCheckDoubling
-	PROTECT $2b018 $2b018+16	// BattleGenerateRoundHits
-	PROTECT $2b080 $2b080+16	// GetBattleUnitHitCount

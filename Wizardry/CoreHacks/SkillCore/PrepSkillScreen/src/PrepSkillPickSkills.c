@@ -1123,7 +1123,7 @@ void PrepPickSkil_CancelOnSkill(struct Proc_PrepPickSkill* proc){
 		
 		case PREP_SKLSUB_LEFT_ROM:
 			xHand = 0x10 + 0x10 * _lib_mod(proc->list_index, 5);
-			yHand = 0x58 + 0x10 * _lib_div(proc->list_index, 5);
+			yHand = 0x48 + 0x10 * _lib_div(proc->list_index, 5);
 			break;
 			
 			

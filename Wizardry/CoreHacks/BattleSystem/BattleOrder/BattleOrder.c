@@ -117,16 +117,43 @@ void BattleUnwind(){
 		
 		
 		// Todo: Anim effect
+		(*BattleHitExtCur)--;
+		gBattleHitIterator--;
+		
 		// vantage anim
 		if( UNWIND_VANTAGE & roundInfo )
 			if( 0 == i )
-				(gBattleHitIterator-1)->attributes |= BATTLE_HIT_ATTR_SURESHOT; // just anim
+			{
+				// Add skill to BattleHitExt
+				if ( (*SkillTester)(&gBattleTarget.unit, cSkillIndex_VantageBattalion) )
+						SetBattleHitExt_DefSkill(cSkillIndex_VantageBattalion);
+					else
+						SetBattleHitExt_DefSkill(cSkillIndex_Vantage);
+				
+				// just anim
+				gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
+				BattleHitExt_SetAttr(ATTR_HITEXT_SKILLACT_DEF);
+			}
 			
 		// desperation anim
 		if( UNWIND_DESPERA & roundInfo )
 			if( i > 0 )
 				if( (ACT_ATTACK == round[i]) && (ACT_ATTACK == round[i-1]) )
-					(gBattleHitIterator-1)->attributes |= BATTLE_HIT_ATTR_SURESHOT; // just anim
+				{
+					// Add skill to BattleHitExt
+					if ( (*SkillTester)(&gBattleActor.unit, cSkillIndex_DesperationBattalion) )
+						SetBattleHitExt_AtkSkill(cSkillIndex_DesperationBattalion);
+					else
+						SetBattleHitExt_AtkSkill(cSkillIndex_Desperation);
+					
+					// just anim
+					gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
+					BattleHitExt_SetAttr(ATTR_HITEXT_SKILLACT_ATK);
+				}
+				
+		// end of anim set			
+		(*BattleHitExtCur)++;
+		gBattleHitIterator++;
 	}
 	
 	gBattleHitIterator->info |= BATTLE_HIT_INFO_END;
