@@ -1,5 +1,4 @@
 #include "gbafe-chax.h"
-#include "SkillAnim.h"
 
 // =====================================================
 //                     add for c-lib
@@ -60,8 +59,10 @@ int cSkillActivationAnims(struct Anim* anim){
 	
 	
 	// make skill activation
-	if( SKILL_VALID(skill_act) )
-		anim_func = SkillAnimationTable[skill_act];
+	if( !SKILL_VALID(skill_act) )
+		return ACTANIM_NOANIM;
+	
+	anim_func = SkillAnimationTable[skill_act];
 	
 	if( 0 != anim_func )
 	{
@@ -71,7 +72,35 @@ int cSkillActivationAnims(struct Anim* anim){
 		anim_func(anim);
 	}
 	
-	StartSkillBoxControler(anim);
+	
+	// =====================================================
+	//            Copy from skill-system fe8
+	// =====================================================
+	
+	struct SPD_ProcStateMain {
+  
+	/* 00 */ PROC_HEADER;
+	/* 29 */ u8 skill;
+	/* 2A */ u8 right;
+	/* 2B */ u8 timer;
+	/* 2C */ u16 depth;
+	/* 30 */ struct TextHandle textHandle;
+  
+	};
+	extern const struct ProcCmd SPD_main_Proc[];
+	extern const struct ProcCmd gProc_ekrGauge[];
+	
+	struct SPD_ProcStateMain* proc;
+	struct Proc* parent = Proc_Find(gProc_ekrGauge);
+	
+	if( NULL == parent )
+		return ACTANIM_END;
+	
+	proc = Proc_Start(SPD_main_Proc, parent);
+	
+	proc->skill = skill_act;
+	proc->right = GetAISSubjectId(anim); // currently only offensive skill
+	proc->timer = anim->drawLayerPriority + 1;
 	
 	return ACTANIM_END;
 }
@@ -92,3 +121,11 @@ u8 SortAnimActSkill(u8 skills[], const int max_num){
 	
 	return 0;
 }
+
+
+
+
+
+
+
+

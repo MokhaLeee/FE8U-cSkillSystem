@@ -1,0 +1,16 @@
+2 romanime_02_efxSkillCommonBG_g000.png
+2 romanime_02_efxSkillCommonBG_g001.png
+2 romanime_02_efxSkillCommonBG_g002.png
+2 romanime_02_efxSkillCommonBG_g003.png
+2 romanime_02_efxSkillCommonBG_g004.png
+2 romanime_02_efxSkillCommonBG_g005.png
+2 romanime_02_efxSkillCommonBG_g006.png
+2 romanime_02_efxSkillCommonBG_g007.png
+2 romanime_02_efxSkillCommonBG_g008.png
+2 romanime_02_efxSkillCommonBG_g009.png
+2 romanime_02_efxSkillCommonBG_g010.png
+2 romanime_02_efxSkillCommonBG_g011.png
+2 romanime_02_efxSkillCommonBG_g012.png
+2 romanime_02_efxSkillCommonBG_g013.png
+2 romanime_02_efxSkillCommonBG_g014.png
+2 romanime_02_efxSkillCommonBG_g015.png

@@ -81,7 +81,7 @@ POP
 
 #include "SkillAnimActivition/SkillAnimOn.lyn.event"
 #include "SkillAnimActivition/SkillAnimOnASM.lyn.event"
-#include "SkillAnimActivition/SkillBoxAnimOn.lyn.event"
+
 
 ALIGN 4
 SkillAnimationTable:
@@ -118,6 +118,12 @@ PUSH
 		WORD 0xBC02BC10 0x00004708
 
 POP
+
+#include "SkillAnimActivition/SkillBox-SkillSystemFE8/SkillProcDisplay.lyn.event"
+
+ALIGN 4
+SPD_ProcDisplayTiles:
+	#incbin "SkillAnimActivition/data/ProcDisplayTiles.4bpp.lz"
 
 
 #endif // SKILL_CORE

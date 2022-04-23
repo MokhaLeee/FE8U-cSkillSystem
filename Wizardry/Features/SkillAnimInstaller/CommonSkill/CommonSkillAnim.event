@@ -1,0 +1,181 @@
+//Generated with Skill Animation Creator.
+
+#incbin skillanimtemplate.dmp
+POIN Frames
+POIN TSAList
+POIN GraphicsList
+POIN PalettesList
+WORD 0x3d1 //sound id
+
+Frames:    //SHORT image duration
+SHORT 0 2
+SHORT 1 2
+SHORT 2 2
+SHORT 3 2
+SHORT 4 2
+SHORT 5 2
+SHORT 6 2
+SHORT 7 2
+SHORT 8 2
+SHORT 9 2
+SHORT 10 2
+SHORT 11 2
+SHORT 12 2
+SHORT 13 2
+SHORT 14 2
+SHORT 15 2
+SHORT 0xFFFF
+ALIGN 4
+
+TSAList:
+POIN TSA_romanime_02_efxSkillCommonBG_g000
+POIN TSA_romanime_02_efxSkillCommonBG_g001
+POIN TSA_romanime_02_efxSkillCommonBG_g002
+POIN TSA_romanime_02_efxSkillCommonBG_g003
+POIN TSA_romanime_02_efxSkillCommonBG_g004
+POIN TSA_romanime_02_efxSkillCommonBG_g005
+POIN TSA_romanime_02_efxSkillCommonBG_g006
+POIN TSA_romanime_02_efxSkillCommonBG_g007
+POIN TSA_romanime_02_efxSkillCommonBG_g008
+POIN TSA_romanime_02_efxSkillCommonBG_g009
+POIN TSA_romanime_02_efxSkillCommonBG_g010
+POIN TSA_romanime_02_efxSkillCommonBG_g011
+POIN TSA_romanime_02_efxSkillCommonBG_g012
+POIN TSA_romanime_02_efxSkillCommonBG_g013
+POIN TSA_romanime_02_efxSkillCommonBG_g014
+POIN TSA_romanime_02_efxSkillCommonBG_g015
+
+GraphicsList:
+POIN Graphics_romanime_02_efxSkillCommonBG_g000
+POIN Graphics_romanime_02_efxSkillCommonBG_g001
+POIN Graphics_romanime_02_efxSkillCommonBG_g002
+POIN Graphics_romanime_02_efxSkillCommonBG_g003
+POIN Graphics_romanime_02_efxSkillCommonBG_g004
+POIN Graphics_romanime_02_efxSkillCommonBG_g005
+POIN Graphics_romanime_02_efxSkillCommonBG_g006
+POIN Graphics_romanime_02_efxSkillCommonBG_g007
+POIN Graphics_romanime_02_efxSkillCommonBG_g008
+POIN Graphics_romanime_02_efxSkillCommonBG_g009
+POIN Graphics_romanime_02_efxSkillCommonBG_g010
+POIN Graphics_romanime_02_efxSkillCommonBG_g011
+POIN Graphics_romanime_02_efxSkillCommonBG_g012
+POIN Graphics_romanime_02_efxSkillCommonBG_g013
+POIN Graphics_romanime_02_efxSkillCommonBG_g014
+POIN Graphics_romanime_02_efxSkillCommonBG_g015
+
+PalettesList:
+POIN Pal_romanime_02_efxSkillCommonBG_g000
+POIN Pal_romanime_02_efxSkillCommonBG_g001
+POIN Pal_romanime_02_efxSkillCommonBG_g002
+POIN Pal_romanime_02_efxSkillCommonBG_g003
+POIN Pal_romanime_02_efxSkillCommonBG_g004
+POIN Pal_romanime_02_efxSkillCommonBG_g005
+POIN Pal_romanime_02_efxSkillCommonBG_g006
+POIN Pal_romanime_02_efxSkillCommonBG_g007
+POIN Pal_romanime_02_efxSkillCommonBG_g008
+POIN Pal_romanime_02_efxSkillCommonBG_g009
+POIN Pal_romanime_02_efxSkillCommonBG_g010
+POIN Pal_romanime_02_efxSkillCommonBG_g011
+POIN Pal_romanime_02_efxSkillCommonBG_g012
+POIN Pal_romanime_02_efxSkillCommonBG_g013
+POIN Pal_romanime_02_efxSkillCommonBG_g014
+POIN Pal_romanime_02_efxSkillCommonBG_g015
+
+TSA_romanime_02_efxSkillCommonBG_g000:
+#incbin "romanime_02_efxSkillCommonBG_g000.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g001:
+#incbin "romanime_02_efxSkillCommonBG_g001.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g002:
+#incbin "romanime_02_efxSkillCommonBG_g002.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g003:
+#incbin "romanime_02_efxSkillCommonBG_g003.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g004:
+#incbin "romanime_02_efxSkillCommonBG_g004.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g005:
+#incbin "romanime_02_efxSkillCommonBG_g005.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g006:
+#incbin "romanime_02_efxSkillCommonBG_g006.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g007:
+#incbin "romanime_02_efxSkillCommonBG_g007.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g008:
+#incbin "romanime_02_efxSkillCommonBG_g008.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g009:
+#incbin "romanime_02_efxSkillCommonBG_g009.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g010:
+#incbin "romanime_02_efxSkillCommonBG_g010.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g011:
+#incbin "romanime_02_efxSkillCommonBG_g011.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g012:
+#incbin "romanime_02_efxSkillCommonBG_g012.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g013:
+#incbin "romanime_02_efxSkillCommonBG_g013.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g014:
+#incbin "romanime_02_efxSkillCommonBG_g014.map.bin"
+TSA_romanime_02_efxSkillCommonBG_g015:
+#incbin "romanime_02_efxSkillCommonBG_g015.map.bin"
+
+Graphics_romanime_02_efxSkillCommonBG_g000:
+#incbin "romanime_02_efxSkillCommonBG_g000.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g001:
+#incbin "romanime_02_efxSkillCommonBG_g001.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g002:
+#incbin "romanime_02_efxSkillCommonBG_g002.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g003:
+#incbin "romanime_02_efxSkillCommonBG_g003.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g004:
+#incbin "romanime_02_efxSkillCommonBG_g004.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g005:
+#incbin "romanime_02_efxSkillCommonBG_g005.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g006:
+#incbin "romanime_02_efxSkillCommonBG_g006.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g007:
+#incbin "romanime_02_efxSkillCommonBG_g007.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g008:
+#incbin "romanime_02_efxSkillCommonBG_g008.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g009:
+#incbin "romanime_02_efxSkillCommonBG_g009.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g010:
+#incbin "romanime_02_efxSkillCommonBG_g010.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g011:
+#incbin "romanime_02_efxSkillCommonBG_g011.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g012:
+#incbin "romanime_02_efxSkillCommonBG_g012.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g013:
+#incbin "romanime_02_efxSkillCommonBG_g013.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g014:
+#incbin "romanime_02_efxSkillCommonBG_g014.img.bin"
+Graphics_romanime_02_efxSkillCommonBG_g015:
+#incbin "romanime_02_efxSkillCommonBG_g015.img.bin"
+
+Pal_romanime_02_efxSkillCommonBG_g000:
+#incbin "romanime_02_efxSkillCommonBG_g000.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g001:
+#incbin "romanime_02_efxSkillCommonBG_g001.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g002:
+#incbin "romanime_02_efxSkillCommonBG_g002.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g003:
+#incbin "romanime_02_efxSkillCommonBG_g003.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g004:
+#incbin "romanime_02_efxSkillCommonBG_g004.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g005:
+#incbin "romanime_02_efxSkillCommonBG_g005.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g006:
+#incbin "romanime_02_efxSkillCommonBG_g006.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g007:
+#incbin "romanime_02_efxSkillCommonBG_g007.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g008:
+#incbin "romanime_02_efxSkillCommonBG_g008.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g009:
+#incbin "romanime_02_efxSkillCommonBG_g009.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g010:
+#incbin "romanime_02_efxSkillCommonBG_g010.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g011:
+#incbin "romanime_02_efxSkillCommonBG_g011.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g012:
+#incbin "romanime_02_efxSkillCommonBG_g012.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g013:
+#incbin "romanime_02_efxSkillCommonBG_g013.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g014:
+#incbin "romanime_02_efxSkillCommonBG_g014.pal.bin"
+Pal_romanime_02_efxSkillCommonBG_g015:
+#incbin "romanime_02_efxSkillCommonBG_g015.pal.bin"

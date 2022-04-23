@@ -4,8 +4,14 @@
 #endif // _thumb
 
 
+#define DefaultOffseniveSkillActivationAnim 0x806E311
 
 
+ALIGN 4
+_thumb(CommonSkill)
+{
+	#include "CommonSkill/CommonSkillAnim.event"
+}
 
 ALIGN 4
 _thumb(SureShotAnim)
@@ -21,11 +27,25 @@ _thumb(MokhaAnim)
 }
 
 
+ALIGN 4
+_thumb(ClassChangAnim)
+{
+  #include "ClassChang/ClassChangAnim.event"
+}
 
 
+InjectSkillAnimation(SKILLID_Vantage, CommonSkill)
+InjectSkillAnimation(SKILLID_VantageBattalion, CommonSkill)
+InjectSkillAnimation(SKILLID_Desperation, ClassChangAnim)
+InjectSkillAnimation(SKILLID_DesperationBattalion, ClassChangAnim)
+InjectSkillAnimation(SKILLID_QuickRiposte, DefaultOffseniveSkillActivationAnim)
 
-InjectSkillAnimation(SKILLID_Vantage, MokhaAnim)
-InjectSkillAnimation(SKILLID_VantageBattalion, MokhaAnim)
-InjectSkillAnimation(SKILLID_Desperation, MokhaAnim)
-InjectSkillAnimation(SKILLID_DesperationBattalion, MokhaAnim)
-InjectSkillAnimation(SKILLID_QuickRiposte, MokhaAnim)
+/*
+Some ideas on skill-activation animation:
+1. put the skill-activation window in OAM，and load them as objects, so that we can draw windows through tsa freely control the position of the window (instead of replacing the picture frame by frame as it currently does)
+
+Rework on tools of SkillAnimCreator: 
+1. Compress the skill-animes' gfx amd tsa to save rom space
+2. Make the same set of animations share a palette, rather than load for each gfx, so that we can save the rom space also eay to modify the anime's palette. 
+3. rewrite the skillTemplate rountine in C.
+

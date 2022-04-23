@@ -1,18 +1,31 @@
+## msg_SN_BlowDarting
+Darting Blow[X]
+
 ## msg_SD_BlowDarting
 Darting Blow:[NL]
 If unit initiates combat, [NL]
 grants AS +6 during combat.[X]
+
+
+## msg_SN_BlowDeath
+Death Blow[X]
 
 ## msg_SD_BlowDeath
 Death Blow:[NL]
 If unit initiates combat,[NL]
 grants Str +6 during combat.[X]
 
+
+## msg_SN_BlowArmored
+Armored Blow[X]
+
 ## msg_SD_BlowArmored
 Armored Blow:[NL]
 If unit initiates combat,[NL]
 grants Def +6 during combat.[X]
 
+
+## msg_SD_BlowFiendish
 
 ## msg_SD_BlowFiendish
 Fiendish Blow:[NL]

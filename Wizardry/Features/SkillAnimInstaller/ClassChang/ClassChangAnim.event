@@ -1,0 +1,171 @@
+//Generated with Skill Animation Creator.
+
+#incbin skillanimtemplate.dmp
+POIN Frames
+POIN TSAList
+POIN GraphicsList
+POIN PalettesList
+WORD 0x3d1 //sound id
+
+Frames:    //SHORT image duration
+SHORT 0 2
+SHORT 1 2
+SHORT 2 2
+SHORT 3 2
+SHORT 4 2
+SHORT 5 2
+SHORT 6 2
+SHORT 7 2
+SHORT 8 2
+SHORT 9 2
+SHORT 10 2
+SHORT 11 2
+SHORT 12 2
+SHORT 13 2
+SHORT 14 2
+SHORT 0xFFFF
+ALIGN 4
+
+TSAList:
+POIN TSA_romanime_03_efxClasschgBG_g017
+POIN TSA_romanime_03_efxClasschgBG_g018
+POIN TSA_romanime_03_efxClasschgBG_g019
+POIN TSA_romanime_03_efxClasschgBG_g020
+POIN TSA_romanime_03_efxClasschgBG_g021
+POIN TSA_romanime_03_efxClasschgBG_g022
+POIN TSA_romanime_03_efxClasschgBG_g023
+POIN TSA_romanime_03_efxClasschgBG_g024
+POIN TSA_romanime_03_efxClasschgBG_g025
+POIN TSA_romanime_03_efxClasschgBG_g026
+POIN TSA_romanime_03_efxClasschgBG_g027
+POIN TSA_romanime_03_efxClasschgBG_g028
+POIN TSA_romanime_03_efxClasschgBG_g029
+POIN TSA_romanime_03_efxClasschgBG_g030
+POIN TSA_romanime_03_efxClasschgBG_g031
+
+GraphicsList:
+POIN Graphics_romanime_03_efxClasschgBG_g017
+POIN Graphics_romanime_03_efxClasschgBG_g018
+POIN Graphics_romanime_03_efxClasschgBG_g019
+POIN Graphics_romanime_03_efxClasschgBG_g020
+POIN Graphics_romanime_03_efxClasschgBG_g021
+POIN Graphics_romanime_03_efxClasschgBG_g022
+POIN Graphics_romanime_03_efxClasschgBG_g023
+POIN Graphics_romanime_03_efxClasschgBG_g024
+POIN Graphics_romanime_03_efxClasschgBG_g025
+POIN Graphics_romanime_03_efxClasschgBG_g026
+POIN Graphics_romanime_03_efxClasschgBG_g027
+POIN Graphics_romanime_03_efxClasschgBG_g028
+POIN Graphics_romanime_03_efxClasschgBG_g029
+POIN Graphics_romanime_03_efxClasschgBG_g030
+POIN Graphics_romanime_03_efxClasschgBG_g031
+
+PalettesList:
+POIN Pal_romanime_03_efxClasschgBG_g017
+POIN Pal_romanime_03_efxClasschgBG_g018
+POIN Pal_romanime_03_efxClasschgBG_g019
+POIN Pal_romanime_03_efxClasschgBG_g020
+POIN Pal_romanime_03_efxClasschgBG_g021
+POIN Pal_romanime_03_efxClasschgBG_g022
+POIN Pal_romanime_03_efxClasschgBG_g023
+POIN Pal_romanime_03_efxClasschgBG_g024
+POIN Pal_romanime_03_efxClasschgBG_g025
+POIN Pal_romanime_03_efxClasschgBG_g026
+POIN Pal_romanime_03_efxClasschgBG_g027
+POIN Pal_romanime_03_efxClasschgBG_g028
+POIN Pal_romanime_03_efxClasschgBG_g029
+POIN Pal_romanime_03_efxClasschgBG_g030
+POIN Pal_romanime_03_efxClasschgBG_g031
+
+TSA_romanime_03_efxClasschgBG_g017:
+#incbin "romanime_03_efxClasschgBG_g017.map.bin"
+TSA_romanime_03_efxClasschgBG_g018:
+#incbin "romanime_03_efxClasschgBG_g018.map.bin"
+TSA_romanime_03_efxClasschgBG_g019:
+#incbin "romanime_03_efxClasschgBG_g019.map.bin"
+TSA_romanime_03_efxClasschgBG_g020:
+#incbin "romanime_03_efxClasschgBG_g020.map.bin"
+TSA_romanime_03_efxClasschgBG_g021:
+#incbin "romanime_03_efxClasschgBG_g021.map.bin"
+TSA_romanime_03_efxClasschgBG_g022:
+#incbin "romanime_03_efxClasschgBG_g022.map.bin"
+TSA_romanime_03_efxClasschgBG_g023:
+#incbin "romanime_03_efxClasschgBG_g023.map.bin"
+TSA_romanime_03_efxClasschgBG_g024:
+#incbin "romanime_03_efxClasschgBG_g024.map.bin"
+TSA_romanime_03_efxClasschgBG_g025:
+#incbin "romanime_03_efxClasschgBG_g025.map.bin"
+TSA_romanime_03_efxClasschgBG_g026:
+#incbin "romanime_03_efxClasschgBG_g026.map.bin"
+TSA_romanime_03_efxClasschgBG_g027:
+#incbin "romanime_03_efxClasschgBG_g027.map.bin"
+TSA_romanime_03_efxClasschgBG_g028:
+#incbin "romanime_03_efxClasschgBG_g028.map.bin"
+TSA_romanime_03_efxClasschgBG_g029:
+#incbin "romanime_03_efxClasschgBG_g029.map.bin"
+TSA_romanime_03_efxClasschgBG_g030:
+#incbin "romanime_03_efxClasschgBG_g030.map.bin"
+TSA_romanime_03_efxClasschgBG_g031:
+#incbin "romanime_03_efxClasschgBG_g031.map.bin"
+
+Graphics_romanime_03_efxClasschgBG_g017:
+#incbin "romanime_03_efxClasschgBG_g017.img.bin"
+Graphics_romanime_03_efxClasschgBG_g018:
+#incbin "romanime_03_efxClasschgBG_g018.img.bin"
+Graphics_romanime_03_efxClasschgBG_g019:
+#incbin "romanime_03_efxClasschgBG_g019.img.bin"
+Graphics_romanime_03_efxClasschgBG_g020:
+#incbin "romanime_03_efxClasschgBG_g020.img.bin"
+Graphics_romanime_03_efxClasschgBG_g021:
+#incbin "romanime_03_efxClasschgBG_g021.img.bin"
+Graphics_romanime_03_efxClasschgBG_g022:
+#incbin "romanime_03_efxClasschgBG_g022.img.bin"
+Graphics_romanime_03_efxClasschgBG_g023:
+#incbin "romanime_03_efxClasschgBG_g023.img.bin"
+Graphics_romanime_03_efxClasschgBG_g024:
+#incbin "romanime_03_efxClasschgBG_g024.img.bin"
+Graphics_romanime_03_efxClasschgBG_g025:
+#incbin "romanime_03_efxClasschgBG_g025.img.bin"
+Graphics_romanime_03_efxClasschgBG_g026:
+#incbin "romanime_03_efxClasschgBG_g026.img.bin"
+Graphics_romanime_03_efxClasschgBG_g027:
+#incbin "romanime_03_efxClasschgBG_g027.img.bin"
+Graphics_romanime_03_efxClasschgBG_g028:
+#incbin "romanime_03_efxClasschgBG_g028.img.bin"
+Graphics_romanime_03_efxClasschgBG_g029:
+#incbin "romanime_03_efxClasschgBG_g029.img.bin"
+Graphics_romanime_03_efxClasschgBG_g030:
+#incbin "romanime_03_efxClasschgBG_g030.img.bin"
+Graphics_romanime_03_efxClasschgBG_g031:
+#incbin "romanime_03_efxClasschgBG_g031.img.bin"
+
+Pal_romanime_03_efxClasschgBG_g017:
+#incbin "romanime_03_efxClasschgBG_g017.pal.bin"
+Pal_romanime_03_efxClasschgBG_g018:
+#incbin "romanime_03_efxClasschgBG_g018.pal.bin"
+Pal_romanime_03_efxClasschgBG_g019:
+#incbin "romanime_03_efxClasschgBG_g019.pal.bin"
+Pal_romanime_03_efxClasschgBG_g020:
+#incbin "romanime_03_efxClasschgBG_g020.pal.bin"
+Pal_romanime_03_efxClasschgBG_g021:
+#incbin "romanime_03_efxClasschgBG_g021.pal.bin"
+Pal_romanime_03_efxClasschgBG_g022:
+#incbin "romanime_03_efxClasschgBG_g022.pal.bin"
+Pal_romanime_03_efxClasschgBG_g023:
+#incbin "romanime_03_efxClasschgBG_g023.pal.bin"
+Pal_romanime_03_efxClasschgBG_g024:
+#incbin "romanime_03_efxClasschgBG_g024.pal.bin"
+Pal_romanime_03_efxClasschgBG_g025:
+#incbin "romanime_03_efxClasschgBG_g025.pal.bin"
+Pal_romanime_03_efxClasschgBG_g026:
+#incbin "romanime_03_efxClasschgBG_g026.pal.bin"
+Pal_romanime_03_efxClasschgBG_g027:
+#incbin "romanime_03_efxClasschgBG_g027.pal.bin"
+Pal_romanime_03_efxClasschgBG_g028:
+#incbin "romanime_03_efxClasschgBG_g028.pal.bin"
+Pal_romanime_03_efxClasschgBG_g029:
+#incbin "romanime_03_efxClasschgBG_g029.pal.bin"
+Pal_romanime_03_efxClasschgBG_g030:
+#incbin "romanime_03_efxClasschgBG_g030.pal.bin"
+Pal_romanime_03_efxClasschgBG_g031:
+#incbin "romanime_03_efxClasschgBG_g031.pal.bin"
