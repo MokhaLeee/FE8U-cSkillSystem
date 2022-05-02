@@ -18,10 +18,7 @@ extern int UnitSwapAnimationExists();
 extern void InitMapChangeGraphicsIfFog();
 extern void DisplayMapChangeIfFog();
 static const u32 ResetCameraOnActiveUnit = 0x8033DD9;
-extern void SALLYCURSOR6C_StartUnitSwap(ProcPtr);
 extern void PrepScreenProc_StartShopScreen(ProcPtr);
-extern void sub_8034194(ProcPtr);
-extern void sub_8033608(ProcPtr);
 
 // static void newPrepMap_ (struct newProc_PrepMapView* proc);
 static void newPrepMap_OnInit (struct newProc_PrepMapView* proc);

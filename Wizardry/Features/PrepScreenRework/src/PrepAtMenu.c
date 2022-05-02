@@ -343,7 +343,6 @@ void newPrepMenuEffect_Items(struct Proc_AtMenu* proc){
 
 void newPrepMenuEffect_Supports(struct Proc_AtMenu* proc){
 	
-	extern void sub_80029E8(int, int, int, int, int); // related to song
 	
 	proc->cur_cmd = CMD_PREPMENU_SUPPORT;
 	proc->state = 4;

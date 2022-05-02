@@ -2,8 +2,6 @@
 
 extern void NewBottomHelpText(ProcPtr parent, const char* string);
 extern ProcPtr NewTargetSelection(const struct SelectInfo* selectInfo);
-extern ProcPtr NewTargetSelection_Specialized(const struct SelectInfo* selectInfo, int(*onSelect)(ProcPtr, struct SelectTarget*));
-extern void EndTargetSelection(ProcPtr proc);
 extern struct ProcCmd CONST_DATA gProcScr_SquareSelectWarp[];
 extern struct ProcCmd CONST_DATA gProcScr_SquareSelectTorch[];
 
@@ -186,7 +184,7 @@ static void DoEff_Rescue(struct Unit* unit, uint16_t item){
 	BmMapFill(gBmMapMovement, -1);
 
 	NewBottomHelpText(
-		NewTargetSelection_Specialized(&gSelectInfo_0859D2F8, StaffSelectOnSelect),
+		NewTargetSelection_Specialized(&gSelectInfo_0859D2F8, (void*)StaffSelectOnSelect),
 		GetStringFromIndex(0x876)); // TODO: msgid "Select which character to bring next to you."
 }
 
@@ -237,7 +235,7 @@ static void DoEff_Warp(struct Unit* unit, uint16_t item){
 	BmMapFill(gBmMapMovement, -1);
 
 	NewBottomHelpText(
-		NewTargetSelection_Specialized(&gSelectInfo_0859D2F8, WarpOnSelectTarget),
+		NewTargetSelection_Specialized(&gSelectInfo_0859D2F8, (void*)WarpOnSelectTarget),
 		GetStringFromIndex(0x875)
 	); // TODO: msgid "Select character to warp."
 
@@ -263,7 +261,7 @@ static void DoEff_Unlock(struct Unit* unit, uint16_t item){
 	BmMapFill(gBmMapMovement, -1);
 
 	NewBottomHelpText(
-		NewTargetSelection_Specialized(&gSelectInfo_PutTrap, OnSelectPutTrap),
+		NewTargetSelection_Specialized(&gSelectInfo_PutTrap, (void*)OnSelectPutTrap),
 		GetStringFromIndex(0x87A)
 	); // TODO: msgid "Select a door to open."
 
@@ -276,7 +274,7 @@ static void DoEff_Mine(struct Unit* unit, uint16_t item){
 	BmMapFill(gBmMapMovement, -1);
 
 	NewBottomHelpText(
-		NewTargetSelection_Specialized(&gSelectInfo_PutTrap, OnSelectPutTrap),
+		NewTargetSelection_Specialized(&gSelectInfo_PutTrap, (void*)OnSelectPutTrap),
 		GetStringFromIndex(0x87D)
 	); // TODO: msgid "Select an area to trap."
 
@@ -289,7 +287,7 @@ static void DoEff_LightRune(struct Unit* unit, uint16_t item){
 	BmMapFill(gBmMapMovement, -1);
 
 	NewBottomHelpText(
-		NewTargetSelection_Specialized(&gSelectInfo_PutTrap, OnSelectPutTrap),
+		NewTargetSelection_Specialized(&gSelectInfo_PutTrap, (void*)OnSelectPutTrap),
 		GetStringFromIndex(0x87E)
 	); // TODO: msgid "Select an area to trap."
 
@@ -307,7 +305,7 @@ static void DoEff_DanceRing(struct Unit* unit, uint16_t item){
 	BmMapFill(gBmMapMovement, -1);
 
 	NewBottomHelpText(
-		NewTargetSelection_Specialized(&gSelectInfo_0859D2F8, StaffSelectOnSelect),
+		NewTargetSelection_Specialized(&gSelectInfo_0859D2F8, (void*)StaffSelectOnSelect),
 		GetStringFromIndex(0x87F)
 	); // TODO: msgid "Select a character to bless."
 }

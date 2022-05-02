@@ -8,8 +8,6 @@ static void newProcPrep_AtMenuEnd1 (void);
 
 extern int PrepScreenProc_AddPostgameUnits(ProcPtr);
 extern void PrepScreenProc_HideEverythingAndUnlockGame(ProcPtr);
-extern void InitPrepScreenUnitsAndCamera(ProcPtr);
-extern void sub_8034194(ProcPtr);
 extern void InitPrepScreenCursorPosition(void);
 static const u32 SetPrepScreenUnitListCharID = 0x80953C1;
 extern void PositionUnitsAccordingToDeployment();
