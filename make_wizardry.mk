@@ -3,7 +3,7 @@
 # = OBJECTS & DMPS =
 # ==================
 
-LYN_REF := Tools/FE-CLib-Mokha/reference/FE8U-Decomp-20220222.o
+LYN_REF := Tools/FE-CLib-Mokha/reference/FE8U-Decomp-20220503.o
 
 # OBJ to event
 %.lyn.event: %.o $(LYN_REF)

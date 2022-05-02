@@ -113,7 +113,7 @@ const ItemAct_t ItemActionEffectTable[0xFF] = {
 
 // 802FC49
 void ActionStaffDoorChestUseItem(ProcPtr proc) {
-	extern struct ProcCmd CONST_DATA gUnknown_0859BE28[], gUnknown_0859BE10[];
+	extern struct ProcCmd CONST_DATA sProcScr_ExecNightmareStaff[], sProcScr_SetTargetStatus[];
 	
 	ItemAct_t it;
 	
@@ -144,10 +144,10 @@ void ActionStaffDoorChestUseItem(ProcPtr proc) {
 goto_return:
 	// fking nightmare ...
 	if ( ITEM_NIGHTMARE == ITEM_ID(item) )
-		Proc_StartBlocking(gUnknown_0859BE28, proc);
+		Proc_StartBlocking(sProcScr_ExecNightmareStaff, proc);
 	
 	else if ( !(gBattleTarget.statusOut & (1 << 7)) ) // todo
-		Proc_StartBlocking(gUnknown_0859BE10, proc);
+		Proc_StartBlocking(sProcScr_SetTargetStatus, proc);
 	
 }
 
