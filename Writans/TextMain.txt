@@ -22,3 +22,6 @@ Charm[X]
 #include strings/Skills_BattleMisc.txt
 #include strings/CombatArt.txt
 #include strings/PrepScreen.txt
+
+## msg_end
+0[X]

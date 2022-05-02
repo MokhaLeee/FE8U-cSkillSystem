@@ -79,7 +79,7 @@ UnitMenuTable:
 	UM_Attack_B
 	
 	// Combat Art
-	// MenuCommand(umCAname, umCAdesc, BlueText, CA_UpperUsability, CA_UpperEffect)
+	MenuCommand(msg_umCAname, msg_umCAdesc, BlueText, UMitem_CombatArt_Usability, UMitem_CombatArt_Effect)
 	
 	//B.Magic
 	// MenuCommand(umBMagName, umBMagDesc, BlueText, BMag_Usability, BMag_Effect,BMag_UpperHover, BWmag_UpperUnhover /*$8022C98+1*/)

@@ -9,13 +9,16 @@
 struct SPD_ProcStateMain {
   
 	/* 00 */ PROC_HEADER;
-  /* 29 */ u8 skill;
-  /* 2A */ u8 right;
-  /* 2B */ u8 timer;
-  /* 2C */ u16 depth;
-  /* 30 */ TextHandle textHandle;
+	/* 29 */ u8 skill;
+	/* 2A */ u8 right;
+	/* 2B */ u8 timer;
+	/* 2C */ u16 depth;
+	/* 2E */ u16 msg_name;
+	/* 30 */ const void* icon;
+	/* 34 */ struct TextHandle textHandle;
   
 };
+
 extern const ProcInstruction SPD_main_Proc[];
 void SPD_init(struct SPD_ProcStateMain* proc);
 void SPD_loop(struct SPD_ProcStateMain* proc);
@@ -24,11 +27,14 @@ void SPD_destructor(struct SPD_ProcStateMain* proc);
 struct SPD_Map_ProcStateMain {
   
 	/* 00 */ PROC_HEADER;
-  /* 29 */ u8 skill;
-  /* 2A */ u8 left;
-  /* 2B */ u8 timer;
-  /* 2C */ u8 x;
-  /* 2D */ u8 y;
+	/* 29 */ u8 skill;
+	/* 2A */ u8 left;
+	/* 2B */ u8 timer;
+	/* 2C */ u8 x;
+	/* 2D */ u8 y;
+	/* 2E */ u16 msg_name;
+	/* 30 */ const void* icon;
+	
   
 };
 extern const ProcInstruction SPD_Map_main_Proc[];

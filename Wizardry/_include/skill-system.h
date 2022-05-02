@@ -99,5 +99,6 @@ int AddSkill(struct Unit*, int skill_id);
 int RemoveSkill(struct Unit*, int skill_id);
 const void* GetSkillIconGfx(int skill_id);
 int GetSkillDescMsg(int skill_id);
+int GetSkillNameMsg(int skill_id);
 int GetUnitRamSkillCount(struct Unit*);
 

@@ -1,27 +1,27 @@
 ALIGN 4
 SkillInfo_Vantage:
 	/* desc */ SHORT msg_SD_Vantage
-	/* pad  */ SHORT 0
+	/* name */ SHORT msg_SN_Vantage
 	/* icon */ POIN SI_Vantage
 	
 SkillInfo_VantageBattalion:
 	/* desc */ SHORT msg_SD_VantageBattalion
-	/* pad  */ SHORT 0
+	/* name */ SHORT msg_SN_VantageBattalion
 	/* icon */ POIN SI_VantageBattalion
 	
 SkillInfo_Desperation:
 	/* desc */ SHORT msg_SD_Desperation
-	/* pad  */ SHORT 0
+	/* name */ SHORT msg_SN_Desperation
 	/* icon */ POIN SI_Desperation
 	
 SkillInfo_DesperationBattalion:
 	/* desc */ SHORT msg_SD_DesperationBattalion
-	/* pad  */ SHORT 0
+	/* name */ SHORT msg_SN_DesperationBattalion
 	/* icon */ POIN SI_DesperationBattalion
 	
 SkillInfo_QuickRiposte:
 	/* desc */ SHORT msg_SD_QuickRiposte
-	/* pad  */ SHORT 0
+	/* name */ SHORT msg_SN_QuickRiposte
 	/* icon */ POIN SI_QuickRiposte
 
 

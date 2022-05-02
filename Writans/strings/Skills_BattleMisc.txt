@@ -1,22 +1,42 @@
+## msg_SN_Vantage
+Vantage[X]
+
 ## msg_SD_Vantage
 Vantage:[NL]
 When unit is defender with[NL]
 HP is <50%, attack first.[X]
+
+## msg_SN_VantageBattalion
+Vantage Battalion[X]
 
 ## msg_SD_VantageBattalion
 Vantage Battalion:[NL]
 When unit is defender with[NL]
 battalion<1/3, attack first.[X]
 
+
+## msg_SN_Desperation
+Desperation[X]
+
 ## msg_SD_Desperation
 Desperation: When unit[NL]
 attacks with HP <50%,[NL]
 double attacks immediately.[X]
 
+
+
+## msg_SN_DesperationBattalion
+Desperation Battalion[X]
+
 ## msg_SD_DesperationBattalion
-Battalion Desperation: When[NL]
+Desperation Battalion: When[NL]
 unit attacks with battalion <[NL]
 1/3, doubles immediately.[X]
+
+
+
+## msg_SN_QuickRiposte
+Riposte[X]
 
 ## msg_SD_QuickRiposte
 Quick Riposte: [NL]
@@ -24,30 +44,58 @@ If unit is attacked with HP >[NL]
 50%, double attacks.[X]
 
 
+
+## msg_SN_SwordBreaker
+Sword Breaker[X]
+
 ## msg_SD_SwordBreaker
 Sword Breaker: Grants Hit/Avo[NL]
 +20 when using a lance against[NL]
 sword users.[X]
+
+
+
+## msg_SN_AxeBreaker
+Axe Breaker[X]
 
 ## msg_SD_AxeBreaker
 Axe Breaker: Grants Hit/Avo[NL]
 +20 when using a sword[NL]
 against axe users.[X]
 
+
+
+## msg_SN_LanceBreaker
+Lance Breaker[X]
+
 ## msg_SD_LanceBreaker
 Lance Breaker: Grants Hit/Avo[NL]
 +20 when using an axe[NL]
 against lance users.[X]
+
+
+
+## msg_SN_BowBreaker
+Bow Breaker[X]
 
 ## msg_SD_BowBreaker
 Bow Breaker: Grants Hit/Avo[NL]
 +20 when using magic against[NL]
 bow users.[X]
 
+
+
+## msg_SN_FistBreaker
+Fist Breaker[X]
+
 ## msg_SD_FistBreaker
 Fist Breaker: Grants Hit/Avo[NL]
 +20 when using a bow against[NL]
 a brawling foe.[X]
+
+
+## msg_SN_TomeBreaker
+Tome Breaker[X]
 
 ## msg_SD_TomeBreaker
 Tome Breaker: Grants Hit/Avo[NL]

@@ -2,32 +2,32 @@
 ALIGN 4
 SkillInfo_SwordBreaker:
 	/* desc */ SHORT msg_SD_SwordBreaker
-	/* pad  */ SHORT 0
+	/* pad  */ SHORT msg_SN_SwordBreaker
 	/* icon */ POIN SI_SwordBreaker
 
 SkillInfo_AxeBreaker:
 	/* desc */ SHORT msg_SD_AxeBreaker
-	/* name */ SHORT 0
+	/* name */ SHORT msg_SN_AxeBreaker
 	/* icon */ POIN SI_AxeBreaker
 
 SkillInfo_LanceBreaker:
 	/* desc */ SHORT msg_SD_LanceBreaker
-	/* name */ SHORT 0
+	/* name */ SHORT msg_SN_LanceBreaker
 	/* icon */ POIN SI_LanceBreaker
 
 SkillInfo_BowBreaker:
 	/* desc */ SHORT msg_SD_BowBreaker
-	/* name */ SHORT 0
+	/* name */ SHORT msg_SN_BowBreaker
 	/* icon */ POIN SI_BowBreaker
 
 SkillInfo_TomeBreaker:
 	/* desc */ SHORT msg_SD_TomeBreaker
-	/* name */ SHORT 0
+	/* name */ SHORT msg_SN_TomeBreaker
 	/* icon */ POIN SI_TomeBreaker
 	
 SkillInfo_FistBreaker:
 	/* desc */ SHORT msg_SD_FistBreaker
-	/* name */ SHORT 0
+	/* name */ SHORT msg_SN_FistBreaker
 	/* icon */ POIN SI_FistBreaker
 
 

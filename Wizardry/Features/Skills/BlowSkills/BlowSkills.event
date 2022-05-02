@@ -22,38 +22,38 @@ BlowUncannyID:	BYTE SKILLID_BlowUncanny
 ALIGN 4
 SkillInfo_BlowDarting:
 	/* desc */ SHORT msg_SD_BlowDarting
-	/* pad  */ SHORT 0
+	/* pad  */ SHORT msg_SN_BlowDarting
 	/* icon */ POIN SI_BlowDarting
 	
 
 SkillInfo_BlowDeath:
 	/* desc */ SHORT msg_SD_BlowDeath
-	/* name */ SHORT 0
+	/* name */ SHORT msg_SN_BlowDeath
 	/* icon */ POIN SI_BlowDeath
 
 SkillInfo_BlowArmored:
 	/* desc */ SHORT msg_SD_BlowArmored
-	/* name */ SHORT 0
+	/* name */ SHORT msg_SN_BlowArmored
 	/* icon */ POIN SI_BlowArmored
 
 SkillInfo_BlowFiendish:
 	/* desc */ SHORT msg_SD_BlowFiendish
-	/* name */ SHORT 0
+	/* name */ SHORT msg_SN_BlowFiendish
 	/* icon */ POIN SI_BlowFiendish
 
 SkillInfo_BlowWarding:
 	/* desc */ SHORT msg_SD_BlowWarding
-	/* name */ SHORT 0
+	/* name */ SHORT msg_SN_BlowWarding
 	/* icon */ POIN	SI_BlowWarding
 	
 SkillInfo_BlowDuelist:
 	/* desc */ SHORT msg_SD_BlowDuelist
-	/* name */ SHORT 0
+	/* name */ SHORT msg_SN_BlowDuelist
 	/* icon */ POIN SI_BlowDuelist
 
 SkillInfo_BlowUncanny:
 	/* desc */ SHORT msg_SD_BlowUncanny
-	/* name */ SHORT 0
+	/* name */ SHORT msg_SN_BlowUncanny
 	/* icon */ POIN SI_BlowUncanny
 
 

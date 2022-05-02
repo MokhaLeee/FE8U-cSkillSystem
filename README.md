@@ -107,7 +107,7 @@ git submodule update --remote
 
 - Q: ERROR: `ModuleNotFoundError: No module named 'six'`
 
-	A: You need to install some modules for using TMX2EA. Make sure Python3 installed and get into FE-PyTools/TMX2EA folder, then, 
+	A: You need to install some modules for using TMX2EA. Make sure Python3 installed and get into `Tools/FE-PyTools/TMX2EA` folder, then, 
 	
 	```pip install -r requirements.txt```
 	

@@ -17,20 +17,6 @@ you have run out of magic uses.[X]
 Magic have no effect[NL]
 on current position.[X]
 
-## umCAname
- Combat Art[X]
-
-## umCAdesc
-Combat Art:[NL]
-Gains battle bonus[NL]
-but null double attack.[X]
-
-## umCAGrayBox
-You don't have Combat Art ![X]
-
-## umCAselectGrayBox
-you cannot use[NL]
-Combat Art here.[X]
 
 ## umGambitName
  Gambit[X]

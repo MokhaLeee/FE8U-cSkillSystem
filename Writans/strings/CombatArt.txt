@@ -1,27 +1,44 @@
-## CA_MagAtk
+## msg_umCAname
+ Combat Art[X]
+
+## msg_umCAdesc
+Combat Art:[NL]
+Gains battle bonus[NL]
+but null double attack.[X]
+
+## msg_umCAGrayBox
+You don't have Combat Art ![X]
+
+## msg_umCAselectGrayBox
+you cannot use[NL]
+Combat Art here.[X]
+
+
+
+## msg_CA_MagAtk
 Attack Res[X]
 
-## CA_PhyAtk
+## msg_CA_PhyAtk
 Attack Def[X]
 
-## CAN_WrathStrike
+## msg_CAN_WrathStrike
  Wrath Strike[X]
 
-## CAD_WrathStrike
+## msg_CAD_WrathStrike
 Wrath Strike[X]
 
 
-## CAN_Grounder
+## msg_CAN_Grounder
  Grounder[X]
 
-## CAD_Grounder
+## msg_CAD_Grounder
 Grounder[X]
 
 
-## CAN_BaneOfMonsters
+## msg_CAN_BaneOfMonsters
  Bane Monsters[X]
 
-## CAD_BaneOfMonsters
+## msg_CAD_BaneOfMonsters
 Effective against Monsters[X]
 
 
@@ -31,17 +48,17 @@ Effective against Monsters[X]
 
 
 
-## CAN_TempestLance
+## msg_CAN_TempestLance
  Tempest Lance[X]
 
-## CAD_TempestLance
+## msg_CAD_TempestLance
 Tempest Lance[X]
 
 
-## CAN_Knightkneeler
+## msg_CAN_Knightkneeler
  Knight Kneeler[X]
 
-## CAD_Knightkneeler
+## msg_CAD_Knightkneeler
 Effective against Cavalry enemies[X]
 
 
@@ -52,17 +69,17 @@ Effective against Cavalry enemies[X]
 
 
 
-## CAN_CurvedShot
+## msg_CAN_CurvedShot
  Curved Shot[X]
 
-## CAD_CurvedShot
+## msg_CAD_CurvedShot
 Curved Shot[X]
 
 
-## CAN_HeavyDraw
+## msg_CAN_HeavyDraw
  Heavy Draw[X]
 
-## CAD_HeavyDraw
+## msg_CAD_HeavyDraw
 Heavy Draw[X]
 
 

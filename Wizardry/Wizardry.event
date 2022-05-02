@@ -76,7 +76,8 @@ ALIGN 4
 // Battle System: BattleOrder & 
 #include "CoreHacks/BattleSystem/BattleSystem.event"
 
-
+// Three Houses sytle Combat-Art
+#include "CoreHacks/CombatArt/CombatArt.event"
 
 
 

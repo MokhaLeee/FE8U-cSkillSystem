@@ -17,6 +17,24 @@ int GetAISLayerId(struct Anim*);
 //                 function declearation
 // =====================================================
 
+struct SPD_ProcStateMain {
+  
+	/* 00 */ PROC_HEADER;
+	/* 29 */ u8 skill;
+	/* 2A */ u8 right;
+	/* 2B */ u8 timer;
+	/* 2C */ u16 depth;
+	/* 2E */ u16 msg_name;
+	/* 30 */ const void* icon;
+	/* 30 */ struct TextHandle textHandle;
+  
+};
+
+extern const struct ProcCmd SPD_main_Proc[];
+extern const struct ProcCmd gProc_ekrGauge[];
+
+
+
 typedef void (*AnimFunc) (struct Anim*);
 
 extern AnimFunc SkillAnimationTable[0x100];
@@ -77,18 +95,7 @@ int cSkillActivationAnims(struct Anim* anim){
 	//            Copy from skill-system fe8
 	// =====================================================
 	
-	struct SPD_ProcStateMain {
-  
-	/* 00 */ PROC_HEADER;
-	/* 29 */ u8 skill;
-	/* 2A */ u8 right;
-	/* 2B */ u8 timer;
-	/* 2C */ u16 depth;
-	/* 30 */ struct TextHandle textHandle;
-  
-	};
-	extern const struct ProcCmd SPD_main_Proc[];
-	extern const struct ProcCmd gProc_ekrGauge[];
+	
 	
 	struct SPD_ProcStateMain* proc;
 	struct Proc* parent = Proc_Find(gProc_ekrGauge);
@@ -97,8 +104,8 @@ int cSkillActivationAnims(struct Anim* anim){
 		return ACTANIM_END;
 	
 	proc = Proc_Start(SPD_main_Proc, parent);
-	
-	proc->skill = skill_act;
+	proc->msg_name = GetSkillNameMsg(skill_act);
+	proc->icon = GetSkillIconGfx(skill_act);
 	proc->right = GetAISSubjectId(anim); // currently only offensive skill
 	proc->timer = anim->drawLayerPriority + 1;
 	

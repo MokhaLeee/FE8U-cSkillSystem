@@ -6,6 +6,7 @@ enum{
 	ATTR_HITEXT_NONE = 0,
 	ATTR_HITEXT_SKILLACT_ATK = 1 << 1,
 	ATTR_HITEXT_SKILLACT_DEF = 1 << 2,
+	ATTR_HITEXT_COMBAT_ART = 1 << 3,
 };
 
 struct BattleHitExt{

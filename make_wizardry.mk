@@ -22,7 +22,9 @@ LYN_REF := Tools/FE-CLib-Mokha/reference/FE8U-Decomp-20220222.o
 # ========================
 
 # Setting C/ASM include directories up (there is none yet)
-INC_DIRS := Tools Tools/FE-CLib-Mokha/include Wizardry/_include
+INC_DIRS := Tools Wizardry/_include
+# Tools/FE-CLib-Mokha/include
+INC_DIRS += c:/FE-Tools/FE-CLib-Mokha/include 
 INCFLAGS     := $(foreach dir, $(INC_DIRS), -I "$(dir)")
 
 # setting up compilation flags
