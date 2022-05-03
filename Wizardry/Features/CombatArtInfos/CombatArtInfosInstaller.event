@@ -12,42 +12,5 @@ ALIGN 4
 
 
 
-// ====================================================
-//                        MSGs
-// ====================================================
-ALIGN 2
-
-msgAt_CAN_WrathStrike:
-	SHORT msg_CAN_WrathStrike
-
-msgAt_CAD_WrathStrike:
-	SHORT msg_CAD_WrathStrike
-
-msgAt_CAN_Grounder:
-	SHORT msg_CAN_Grounder
-
-msgAt_CAD_Grounder:
-	SHORT msg_CAD_Grounder
-
-msgAt_CAN_BaneOfMonsters:
-	SHORT msg_CAN_BaneOfMonsters
-
-msgAt_CAD_BaneOfMonsters:
-	SHORT msg_CAD_BaneOfMonsters
-
-msgAt_CAN_TempestLance:
-	SHORT msg_CAN_TempestLance
-
-msgAt_CAD_TempestLance:
-	SHORT msg_CAD_TempestLance
-
-msgAt_CAN_Knightkneeler:
-	SHORT msg_CAN_Knightkneeler
-
-msgAt_CAD_Knightkneeler:
-	SHORT msg_CAD_Knightkneeler
-
-
-
 
 ALIGN 4

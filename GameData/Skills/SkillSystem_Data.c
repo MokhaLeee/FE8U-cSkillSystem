@@ -4,7 +4,7 @@ const struct SkillROMList CharSkillRomList[0x100] = {
 	
 	[CHARACTER_EIRIKA] = {
 		.default_rom_skill[0] = SID_BlowDarting,
-		.default_rom_skill[0] = SID_BlowFiendish,
+		.default_rom_skill[1] = SID_BlowFiendish,
 		.master_rom_skill[0] = SID_DesperationBat,
 		
 		.default_ram_skill[0] = SID_BowBreaker,

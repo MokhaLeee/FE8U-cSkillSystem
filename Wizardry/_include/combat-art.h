@@ -11,7 +11,7 @@ struct CombatArtInfo {
 	s16 hit;
 	s16 avo;
 	s16 crit;
-	u32 pad[2];
+	s8 range_bouns;
 	
 };
 
@@ -27,7 +27,7 @@ struct CombatArtMasteryList{
 	
 };
 
-extern const struct CombatArtInfo *CombatArtInfoTable[0x100];
+extern struct CombatArtInfo const* const CombatArtInfoTable[0x100];
 extern const struct CombatArtMasteryList CharCombatArtList[0x100], ClassCombatArtList[0x100];
 
 // Core

@@ -10,3 +10,6 @@
 [submodule "Tools/EventAssembler"]
 	path = Tools/EventAssembler
 	url = https://github.com/StanHash/EventAssembler.git
+[submodule "Tools/text-process-cfitted"]
+	path = Tools/text-process-cfitted
+	url = https://github.com/MokhaLeee/text-process-cfitted.git

@@ -1,0 +1,111 @@
+// File generated from by portrait-process
+#include "Tools/Tool Helpers.txt"
+
+{
+_MugGfx:
+#incbin "Portraits/Lysithea_mug.dmp"
+
+_MugPal:
+#incbin "Portraits/Lysithea_palette.dmp"
+
+_MugMiniGfx:
+#incbin "Portraits/Lysithea_minimug.dmp"
+
+_MugFramesGfx:
+#incbin "Portraits/Lysithea_frames.dmp"
+
+PUSH
+ORG PortraitTable+(0x1C*0x02)
+POIN _MugGfx
+POIN _MugMiniGfx
+POIN _MugPal
+POIN _MugFramesGfx
+WORD 0
+BYTE 2 6 2 4
+WORD 1
+POP
+}
+
+#define MUG_LYSITHEA 0x02
+
+{
+_MugGfx:
+#incbin "Portraits/Eru_mug.dmp"
+
+_MugPal:
+#incbin "Portraits/Eru_palette.dmp"
+
+_MugMiniGfx:
+#incbin "Portraits/Eru_minimug.dmp"
+
+_MugFramesGfx:
+#incbin "Portraits/Eru_frames.dmp"
+
+PUSH
+ORG PortraitTable+(0x1C*0x0F)
+POIN _MugGfx
+POIN _MugMiniGfx
+POIN _MugPal
+POIN _MugFramesGfx
+WORD 0
+BYTE 3 5 3 3
+WORD 1
+POP
+}
+
+#define MUG_ERU 0x0F
+
+{
+_MugGfx:
+#incbin "Portraits/Dimitri_mug.dmp"
+
+_MugPal:
+#incbin "Portraits/Dimitri_palette.dmp"
+
+_MugMiniGfx:
+#incbin "Portraits/Dimitri_minimug.dmp"
+
+_MugFramesGfx:
+#incbin "Portraits/Dimitri_frames.dmp"
+
+PUSH
+ORG PortraitTable+(0x1C*0x04)
+POIN _MugGfx
+POIN _MugMiniGfx
+POIN _MugPal
+POIN _MugFramesGfx
+WORD 0
+BYTE 2 6 3 4
+WORD 1
+POP
+}
+
+#define MUG_DIMITRI 0x04
+
+{
+_MugGfx:
+#incbin "Portraits/Flayn_mug.dmp"
+
+_MugPal:
+#incbin "Portraits/Flayn_palette.dmp"
+
+_MugMiniGfx:
+#incbin "Portraits/Flayn_minimug.dmp"
+
+_MugFramesGfx:
+#incbin "Portraits/Flayn_frames.dmp"
+
+PUSH
+ORG PortraitTable+(0x1C*0x10)
+POIN _MugGfx
+POIN _MugMiniGfx
+POIN _MugPal
+POIN _MugFramesGfx
+WORD 0
+BYTE 4 5 4 3
+WORD 1
+POP
+}
+
+#define MUG_FLAYN 0x10
+

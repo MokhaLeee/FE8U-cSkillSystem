@@ -32,7 +32,7 @@ export LYN               := $(realpath .)/Tools/EventAssembler/Tools/lyn$(EXE)
 export EADEP             := $(realpath .)/Tools/EventAssembler/ea-dep$(EXE)
 
 export PORTRAIT_PROCESS  := $(PYTHON3) $(realpath .)/Tools/FE-PyTools/portrait-process.py
-export TEXT_PROCESS      := $(PYTHON3) $(realpath .)/Tools/FE-PyTools/text-process-classic.py
+export TEXT_PROCESS      := $(PYTHON3) $(realpath .)/Tools/text-process-cfitted/text-process-cfitted.py
 export C2EA              := $(PYTHON3) $(realpath .)/Tools/FE-PyTools/NMM2CSV/c2ea.py
 export TMX2EA            := $(PYTHON3) $(realpath .)/Tools/FE-PyTools/TMX2EA/tmx2ea.py
 

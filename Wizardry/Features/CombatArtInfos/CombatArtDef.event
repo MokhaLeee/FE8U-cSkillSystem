@@ -2,7 +2,7 @@
 
 	// Sword: 0x01
 	#define eCA_WrathStrike 0x01
-	#define eCA_Grounder = 0x02
+	#define eCA_Grounder 0x02
 	#define eCA_BaneOfMonsters 0x03
 	
 	
