@@ -23,7 +23,22 @@ extern struct BattleHitExt **BattleHitExtCur;
 
 
 
+struct BattleFlagExt{
+	/* 00 */u8 isCombat:1;
+	/* 00 */ u8 pad00:7;
+
+	/* 01 */ u8 combatArt_id;
+	
+	/* 02 */ u8 pad02[0x10 - 0x02];
+};
+
+extern struct BattleFlagExt* gpBattleFlagExt;	// 0x10 long
+
+
+
+
 // functions
+void ResetBattleFlagExt(void);
 void ClearBattleHitExt(void);
 
 void BattleHitExt_SetAttr(int attr);

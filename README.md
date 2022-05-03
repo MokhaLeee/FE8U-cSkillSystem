@@ -79,15 +79,21 @@ git submodule update --remote
 		* Modular item prep-screen usability
 		* Modular item prep-item effect
 		
-	* `Battle order`: check  function battle-unwind and can unit double attack	
+	* `Battle system`: check  function battle-unwind and can unit double attack	
+		* `Core`: extend the Battle-Hit array.
+		* `Battle order`: rework on battle-order and can-unit-double-attack judgement, introduce skill `Desperation` and skill `Vantage`
 	
+	* `Combat Art`: Three-Houses style attack skills
+		* Menu: Unit-Menu item & Combat Art Select menu and items & Target select
 	
 * Features
 
 	* `FE16 style level up`: use `rn-ext` system for 3DS/FE16 style level.
 	* `Skills installer` (W.I.P.)
 		* Blow skills
+		* Battle order skills
 	* `Prep-Screen Rework`
+	* `Skill-Anim Installer`
 	
 * External Patches: other hackers' work
 

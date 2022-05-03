@@ -27,7 +27,7 @@ int _lib_div(int a, int b);
 #include "range-getter.h"
 #include "map-master.h"
 #include "skill-system.h"
-#include "../Features/Skills/SkillsDef.h"
+#include "../Features/SkillInfos/SkillsDef.h"
 #include "common-space.h"
 #include "rn-ext.h"
 #include "null-bwl.h"
@@ -35,6 +35,8 @@ int _lib_div(int a, int b);
 #include "popup-rework.h"
 #include "prep-screen-rework.h"
 #include "battle-system.h"
+#include "combat-art.h"
+#include "../Features/CombatArtInfos/CombatArtDef.h"
 
 #include "gbafe16-features.h"
 

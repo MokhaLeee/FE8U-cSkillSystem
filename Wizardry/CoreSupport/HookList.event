@@ -14,6 +14,7 @@ ALIGN 4
 Battle2UnitFuncList: // // void B2U (struct Unit* unit, struct BattleUnit* bu);
 	POIN B2U_Vanilla
 	POIN B2U_Mag		// CoreHacks/StrMag
+	POIN ResetCommonSpace ResetBattleFlagExt // W.I.P: put them in post-battle hook
 	WORD 0
 
 

@@ -418,7 +418,10 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 					proc->list_type = PREP_SKLSUB_LEFT_RAM;
 					
 					if( proc->list_index >= list->total[PREP_SKLSUB_LEFT_RAM] )
-						proc->list_index = list->total[PREP_SKLSUB_LEFT_RAM] - 1;
+						proc->list_index = 
+							0 == list->total[PREP_SKLSUB_LEFT_RAM]
+								? 0
+								: list->total[PREP_SKLSUB_LEFT_RAM] - 1;
 					break;
 					
 				default:
@@ -443,13 +446,14 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 					proc->list_type = PREP_SKLSUB_LEFT_ROM;
 					
 					if( proc->list_index >= list->total[PREP_SKLSUB_LEFT_ROM] )
-						proc->list_index = list->total[PREP_SKLSUB_LEFT_ROM] - 1;
+						proc->list_index = 
+							0 == list->total[PREP_SKLSUB_LEFT_ROM]
+							? 0
+							: list->total[PREP_SKLSUB_LEFT_ROM] - 1;
 					break;
 				
 				case PREP_SKLSUB_LEFT_ROM:
 					// now rom list is default < 5
-					if( (proc->list_index+5) < list->total[PREP_SKLSUB_LEFT_ROM] )
-						proc->list_index += 5;
 					break;
 				
 				default:
@@ -1438,7 +1442,7 @@ void PrepPickSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 
 void PrepPickSkill_UpdateSkillDesc(struct Proc_PrepPickSkill* proc){
 	
-	const int xStart = 0x6;
+	const int xStart = 0x5;
 	const int yStart = 0xD;
 	
 	struct PrepSkillsList* list;

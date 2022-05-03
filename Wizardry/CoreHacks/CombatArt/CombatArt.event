@@ -2,10 +2,18 @@
 #define COMBAT_ART
 ALIGN 4
 
-#include "src/CombatArtCore.lyn.event"
-#include "src/CombatArtMenu.lyn.event"
 
-// MSGs
+#include "src/Menu-TargetSelect.lyn.event"
+#include "src/Core.lyn.event"
+#include "src/Misc.lyn.event"
+
+
+
+
+
+// ====================================================
+//                         MSG
+// ====================================================
 ALIGN 4
 msgAt_umCAname:
 	SHORT msg_umCAname

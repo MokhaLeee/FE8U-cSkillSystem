@@ -1,17 +1,5 @@
 #pragma once
 
-struct BattleFlagExt{
-	/* 00 */u8 isCombat:1;
-	/* 00 */ u8 pad00:7;
-	
-	/* 01 */ u8 ActorId;
-	/* 02 */ u8 artId;
-	
-	/* 03 */ u8 free[0x10 - 0x03];
-};
-
-extern struct BattleFlagExt* gpBattleFlagExt;	// 0x10 long
-
 
 
 enum{
@@ -21,6 +9,7 @@ enum{
 
 //extern void* gpCommonSpace;
 void ResetCommonSpace(void);
+
 
 /*************** Useage: *******************
 a common space and will save in Suspend data, which defined as "gpCommonSaveSu" in _Val_Global.event

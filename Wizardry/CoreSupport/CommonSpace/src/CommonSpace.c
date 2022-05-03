@@ -15,7 +15,6 @@ void ResetCommonSpace(void){
 
 
 
-
 // For ExpModularSave
 void MSu_SaveCommonSpace(void* dest, unsigned size){
 	WriteAndVerifySramFast( (const void*)gpCommonSpace, dest, size );

@@ -31,29 +31,6 @@
 
 
 
-
-// for
-cSkillIndex_BlowDarting:				BYTE SKILLID_BlowDarting
-cSkillIndex_BlowDeath:					BYTE SKILLID_BlowDeath
-cSkillIndex_BlowArmored:				BYTE SKILLID_BlowArmored
-cSkillIndex_BlowFiendish:				BYTE SKILLID_BlowFiendish
-cSkillIndex_BlowWarding:				BYTE SKILLID_BlowWarding
-cSkillIndex_BlowDuelist:				BYTE SKILLID_BlowDuelist
-cSkillIndex_BlowUncanny:				BYTE SKILLID_BlowUncanny
-
-cSkillIndex_Vantage:					BYTE SKILLID_Vantage
-cSkillIndex_VantageBattalion:			BYTE SKILLID_VantageBattalion
-cSkillIndex_Desperation:				BYTE SKILLID_Desperation
-cSkillIndex_DesperationBattalion:		BYTE SKILLID_DesperationBattalion
-cSkillIndex_QuickRiposte:				BYTE SKILLID_QuickRiposte
-
-cSkillIndex_SwordBreaker:				BYTE SKILLID_SwordBreaker
-cSkillIndex_AxeBreaker:					BYTE SKILLID_AxeBreaker
-cSkillIndex_LanceBreaker:				BYTE SKILLID_LanceBreaker
-cSkillIndex_BowBreaker:					BYTE SKILLID_BowBreaker
-cSkillIndex_TomeBreaker:				BYTE SKILLID_TomeBreaker
-cSkillIndex_FistBreaker:				BYTE SKILLID_FistBreaker
-
 ALIGN 4
 
 #endif // SKILL_ID_DEFINITIONS

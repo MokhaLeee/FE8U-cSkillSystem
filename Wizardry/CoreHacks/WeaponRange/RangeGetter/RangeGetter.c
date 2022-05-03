@@ -1,10 +1,10 @@
 #include "gbafe-chax.h"
 
 
-typedef s8(*Getter)(struct Unit* unit);
+typedef s8(*Getter)(struct Unit* unit, u16 item);
 extern Getter RangeMaxModify[];
 extern Getter RangeMinModify[];
-static s8 Get(struct Unit*, Getter*);
+static s8 Get(struct Unit*, u16 item, Getter*);
 
 int RangeMinGetter(u16 item, struct Unit* unit){
 	
@@ -21,7 +21,7 @@ int RangeMaxGetter(u16 item, struct Unit* unit){
 	if ( 0 == rng )
 		return 0;
 	
-	rng += Get(unit, RangeMaxModify);
+	rng += Get(unit, item, RangeMaxModify);
 	
 	if ( rng > 0xF )
 		rng = 0xF;
@@ -41,7 +41,8 @@ int GetUnitMagBy2Range(struct Unit* unit){
 	else {
 		int max = MagGetter(unit) / 2;
 		
-		max += Get(unit, RangeMaxModify);
+		// W.I.P. just give a magic weapon
+		max += Get(unit, ITEM_ANIMA_FIRE, RangeMaxModify);
 		
 		if ( max > 0xF )
 			max = 0xF;
@@ -56,13 +57,13 @@ int GetUnitMagBy2Range(struct Unit* unit){
 
 
 
-static s8 Get(struct Unit* unit, Getter funcs[]){
+static s8 Get(struct Unit* unit, u16 item, Getter funcs[]){
 	
 	s8 status = 0;
 	Getter *it = &funcs[0];
 	
 	while( *it )
-		status += (*it++)(unit);
+		status += (*it++)(unit, item);
 	
 	return status;
 }

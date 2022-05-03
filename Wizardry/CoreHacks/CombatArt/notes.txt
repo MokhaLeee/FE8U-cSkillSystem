@@ -1,0 +1,2 @@
+
+need clear isCombatArt flag in post-battle

@@ -125,10 +125,10 @@ void BattleUnwind(){
 			if( 0 == i )
 			{
 				// Add skill to BattleHitExt
-				if ( (*SkillTester)(&gBattleTarget.unit, cSkillIndex_VantageBattalion) )
-						SetBattleHitExt_DefSkill(cSkillIndex_VantageBattalion);
+				if ( (*SkillTester)(&gBattleTarget.unit, SID_VantageBat) )
+						SetBattleHitExt_DefSkill(SID_VantageBat);
 					else
-						SetBattleHitExt_DefSkill(cSkillIndex_Vantage);
+						SetBattleHitExt_DefSkill(SID_Vantage);
 				
 				// just anim
 				gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
@@ -141,10 +141,10 @@ void BattleUnwind(){
 				if( (ACT_ATTACK == round[i]) && (ACT_ATTACK == round[i-1]) )
 				{
 					// Add skill to BattleHitExt
-					if ( (*SkillTester)(&gBattleActor.unit, cSkillIndex_DesperationBattalion) )
-						SetBattleHitExt_AtkSkill(cSkillIndex_DesperationBattalion);
+					if ( (*SkillTester)(&gBattleActor.unit, SID_DesperationBat) )
+						SetBattleHitExt_AtkSkill(SID_DesperationBat);
 					else
-						SetBattleHitExt_AtkSkill(cSkillIndex_Desperation);
+						SetBattleHitExt_AtkSkill(SID_Desperation);
 					
 					// just anim
 					gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
@@ -248,7 +248,7 @@ int CheckDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target){
 	
 	// Quick Riposte:  HP <50% as defender
 	if( &gBattleTarget == actor )
-		if( (*SkillTester)(attacker_unit, cSkillIndex_QuickRiposte) )
+		if( (*SkillTester)(attacker_unit, SID_QuickRiposte) )
 			if( attacker_unit->curHP < (attacker_unit->maxHP / 2) )
 				return 1;
 	
@@ -260,6 +260,11 @@ int CheckDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target){
 // static 
 int CheckNullDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target){
 	
+	// if attacker use combat-art, cannot double attack
+	if( &gBattleActor == actor )
+		if( 1 == gpBattleFlagExt->isCombat )
+			return 1;
+	
 	// default
 	return 0;
 }
@@ -270,15 +275,19 @@ int CheckVantage(void){
 	
 	struct Unit* target_unit = GetUnit(gBattleTarget.unit.index);
 	
+	// if inside combat-art, null vantage skills
+	if( 1 == gpBattleFlagExt->isCombat )
+		return 0;
+	
 	// Vantage:  HP <50%
-	if( (*SkillTester)(target_unit, cSkillIndex_Vantage) )
+	if( (*SkillTester)(target_unit, SID_Vantage) )
 		if( target_unit->curHP < (target_unit->maxHP / 2) )
 			return 1;
 	
 	
 	// Todo
 	// Vantage Battalion
-	if( (*SkillTester)(target_unit, cSkillIndex_VantageBattalion) )
+	if( (*SkillTester)(target_unit, SID_VantageBat) )
 		return 1;
 	
 	
@@ -293,14 +302,14 @@ int CheckDesperation(void){
 	struct Unit* attacker_unit = GetUnit(gBattleActor.unit.index);
 	
 	// Desperation:  HP <50%
-	if( (*SkillTester)(attacker_unit, cSkillIndex_Desperation) )
+	if( (*SkillTester)(attacker_unit, SID_Desperation) )
 		if( attacker_unit->curHP < (attacker_unit->maxHP / 2) )
 			return 1;
 	
 	
 	// Todo
 	// Desperation Battalion
-	if( (*SkillTester)(attacker_unit, cSkillIndex_DesperationBattalion) )
+	if( (*SkillTester)(attacker_unit, SID_DesperationBat) )
 		return 1;
 	
 	

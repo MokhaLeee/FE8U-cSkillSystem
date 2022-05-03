@@ -1,0 +1,28 @@
+#ifndef COMBAT_ART_DEF
+
+	// Sword: 0x01
+	#define eCA_WrathStrike 0x01
+	#define eCA_Grounder = 0x02
+	#define eCA_BaneOfMonsters 0x03
+	
+	
+	// Lance: 0x20
+	#define eCA_TempestLance 020
+	#define eCA_Knightkneeler 0x21
+	
+	
+	// Axe: 0x40
+	
+	
+	// Bow: 0x60
+	#define eCA_CurvedShot 0x60
+	#define eCA_HeavyDraw 0x61
+	
+	
+	// Fist: 0x80
+	
+	
+	// Misc: 0xA0
+	
+
+#endif // COMBAT_ART_DEF

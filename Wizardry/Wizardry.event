@@ -89,11 +89,14 @@ ALIGN 4
 // ============================
 
 // Skill infos installer
-#include "Features/Skills/SkillsInstaller.event"
+#include "Features/SkillInfos/SkillsInfoInstaller.event"
 
 // Skill activation anime installer
 #include "Features/SkillAnimInstaller/SkillAnimInstaller.event"
 
+
+// Combat Art infos installer
+#include "Features/CombatArtInfos/CombatArtInfosInstaller.event"
 
 #include "Features/LevelUpFE16/LevelUpFE16.event"
 #include "Features/PrepScreenRework/PrepScreenRework.event"

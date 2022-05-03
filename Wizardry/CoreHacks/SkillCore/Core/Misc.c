@@ -17,7 +17,7 @@ int GetSkillNameMsg(int skill_id){
 	if( !SKILL_VALID(skill_id) || (NULL == SkillInfoTable[skill_id]) )
 		return 0;
 	else
-		return SkillInfoTable[skill_id]->msg_desc;
+		return SkillInfoTable[skill_id]->msg_name;
 	
 }
 
@@ -27,7 +27,7 @@ int GetSkillDescMsg(int skill_id){
 	if( !SKILL_VALID(skill_id) || (NULL == SkillInfoTable[skill_id]) )
 		return 0;
 	else
-		return SkillInfoTable[skill_id]->msg_name;
+		return SkillInfoTable[skill_id]->msg_desc;
 	
 }
 

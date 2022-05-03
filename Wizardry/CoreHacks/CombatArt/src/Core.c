@@ -1,5 +1,4 @@
 #include "gbafe-chax.h"
-#include "CombatArt.h"
 
 int UnitHasCombatArt(struct Unit* unit){
 	return 1;
