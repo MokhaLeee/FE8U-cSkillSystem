@@ -12,25 +12,47 @@ struct CombatArtInfo {
 	s16 avo;
 	s16 crit;
 	s8 range_bouns;
+};
+extern struct CombatArtInfo const* const CombatArtInfoTable[0x100];
+
+
+enum{
+	COMBATART_LIST_MAXNUM = 0x20,
+};
+ 
+struct CombatArtList{
+	// temperary ram list
+	u8 unit_id;
+	u8 count;
+	u8 list[COMBATART_LIST_MAXNUM];
 	
 };
+
 
 struct CombatArtMasteryList{
-	
-	/* 00 */ u8 combat_E[2];
-	/* 02 */ u8 combat_D[2];
-	/* 04 */ u8 combat_C[2];
-	/* 06 */ u8 combat_B[2];
-	/* 08 */ u8 combat_A[2];
-	/* 0A */ u8 combat_S[2];
-	/* 0C */
-	
+	u8 combat_E[2];
+	u8 combat_D[2];
+	u8 combat_C[2];
+	u8 combat_B[2];
+	u8 combat_A[2];
+	u8 combat_S[2];
 };
+struct RomCombatArtList{
+	struct CombatArtMasteryList CA_Sword, CA_Axe, CA_Bow, CA_Fist, CA_Misc;
+};
+extern const struct RomCombatArtList CharCombatArtList[0x100];
 
-extern struct CombatArtInfo const* const CombatArtInfoTable[0x100];
-extern const struct CombatArtMasteryList CharCombatArtList[0x100], ClassCombatArtList[0x100];
+
+struct WpnCombatArtList{
+	u8 ca[3];
+};
+extern const struct WpnCombatArtList WeaponCombatArtList[0x100];
+
+
 
 // Core
+struct CombatArtList* BuildCombatArtList(struct Unit* unit);
+struct CombatArtList* GetCombatArtList(struct Unit* unit);
 int UnitHasCombatArt(struct Unit*);
 int CanUnitUseCombatArt(struct Unit*, u8 index);
-
+const struct CombatArtInfo* GetCombatArtInfo(u8 index);

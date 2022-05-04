@@ -25,4 +25,8 @@
 // Skill system
 #include "Skills/SkillSystem_Data.lyn.event"
 
+// Combat art
+#include "CombatArt/CombatArtWeaponList.lyn.event"
+
+
 #endif // GAME_DATA

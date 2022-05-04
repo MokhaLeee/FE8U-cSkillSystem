@@ -44,6 +44,8 @@ const struct ProcCmd ProcCmd_CombatArt_PostTargetSelect[];
 
 int UMitem_CombatArt_Usability(const struct MenuItemDef* menu_item, int number){
 	
+	BuildCombatArtList(gActiveUnit);
+	
 	if( 1 == UnitHasCombatArt(gActiveUnit) )
 		return MENU_ENABLED;
 	
@@ -56,6 +58,7 @@ int UMitem_CombatArt_Usability(const struct MenuItemDef* menu_item, int number){
 int UMitem_CombatArt_Effect(struct MenuProc* menu, struct MenuItemProc* menu_item ){
 	
 	struct MenuProc* pm_combat_art;
+	struct CombatArtList *list = GetCombatArtList(gActiveUnit);
 	
 	// if unused
 	if( MENU_ENABLED != menu_item->availability )
@@ -66,6 +69,7 @@ int UMitem_CombatArt_Effect(struct MenuProc* menu, struct MenuItemProc* menu_ite
 	
 	// set flag
 	gpBattleFlagExt->isCombat = 1;
+	gpBattleFlagExt->combatArt_id = list->list[0];
 	
 	// reset Texts & icons
 	Text_ResetTileAllocation();	
@@ -84,9 +88,11 @@ int UMitem_CombatArt_Effect(struct MenuProc* menu, struct MenuItemProc* menu_ite
 
 int UMitem_CombatArt_Hover(struct MenuProc*, struct MenuItemProc*){
 	
+	struct CombatArtList *list = BuildCombatArtList(gActiveUnit);
+	
 	// Set CombatArt flag
 	gpBattleFlagExt->isCombat = 1;
-	
+	gpBattleFlagExt->combatArt_id = list->list[0];
 	
 	
 	return 0;
@@ -96,11 +102,8 @@ int UMitem_CombatArt_Unhover(struct MenuProc*, struct MenuItemProc*){
 	
 	// Clear CombatArt flag
 	gpBattleFlagExt->isCombat = 0;
+	gpBattleFlagExt->combatArt_id = 0;
 	
-	// BG_Fill(gBmMapMovement, -1);
-	// BG_Fill(gBmMapRange, 0);
-	// DisplayMoveRangeGraphics(0b11);
-	// HideMoveRangeGraphicsWrapper();
 	return 0;
 
 }
@@ -167,6 +170,7 @@ u8 CombatArtSelect_PressB(struct MenuProc* mu, struct MenuItemProc* cmd){
 	
 	// clear battle flag
 	gpBattleFlagExt->isCombat = 0;
+	gpBattleFlagExt->combatArt_id = 0;
 	
 	// Menu Panel
 	// EndMenuPanel_CombatArt();
@@ -193,7 +197,13 @@ u8 CombatArtSelect_PressB(struct MenuProc* mu, struct MenuItemProc* cmd){
 
 void CombatArtSelect_HelpBox(struct MenuProc*, struct MenuItemProc* menu_item){
 	
-	StartHelpBox(8 * menu_item->xTile, 8 * menu_item->yTile, 0x212);
+	struct CombatArtList* list = GetCombatArtList(gActiveUnit);
+	const struct CombatArtInfo* info = GetCombatArtInfo(list->list[menu_item->itemNumber]);
+	
+	if( NULL == info )
+		return;
+	
+	StartHelpBox(8 * menu_item->xTile, 8 * menu_item->yTile, info->msg_desc);
 	
 	return;
 }
@@ -202,8 +212,13 @@ void CombatArtSelect_HelpBox(struct MenuProc*, struct MenuItemProc* menu_item){
 
 u8 CombatArtSelect_Usability(const struct MenuItemDef*, int number){
 	
+	struct CombatArtList* list = GetCombatArtList(gActiveUnit);
+	
 	// W.I.P.
-	u8 index_combatArt = 1;
+	u8 index_combatArt = list->list[number];
+	
+	if( 0 == index_combatArt )
+		return MENU_NOTSHOWN;
 	
 	if( 1 == CanUnitUseCombatArt(gActiveUnit, index_combatArt) )
 		return MENU_ENABLED;
@@ -215,13 +230,19 @@ u8 CombatArtSelect_Usability(const struct MenuItemDef*, int number){
 
 int CombatArtSelect_DrawText(struct MenuProc* menu, struct MenuItemProc* menu_item){
 	
+	struct CombatArtList* list = GetCombatArtList(gActiveUnit);
+	const struct CombatArtInfo* info = GetCombatArtInfo(list->list[menu_item->itemNumber]);
+	
+	if( NULL == info )
+		return 0;
+	
 	Text_SetColorId( 
 		&menu_item->text, 
 		MENU_ENABLED == menu_item->availability
 			? MENU_COLOR_NORMAL
 			: MENU_COLOR_GRAY );
 	
-	Text_AppendString(&menu_item->text, "Hello World");
+	Text_AppendString(&menu_item->text, GetStringFromIndex(info->msg_name));
 	
 	Text_Draw(
 		&menu_item->text, 
@@ -229,8 +250,8 @@ int CombatArtSelect_DrawText(struct MenuProc* menu, struct MenuItemProc* menu_it
 	
 	DrawIcon(
 		TILEMAP_LOCATED(gBG0TilemapBuffer, menu_item->xTile, menu_item->yTile), 
-		SKILL_ICON(0x21), 
-		TILEREF(0, STATSCREEN_BGPAL_ITEMICONS)
+		0x70 + info->weapon_type, 
+		TILEREF(0, STATSCREEN_BGPAL_EXTICONS)
 	);
 	
 	DrawDecNumber(
@@ -238,7 +259,7 @@ int CombatArtSelect_DrawText(struct MenuProc* menu, struct MenuItemProc* menu_it
 		MENU_ENABLED == menu_item->availability
 			? MENU_COLOR_NORMAL
 			: MENU_COLOR_GRAY,
-		1
+		info->cost
 	);
 	
 	return 0;
@@ -271,11 +292,13 @@ u8 CombatArtSelect_Effect(struct MenuProc* menu, struct MenuItemProc* menu_item)
 	return MENU_ACT_CLEAR | MENU_ACT_SND6A | MENU_ACT_END | MENU_ACT_SKIPCURSOR;
 }
 
-int CombatArtSelect_Hover(struct MenuProc*, struct MenuItemProc*){
+int CombatArtSelect_Hover(struct MenuProc* menu, struct MenuItemProc* menu_item){
+	
+	struct CombatArtList* list = GetCombatArtList(gActiveUnit);
 	
 	// set flag
 	gpBattleFlagExt->isCombat = 1;
-	
+	gpBattleFlagExt->combatArt_id = list->list[menu_item->itemNumber];
 	return 0;
 }
 
@@ -352,6 +375,8 @@ u8 CombatArt_WeaponSelect_PressB(struct MenuProc*, struct MenuItemProc*){
 	Text_ResetTileAllocation();
 	BG_Fill(gBG2TilemapBuffer, 0);
 	BG_EnableSyncByMask(0b100);
+	ResetIconGraphics_();
+	LoadIconPalettes(0x4);
 	
 	// Reset Menu
 	StartOrphanMenu(&Menu_CombatArtSelect);
