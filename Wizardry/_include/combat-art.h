@@ -22,6 +22,7 @@ const struct CombatArtInfo* GetCombatArtInfo(u8 index);
 u8* GetCombatArtList(struct Unit* unit);
 int UnitHasCombatArt(struct Unit* unit);
 int CanUnitUseCombatArt(struct Unit* unit, u8 index);
+int CanUnitWithWeaponUseCombatArt(struct Unit* unit, u16 weapon, u8 index);
 
 
 

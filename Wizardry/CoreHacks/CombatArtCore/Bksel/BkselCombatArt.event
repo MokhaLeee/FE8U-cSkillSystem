@@ -1,0 +1,53 @@
+
+ALIGN 4
+#include "src/BKSEL_OnDrawFix.lyn.event"
+#include "src/BKSEL_OnDrawMore.lyn.event"
+
+
+// Standard draw
+ALIGN 4
+gGfx_BkselObjArrow0:
+	#incbin "data/gfxBkselObjArrow0.4bpp.lz"
+
+ALIGN 4
+gGfx_BkselObjArrow1:
+	#incbin "data/gfxBkselObjArrow1.4bpp.lz"
+
+ALIGN 4
+gPal_BkselObjArrow:
+	#incbin "data/gfxBkselObjArrow.gbapal"
+
+
+// Tsa window:
+ALIGN 4
+gTsa_BkselDetailedScreen:
+	#incbin "data/BkselDetailedScreen.tsa"
+
+ALIGN 4
+gTsa_BkselStandardScreen:
+	#incbin "data/BkselStandardScreen.tsa"
+	
+PUSH
+ 	ORG $36D04
+	jumpToHack(AsmBksel_DrawMore)
+	
+	// Null Bksel Item Name
+	ORG $36628
+	SHORT $4770
+	
+	// Give "No Combat Art" a longer length
+	ORG $36DEA
+	SHORT $210C
+	
+	
+	// Bksel need init more gfx
+	ORG $59E544
+	POIN Bksel_InitMore
+	
+	// Reset TSA
+	ORG $36B08
+	POIN gTsa_BkselDetailedScreen
+	
+	ORG $368A0
+	POIN gTsa_BkselStandardScreen
+POP

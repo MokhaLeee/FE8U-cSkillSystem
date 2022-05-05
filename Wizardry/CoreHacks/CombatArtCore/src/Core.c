@@ -35,29 +35,39 @@ int UnitHasCombatArt(struct Unit* unit){
 
 int CanUnitUseCombatArt(struct Unit* unit, u8 index){
 	
-	const struct CombatArtInfo *info = GetCombatArtInfo(index);
-	
 	u8* list = GetCombatArtList(unit);
 	
 	if( NULL == list )
 		return 0;
+
+	int i = 0;
 	
-	for( int i = 0; i < 5; i++ )
-		if( index == list[i] )
-			for( int i = 0; i < UNIT_ITEM_COUNT; i++ )
-			{
-				u16 item = unit->items[i];
-				
-				if( 0 == (IA_WEAPON & GetItemAttributes(item)) )
-					continue;
-				
-				if( info->weapon_type != GetItemType(item) )
-					continue;
-				
-				if( ITEM_USES(item) >= info->cost )
-					return 1;
-			}
-	
+	while( index != list[i++] )
+		if( i >= 5 )
+			return 0;
+
+	for( i = 0; i < UNIT_ITEM_COUNT; i++ )
+		if( CanUnitWithWeaponUseCombatArt(unit, unit->items[i], index) )
+			return 1;
+		
 	return 0;
+}
+
+
+int CanUnitWithWeaponUseCombatArt(struct Unit* unit, u16 weapon, u8 index){
+	
+	const struct CombatArtInfo *info = GetCombatArtInfo(index);
+	
+	if( NULL == info )
+		return 0;
+	
+	if( 0 == (IA_WEAPON & GetItemAttributes(weapon)) )
+		return 0;
+	
+	if( info->weapon_type != GetItemType(weapon) )
+		return 0;
+	
+	return info->weapon_type == GetItemType(weapon);
+	
 }
 

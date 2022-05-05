@@ -13,7 +13,8 @@ You don't have Combat Art ![X]
 you cannot use[NL]
 Combat Art here.[X]
 
-
+## msg_Eksel_NoCAWarning
+No Combat Art[X]
 
 ## msg_CA_MagAtk
 Attack Res[X]

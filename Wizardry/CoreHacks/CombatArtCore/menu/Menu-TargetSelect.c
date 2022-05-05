@@ -262,7 +262,7 @@ int CombatArtSelect_DrawText(struct MenuProc* menu, struct MenuItemProc* menu_it
 	
 	DrawIcon(
 		TILEMAP_LOCATED(gBG0TilemapBuffer, menu_item->xTile, menu_item->yTile), 
-		0x70 + info->weapon_type, 
+		MASTERY_ICON(info->weapon_type), 
 		TILEREF(0, 4)
 	);
 	
@@ -487,6 +487,9 @@ u8 CombatArtWeaponSelect_Effect(struct MenuProc* menu, struct MenuItemProc* menu
 	ClearBg0Bg1();
 	MakeTargetListForWeapon(gActiveUnit, weapon);
 	NewTargetSelection(&TargetSelectInfo_CombatArt);
+	
+	// add a load icon for Eksel select combat-art
+	LoadIconPalettes(0xE);
 	
 	return MENU_ACT_ENDFACE | MENU_ACT_CLEAR | MENU_ACT_SND6A | MENU_ACT_END | MENU_ACT_SKIPCURSOR;
 }

@@ -100,7 +100,6 @@ ALIGN 4
 
 #include "Features/LevelUpFE16/LevelUpFE16.event"
 #include "Features/PrepScreenRework/PrepScreenRework.event"
-#include "Features/FE16Icon/FE16Icon.event"
 
 
 #include "External/_ExternPatchConfig.event"

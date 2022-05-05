@@ -22,8 +22,7 @@ LYN_REF := Tools/FE-CLib-Mokha/reference/FE8U-Decomp-20220503.o
 # ========================
 
 # Setting C/ASM include directories up (there is none yet)
-INC_DIRS := Tools Wizardry/_include
-INC_DIRS += Tools/FE-CLib-Mokha/include
+INC_DIRS := Tools Wizardry/_include Tools/FE-CLib-Mokha/include
 INCFLAGS     := $(foreach dir, $(INC_DIRS), -I "$(dir)")
 
 # setting up compilation flags
@@ -34,6 +33,12 @@ ASFLAGS := $(ARCH) $(INCFLAGS)
 # defining dependency flags
 CDEPFLAGS = -MMD -MT "$*.o" -MT "$*.asm" -MF "$(CACHE_DIR)/$(notdir $*).d" -MP
 SDEPFLAGS = --MD "$(CACHE_DIR)/$(notdir $*).d"
+
+
+# a lot of depends
+Wizardry/CoreHacks/BattleSystem/BkselRework/BKSEL.o : Wizardry/_include/battle-system.h
+Wizardry/CoreHacks/CombatArtCore/Bksel/src/BKSEL_OnDrawMore.o : Wizardry/_include/battle-system.h
+
 
 # ASM to OBJ rule
 %.o: %.s

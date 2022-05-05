@@ -37,6 +37,29 @@ extern struct BattleFlagExt* gpBattleFlagExt;	// 0x10 long
 
 
 
+// Battle Forcast rework
+struct Proc_BKSEL{
+	
+	/* 00 */ PROC_HEADER;
+	/* 29 */ u8 pad[0x32 - 0x29];
+	/* 32 */ u8 mode;		// 1 = Standard, 2 = Detailed
+	/* 33 */ u8 stat;
+	/* 34 */ u8 unk_34;
+	/* 35 */ s8 pos;		// left = 1, middle = 0, right = -1
+	/* 36 */ u8 unk_36[0x38 - 0x36];
+	/* 38 */ struct TextHandle texts[3];
+	/* 50 */ u8 act_hit;
+	/* 51 */ u8 tar_hit;
+	/* 52 */ u8 act_eff;	// bool
+	/* 53 */ u8 tar_eff;	// bool
+	
+	/* 54 */ u8 pad_54[0x68 - 0x54];
+	/* 68 */ u8 caIcon_xPos;
+	/* 69 */ u8 caIcon_yPos;
+	/* 6A */ u8 obj_arrow_timer;
+};
+
+
 
 // functions
 void ResetBattleFlagExt(void);
@@ -45,3 +68,5 @@ void ClearBattleHitExt(void);
 void BattleHitExt_SetAttr(int attr);
 int SetBattleHitExt_AtkSkill(u8 skill_id);
 int SetBattleHitExt_DefSkill(u8 skill_id);
+
+int CheckCanDouble(struct BattleUnit* actor, struct BattleUnit* target);

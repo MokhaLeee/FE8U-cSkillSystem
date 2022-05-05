@@ -36,6 +36,7 @@ hack: $(ROM_TARGET)
 # EA depends
 EVENT_DEPENDS := $(shell $(EADEP) $(EVENT_MAIN) -I $(realpath .)/Tools/EventAssembler --add-missings)
 
+
 # Additional EA commandline flags
 # EAFLAGS := -raws:Tools/EA-Raws --nocash-sym
 EAFLAGS :=

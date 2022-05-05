@@ -2,12 +2,11 @@
 #define COMBAT_ART
 ALIGN 4
 
-
-#include "src/Menu-TargetSelect.lyn.event"
 #include "src/Core.lyn.event"
 #include "src/Misc.lyn.event"
-#include "src/MenuPanel.lyn.event"
-
+#include "menu/Menu-TargetSelect.lyn.event"
+#include "menu/MenuPanel.lyn.event"
+#include "Bksel/BkselCombatArt.event"
 
 
 #endif // COMBAT_ART

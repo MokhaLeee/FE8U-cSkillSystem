@@ -4,7 +4,7 @@
 //             Static Function Declaration
 // ===================================================
 
-static int CheckCanDouble(struct BattleUnit* actor, struct BattleUnit* target);
+int CheckCanDouble(struct BattleUnit* actor, struct BattleUnit* target);
 static int CheckDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target);
 static int CheckNullDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target);
 static int CheckVantage(void);
@@ -279,6 +279,7 @@ int CheckVantage(void){
 	if( 1 == gpBattleFlagExt->isCombat )
 		return 0;
 	
+	
 	// Vantage:  HP <50%
 	if( (*SkillTester)(target_unit, SID_Vantage) )
 		if( target_unit->curHP < (target_unit->maxHP / 2) )
@@ -301,6 +302,11 @@ int CheckDesperation(void){
 	
 	struct Unit* attacker_unit = GetUnit(gBattleActor.unit.index);
 	
+	// if inside combat-art, null desperation skills
+	if( 1 == gpBattleFlagExt->isCombat )
+		return 0;
+	
+	
 	// Desperation:  HP <50%
 	if( (*SkillTester)(attacker_unit, SID_Desperation) )
 		if( attacker_unit->curHP < (attacker_unit->maxHP / 2) )
@@ -319,7 +325,7 @@ int CheckDesperation(void){
 
 
 
-// static
+// not static
 int CheckCanDouble(struct BattleUnit* actor, struct BattleUnit* target){
 	int can;
 
@@ -330,8 +336,8 @@ int CheckCanDouble(struct BattleUnit* actor, struct BattleUnit* target){
 		can = TRUE;
 	else
 		can = FALSE;
-
-
+	
+	
 	// Modular
 	if( CheckDoubleLoop(actor,target) )
 		can = TRUE;

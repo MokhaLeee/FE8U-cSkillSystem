@@ -6,9 +6,10 @@ InjectIconSheet(ICON_SHEET_MASTERY, GetFE16MasteryIconGfx)
 
 ALIGN 4
 IconSheet_FE16Mastery:
-	POIN 	Icon_Sword	Icon_Lance	Icon_Axe	Icon_Bow	Icon_Brawl
-	POIN	Icon_Reason	Icon_Faith	Icon_Auth	Icon_Riding	Icon_Flying
-	POIN	Icon_Heavy
+	POIN 	Icon_Sword		Icon_Lance		Icon_Axe		Icon_Bow	Icon_Faith
+	POIN	Icon_Reason		Icon_Reason		Icon_Reason
+	POIN	Icon_Auth		Icon_Riding		Icon_Flying
+	POIN	Icon_Brawl		Icon_Heavy
 	WORD	0
 
 

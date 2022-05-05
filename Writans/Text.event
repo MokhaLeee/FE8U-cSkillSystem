@@ -334,120 +334,124 @@ __TEXTPROCESSD97:
 setText($D97, __TEXTPROCESSD97)
 
 __TEXTPROCESSD98:
-#incbin ".TextEntries\TextMainmsg_CA_MagAtk.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_Eksel_NoCAWarning.fetxt.dmp"
 setText($D98, __TEXTPROCESSD98)
 
 __TEXTPROCESSD99:
-#incbin ".TextEntries\TextMainmsg_CA_PhyAtk.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CA_MagAtk.fetxt.dmp"
 setText($D99, __TEXTPROCESSD99)
 
 __TEXTPROCESSD9A:
-#incbin ".TextEntries\TextMainmsg_CAN_WrathStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CA_PhyAtk.fetxt.dmp"
 setText($D9A, __TEXTPROCESSD9A)
 
 __TEXTPROCESSD9B:
-#incbin ".TextEntries\TextMainmsg_CAD_WrathStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAN_WrathStrike.fetxt.dmp"
 setText($D9B, __TEXTPROCESSD9B)
 
 __TEXTPROCESSD9C:
-#incbin ".TextEntries\TextMainmsg_CAN_Grounder.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAD_WrathStrike.fetxt.dmp"
 setText($D9C, __TEXTPROCESSD9C)
 
 __TEXTPROCESSD9D:
-#incbin ".TextEntries\TextMainmsg_CAD_Grounder.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAN_Grounder.fetxt.dmp"
 setText($D9D, __TEXTPROCESSD9D)
 
 __TEXTPROCESSD9E:
-#incbin ".TextEntries\TextMainmsg_CAN_BaneOfMonsters.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAD_Grounder.fetxt.dmp"
 setText($D9E, __TEXTPROCESSD9E)
 
 __TEXTPROCESSD9F:
-#incbin ".TextEntries\TextMainmsg_CAD_BaneOfMonsters.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAN_BaneOfMonsters.fetxt.dmp"
 setText($D9F, __TEXTPROCESSD9F)
 
 __TEXTPROCESSDA0:
-#incbin ".TextEntries\TextMainmsg_CAN_TempestLance.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAD_BaneOfMonsters.fetxt.dmp"
 setText($DA0, __TEXTPROCESSDA0)
 
 __TEXTPROCESSDA1:
-#incbin ".TextEntries\TextMainmsg_CAD_TempestLance.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAN_TempestLance.fetxt.dmp"
 setText($DA1, __TEXTPROCESSDA1)
 
 __TEXTPROCESSDA2:
-#incbin ".TextEntries\TextMainmsg_CAN_Knightkneeler.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAD_TempestLance.fetxt.dmp"
 setText($DA2, __TEXTPROCESSDA2)
 
 __TEXTPROCESSDA3:
-#incbin ".TextEntries\TextMainmsg_CAD_Knightkneeler.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAN_Knightkneeler.fetxt.dmp"
 setText($DA3, __TEXTPROCESSDA3)
 
 __TEXTPROCESSDA4:
-#incbin ".TextEntries\TextMainmsg_CAN_CurvedShot.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAD_Knightkneeler.fetxt.dmp"
 setText($DA4, __TEXTPROCESSDA4)
 
 __TEXTPROCESSDA5:
-#incbin ".TextEntries\TextMainmsg_CAD_CurvedShot.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAN_CurvedShot.fetxt.dmp"
 setText($DA5, __TEXTPROCESSDA5)
 
 __TEXTPROCESSDA6:
-#incbin ".TextEntries\TextMainmsg_CAN_HeavyDraw.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAD_CurvedShot.fetxt.dmp"
 setText($DA6, __TEXTPROCESSDA6)
 
 __TEXTPROCESSDA7:
-#incbin ".TextEntries\TextMainmsg_CAD_HeavyDraw.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAN_HeavyDraw.fetxt.dmp"
 setText($DA7, __TEXTPROCESSDA7)
 
 __TEXTPROCESSDA8:
-#incbin ".TextEntries\TextMainmsg_PrepPickSkillName.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_CAD_HeavyDraw.fetxt.dmp"
 setText($DA8, __TEXTPROCESSDA8)
 
 __TEXTPROCESSDA9:
-#incbin ".TextEntries\TextMainmsg_PrepPickSkillDesc.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepPickSkillName.fetxt.dmp"
 setText($DA9, __TEXTPROCESSDA9)
 
 __TEXTPROCESSDAA:
-#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickSkillName.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepPickSkillDesc.fetxt.dmp"
 setText($DAA, __TEXTPROCESSDAA)
 
 __TEXTPROCESSDAB:
-#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickSkillDesc.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickSkillName.fetxt.dmp"
 setText($DAB, __TEXTPROCESSDAB)
 
 __TEXTPROCESSDAC:
-#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickCombatName.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickSkillDesc.fetxt.dmp"
 setText($DAC, __TEXTPROCESSDAC)
 
 __TEXTPROCESSDAD:
-#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickCombatDesc.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickCombatName.fetxt.dmp"
 setText($DAD, __TEXTPROCESSDAD)
 
 __TEXTPROCESSDAE:
-#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickBattalionName.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickCombatDesc.fetxt.dmp"
 setText($DAE, __TEXTPROCESSDAE)
 
 __TEXTPROCESSDAF:
-#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickBattalionDesc.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickBattalionName.fetxt.dmp"
 setText($DAF, __TEXTPROCESSDAF)
 
 __TEXTPROCESSDB0:
-#incbin ".TextEntries\TextMainmsg_PrepPickSkill_FailAddSkill.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepSkillMenu_PickBattalionDesc.fetxt.dmp"
 setText($DB0, __TEXTPROCESSDB0)
 
 __TEXTPROCESSDB1:
-#incbin ".TextEntries\TextMainmsg_PrepPickSkill_TryRemoveSkill.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_FailAddSkill.fetxt.dmp"
 setText($DB1, __TEXTPROCESSDB1)
 
 __TEXTPROCESSDB2:
-#incbin ".TextEntries\TextMainmsg_PrepPickSkill_TryAddSkill.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_TryRemoveSkill.fetxt.dmp"
 setText($DB2, __TEXTPROCESSDB2)
 
 __TEXTPROCESSDB3:
-#incbin ".TextEntries\TextMainmsg_PrepPickSkill_TryReplaceSkill.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_TryAddSkill.fetxt.dmp"
 setText($DB3, __TEXTPROCESSDB3)
 
 __TEXTPROCESSDB4:
-#incbin ".TextEntries\TextMainmsg_end.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_TryReplaceSkill.fetxt.dmp"
 setText($DB4, __TEXTPROCESSDB4)
+
+__TEXTPROCESSDB5:
+#incbin ".TextEntries\TextMainmsg_end.fetxt.dmp"
+setText($DB5, __TEXTPROCESSDB5)
 
 }
 

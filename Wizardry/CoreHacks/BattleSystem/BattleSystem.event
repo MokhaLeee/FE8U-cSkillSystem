@@ -46,4 +46,11 @@ ALIGN 4
 
 
 
+// ====================================================
+//                  Bksel Rework
+// ====================================================
+#include "BkselRework/BKSEL.lyn.event"
+
+
+
 #endif // BATTLE_SYSTEM_REWORK
