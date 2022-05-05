@@ -77,7 +77,7 @@ ALIGN 4
 #include "CoreHacks/BattleSystem/BattleSystem.event"
 
 // Three Houses sytle Combat-Art
-#include "CoreHacks/CombatArt/CombatArt.event"
+#include "CoreHacks/CombatArtCore/CombatArtCore.event"
 
 
 

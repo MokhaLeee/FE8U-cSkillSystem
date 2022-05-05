@@ -1,10 +1,5 @@
 
 #include "CombatArtDef.event"
-
-// ====================================================
-//                     Skill Info
-// ====================================================
-ALIGN 4
 #include "data/CombatArtInfo.lyn.event"
 
 // see _include/combat-art.h
@@ -12,5 +7,3 @@ ALIGN 4
 
 
 
-
-ALIGN 4

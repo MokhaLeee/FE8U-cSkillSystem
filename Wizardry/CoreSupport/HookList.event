@@ -24,6 +24,7 @@ ALIGN 4
 OnLoadUnitFuncList:
 	POIN LoadUnit_Mag 		// CoreHacks/StrMag/LoadUnit
 	POIN LoadUnit_LoadSkill // SkillCore/OnModular
+	POIN LoadUnit_CombatArt	// CombatArt/Misc
 	WORD 0 
 
 

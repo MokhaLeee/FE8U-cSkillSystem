@@ -26,9 +26,9 @@
 	PROTECT $018A1C $018A54 */
 	
 	//Determine whether to add str or mag to damage(Conflict with frenzy skill)
-	ORG $2AB4C
-	callHack_r3(Str_Or_Mag_Damage)
-	PROTECT $02AABC $02AB72
+	// ORG $2AB4C
+	// callHack_r3(Str_Or_Mag_Damage)
+	// PROTECT $02AABC $02AB72
 
 /* 	//Update magic in battle struct
 	ORG $2A5BC

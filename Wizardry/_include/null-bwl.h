@@ -11,7 +11,8 @@ enum
 struct NewBwlData
 {
 	/* 00 */ uint8_t supports[0x8];
-	/* 08 */ uint8_t pad_00[0x10 - 0x8];
+	/* 08 */ uint8_t combatArts[0x5];
+	/* 0D */ uint8_t pad_00[0x10 - 0xD];
 };
 
 extern struct NewBwlData gBWLDataStorage[]; // 0x203E894

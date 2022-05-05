@@ -18,12 +18,6 @@ enum{
 extern struct Struct0202BCB0 gGameState;
 extern void Text_ResetTileAllocation();
 
-// msgs
-extern u16 msgAt_umCAname;
-extern u16 msgAt_umCAdesc;
-extern u16 msgAt_umCAGrayBox;
-extern u16 msgAt_umCAselectGrayBox;
-
 
 
 // Menu & Menu Items & Target-Select definitions
@@ -44,43 +38,51 @@ const struct ProcCmd ProcCmd_CombatArt_PostTargetSelect[];
 
 int UMitem_CombatArt_Usability(const struct MenuItemDef* menu_item, int number){
 	
-	BuildCombatArtList(gActiveUnit);
+	if( 0 == UnitHasCombatArt(gActiveUnit) )
+		return MENU_NOTSHOWN;
 	
-	if( 1 == UnitHasCombatArt(gActiveUnit) )
-		return MENU_ENABLED;
+	u8 *list = GetCombatArtList(gActiveUnit);
 	
-	else
-		return MENU_DISABLED;
+	if( NULL == list )
+		return MENU_NOTSHOWN;
+	
+	for( int i = 0; i < 5; i++ )
+		if( 1 == CanUnitUseCombatArt(gActiveUnit, list[i]) )
+			return MENU_ENABLED;
+	
+	return MENU_DISABLED;
+		
 	
 }
 
 
 int UMitem_CombatArt_Effect(struct MenuProc* menu, struct MenuItemProc* menu_item ){
 	
-	struct MenuProc* pm_combat_art;
-	struct CombatArtList *list = GetCombatArtList(gActiveUnit);
+	struct MenuProc* sub_menu;
+	u8 *list = GetCombatArtList(gActiveUnit);
 	
 	// if unused
-	if( MENU_ENABLED != menu_item->availability )
+	if( (MENU_ENABLED != menu_item->availability) || (NULL == list) )
 	{
-		MenuFrozenHelpBox(menu, msgAt_umCAGrayBox);
+		MenuFrozenHelpBox(menu, ENUM_msg_umCAGrayBox);
 		return MENU_ITEM_NONE;
 	}
 	
 	// set flag
 	gpBattleFlagExt->isCombat = 1;
-	gpBattleFlagExt->combatArt_id = list->list[0];
+	gpBattleFlagExt->combatArt_id = list[0];
+	gpBattleFlagExt->combat_unit = gActiveUnit->index;
 	
 	// reset Texts & icons
 	Text_ResetTileAllocation();	
 	ResetIconGraphics_();
-	LoadIconPalettes(0x4);
+	LoadIconPalettes(0x3);	// move from pal-4 to pal-3, so aviod conflict to Map-wrap
 	
-	pm_combat_art = StartOrphanMenu(&Menu_CombatArtSelect);
+	sub_menu = StartOrphanMenu(&Menu_CombatArtSelect);
 	
 	// Menu Panel
-	// NewFace(0,GetUnitPortraitId(gActiveUnit),0xB0,0xC,0x2);
-	// StartMenuPanel_CombatArt(pm_combat_art, gActiveUnit,0xF,0xB);
+	NewFace(0,GetUnitPortraitId(gActiveUnit),0xB0,0xC,0x2);
+	StartMenuPanel_CombatArt(sub_menu, gActiveUnit,0xF,0xB);
 	
 	return MENU_ACT_CLEAR | MENU_ACT_SND6A | MENU_ACT_END | MENU_ACT_SKIPCURSOR;
 }
@@ -88,11 +90,15 @@ int UMitem_CombatArt_Effect(struct MenuProc* menu, struct MenuItemProc* menu_ite
 
 int UMitem_CombatArt_Hover(struct MenuProc*, struct MenuItemProc*){
 	
-	struct CombatArtList *list = BuildCombatArtList(gActiveUnit);
+	u8 *list = GetCombatArtList(gActiveUnit);
+	
+	if( NULL == list )
+		return 0;
 	
 	// Set CombatArt flag
 	gpBattleFlagExt->isCombat = 1;
-	gpBattleFlagExt->combatArt_id = list->list[0];
+	gpBattleFlagExt->combatArt_id = list[0];
+	gpBattleFlagExt->combat_unit = gActiveUnit->index;
 	
 	
 	return 0;
@@ -103,6 +109,7 @@ int UMitem_CombatArt_Unhover(struct MenuProc*, struct MenuItemProc*){
 	// Clear CombatArt flag
 	gpBattleFlagExt->isCombat = 0;
 	gpBattleFlagExt->combatArt_id = 0;
+	gpBattleFlagExt->combat_unit = 0;
 	
 	return 0;
 
@@ -171,9 +178,10 @@ u8 CombatArtSelect_PressB(struct MenuProc* mu, struct MenuItemProc* cmd){
 	// clear battle flag
 	gpBattleFlagExt->isCombat = 0;
 	gpBattleFlagExt->combatArt_id = 0;
+	gpBattleFlagExt->combat_unit = 0;
 	
 	// Menu Panel
-	// EndMenuPanel_CombatArt();
+	EndMenuPanel_CombatArt();
 	
 	// Reset Text & Dsiplay
 	Text_ResetTileAllocation();
@@ -197,10 +205,10 @@ u8 CombatArtSelect_PressB(struct MenuProc* mu, struct MenuItemProc* cmd){
 
 void CombatArtSelect_HelpBox(struct MenuProc*, struct MenuItemProc* menu_item){
 	
-	struct CombatArtList* list = GetCombatArtList(gActiveUnit);
-	const struct CombatArtInfo* info = GetCombatArtInfo(list->list[menu_item->itemNumber]);
+	u8* list = GetCombatArtList(gActiveUnit);
+	const struct CombatArtInfo* info = GetCombatArtInfo(list[menu_item->itemNumber]);
 	
-	if( NULL == info )
+	if( (NULL == info) || (NULL == list) )
 		return;
 	
 	StartHelpBox(8 * menu_item->xTile, 8 * menu_item->yTile, info->msg_desc);
@@ -212,15 +220,15 @@ void CombatArtSelect_HelpBox(struct MenuProc*, struct MenuItemProc* menu_item){
 
 u8 CombatArtSelect_Usability(const struct MenuItemDef*, int number){
 	
-	struct CombatArtList* list = GetCombatArtList(gActiveUnit);
-	
-	// W.I.P.
-	u8 index_combatArt = list->list[number];
-	
-	if( 0 == index_combatArt )
+	if( NULL == GetCombatArtList(gActiveUnit) )
 		return MENU_NOTSHOWN;
 	
-	if( 1 == CanUnitUseCombatArt(gActiveUnit, index_combatArt) )
+	u8 ca_index = GetCombatArtList(gActiveUnit)[number];
+	
+	if( 0 == ca_index )
+		return MENU_NOTSHOWN;
+	
+	if( 1 == CanUnitUseCombatArt(gActiveUnit, ca_index) )
 		return MENU_ENABLED;
 	
 	else
@@ -230,8 +238,12 @@ u8 CombatArtSelect_Usability(const struct MenuItemDef*, int number){
 
 int CombatArtSelect_DrawText(struct MenuProc* menu, struct MenuItemProc* menu_item){
 	
-	struct CombatArtList* list = GetCombatArtList(gActiveUnit);
-	const struct CombatArtInfo* info = GetCombatArtInfo(list->list[menu_item->itemNumber]);
+	u8* list = GetCombatArtList(gActiveUnit);
+	
+	if( NULL == list )
+		return 0;
+	
+	const struct CombatArtInfo* info = GetCombatArtInfo(list[menu_item->itemNumber]);
 	
 	if( NULL == info )
 		return 0;
@@ -251,7 +263,7 @@ int CombatArtSelect_DrawText(struct MenuProc* menu, struct MenuItemProc* menu_it
 	DrawIcon(
 		TILEMAP_LOCATED(gBG0TilemapBuffer, menu_item->xTile, menu_item->yTile), 
 		0x70 + info->weapon_type, 
-		TILEREF(0, STATSCREEN_BGPAL_EXTICONS)
+		TILEREF(0, 4)
 	);
 	
 	DrawDecNumber(
@@ -267,12 +279,12 @@ int CombatArtSelect_DrawText(struct MenuProc* menu, struct MenuItemProc* menu_it
 
 u8 CombatArtSelect_Effect(struct MenuProc* menu, struct MenuItemProc* menu_item){
 	
-	struct MenuProc* menu_wpnSelect;
+	struct MenuProc* sub_menu;
 	
 	// if unused
 	if( MENU_ENABLED != menu_item->availability )
 	{
-		MenuFrozenHelpBox(menu, msgAt_umCAselectGrayBox);
+		MenuFrozenHelpBox(menu, ENUM_msg_umCAselectGrayBox);
 		return MENU_ITEM_NONE;
 	}
 	
@@ -282,28 +294,82 @@ u8 CombatArtSelect_Effect(struct MenuProc* menu, struct MenuItemProc* menu_item)
 	LoadIconPalettes(0x4);
 	
 	// Start new menu
-	menu_wpnSelect = StartOrphanMenu(&Menu_CombatArt_WeaponSelect);
+	sub_menu = StartOrphanMenu(&Menu_CombatArt_WeaponSelect);
 	
 	// Menu Panel
-	// EndMenuPanel_CombatArt();
+	EndMenuPanel_CombatArt();
 	NewFace(0,GetUnitPortraitId(gActiveUnit), 0xB0, 0xC, 0x2);
-	ForceMenuItemPanel(menu_wpnSelect, gActiveUnit, 0xF, 0xB);
+	ForceMenuItemPanel(sub_menu, gActiveUnit, 0xF, 0xB);
 	
 	return MENU_ACT_CLEAR | MENU_ACT_SND6A | MENU_ACT_END | MENU_ACT_SKIPCURSOR;
 }
 
 int CombatArtSelect_Hover(struct MenuProc* menu, struct MenuItemProc* menu_item){
 	
-	struct CombatArtList* list = GetCombatArtList(gActiveUnit);
+	u8* list = GetCombatArtList(gActiveUnit);
+	u32 range_mask = 0;
 	
+	if( NULL == list )
+		return 0;
+	
+	u8 combatArt_index = list[menu_item->itemNumber];
+	const struct CombatArtInfo *info = GetCombatArtInfo(combatArt_index);
+	
+	if( NULL == info )
+		return 0;
+	
+
 	// set flag
 	gpBattleFlagExt->isCombat = 1;
-	gpBattleFlagExt->combatArt_id = list->list[menu_item->itemNumber];
+	gpBattleFlagExt->combatArt_id = combatArt_index;
+	gpBattleFlagExt->combat_unit = gActiveUnit->index;
+	
+	
+	// Make mask
+	for( int i = 0; i < UNIT_ITEM_COUNT; i++ )
+	{
+		u16 item = gActiveUnit->items[i];
+		
+		if( 0 == (IA_WEAPON & GetItemAttributes(item)) )
+			continue;
+				
+		if( info->weapon_type != GetItemType(item) )
+			continue;
+				
+		if( ITEM_USES(item) < info->cost )
+			continue;
+		
+		range_mask |= ItemRange2Mask(item, gActiveUnit);
+	}
+	
+	
+	// Fill Map
+	BmMapFill(gBmMapMovement, NU_MOVE_MAP);
+	BmMapFill(gBmMapRange, NU_RANGE_MAP);
+	GenerateUnitStandingReachRange(gActiveUnit, range_mask);
+	DisplayMoveRangeGraphics(RNG_RED);
+	
+	
+	// Menu Panel
+	if( NULL == Proc_Find(gProc_MenuItemPanel) )
+	{
+		NewFace(0,GetUnitPortraitId(gActiveUnit), 0xB0, 0xC, 0x2);
+		StartMenuPanel_CombatArt(menu, gActiveUnit, 0xF, 0xB);
+	}
+	
+	UpdateMenuPanel_CombatArt(info);
+	
 	return 0;
 }
 
-int CombatArtSelect_Unhover(struct MenuProc*, struct MenuItemProc*){
 
+
+int CombatArtSelect_Unhover(struct MenuProc*, struct MenuItemProc*){
+	
+	// Fill Map
+	BmMapFill(gBmMapMovement, NU_MOVE_MAP);
+	BmMapFill(gBmMapRange, NU_RANGE_MAP);
+	
 	return 0;
 }
 
@@ -367,16 +433,12 @@ const struct MenuItemDef MenuItems_CombatArt_WeaponSelect[] = {
 
 u8 CombatArt_WeaponSelect_PressB(struct MenuProc*, struct MenuItemProc*){
 	
-	// Menu Panel
-	// NewFace(0,GetUnitPortraitId(gActiveUnit), 0xB0, 0xC, 0x2);
-	// StartMenuPanel_CombatArt(umCA, gActiveUnit,0xF,0xB);
-	
 	// Reset Text & Dsiplay
 	Text_ResetTileAllocation();
 	BG_Fill(gBG2TilemapBuffer, 0);
 	BG_EnableSyncByMask(0b100);
 	ResetIconGraphics_();
-	LoadIconPalettes(0x4);
+	LoadIconPalettes(0x3);
 	
 	// Reset Menu
 	StartOrphanMenu(&Menu_CombatArtSelect);
@@ -391,19 +453,27 @@ u8 CombatArtWeaponSelect_Usability(const struct MenuItemDef*, int number){
 	
 	u16 item = gActiveUnit->items[number];
 	
+	const struct CombatArtInfo *info = GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
+	
 	if( 0 == ITEM_USES(item) )
 		return MENU_NOTSHOWN;
 	
-	if( 0 != (IA_WEAPON & GetItemAttributes(item)) )
-		if( CanUnitUseWeapon(gActiveUnit, item) )
-		{
-			MakeTargetListForWeapon(gActiveUnit, item);
+	if( (info->weapon_type != GetItemType(item)) || (0 == (IA_WEAPON & GetItemAttributes(item))) )
+		return MENU_NOTSHOWN;
+	
+	if( ITEM_USES(item) < info->cost )
+		return MENU_DISABLED;
+	
+	if( 0 == CanUnitUseWeapon(gActiveUnit, item) )
+		return MENU_DISABLED;
+
+	MakeTargetListForWeapon(gActiveUnit, item);
 			
-			if( 0 != GetSelectTargetCount() )
-				return MENU_ENABLED;
-		}
-				
-	return MENU_DISABLED;
+	if( 0 != GetSelectTargetCount() )
+		return MENU_ENABLED;
+	else
+		return MENU_DISABLED;
+	
 }
 
 

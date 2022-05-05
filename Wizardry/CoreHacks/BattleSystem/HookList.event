@@ -1,0 +1,18 @@
+
+// Pre-Battle Calc
+ALIGN 4
+PreBattleCalcLoopTable:
+	
+	// (struct BattleUnit* attacker, struct BattleUnit* defender)
+	// Init on first
+	POIN BC_Init
+	
+	// On modular
+	POIN BC_CombatArtBonus 		// CombatArtCore/Misc
+	
+	// Common calc 
+	POIN BC_Atk BC_AS BC_DefRes BC_Hit BC_Avo BC_Crit BC_Dodge
+	
+	// Not did: Support / Status bonus / Weapon rank bonus
+	WORD 0
+

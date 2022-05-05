@@ -5,6 +5,8 @@
 //                         Core
 // ====================================================
 
+ALIGN 4
+#include HookList.event
 #include "Core/BattleSystemCore.lyn.event"
 
 	PROTECT $2AE90 $2AED0		// ClearBattleHits
@@ -28,7 +30,19 @@
 
 
 
+// ====================================================
+//                  Pre-Battle Calc
+// ====================================================
 
+#include "PreBattleCalc/PreBattleCalc.lyn.event"
+	PROTECT $2A95C $2A9A8		// ComputeBattleUnitStats
+	PROTECT $2AABC $2AB74		// ComputeBattleUnitAttack
+	PROTECT $2AB74 $2ABAC		// ComputeBattleUnitSpeed
+	PROTECT $2AA44 $2AAA4		// ComputeBattleUnitDefense
+	PROTECT $2ABAC $2ABE4		// ComputeBattleUnitHitRate
+	PROTECT $2ABE4 $2AC18		// ComputeBattleUnitAvoidRate
+	PROTECT $2AC18 $2AC54		// ComputeBattleUnitCritRate
+	PROTECT $2AC54 $2AC60		// ComputeBattleUnitDodgeRate
 
 
 

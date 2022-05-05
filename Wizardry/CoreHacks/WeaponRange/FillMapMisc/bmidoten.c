@@ -1,6 +1,5 @@
 #include "gbafe-chax.h"
 
-extern void DisplayMoveRangeGraphics(unsigned param); //! FE8U = 0x801DA99
 
 // 0x801CB70+1
 void DisplayUnitEffectRange(struct Unit* unit){

@@ -28,8 +28,9 @@ struct BattleFlagExt{
 	/* 00 */ u8 pad00:7;
 
 	/* 01 */ u8 combatArt_id;
+	/* 02 */ u8 combat_unit;	// unit index of combat art actor 
 	
-	/* 02 */ u8 pad02[0x10 - 0x02];
+	/* 02 */ u8 pad_03[0x10 - 0x03];
 };
 
 extern struct BattleFlagExt* gpBattleFlagExt;	// 0x10 long

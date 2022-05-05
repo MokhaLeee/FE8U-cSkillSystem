@@ -82,9 +82,11 @@ git submodule update --remote
 	* `Battle system`: check  function battle-unwind and can unit double attack	
 		* `Core`: extend the Battle-Hit array.
 		* `Battle order`: rework on battle-order and can-unit-double-attack judgement, introduce skill `Desperation` and skill `Vantage`
+		* `Pre-battle calc`: rework on battle status calculation as atk/def/hit/avo, etc.
 	
 	* `Combat Art`: Three-Houses style attack skills
-		* Menu: Unit-Menu item & Combat Art Select menu and items & Target select
+		* Menu & TargetSelect: Unit-Menu item & Combat Art Select menu and items & Target select
+		* Misc: LoadUnit combat-art, Pre-Battle Calc modular functions
 	
 * Features
 
