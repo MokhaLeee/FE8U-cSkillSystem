@@ -46,9 +46,9 @@ gpSkillFastList1:
 
 // Battle System
 BattleHitExtCur:
-	WORD 0x3003B90 // pointer to &BattleHitExtArray[i]
+	WORD 0x3003F48 // pointer to &BattleHitExtArray[i]
 
 BattleHitExtArray:
-	WORD 0x3003B94 // size = 0x70; End = 0x3003C04
+	WORD 0x3003F4C // size = 0x70; End = 0x3003FBC
 
 #endif // VALUE_GLOBAL

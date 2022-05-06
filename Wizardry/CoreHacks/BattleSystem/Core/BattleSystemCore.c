@@ -2,25 +2,8 @@
 
 void ClearBattleHitExt(){
 
-	for (int i = 0; i < BATTLE_HIT_MAX; ++i) 
-	{
-		// attributes
-		BattleHitExtArray[i].attr = 0;
-		
-		// attacker skills
-		BattleHitExtArray[i].atk_skills[0] = 0;
-		BattleHitExtArray[i].atk_skills[1] = 0;
-		BattleHitExtArray[i].atk_skills[2] = 0;
-		
-		// defender skills
-		BattleHitExtArray[i].def_skills[0] = 0;
-		BattleHitExtArray[i].def_skills[1] = 0;
-		BattleHitExtArray[i].def_skills[2] = 0;
-		
-		// pad
-		for( int j = 0; j < (0x10 - 0x7); j++  )
-			BattleHitExtArray[i].pad[j] = 0;
-    }
+	for( int i = 0; i < (BATTLE_HIT_MAX * 0x10 / 4); i++ )
+		*(i + (u32*)BattleHitExtArray) = 0;
 
 	*BattleHitExtCur = BattleHitExtArray;
 	

@@ -22,8 +22,10 @@ ASSERT (FreeSpaceFontEnd - CURRENTOFFSET)
 // Texts
 ORG FreeSpaceText
 #define IN_TEXT_RANGE
-
+	ALIGN 4
 	#include "Writans/text-repoint/repointedTextTable.event"
+	
+	ALIGN 4
 	#include "Writans/Text.event"
 	
 	
@@ -76,6 +78,7 @@ ASSERT (FreeSpaceEnd - CURRENTOFFSET)
 ORG FreeSpaceTable
 #define IN_TABLE_RANGE
 	
+	ALIGN 4
 	#include "GameData/GameData.event"
 	
 	

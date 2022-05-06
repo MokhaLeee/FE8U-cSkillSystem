@@ -43,8 +43,8 @@ struct Proc_BKSEL{
 	/* 00 */ PROC_HEADER;
 	/* 29 */ u8 pad[0x32 - 0x29];
 	/* 32 */ u8 mode;		// 1 = Standard, 2 = Detailed
-	/* 33 */ u8 stat;
-	/* 34 */ u8 unk_34;
+	/* 33 */ u8 stat;		// maybe 1 when gfx are ready
+	/* 34 */ u8 wake_up;	// if 0, main loop goto idle mode
 	/* 35 */ s8 pos;		// left = 1, middle = 0, right = -1
 	/* 36 */ u8 unk_36[0x38 - 0x36];
 	/* 38 */ struct TextHandle texts[3];

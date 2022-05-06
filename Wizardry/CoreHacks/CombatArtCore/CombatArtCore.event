@@ -1,12 +1,42 @@
 #ifndef COMBAT_ART
 #define COMBAT_ART
-ALIGN 4
 
-#include "src/Core.lyn.event"
-#include "src/Misc.lyn.event"
-#include "menu/Menu-TargetSelect.lyn.event"
-#include "menu/MenuPanel.lyn.event"
+ALIGN 4
+#include "Core/Core.lyn.event"
+
+ALIGN 4
+#include "Core/Misc.lyn.event"
+
+ALIGN 4
+#include "Menu/Menu-TargetSelect.lyn.event"
+
+
+ALIGN 4
+#include "Menu/MenuPanel.lyn.event"
+
+
+ALIGN 4
 #include "Bksel/BkselCombatArt.event"
 
+
+ALIGN 4
+#include "CombatSelectTarget/uiSelectTargetRework.lyn.event"
+
+
+
+ALIGN 4
+CombatArtAnimationTable:
+	//8*0x100 0
+	POIN ClassChangAnim	// DefaultOffsensiveSkillAnim
+	WORD   0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+
+#define InjectCombatArtAnimation(index, function) " PUSH; ORG (CombatArtAnimationTable + (4*index)); POIN function|1; POP"
 
 #endif // COMBAT_ART

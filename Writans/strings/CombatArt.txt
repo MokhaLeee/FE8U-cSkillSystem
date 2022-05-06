@@ -13,8 +13,11 @@ You don't have Combat Art ![X]
 you cannot use[NL]
 Combat Art here.[X]
 
-## msg_Eksel_NoCAWarning
+## msg_Bksel_NoCAWarning
 No Combat Art[X]
+
+## msg_Bksel_NotUseCA
+Not Combat Art[X]
 
 ## msg_CA_MagAtk
 Attack Res[X]
@@ -43,12 +46,6 @@ Grounder[X]
 Effective against Monsters[X]
 
 
-
-
-
-
-
-
 ## msg_CAN_TempestLance
  Tempest Lance[X]
 
@@ -61,14 +58,6 @@ Tempest Lance[X]
 
 ## msg_CAD_Knightkneeler
 Effective against Cavalry enemies[X]
-
-
-
-
-
-
-
-
 
 ## msg_CAN_CurvedShot
  Curved Shot[X]

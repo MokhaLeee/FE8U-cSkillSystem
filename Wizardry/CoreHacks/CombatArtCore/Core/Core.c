@@ -64,7 +64,7 @@ int CanUnitWithWeaponUseCombatArt(struct Unit* unit, u16 weapon, u8 index){
 	if( 0 == (IA_WEAPON & GetItemAttributes(weapon)) )
 		return 0;
 	
-	if( info->weapon_type != GetItemType(weapon) )
+	if( info->cost >= ITEM_USES(weapon) )
 		return 0;
 	
 	return info->weapon_type == GetItemType(weapon);

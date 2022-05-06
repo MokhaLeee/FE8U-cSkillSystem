@@ -30,3 +30,8 @@ int CanUnitWithWeaponUseCombatArt(struct Unit* unit, u16 weapon, u8 index);
 void StartMenuPanel_CombatArt(struct MenuProc*, struct Unit*, u8 x, u8 y);
 void UpdateMenuPanel_CombatArt(const struct CombatArtInfo*);
 void EndMenuPanel_CombatArt();
+
+
+
+// Target Select
+ProcPtr StartCombatTargetSelection(const struct SelectInfo*);

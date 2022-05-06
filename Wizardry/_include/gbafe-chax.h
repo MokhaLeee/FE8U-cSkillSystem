@@ -18,6 +18,8 @@ int _lib_mod(int a, int b);
 // simple div a/b
 int _lib_div(int a, int b);
 
+const void* GetIconGfx(unsigned icon);
+
 #include "../../Writans/TextCHeader.h"
 #include "vanilla-remix/prep-screen.h"
 

@@ -35,11 +35,6 @@ CDEPFLAGS = -MMD -MT "$*.o" -MT "$*.asm" -MF "$(CACHE_DIR)/$(notdir $*).d" -MP
 SDEPFLAGS = --MD "$(CACHE_DIR)/$(notdir $*).d"
 
 
-# a lot of depends
-Wizardry/CoreHacks/BattleSystem/BkselRework/BKSEL.o : Wizardry/_include/battle-system.h
-Wizardry/CoreHacks/CombatArtCore/Bksel/src/BKSEL_OnDrawMore.o : Wizardry/_include/battle-system.h
-
-
 # ASM to OBJ rule
 %.o: %.s
 	$(NOTIFY_PROCESS)

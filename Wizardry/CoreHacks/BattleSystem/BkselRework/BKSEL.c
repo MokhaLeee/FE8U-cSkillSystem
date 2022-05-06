@@ -50,7 +50,7 @@ void BKSEL_SetupHitAndSuchStats(struct Proc_BKSEL *proc){
 	proc->act_hit = 0;
 	proc->act_eff = 0;
 	
-	if( (0 != gBattleActor.weapon) || (0 != gBattleActor.weaponBroke) )
+	if( 0 != gBattleActor.weapon )
 	{
 		AddWeaponStatsAfterRound(&gBattleActor, &proc->act_hit, &act_itemuse);
 		
@@ -72,7 +72,7 @@ void BKSEL_SetupHitAndSuchStats(struct Proc_BKSEL *proc){
 	proc->tar_hit = 0;
 	proc->tar_eff = 0;
 		
-	if( (0 != gBattleTarget.weapon) || (0 != gBattleTarget.weaponBroke) )
+	if( 0 != gBattleTarget.weapon )
 	{
 		AddWeaponStatsAfterRound(&gBattleTarget, &proc->tar_hit, &tar_itemuse);
 		

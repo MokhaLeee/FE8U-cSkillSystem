@@ -26,7 +26,7 @@ void SPD_init(struct SPD_ProcStateMain* proc) {
 	str_name = GetStringFromIndex(proc->msg_name);
 	
 	if( GetStringTextWidth(str_name) > SKILLDISPLAY_WIDTH )
-		for(char* str = str_name; '\0' != *str; str++ )
+		for(char* str = str_name + 1; '\0' != *str; str++ )
 			if( ' ' == *str )
 				*str = '\0';	// end at first space
 	

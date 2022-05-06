@@ -7,7 +7,11 @@
 
 
 #include "Core/Tester.lyn.event"
+
+
+ALIGN 4
 #include "Core/Misc.lyn.event"
+
 #include "Core/SkillFastList.lyn.event"
 
 // ====================================================

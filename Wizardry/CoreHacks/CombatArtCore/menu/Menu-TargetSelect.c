@@ -76,7 +76,7 @@ int UMitem_CombatArt_Effect(struct MenuProc* menu, struct MenuItemProc* menu_ite
 	// reset Texts & icons
 	Text_ResetTileAllocation();	
 	ResetIconGraphics_();
-	LoadIconPalettes(0x3);	// move from pal-4 to pal-3, so aviod conflict to Map-wrap
+	LoadIconPalettes(0x4);
 	
 	sub_menu = StartOrphanMenu(&Menu_CombatArtSelect);
 	
@@ -438,7 +438,7 @@ u8 CombatArt_WeaponSelect_PressB(struct MenuProc*, struct MenuItemProc*){
 	BG_Fill(gBG2TilemapBuffer, 0);
 	BG_EnableSyncByMask(0b100);
 	ResetIconGraphics_();
-	LoadIconPalettes(0x3);
+	LoadIconPalettes(0x4);
 	
 	// Reset Menu
 	StartOrphanMenu(&Menu_CombatArtSelect);
@@ -486,10 +486,9 @@ u8 CombatArtWeaponSelect_Effect(struct MenuProc* menu, struct MenuItemProc* menu
 	EquipUnitItemSlot(gActiveUnit, menu_item->itemNumber);
 	ClearBg0Bg1();
 	MakeTargetListForWeapon(gActiveUnit, weapon);
-	NewTargetSelection(&TargetSelectInfo_CombatArt);
 	
-	// add a load icon for Eksel select combat-art
-	LoadIconPalettes(0xE);
+	// reworked a new CTS
+	StartCombatTargetSelection(&TargetSelectInfo_CombatArt);
 	
 	return MENU_ACT_ENDFACE | MENU_ACT_CLEAR | MENU_ACT_SND6A | MENU_ACT_END | MENU_ACT_SKIPCURSOR;
 }
@@ -557,13 +556,21 @@ const struct ProcCmd ProcCmd_CombatArt_PostTargetSelect[] = {
 
 void RebuildCombatArtWeaponSelectMenu(ProcPtr proc){
 	
+	extern const struct MenuDef gUnknownMenuDef; // sub-attack menu
+	const struct MenuDef* mu_def;
+	
 	// Reset Text & Dsiplay
 	Text_ResetTileAllocation();
 	BG_Fill(gBG2TilemapBuffer, 0);
 	BG_EnableSyncByMask(0b100);
 	
 	// Reset Menu
-	struct MenuProc* menu = StartOrphanMenu(&Menu_CombatArt_WeaponSelect);
+	if( (gpBattleFlagExt->isCombat) )
+		mu_def = &Menu_CombatArt_WeaponSelect;
+	else
+		mu_def = &gUnknownMenuDef;
+	
+	struct MenuProc* menu = StartOrphanMenu(mu_def);
 	
 	// Reset map works
 	HideMoveRangeGraphics();

@@ -37,7 +37,7 @@ extern const struct ProcCmd gProc_ekrGauge[];
 
 typedef void (*AnimFunc) (struct Anim*);
 
-extern AnimFunc SkillAnimationTable[0x100];
+extern AnimFunc SkillAnimationTable[0x100], CombatArtAnimationTable[0x100];
 
 static u8 SortAnimActSkill(u8 skills[], const int max_num);
 
@@ -52,6 +52,8 @@ int cSkillActivationAnims(struct Anim* anim){
 	int attr_ext;
 	u8 skill_act = 0;
 	AnimFunc anim_func = 0;
+	u16 msg_name;
+	const void* icon;
 	
 	enum{
 		// return value
@@ -64,23 +66,52 @@ int cSkillActivationAnims(struct Anim* anim){
 	attr_ext = bh_ext_cur->attr;
 	
 	
-	if( ATTR_HITEXT_SKILLACT_ATK & attr_ext )
-		skill_act = SortAnimActSkill(bh_ext_cur->atk_skills, 3);
 	
-	if( ATTR_HITEXT_SKILLACT_DEF & attr_ext )
-		skill_act = SortAnimActSkill(bh_ext_cur->def_skills, 3);
+	if( ATTR_HITEXT_COMBAT_ART & attr_ext )
+	{
+		// Combat Art
+		
+		skill_act = gpBattleFlagExt->combatArt_id;
+		
+		const struct CombatArtInfo *info = GetCombatArtInfo(skill_act);
+		
+		if( 0 == info )
+			return ACTANIM_NOANIM;
+		
+		anim_func = 
+			(0 == CombatArtAnimationTable[skill_act])
+			? CombatArtAnimationTable[0]
+			: CombatArtAnimationTable[skill_act];
+		
+		msg_name = info->msg_name;
+		
+		icon = GetIconGfx( SKILL_ICON(0x20) );
+	}
+	else
+	{
+		// Skills
+		
+		if( ATTR_HITEXT_SKILLACT_ATK & attr_ext )
+			skill_act = SortAnimActSkill(bh_ext_cur->atk_skills, 3);
+		
+		if( ATTR_HITEXT_SKILLACT_DEF & attr_ext )
+			skill_act = SortAnimActSkill(bh_ext_cur->def_skills, 3);
+		
+		
+		// Check if we're front AIS layer.
+		if( 0 != GetAISLayerId(anim) )
+			return ACTANIM_NOANIM;
+		
+		
+		// make skill activation
+		if( !SKILL_VALID(skill_act) )
+			return ACTANIM_NOANIM;
+		
+		anim_func = SkillAnimationTable[skill_act];
+		msg_name = GetSkillNameMsg(skill_act);
+		icon = GetIconGfx( SKILL_ICON(skill_act) );
+	}
 	
-	
-	// Check if we're front AIS layer.
-	if( 0 != GetAISLayerId(anim) )
-		return ACTANIM_NOANIM;
-	
-	
-	// make skill activation
-	if( !SKILL_VALID(skill_act) )
-		return ACTANIM_NOANIM;
-	
-	anim_func = SkillAnimationTable[skill_act];
 	
 	if( 0 != anim_func )
 	{
@@ -104,8 +135,8 @@ int cSkillActivationAnims(struct Anim* anim){
 		return ACTANIM_END;
 	
 	proc = Proc_Start(SPD_main_Proc, parent);
-	proc->msg_name = GetSkillNameMsg(skill_act);
-	proc->icon = GetSkillIconGfx(skill_act);
+	proc->msg_name = msg_name;
+	proc->icon = icon;
 	proc->right = GetAISSubjectId(anim); // currently only offensive skill
 	proc->timer = anim->drawLayerPriority + 1;
 	

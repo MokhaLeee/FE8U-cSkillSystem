@@ -1,0 +1,5 @@
+SetBattleUnitWeapon(attacker) + SetBattleUnitWeapon(target, auto)
+↓
+BattleInitTargetCanCounter
+↓
+BattleGenerate

@@ -7,6 +7,7 @@
 
 ALIGN 4
 #include HookList.event
+
 #include "Core/BattleSystemCore.lyn.event"
 
 	PROTECT $2AE90 $2AED0		// ClearBattleHits

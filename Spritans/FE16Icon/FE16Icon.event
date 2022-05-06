@@ -15,46 +15,46 @@ IconSheet_FE16Mastery:
 
 ALIGN 4
 Icon_Sword:
-	#incbin "Icons/Icon_Sword.4bpp"
+	#incbin "Icons/FE16Icon_Sword.4bpp"
 
 ALIGN 4
 Icon_Axe:
-	#incbin "Icons/Icon_Axe.4bpp"
+	#incbin "Icons/FE16Icon_Axe.4bpp"
 
 ALIGN 4	
 Icon_Lance:	
-	#incbin "Icons/Icon_Lance.4bpp"
+	#incbin "Icons/FE16Icon_Lance.4bpp"
 
 ALIGN 4
 Icon_Bow:
-	#incbin "Icons/Icon_Bow.4bpp"
+	#incbin "Icons/FE16Icon_Bow.4bpp"
 
 ALIGN 4
 Icon_Brawl:
-	#incbin "Icons/Icon_Brawl.4bpp"
+	#incbin "Icons/FE16Icon_Brawl.4bpp"
 
 ALIGN 4
 Icon_Reason:
-	#incbin "Icons/Icon_Reason.4bpp"
+	#incbin "Icons/FE16Icon_Reason.4bpp"
 
 ALIGN 4	
 Icon_Faith:
-	#incbin "Icons/Icon_Faith.4bpp"
+	#incbin "Icons/FE16Icon_Faith.4bpp"
 
 ALIGN 4
 Icon_Auth:
-	#incbin "Icons/Icon_Authority.4bpp"
+	#incbin "Icons/FE16Icon_Authority.4bpp"
 
 ALIGN 4
 Icon_Riding:
-	#incbin "Icons/Icon_Riding.4bpp"
+	#incbin "Icons/FE16Icon_Riding.4bpp"
 
 ALIGN 4
 Icon_Flying:
-	#incbin "Icons/Icon_Flying.4bpp"
+	#incbin "Icons/FE16Icon_Flying.4bpp"
 
 ALIGN 4
 Icon_Heavy:
-	#incbin "Icons/Icon_Heavy.4bpp"
+	#incbin "Icons/FE16Icon_Heavy.4bpp"
 
 	

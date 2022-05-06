@@ -222,7 +222,7 @@ void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 			DrawIcon(
 				TILEMAP_LOCATED( gBG0TilemapBuffer, 2 + i * 2, 15 ),
 				MASTERY_ICON(list->skills_CombatArt[i]), 
-				TILEREF(0, STATSCREEN_BGPAL_EXTICONS) );
+				TILEREF(0, 4) );
 	
 
 
@@ -263,7 +263,7 @@ void PrepSkill_DrawBattalionBar(struct Unit* unit, int config){
 	DrawIcon(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, 0x16, 0x11 ),
 		MASTERY_ICON(MASTERY_ICON_REASON), 
-		TILEREF(0, STATSCREEN_BGPAL_EXTICONS) );
+		TILEREF(0, 4) );
 	
 }
 

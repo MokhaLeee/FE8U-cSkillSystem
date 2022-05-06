@@ -19,10 +19,14 @@
 #include "Indices.event"
 
 // Str-Mag split
+ALIGN 4
 #include "StrMag/MagCharEditor.event"
+
+ALIGN 4
 #include "StrMag/MagClassEditor.event"
 
 // Skill system
+ALIGN 4
 #include "Skills/SkillSystem_Data.lyn.event"
 
 // Combat art

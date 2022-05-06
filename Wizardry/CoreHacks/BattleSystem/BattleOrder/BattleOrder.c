@@ -5,13 +5,14 @@
 // ===================================================
 
 int CheckCanDouble(struct BattleUnit* actor, struct BattleUnit* target);
+static int CheckNormalDouble(struct BattleUnit* actor, struct BattleUnit* target);
 static int CheckDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target);
 static int CheckNullDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target);
 static int CheckVantage(void);
 static int CheckDesperation(void);
 
 
-
+static int JudgeQuickRiposte(struct BattleUnit* bu);
 
 
 
@@ -65,7 +66,7 @@ static const uint8_t RoundArr[56] = {
 void BattleUnwind(){
 	
 	// Function declear
-	int BattleGenerateRoundHits(struct BattleUnit* actor, struct BattleUnit* target);
+	int BattleGenerateRoundHits(struct BattleUnit*, struct BattleUnit*);
 	
 	uint8_t round[4] = {0};
 	uint8_t roundInfo = 0;
@@ -92,20 +93,35 @@ void BattleUnwind(){
 	ClearBattleHits();
 	gBattleHitIterator->info |= BATTLE_HIT_INFO_BEGIN;
 	
+	// a counter for how bu attcks(for anim activation)
+	int attacker_attack_counter = 0;
+	int defender_attack_counter = 0;
+	
 	// 1st
 	for( int i=0; i<4; i++)
 	{
 		if( NOP_ATTACK == round[i] )
 			break;
 		
+		// later we will make gBattleHitIterator--, here to judge whether BattleGenerateRoundHits applied
+		struct BattleHit* hit_cur = gBattleHitIterator;
+		
 		// Check Hit Core
 		if( (ACT_ATTACK == round[i]) )
+		{
 			if( BattleGenerateRoundHits(&gBattleActor, &gBattleTarget) )
 				break;
+			else
+				attacker_attack_counter++;
+		}
 			
 		if( (TAR_ATTACK == round[i]) )
+		{
 			if( BattleGenerateRoundHits(&gBattleTarget, &gBattleActor) )
 				break;
+			else
+				defender_attack_counter++;
+		}
 		
 		// hit real
 		gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_RETALIATE;
@@ -115,10 +131,25 @@ void BattleUnwind(){
 			gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_FOLLOWUP;
 		
 		
+		// to judge is battle-hits advanced
+		if( hit_cur == gBattleHitIterator )
+			continue;
+		
+		
 		
 		// Todo: Anim effect
+		
 		(*BattleHitExtCur)--;
 		gBattleHitIterator--;
+		
+		
+		// Combat Art Anim
+		if( (gpBattleFlagExt->isCombat) && (gpBattleFlagExt->combat_unit == gBattleActor.unit.index) )
+			if( (0 == i) && (ACT_ATTACK == round[i]) )
+			{
+				gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
+				BattleHitExt_SetAttr(ATTR_HITEXT_COMBAT_ART);
+			}
 		
 		// vantage anim
 		if( UNWIND_VANTAGE & roundInfo )
@@ -137,8 +168,8 @@ void BattleUnwind(){
 			
 		// desperation anim
 		if( UNWIND_DESPERA & roundInfo )
-			if( i > 0 )
-				if( (ACT_ATTACK == round[i]) && (ACT_ATTACK == round[i-1]) )
+			if( 2 == attacker_attack_counter )
+				if( (ACT_ATTACK == round[i]) && (ACT_ATTACK == round[i-1]) && (TAR_ATTACK == round[i+1]) )
 				{
 					// Add skill to BattleHitExt
 					if ( (*SkillTester)(&gBattleActor.unit, SID_DesperationBat) )
@@ -150,7 +181,20 @@ void BattleUnwind(){
 					gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
 					BattleHitExt_SetAttr(ATTR_HITEXT_SKILLACT_ATK);
 				}
+		
+		
+		if( (i > 1) && (TAR_ATTACK == round[i]) && (0==CheckNormalDouble(&gBattleTarget, &gBattleActor)) )
+			if( 2 == defender_attack_counter )
+			{
 				
+				if( JudgeQuickRiposte(&gBattleTarget) )
+					SetBattleHitExt_AtkSkill(SID_QuickRiposte);
+						
+				gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
+				BattleHitExt_SetAttr(ATTR_HITEXT_SKILLACT_ATK);
+			}
+		
+		
 		// end of anim set			
 		(*BattleHitExtCur)++;
 		gBattleHitIterator++;
@@ -193,12 +237,16 @@ int BattleGenerateRoundHits(struct BattleUnit* actor, struct BattleUnit* target)
 // 判定勇者系武器
 int GetBattleUnitHitCount(struct BattleUnit* actor){
 	
+	// Target cannot double attack with brave weapon
 	if( &gBattleActor != actor )
 		return 1;
 	
 	if( !(actor->weaponAttributes & IA_BRAVE) )
 		return 1;
 	
+	// attacker cannot use brave if use combat-art
+	if( gpBattleFlagExt->isCombat )
+		return 1;
 	
 	gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_BRAVE;
 	return 2;
@@ -241,16 +289,34 @@ s8 BattleGetFollowUpOrder(struct BattleUnit** outAttacker, struct BattleUnit** o
 //             Static Function Definitions
 // ===================================================
 
+// not static
+int CheckCanDouble(struct BattleUnit* actor, struct BattleUnit* target){
+	
+	int can = CheckNormalDouble(actor, target) || CheckDoubleLoop(actor, target);
+
+	return (!CheckNullDoubleLoop(actor,target)) && can;
+
+}
+
+// static
+int CheckNormalDouble(struct BattleUnit* actor, struct BattleUnit* target){
+	
+	if( actor->battleSpeed < target->battleSpeed )
+		return 0;
+	
+	else if( (actor->battleSpeed - target->battleSpeed) > BATTLE_FOLLOWUP_SPEED_THRESHOLD )
+		return 1;
+	else
+		return 0;
+}
+
+
 // static 
 int CheckDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target){
 	
-	struct Unit* attacker_unit = GetUnit(actor->unit.index);
-	
-	// Quick Riposte:  HP <50% as defender
-	if( &gBattleTarget == actor )
-		if( (*SkillTester)(attacker_unit, SID_QuickRiposte) )
-			if( attacker_unit->curHP < (attacker_unit->maxHP / 2) )
-				return 1;
+	// Quick Riposte
+	if( JudgeQuickRiposte(actor) )
+		return 1;
 	
 	// default
 	return 0;
@@ -325,25 +391,19 @@ int CheckDesperation(void){
 
 
 
-// not static
-int CheckCanDouble(struct BattleUnit* actor, struct BattleUnit* target){
-	int can;
-
-	if( actor->battleSpeed < target->battleSpeed )
-		can = FALSE;
+// ===================================================
+//                    Skills misc
+// ===================================================
+int JudgeQuickRiposte(struct BattleUnit* bu){
 	
-	else if( (actor->battleSpeed - target->battleSpeed) > BATTLE_FOLLOWUP_SPEED_THRESHOLD )
-		can = TRUE;
-	else
-		can = FALSE;
+	struct Unit* attacker_unit = GetUnit(bu->unit.index);
 	
+	// Quick Riposte:  HP >50% as defender
+	if( &gBattleTarget == bu )
+		if( (*SkillTester)(attacker_unit, SID_QuickRiposte) )
+			if( attacker_unit->curHP > (attacker_unit->maxHP / 2) )
+				return 1;
 	
-	// Modular
-	if( CheckDoubleLoop(actor,target) )
-		can = TRUE;
-	
-	if( CheckNullDoubleLoop(actor,target) )
-		can = FALSE;
-	
-	return can;
+	return 0;
 }
+

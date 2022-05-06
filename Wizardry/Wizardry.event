@@ -73,6 +73,7 @@ ALIGN 4
 // Need Null-Bwl and Bwl-Support patch installed
 #include "CoreHacks/SkillCore/SkillCore.event"
 
+
 // Battle System: BattleOrder & 
 #include "CoreHacks/BattleSystem/BattleSystem.event"
 
@@ -87,8 +88,8 @@ ALIGN 4
 // ============================
 // = ADDITIONAL FEATURE HACKS =
 // ============================
-
 // Skill infos installer
+
 #include "Features/SkillInfos/SkillsInfoInstaller.event"
 
 // Skill activation anime installer
@@ -111,7 +112,6 @@ ALIGN 4
 #include "External/FixWpnRnk.event"
 #include "External/SemitransparencyChanges.event"
 #include "External/StatScreenBlink/SSBlink.event"
-
 
 
 // these will be finally replaced

@@ -34,11 +34,20 @@ _thumb(ClassChangAnim)
 }
 
 
+// Skills
 InjectSkillAnimation(SKILLID_Vantage, CommonSkill)
 InjectSkillAnimation(SKILLID_VantageBattalion, CommonSkill)
-InjectSkillAnimation(SKILLID_Desperation, ClassChangAnim)
-InjectSkillAnimation(SKILLID_DesperationBattalion, ClassChangAnim)
+InjectSkillAnimation(SKILLID_Desperation, CommonSkill)
+InjectSkillAnimation(SKILLID_DesperationBattalion, CommonSkill)
 InjectSkillAnimation(SKILLID_QuickRiposte, DefaultOffseniveSkillActivationAnim)
+
+
+
+
+// Combat Arts
+InjectCombatArtAnimation(0, ClassChangAnim)
+
+
 
 /*
 Some ideas on skill-activation animation:

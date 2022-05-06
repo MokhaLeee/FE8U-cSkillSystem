@@ -11,7 +11,7 @@
 .global AsmBksel_DrawMore
 .type AsmBksel_DrawMore, function
 
-@ ORG 8036A4C
+@ ORG 8036D04
 AsmBksel_DrawMore:
 	
 	mov		r0, r4

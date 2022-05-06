@@ -2,7 +2,7 @@
 #define SKILLPROCDISPLAY_H
 #include "FE-CLib/include/gbafe.h"
 
-#define DISPLAY_TIME 120
+#define DISPLAY_TIME 45
 #define SKILLDISPLAY_WIDTH 8
 #define MAP_DISPLAY_TIME 30
 

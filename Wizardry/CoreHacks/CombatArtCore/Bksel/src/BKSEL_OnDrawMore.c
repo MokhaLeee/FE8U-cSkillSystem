@@ -16,7 +16,7 @@ enum{
 };
 
 
-static void EkselObj_UpdateArrow(struct Proc_BKSEL *proc){
+static void BkselObj_UpdateArrow(struct Proc_BKSEL *proc){
 	
 	
 	if ( (GetGameClock() & 0b111) == 0)
@@ -79,7 +79,7 @@ void Bksel_InitMore(struct Proc_BKSEL *proc){
 	proc->obj_arrow_timer = 0;
 	
 	// Parallel worker
-	StartParallelWorker(EkselObj_UpdateArrow, proc);
+	StartParallelWorker(BkselObj_UpdateArrow, proc);
 }
 
 
@@ -109,15 +109,30 @@ void cBksel_DrawMore(struct Proc_BKSEL *proc){
 			&proc->texts[2],
 			TILEMAP_LOCATED( gBmFrameTmap0, 0x1, proc->caIcon_yPos),
 			TEXT_COLOR_GRAY,
-			GetStringTextCenteredPos( 0x40, GetStringFromIndex(ENUM_msg_Eksel_NoCAWarning) ),
+			GetStringTextCenteredPos( 0x40, GetStringFromIndex(ENUM_msg_Bksel_NoCAWarning) ),
 			0,
-			GetStringFromIndex(ENUM_msg_Eksel_NoCAWarning)
+			GetStringFromIndex(ENUM_msg_Bksel_NoCAWarning) 
 		);
 		
 	
-
-	
-	
-	
+	else if( !gpBattleFlagExt->isCombat )
+		DrawTextInline(
+			&proc->texts[2],
+			TILEMAP_LOCATED( gBmFrameTmap0, 0x1, proc->caIcon_yPos),
+			TEXT_COLOR_NORMAL,
+			GetStringTextCenteredPos( 0x40, GetStringFromIndex(ENUM_msg_Bksel_NotUseCA) ),
+			0,
+			GetStringFromIndex(ENUM_msg_Bksel_NotUseCA) );
+	else
+	{
+		const struct CombatArtInfo* info = GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
+		DrawTextInline(
+			&proc->texts[2],
+			TILEMAP_LOCATED( gBmFrameTmap0, 0x1, proc->caIcon_yPos),
+			TEXT_COLOR_GREEN,
+			GetStringTextCenteredPos( 0x40, GetStringFromIndex(info->msg_name) ),
+			0,
+			GetStringFromIndex(info->msg_name) );
+	}
 	// <!> look at gProcScr_SSPageNumCtrl->PageNumCtrl_UpdateArrows
 }

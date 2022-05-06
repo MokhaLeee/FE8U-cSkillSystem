@@ -6,7 +6,7 @@
 # Variable listing all text files in the writans directory
 # The text installer depends on them (in case there was any change)
 # (Too lazy to code a dependency thingy for that too)
-WRITANS_ALL_TEXT    := $(wildcard Writans/strings/*.txt)
+export WRITANS_ALL_TEXT    := $(wildcard Writans/strings/*.txt)
 
 # Main input text file
 WRITANS_TEXT_MAIN   := Writans/TextMain.txt
