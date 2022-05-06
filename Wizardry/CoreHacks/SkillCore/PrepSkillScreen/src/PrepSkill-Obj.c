@@ -5,6 +5,7 @@
 
 static void PrepSkillObj_OnInit(ProcPtr proc);
 static void PrepSkillObj_OnUpdate(ProcPtr proc);
+static void PrepCombatArtObj_OnUpdate(ProcPtr);
 
 
 // ========================================
@@ -24,6 +25,17 @@ const static struct ProcCmd gProc_PrepSkillPutObj[] = {
 	
 };
 
+
+const static struct ProcCmd gProc_PrepCombatArtObj[] = {
+	
+	PROC_NAME	("PREP_COMBAT_ART_OBJ"),
+	
+	PROC_CALL	(PrepSkillObj_OnInit),
+	PROC_REPEAT	(PrepCombatArtObj_OnUpdate),
+	
+	PROC_END,
+	
+};
 
 
 
@@ -124,6 +136,44 @@ void PrepSkillObj_OnUpdate(ProcPtr proc){
 
 
 
+void PrepCombatArtObj_OnUpdate(ProcPtr proc){
+	
+	struct Unit* unit;
+	struct PrepSkillsList* list;
+	
+	// Skill tips
+	if( !IsPrepSkillListValid() )
+		return;
+	
+	// On Init
+	list = gpCommonSpace;
+	unit = GetUnit(list->unit_index);
+	
+	
+	if( GetGameClock() & (1 << 5) )
+		return;
+	
+	
+	// Right
+	for( int i = 0; i < list->total[PREP_SKLSUB_RIGHT]; i++ )				
+		if( isPrepCombatArtRAM(unit, list->skills_all[i]) )
+			PutSprite(5, 
+				0x80 + 0x10 * _lib_mod(i, 6), 
+				0x28 + 0x10 * _lib_div(i, 6),
+				gObject_8x16, 
+				OAM2_PAL(SKILLOBJ_PAL) + 
+					OAM2_LAYER(0b01) + 
+					OAM2_CHR(SKILLOBJ_VOBJ / 0x20));
+
+				
+	
+	
+	
+	
+}
+
+
+
 
 
 
@@ -142,5 +192,21 @@ void StartProc_PrepSkillObj(ProcPtr parent){
 void EndProc_PrepSkillObj(){
 	
 	Proc_EndEach(gProc_PrepSkillPutObj);
+	
+}
+
+
+
+void StartProc_PrepCombatArtObj(ProcPtr parent){
+	
+	Proc_EndEach(gProc_PrepCombatArtObj);
+
+	Proc_Start(gProc_PrepCombatArtObj, parent);
+	
+}
+
+void EndProc_PrepCombatArtObj(){
+	
+	Proc_EndEach(gProc_PrepCombatArtObj);
 	
 }

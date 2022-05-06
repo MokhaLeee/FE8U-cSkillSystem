@@ -94,10 +94,17 @@ int IsPrepSkillListValid();
 int IsPrepSkillRom(struct Unit* unit, u8 skill_id);
 int isPrepSkillEquippedRAM(struct Unit* unit, u8 skill_id);
 
+struct PrepSkillsList* MakeUnitPrepCombatArtsList(struct Unit*);
+struct PrepSkillsList* GetUnitPrepCombatArtsList(struct Unit*);
+int isPrepCombatArtRAM(struct Unit*, u8 id);
+
 
 // Objs
-void StartProc_PrepSkillObj(ProcPtr parent);
+void StartProc_PrepSkillObj(ProcPtr);
 void EndProc_PrepSkillObj();
+void StartProc_PrepCombatArtObj(ProcPtr);
+void EndProc_PrepCombatArtObj();
+
 
 void PrepSkill_InitObjWindowGfx();
 void PrepSkill_UpdateObjWindow(int x, int y, int length, int height);
@@ -108,4 +115,5 @@ void PrepSkill_UpdateObjWindow(int x, int y, int length, int height);
 // Global functions
 // void StartPrepScreenSkillsMenu(struct Proc_AtMenu* proc); // in skill-system.h
 void PrepSkill_StartPickSkillScreen(struct Proc_PrepUnit*);
+void PrepSkill_StartPickCombatArtScreen(struct Proc_PrepUnit*);
 

@@ -60,9 +60,9 @@ struct PrepSkillsList* MakeUnitPrepSkillsList(struct Unit* unit){
 	
 	
 	// Combat Arts
-	gpCommonSpace->skills_CombatArt[0] = 1;
-	gpCommonSpace->skills_CombatArt[1] = 1;
-	gpCommonSpace->skills_CombatArt[2] = 2;
+	gpCommonSpace->skills_CombatArt[0] = CA_WrathStrike;
+	gpCommonSpace->skills_CombatArt[1] = CA_BaneOfMonsters;
+	gpCommonSpace->skills_CombatArt[2] = CA_TempestLance;
 	
 	
 	// Battalion
@@ -202,4 +202,85 @@ int isPrepSkillEquippedRAM(struct Unit* unit, u8 skill_id){
 	
 	return 0;
 }
+
+
+
+
+
+
+// ===========================================================
+//                     Combat Art
+// ===========================================================
+
+
+// W.I.P.
+struct PrepSkillsList* MakeUnitPrepCombatArtsList(struct Unit* unit){
+	
+	struct PrepSkillsList* list = gpCommonSpace;
+	
+	InitPrepSkillsList();
+	
+	list->unit_index = unit->index;
+	list->total[PREP_SKLSUB_LEFT_CA] = 0;
+	list->total[PREP_SKLSUB_RIGHT] = 0;
+	
+	
+	// Combat Arts
+	list->total[PREP_SKLSUB_LEFT_CA] = 3;
+	list->skills_CombatArt[0] = CA_WrathStrike;
+	list->skills_CombatArt[1] = CA_BaneOfMonsters;
+	list->skills_CombatArt[2] = CA_TempestLance;
+	
+	const u8 tmp_calist[7] = {
+		CA_WrathStrike,
+		CA_Grounder,
+		CA_BaneOfMonsters,
+		CA_TempestLance,
+		CA_Knightkneeler,
+		CA_CurvedShot,
+		CA_HeavyDraw,
+	};
+	
+	for( int i = 0; i < 7; i++ )
+	{
+		list->skills_all[ list->total[PREP_SKLSUB_RIGHT]++ ] = tmp_calist[i];
+	
+		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+			break;
+	}
+	
+
+	
+	return list;
+}
+
+
+struct PrepSkillsList* GetUnitPrepCombatArtsList(struct Unit* unit){
+	
+	if( unit->index == gpCommonSpace->unit_index )
+		return gpCommonSpace;
+	
+	else
+		return MakeUnitPrepCombatArtsList(unit);
+	
+}
+
+
+
+
+
+
+int isPrepCombatArtRAM(struct Unit* unit, u8 combatArt_id){
+	
+	struct PrepSkillsList* list;
+	
+	list = GetUnitPrepSkillsList(unit);
+	
+	for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_CA]; i++ )
+		if( combatArt_id == list->skills_CombatArt[i] )
+			return 1;
+	
+	return 0;
+}
+
 

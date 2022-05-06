@@ -59,3 +59,26 @@ void BC_CombatArtBonus(struct BattleUnit* attacker, struct BattleUnit* defender)
 		attacker->weaponAttributes |= IA_MAGICDAMAGE;
 	
 }
+
+// COMBAT_ART_ICON
+
+// For Icon Display
+const void* GetCombatArtIconGfx(int index){
+	
+	extern const void* GetFE16MasteryIconGfx(int index);
+	
+	if( !SKILL_VALID(index) )
+		return 0;
+	
+	const struct CombatArtInfo *info = GetCombatArtInfo(index);
+	
+	if( 0 == info )
+		return 0;
+	
+	if( 0 == info->icon )
+		return GetFE16MasteryIconGfx(info->weapon_type);
+	else
+		return info->icon;
+	
+}
+

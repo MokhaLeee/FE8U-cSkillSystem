@@ -750,6 +750,7 @@ void PrepSkill_StartSubList(struct Proc_PrepUnit* proc){
 			break;
 		
 		case MENUITEM_PREPSKILL_COMBAT:
+			PrepSkill_StartPickCombatArtScreen(proc);
 			break;
 		
 		case MENUITEM_PREPSKILL_BATTALION:

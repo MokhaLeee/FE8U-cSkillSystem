@@ -3,6 +3,7 @@
 struct CombatArtInfo {
 	u16 msg_name;
 	u16 msg_desc;
+	const void* icon;
 	u8 weapon_type;
 	u8 is_lengency : 1;
 	u8 is_magic : 1;

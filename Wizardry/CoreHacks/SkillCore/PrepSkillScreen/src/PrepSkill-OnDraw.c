@@ -221,8 +221,9 @@ void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 		for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_CA]; i++ )
 			DrawIcon(
 				TILEMAP_LOCATED( gBG0TilemapBuffer, 2 + i * 2, 15 ),
-				MASTERY_ICON(list->skills_CombatArt[i]), 
+				COMBAT_ART_ICON(list->skills_CombatArt[i]),
 				TILEREF(0, 4) );
+
 	
 
 
@@ -258,11 +259,14 @@ void PrepSkill_DrawBattalionBar(struct Unit* unit, int config){
 	// ResetIconGraphics_();
 	
 	
+	// W.I.P.
+	
+	u8 combatArt_id = CA_WrathStrike;
 	
 	// Battalion
 	DrawIcon(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, 0x16, 0x11 ),
-		MASTERY_ICON(MASTERY_ICON_REASON), 
+		COMBAT_ART_ICON(combatArt_id),
 		TILEREF(0, 4) );
 	
 }

@@ -8,7 +8,7 @@ unit->supports (+0x32) +6
 and leave unit+0x38 as pad (for skill learning?)
 ********************/
 
-#define SKILL_ICON(aSkillId) ((1 << 8) + (aSkillId))
+// #define SKILL_ICON(aSkillId) ((1 << 8) + (aSkillId))
 #define SKILL_VALID(aSkillId) ( (aSkillId > 0) && (aSkillId < 0xFF) )
 
 enum{

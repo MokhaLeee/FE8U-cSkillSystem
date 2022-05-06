@@ -34,6 +34,6 @@
 	// For Icon Display
 	#define ICON_SHEET_SKILLS 0x1
 	#define ICON_SHEET_MASTERY 0x2
-	
+	#define ICON_SHEET_COMBAT_ART 0x3
 
 #endif

@@ -3,23 +3,10 @@
 
 ALIGN 4
 #include "Core/Core.lyn.event"
-
-ALIGN 4
 #include "Core/Misc.lyn.event"
-
-ALIGN 4
 #include "Menu/Menu-TargetSelect.lyn.event"
-
-
-ALIGN 4
 #include "Menu/MenuPanel.lyn.event"
-
-
-ALIGN 4
 #include "Bksel/BkselCombatArt.event"
-
-
-ALIGN 4
 #include "CombatSelectTarget/uiSelectTargetRework.lyn.event"
 
 
@@ -38,5 +25,10 @@ CombatArtAnimationTable:
 	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
 
 #define InjectCombatArtAnimation(index, function) " PUSH; ORG (CombatArtAnimationTable + (4*index)); POIN function|1; POP"
+
+
+
+// Icon
+InjectIconSheet(ICON_SHEET_COMBAT_ART, GetCombatArtIconGfx)
 
 #endif // COMBAT_ART

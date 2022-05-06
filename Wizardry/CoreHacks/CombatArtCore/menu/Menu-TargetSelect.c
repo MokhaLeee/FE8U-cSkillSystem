@@ -262,7 +262,7 @@ int CombatArtSelect_DrawText(struct MenuProc* menu, struct MenuItemProc* menu_it
 	
 	DrawIcon(
 		TILEMAP_LOCATED(gBG0TilemapBuffer, menu_item->xTile, menu_item->yTile), 
-		MASTERY_ICON(info->weapon_type), 
+		COMBAT_ART_ICON(list[menu_item->itemNumber]),
 		TILEREF(0, 4)
 	);
 	
