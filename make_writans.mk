@@ -27,6 +27,9 @@ $(WRITANS_INSTALLER) $(WRITANS_DEFINITIONS) $(WRITANS_CHEADER): $(WRITANS_TEXT_M
 	$(NOTIFY_PROCESS)
 	@$(PARSEFILE) $< -o $@ > /dev/null
 
+.PHONY: writans
+writans : $(WRITANS_INSTALLER) $(WRITANS_DEFINITIONS) $(WRITANS_CHEADER)
+
 # ==============
 # = MAKE CLEAN =
 # ==============
