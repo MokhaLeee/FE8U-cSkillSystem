@@ -41,3 +41,28 @@ inherent to character or class.[X]
 ## msg_PrepPickSkill_TryReplaceSkill
              Replace skill ?[NL]
         Yeah     Nope[X]
+
+
+## msg_PrepPickSkill_Pick
+Pick[X]
+
+## msg_PrepPickSkill_Total
+Total[X]
+
+## msg_PrepPickSkill_None
+None[X]
+
+## msg_PrepPickSkill_Equipped
+Equipped:[X]
+
+## msg_PrepPickSkill_Phys
+Phys[X]
+
+## msg_PrepPickSkill_Mag
+Mag[X]
+
+## msg_PrepPickSkill_Cost
+Cost[X]
+
+## msg_PrepPickSkill_Eff
+Eff[X]

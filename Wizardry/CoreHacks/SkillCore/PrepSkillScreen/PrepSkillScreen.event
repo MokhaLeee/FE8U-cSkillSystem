@@ -89,6 +89,9 @@ ALIGN 4
 Tsa_PrepSubPickSkillScreen:
 	#incbin "data/Tsa_PrepSubPickSkillScreen.tsa.lz"
 
+ALIGN 4
+Tsa_PrepSubPickCombatArtScreen:
+	#incbin "data/Tsa_PrepSubPickCombatArtScreen.tsa.lz"
 
 
 // Skill state Obj

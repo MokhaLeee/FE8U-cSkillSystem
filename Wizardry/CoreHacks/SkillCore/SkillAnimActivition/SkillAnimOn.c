@@ -85,7 +85,7 @@ int cSkillActivationAnims(struct Anim* anim){
 		
 		msg_name = info->msg_name;
 		
-		icon = GetIconGfx( SKILL_ICON(0x20) );
+		icon = GetIconGfx( COMBAT_ART_ICON(skill_act) );
 	}
 	else
 	{

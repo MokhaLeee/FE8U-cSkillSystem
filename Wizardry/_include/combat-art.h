@@ -1,19 +1,27 @@
 #pragma once
 
 struct CombatArtInfo {
-	u16 msg_name;
-	u16 msg_desc;
-	const void* icon;
-	u8 weapon_type;
-	u8 is_lengency : 1;
-	u8 is_magic : 1;
-	s16 cost;
-	s16 mt;
-	s16 hit;
-	s16 avo;
-	s16 crit;
-	s8 range_bouns;
+	/* 00 */ u16 msg_name;
+	/* 02 */ u16 msg_desc;
+	/* 04 */ const void* icon;
+	
+	/* 08 */ u32 is_lengency : 1;
+			 u32 is_magic : 1;
+			 u32 eff_heavy : 1;
+			 u32 eff_ride : 1;
+			 u32 eff_dragon : 1;
+			 
+	/* 0C */ u8 weapon_type;
+	/* 0D */ s8 range_bouns;
+	/* 0E */ s16 cost;
+	/* 10 */ s16 mt;
+	/* 12 */ s16 hit;
+	/* 14 */ s16 avo;
+	/* 16 */ s16 crit;
+	/* 18 */
+	
 };
+
 extern struct CombatArtInfo const* const CombatArtInfoTable[0x100];
 
 
@@ -25,6 +33,10 @@ int UnitHasCombatArt(struct Unit* unit);
 int CanUnitUseCombatArt(struct Unit* unit, u8 index);
 int CanUnitWithWeaponUseCombatArt(struct Unit* unit, u16 weapon, u8 index);
 
+int RemoveCombatArt(struct Unit*, const u8 index);
+int AddCombatArt(struct Unit*, const u8 index);
+
+int GetUnitTotalCombatArtsCount(struct Unit* unit);
 
 
 // Menu Panel

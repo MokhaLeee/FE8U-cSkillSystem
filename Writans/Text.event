@@ -454,8 +454,40 @@ __TEXTPROCESSDB5:
 setText($DB5, __TEXTPROCESSDB5)
 
 __TEXTPROCESSDB6:
-#incbin ".TextEntries\TextMainmsg_end.fetxt.dmp"
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_Pick.fetxt.dmp"
 setText($DB6, __TEXTPROCESSDB6)
+
+__TEXTPROCESSDB7:
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_Total.fetxt.dmp"
+setText($DB7, __TEXTPROCESSDB7)
+
+__TEXTPROCESSDB8:
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_None.fetxt.dmp"
+setText($DB8, __TEXTPROCESSDB8)
+
+__TEXTPROCESSDB9:
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_Equipped.fetxt.dmp"
+setText($DB9, __TEXTPROCESSDB9)
+
+__TEXTPROCESSDBA:
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_Phys.fetxt.dmp"
+setText($DBA, __TEXTPROCESSDBA)
+
+__TEXTPROCESSDBB:
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_Mag.fetxt.dmp"
+setText($DBB, __TEXTPROCESSDBB)
+
+__TEXTPROCESSDBC:
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_Cost.fetxt.dmp"
+setText($DBC, __TEXTPROCESSDBC)
+
+__TEXTPROCESSDBD:
+#incbin ".TextEntries\TextMainmsg_PrepPickSkill_Eff.fetxt.dmp"
+setText($DBD, __TEXTPROCESSDBD)
+
+__TEXTPROCESSDBE:
+#incbin ".TextEntries\TextMainmsg_end.fetxt.dmp"
+setText($DBE, __TEXTPROCESSDBE)
 
 }
 

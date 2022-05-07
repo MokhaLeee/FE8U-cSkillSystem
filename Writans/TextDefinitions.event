@@ -110,6 +110,14 @@
 #define msg_PrepPickSkill_TryRemoveSkill $DB3
 #define msg_PrepPickSkill_TryAddSkill $DB4
 #define msg_PrepPickSkill_TryReplaceSkill $DB5
-#define msg_end $DB6
+#define msg_PrepPickSkill_Pick $DB6
+#define msg_PrepPickSkill_Total $DB7
+#define msg_PrepPickSkill_None $DB8
+#define msg_PrepPickSkill_Equipped $DB9
+#define msg_PrepPickSkill_Phys $DBA
+#define msg_PrepPickSkill_Mag $DBB
+#define msg_PrepPickSkill_Cost $DBC
+#define msg_PrepPickSkill_Eff $DBD
+#define msg_end $DBE
 
 #endif // TEXT_DEFINITIONS_WRITANS_TEXTMAIN_TXT

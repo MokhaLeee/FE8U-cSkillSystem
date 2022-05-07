@@ -293,10 +293,8 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 	
 	if( B_BUTTON & gKeyStatusPtr->newKeys )
 	{
-		if( 0 == gRAMChapterData.unk41_8)
-			m4aSongNumStart(0x6B);
-		
 		Proc_Goto(proc, LABEL_PREPSLILLSLIST_END);
+		PlaySoundEffect(0x6B);
 		return;
 		
 	} // B_BUTTON
@@ -314,9 +312,7 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 		{
 			// try pick rom skill
 			Proc_Goto(proc, LABEL_PREPSLILLSLIST_FAIL_REMOVE);
-			
-			if( 0 == gRAMChapterData.unk41_8)
-				m4aSongNumStart(0x6C);
+			PlaySoundEffect(0x6C);
 			return;
 		}
 		
@@ -324,9 +320,7 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 		{
 			// Remove ram skill
 			Proc_Goto(proc, LABEL_PREPSLILLSLIST_REMOVE);
-			
-			if( 0 == gRAMChapterData.unk41_8)
-				m4aSongNumStart(0x6A);
+			PlaySoundEffect(0x6A);
 			return;
 		}
 		else if ( (PREP_SKLSUB_RIGHT == proc->list_type) )
@@ -335,9 +329,7 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 			{
 				// Add ram skill
 				Proc_Goto(proc, LABEL_PREPSLILLSLIST_ADD);
-				
-				if( 0 == gRAMChapterData.unk41_8)
-					m4aSongNumStart(0x6A);
+				PlaySoundEffect(0x6A);
 				return;
 			}
 			else
@@ -347,9 +339,7 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 				proc->list_index_replace = proc->list_index;
 				proc->list_index = 0;
 				proc->list_type = PREP_SKLSUB_LEFT_RAM;
-				
-				if( 0 == gRAMChapterData.unk41_8)
-					m4aSongNumStart(0x6A);
+				PlaySoundEffect(0x6A);
 				
 				StartParallerWorkerWithParam(PrepPickSkill_UpdateSkillDesc, 0, proc);
 				PrepDrawHand( 0x10 + 0x10 * proc->list_index, 0x38, 0, 0x800);
@@ -378,7 +368,10 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 					else
 						proc->list_type = PREP_SKLSUB_LEFT_ROM;
 					
-					proc->list_index = 0;
+					proc->list_index = 
+						0 == list->total[ proc->list_type ]
+						? 0
+						: list->total[ proc->list_type ] - 1;
 				}
 				else
 				{
@@ -473,21 +466,16 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 		(proc->list_index_pre == proc->list_index) )
 		goto goto_fail;
 	
-	// m4a
-	if( 0 == gRAMChapterData.unk41_8)
-		m4aSongNumStart(0x65);
 	
 	// W.I.P.
 	proc->list_type_pre = proc->list_type;
 	proc->list_index_pre = proc->list_index;
 	
 	// Parallel to update skill-desc
-	// StartParallerWorkerWithParam(PrepPickSkill_UpdateSkillDesc, 0, proc);
-	PrepPickSkill_UpdateSkillDesc(proc);
+	StartParallerWorkerWithParam(PrepPickSkill_UpdateSkillDesc, 0, proc);
 	
 	// M4a
-	if( 0 == gRAMChapterData.unk41_8)
-		m4aSongNumStart(0x65);
+	PlaySoundEffect(0x65);
 	
 	
 	// Draw Hand
@@ -957,7 +945,7 @@ void PrepPickSkil_PickReplacedSkillIdle(struct Proc_PrepPickSkill* proc){
 	proc->list_index_pre = proc->list_index;
 	
 	// update skill-desc
-	PrepPickSkill_UpdateSkillDesc(proc);
+	StartParallerWorkerWithParam(PrepPickSkill_UpdateSkillDesc, 0, proc);
 	
 	// M4a
 	if( 0 == gRAMChapterData.unk41_8)
@@ -1202,7 +1190,7 @@ void PrepPickSkill_InitTexts(){
 	Text_Init(&gStatScreen.text[0x1], 6); 	// "total skill"
 	
 	// Two for Right skill list
-	Text_Init(&gStatScreen.text[0x4], 4); 	// "Skills"
+	Text_Init(&gStatScreen.text[0x4], 10); 	// "Skills"
 	Text_Init(&gStatScreen.text[0x5], 3); 	// "none"
 	
 	// For Obj-window text
@@ -1219,7 +1207,6 @@ void PrepPickSkill_InitTexts(){
 	Text_Init(&gStatScreen.text[0x6], 0x15); 
 	Text_Init(&gStatScreen.text[0x7], 0x15);
 	Text_Init(&gStatScreen.text[0x8], 0x15);
-	
 	
 }
 
@@ -1240,19 +1227,19 @@ void PrepPickSkill_DrawRightBarTexts(struct Unit* unit, int config){
 			&gStatScreen.text[0],
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 0xE, 0x1),
 			TEXT_COLOR_NORMAL, 0, 0,
-			"Pick" );
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_Pick) );
 		
 		DrawTextInline(
 			&gStatScreen.text[1],
-			TILEMAP_LOCATED( gBG0TilemapBuffer, 0x14, 0x1),
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 0x15, 0x1),
 			TEXT_COLOR_NORMAL, 0, 0,
-			"Total Skill" );
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_Total) );
 		
 		DrawTextInline(
 			&gStatScreen.text[4],
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 0xE, 0x3),
 			TEXT_COLOR_NORMAL, 0, 0,
-			"Skills" );
+			GetStringFromIndex(ENUM_msg_PrepSkillMenu_PickSkillName) );
 		
 	} // if config
 	
@@ -1302,7 +1289,7 @@ void PrepPickSkill_DrawTotalSkill(struct Unit* unit){
 			&gStatScreen.text[3],
 			TILEMAP_LOCATED( gBG2TilemapBuffer, 0xF, 0x5),
 			TEXT_COLOR_NORMAL, 0, 0,
-			"None" );
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_None) );
 	else		
 		for( int i = 0; i < list->total[PREP_SKLSUB_RIGHT]; i++ )
 		{
@@ -1361,7 +1348,7 @@ void PrepPickSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 5),
 			TEXT_COLOR_GOLD,
 			0, 0, 
-			"Equiped Skills");
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_Equipped) );
 		
 	} // ON_DRAW_CONFIG_INIT
 	
@@ -1394,7 +1381,7 @@ void PrepPickSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 2, 7),
 			TEXT_COLOR_GRAY,
 			0, 0, 
-			"None");
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_None) );
 	else
 		for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_RAM]; i++ )
 			DrawIcon(
@@ -1411,7 +1398,7 @@ void PrepPickSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 2, 9),
 			TEXT_COLOR_GRAY,
 			0, 0, 
-			"None");
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_None) );
 	else
 		for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_ROM]; i++ )
 			DrawIcon(
@@ -1538,7 +1525,16 @@ goto_end:
 static void PrepPickCombatArt_InitSkillsList (struct Proc_PrepPickSkill*);
 static void PrepPickCombatArt_InitScreen (struct Proc_PrepPickSkill*);
 static void PrepPickCombatArt_MainLoop(struct Proc_PrepPickSkill*);
+static void PrepPickCombatArt_PrepareRemoveSkillWindow(struct Proc_PrepPickSkill*);
+static void PrepPickCombatArt_TryRemoveSkillIdle(struct Proc_PrepPickSkill*);
+static void PrepPickCombatArt_PrepareAddSkillWindow(struct Proc_PrepPickSkill*);
+static void PrepPickCombatArt_TryAddSkillIdle(struct Proc_PrepPickSkill*);
+static void PrepPickCombatArt_PickReplacedSkillIdle(struct Proc_PrepPickSkill*);
+static void PrepPickCombatArt_PrepareReplaceSkillWindow(struct Proc_PrepPickSkill*);
+static void PrepPickCombatArt_ConfirmReplaceSkillIdle(struct Proc_PrepPickSkill*);
 
+static void PrepPickCombatArt_InitTexts();
+static void PrepPickCombatArt_DrawWindowGfx(void);
 static void PrepPickCombatArt_DrawLeftIcon(struct Unit*, int config);
 static void PrepPickCombatArt_DrawRightBarTexts(struct Unit*, int config);
 static void PrepPickCombatArt_DrawTotalSkill(struct Unit*);
@@ -1570,7 +1566,7 @@ PROC_LABEL (LABEL_PREPSLILLSLIST_IDLE),
 
 // Stat Screen
 PROC_LABEL (LABEL_PREPSLILLSLIST_STATSCREEN),
-	PROC_CALL	(EndProc_PrepSkillObj),
+	PROC_CALL	(EndProc_PrepCombatArtObj),
 	PROC_CALL	(sub_809B4C0),
 	PROC_SLEEP	(2),
 	PROC_CALL	(sub_809B014),
@@ -1578,46 +1574,38 @@ PROC_LABEL (LABEL_PREPSLILLSLIST_STATSCREEN),
 	PROC_YIELD,
 	PROC_CALL	(PrepPickSkill_PostStatScreen),
 	PROC_GOTO	(LABEL_PREPSLILLSLIST_INIT),
-	
-
-// When pick rom skill in right list
-PROC_LABEL (LABEL_PREPSLILLSLIST_FAIL_REMOVE),
-	PROC_YIELD,
-	PROC_CALL	(PrepPickSkill_FailAddSkillPre),
-	PROC_YIELD,
-	PROC_REPEAT	(PrepPickSkill_FailAddSkillIdle),
-	PROC_GOTO	(LABEL_PREPSLILLSLIST_POST_CANCEL),
 
 
-// When pick rom-equipped skill
+
+// When remove combat-arts
 PROC_LABEL (LABEL_PREPSLILLSLIST_REMOVE),
 	PROC_YIELD,
-	PROC_CALL	(PrepPickSkil_PrepareRemoveSkillWindow),
+	PROC_CALL	(PrepPickCombatArt_PrepareRemoveSkillWindow),
 	PROC_YIELD,
-	PROC_REPEAT	(PrepPickSkil_TryRemoveSkillIdle),
+	PROC_REPEAT	(PrepPickCombatArt_TryRemoveSkillIdle),
 	PROC_GOTO	(LABEL_PREPSLILLSLIST_INIT),
 
 
-// When try to add skills
+// When try to add combat-arts
 PROC_LABEL (LABEL_PREPSLILLSLIST_ADD),
 	PROC_YIELD,
-	PROC_CALL	(PrepPickSkil_PrepareAddSkillWindow),
+	PROC_CALL	(PrepPickCombatArt_PrepareAddSkillWindow),
 	PROC_YIELD,
-	PROC_REPEAT	(PrepPickSkil_TryAddSkillIdle),
+	PROC_REPEAT	(PrepPickCombatArt_TryAddSkillIdle),
 	PROC_GOTO	(LABEL_PREPSLILLSLIST_INIT),
 
 
 // When try to replace skills
 PROC_LABEL (LABEL_PREPSLILLSLIST_REPLACE),
 	PROC_YIELD,
-	PROC_REPEAT	(PrepPickSkil_PickReplacedSkillIdle),
+	PROC_REPEAT	(PrepPickCombatArt_PickReplacedSkillIdle),
 
 // After pick replacing skill
 PROC_LABEL (LABEL_PREPSLILLSLIST_POST_REPLACE),
 	PROC_YIELD,
-	PROC_CALL	(PrepPickSkil_PrepareReplaceSkillWindow),
+	PROC_CALL	(PrepPickCombatArt_PrepareReplaceSkillWindow),
 	PROC_YIELD,
-	PROC_REPEAT	(PrepPickSkil_ConfirmReplaceSkillIdle),
+	PROC_REPEAT	(PrepPickCombatArt_ConfirmReplaceSkillIdle),
 	PROC_GOTO	(LABEL_PREPSLILLSLIST_INIT),
 
 // When fail or cancel to add & remove skill 
@@ -1690,8 +1678,8 @@ void PrepPickCombatArt_InitScreen (struct Proc_PrepPickSkill* proc){
 	BG_SetPosition( 3, 0, 0);
 	
 	EndGreenTextColorManager();
-	PrepPickSkill_InitTexts();
-	PrepPickSkill_DrawWindowGfx();
+	PrepPickCombatArt_InitTexts();
+	PrepPickCombatArt_DrawWindowGfx();
 	
 	
 	BG_EnableSyncByMask(0b1111);
@@ -1726,7 +1714,609 @@ void PrepPickCombatArt_InitScreen (struct Proc_PrepPickSkill* proc){
 }
 
 
-void PrepPickCombatArt_MainLoop(struct Proc_PrepPickSkill*){
+void PrepPickCombatArt_MainLoop(struct Proc_PrepPickSkill* proc){
+	
+	struct PrepSkillsList* list;
+	int xHand, yHand;
+	
+	list = GetUnitPrepCombatArtsList(proc->unit);
+	
+	
+	// Handle normal button
+	
+	if( B_BUTTON & gKeyStatusPtr->newKeys )
+	{
+		PlaySoundEffect(0x6B);
+		Proc_Goto(proc, LABEL_PREPSLILLSLIST_END);
+		return;
+		
+	} // B_BUTTON
+	
+	
+	else if( R_BUTTON & gKeyStatusPtr->newKeys )
+	{
+		Proc_Goto(proc, LABEL_PREPSLILLSLIST_STATSCREEN);
+		return;
+		
+	} // R_BUTTON
+	
+	
+	else if( A_BUTTON & gKeyStatusPtr->newKeys )
+	{
+		if( isPrepCombatArtRAM(proc->unit, proc->skill_id_pre) )
+		{
+			// try remove combat-arts
+			Proc_Goto(proc, LABEL_PREPSLILLSLIST_REMOVE);
+			PlaySoundEffect(0x6A);
+			return;
+		}
+		
+		else if( GetUnitTotalCombatArtsCount(proc->unit) < PREPSKILL_LISTLEN_CA )
+		{
+			// try add combat-art
+			Proc_Goto(proc, LABEL_PREPSLILLSLIST_ADD);
+			PlaySoundEffect(0x6A);
+			return;
+		}
+		
+		else
+		{
+			// try replace skills
+			proc->list_index_replace = proc->list_index;
+			proc->list_index = 0;
+			proc->list_type = PREP_SKLSUB_LEFT_CA;
+			PlaySoundEffect(0x6A);
+			
+			StartParallerWorkerWithParam(PrepPickCombatArt_UpdateSkillDesc, 0, proc);
+			PrepDrawHand( 0x10 + 0x10 * proc->list_index, 0x38, 0, 0x800);
+			Proc_Goto(proc, LABEL_PREPSLILLSLIST_REPLACE);
+			return;
+		}
+	}
+	
+	// Direction Button
+	switch (gKeyStatusPtr->repeatedKeys)
+	{
+		case DPAD_LEFT:
+			if( PREP_SKLSUB_RIGHT == proc->list_type )
+			{
+				if( _lib_mod(proc->list_index, 6) == 0 )
+				{
+					proc->list_type = PREP_SKLSUB_LEFT_CA;
+					proc->list_index = 
+						0 == list->total[PREP_SKLSUB_LEFT_CA]
+						? 0
+						: list->total[PREP_SKLSUB_LEFT_CA] - 1;
+				}
+				else
+				{
+					if( 0 != proc->list_index )
+						proc->list_index--;
+				}
+			}
+			else if( 0 != proc->list_index )
+				proc->list_index--;
+			
+			break;
+			
+		case DPAD_RIGHT:
+			if( proc->list_index < (list->total[proc->list_type]-1) )
+				proc->list_index++;
+			
+			else if( PREP_SKLSUB_RIGHT != proc->list_type )
+			{
+				proc->list_type = PREP_SKLSUB_RIGHT;
+				proc->list_index = 0;
+			}
+		
+			break;
+		
+		case DPAD_UP:
+			if( PREP_SKLSUB_RIGHT == proc->list_type )
+			{
+				if( proc->list_index >= 6 )
+					proc->list_index -= 6;
+			}
+			else 
+			{
+				proc->list_type = PREP_SKLSUB_RIGHT;
+				proc->list_index = 0;
+			}
+			
+			break;
+		
+		case DPAD_DOWN:
+			if( PREP_SKLSUB_RIGHT == proc->list_type )
+			{
+				if( (proc->list_index+6) < list->total[PREP_SKLSUB_RIGHT] )
+					proc->list_index += 6;
+				else
+				{
+					proc->list_type = PREP_SKLSUB_LEFT_CA;
+					proc->list_index = 0;
+				}
+			}
+			
+			break;
+		
+		default:
+			break;
+	}
+	
+	
+	if( 
+		(proc->list_type_pre == proc->list_type) && 
+		(proc->list_index_pre == proc->list_index) )
+		goto goto_fail;
+	
+	proc->list_type_pre = proc->list_type;
+	proc->list_index_pre = proc->list_index;
+	
+	// Parallel to update skill-desc
+	StartParallerWorkerWithParam(PrepPickCombatArt_UpdateSkillDesc, 0, proc);
+	
+	PlaySoundEffect(0x65);
+	
+	// Draw Hand
+	switch ( proc->list_type )
+	{
+		
+		case PREP_SKLSUB_LEFT_CA:
+			xHand = 0x10 + 0x10 * proc->list_index;
+			yHand = 0x38;
+			break;
+			
+			
+		case PREP_SKLSUB_RIGHT:
+		default:
+			xHand = 0x78 + 0x10 * _lib_mod(proc->list_index, 6);
+			yHand = 0x28 + 0x10 * _lib_div(proc->list_index, 6);
+			break;
+	}
+	
+	PrepDrawHand( xHand, yHand, 0, 0x800);
+	
+goto_fail:
+	return;
+}
+
+
+
+// On remove skill
+void PrepPickCombatArt_PrepareRemoveSkillWindow(struct Proc_PrepPickSkill* proc){
+	
+	char* str;
+	
+	str = GetStringFromIndex( ENUM_msg_PrepPickSkill_TryRemoveSkill );
+	
+	for( int line = 0; line < 2; line++ )
+	{
+		
+		Text_Clear(&gStatScreen.text[0xB + line]);
+		
+		DrawTextInline(
+			&gStatScreen.text[0xB + line],
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 0xD, 0x6 + 2 * line),
+			TEXT_COLOR_NORMAL, 0, 0,
+			str );
+		
+
+		
+		// w.i.p. for chinese
+		while( 1 != *str++ ) // '\n'
+			if( 0 == *str )
+				goto goto_return;
+	
+	}
+	
+	
+	goto_return:
+	proc->yeah = 1;
+	BG_EnableSyncByMask(0b01);
+	
+	// Icon
+	DrawIcon(
+		TILEMAP_LOCATED( gBG0TilemapBuffer, 0x0F, 0x6 ),
+		COMBAT_ART_ICON(proc->skill_id_pre), 
+		TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
+	
+}
+
+void PrepPickCombatArt_TryRemoveSkillIdle(struct Proc_PrepPickSkill* proc){
+	
+	enum{
+		// Window
+		OBJWINDOW0_XPOS = 0x73,
+		OBJWINDOW0_YPOS = 0x29,
+		OBJWINDOW0_LENGTH = 0xB,
+		OBJWINDOW0_HEIGHT = 5,
+		
+		// Hand
+		OBJHAND_XPOS_Y = 0x7C,
+		OBJHAND_XPOS_N = 0xA0,
+		OBJHAND_YPOS = 0x40,
+	};
+	
+	
+	if( B_BUTTON & gKeyStatusPtr->newKeys )
+	{
+		Proc_Goto(proc, LABEL_PREPSLILLSLIST_POST_CANCEL);
+		PlaySoundEffect(0x6B);
+		return;
+	} // B_BUTTON
+	
+	
+	else if ( A_BUTTON & gKeyStatusPtr->newKeys )
+	{
+		if( (proc->yeah & 1) == 0 )
+		{
+			Proc_Goto(proc, LABEL_PREPSLILLSLIST_POST_CANCEL);
+			PlaySoundEffect(0x6A);
+			return;
+		}
+		else
+		{
+			RemoveCombatArt(proc->unit, proc->skill_id_pre);
+			
+			TileMap_FillRect(
+				TILEMAP_LOCATED( gBG0TilemapBuffer, 0x0F, 0x06),
+				0x2, 0x2 , 0 );
+			BG_EnableSyncByMask(0b01);
+			
+			Proc_Goto(proc, LABEL_PREPSLILLSLIST_INIT);
+			PlaySoundEffect(0x6A);		
+			return;
+		}
+	
+	} // A_BUTTON
+	
+	
+	// DPAD
+	if( (DPAD_LEFT ==  gKeyStatusPtr->repeatedKeys) || (DPAD_RIGHT == gKeyStatusPtr->repeatedKeys) )
+	{
+		proc->yeah = 1 & (~proc->yeah);
+		PlaySoundEffect(0x65);
+	}
+	
+	
+	// Obj Window
+	PutObjWindow(
+		OBJWINDOW0_XPOS,
+		OBJWINDOW0_YPOS,
+		OBJWINDOW0_LENGTH,
+		OBJWINDOW0_HEIGHT,
+		OAM2_PAL(OBJWINDOW_PAL) +
+			OAM2_LAYER(0b01) +
+			OAM2_CHR(OBJWINDOW_VOBJ / 0x20) );
+	
+	// Hand
+	PrepDrawHand( 
+		1 & proc->yeah
+			? OBJHAND_XPOS_Y
+			: OBJHAND_XPOS_N,
+		 OBJHAND_YPOS, 0, 0x800);
+}
+
+
+// add skill
+void PrepPickCombatArt_PrepareAddSkillWindow(struct Proc_PrepPickSkill* proc){
+	
+	char* str;
+	
+	str = GetStringFromIndex( msgAt_PrepPickSkill_TryAddSkill );
+	
+	
+	for( int line = 0; line < 2; line++ )
+	{
+		
+		Text_Clear(&gStatScreen.text[0xB + line]);
+		
+		DrawTextInline(
+			&gStatScreen.text[0xB + line],
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 0xD, 0x6 + 2 * line),
+			TEXT_COLOR_NORMAL, 0, 0,
+			str );
+		
+
+		
+		// w.i.p. for chinese
+		while( 1 != *str++ ) // '\n'
+			if( 0 == *str )
+				goto goto_return;
+	
+	}
+	
+	
+	
+	
+goto_return:
+	proc->yeah = 1;
+	// HidePrepScreenHandCursor();
+	BG_EnableSyncByMask(0b01);
+	
+	// Icon
+	DrawIcon(
+		TILEMAP_LOCATED( gBG0TilemapBuffer, 0x0F, 0x6 ),
+		COMBAT_ART_ICON(proc->skill_id_pre), 
+		TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
+}
+
+
+void PrepPickCombatArt_TryAddSkillIdle(struct Proc_PrepPickSkill* proc){
+	
+		enum{
+		// Window
+		OBJWINDOW0_XPOS = 0x73,
+		OBJWINDOW0_YPOS = 0x29,
+		OBJWINDOW0_LENGTH = 0x9,
+		OBJWINDOW0_HEIGHT = 5,
+		
+		// Hand
+		OBJHAND_XPOS_Y = 0x7C,
+		OBJHAND_XPOS_N = 0xA0,
+		OBJHAND_YPOS = 0x40,
+	};
+	
+	
+	if( B_BUTTON & gKeyStatusPtr->newKeys )
+	{
+		Proc_Goto(proc, LABEL_PREPSLILLSLIST_POST_CANCEL);
+		PlaySoundEffect(0x6B);
+		return;
+	} // B_BUTTON
+	
+	else if ( A_BUTTON & gKeyStatusPtr->newKeys )
+	{
+		if( (proc->yeah & 1) == 0 )
+		{
+			Proc_Goto(proc, LABEL_PREPSLILLSLIST_POST_CANCEL);
+			PlaySoundEffect(0x6B);
+			return;
+		}
+		else
+		{
+			AddCombatArt(proc->unit, proc->skill_id_pre);
+			
+			TileMap_FillRect(
+				TILEMAP_LOCATED( gBG0TilemapBuffer, 0x0F, 0x06),
+				0x2, 0x2 , 0 );
+			BG_EnableSyncByMask(0b01);
+			
+			PlaySoundEffect(0x6A);
+			Proc_Goto(proc, LABEL_PREPSLILLSLIST_INIT);
+			return;
+		}
+		
+		PlaySoundEffect(0x6A);
+	
+	} // A_BUTTON
+	
+	// DPAD
+	if( (DPAD_LEFT ==  gKeyStatusPtr->repeatedKeys) || (DPAD_RIGHT == gKeyStatusPtr->repeatedKeys) )
+	{
+		proc->yeah = 1 & (~proc->yeah);
+		PlaySoundEffect(0x65);
+	}
+	
+	// Obj Window
+	PutObjWindow(
+		OBJWINDOW0_XPOS,
+		OBJWINDOW0_YPOS,
+		OBJWINDOW0_LENGTH,
+		OBJWINDOW0_HEIGHT,
+		OAM2_PAL(OBJWINDOW_PAL) +
+			OAM2_LAYER(0b01) +
+			OAM2_CHR(OBJWINDOW_VOBJ / 0x20) );
+	
+	// Hand
+	PrepDrawHand( 
+		1 & proc->yeah
+			? OBJHAND_XPOS_Y
+			: OBJHAND_XPOS_N,
+		OBJHAND_YPOS, 0, 0x800);
+}
+
+
+
+// replace combat-art
+void PrepPickCombatArt_PickReplacedSkillIdle(struct Proc_PrepPickSkill* proc){
+	
+	struct PrepSkillsList* list = GetUnitPrepCombatArtsList(proc->unit);
+	
+	// Cursor
+	DisplayCursor(
+		0x78 + gGameState.camera.x + 0x10 * _lib_mod(proc->list_index_replace, 6),
+		0x29 + gGameState.camera.y + 0x10 * _lib_div(proc->list_index_replace, 6),
+		1);
+	
+	// Handle normal button
+	
+	if( B_BUTTON & gKeyStatusPtr->newKeys )
+	{
+		Proc_Goto(proc, LABEL_PREPSLILLSLIST_INIT);
+		PlaySoundEffect(0x6B);
+		return;
+		
+	} // B_BUTTON
+	
+	
+	
+	if( A_BUTTON & gKeyStatusPtr->newKeys )
+	{
+		Proc_Goto(proc, LABEL_PREPSLILLSLIST_POST_REPLACE);
+		PlaySoundEffect(0x6A);
+		return;
+		
+	} // A_BUTTON
+	
+	
+	
+	// DPAD
+	switch (gKeyStatusPtr->repeatedKeys)
+	{
+		case DPAD_LEFT:
+			if( 0 != proc->list_index )
+				proc->list_index--;
+
+			break;
+		
+		case DPAD_RIGHT:
+			if( proc->list_index < (list->total[proc->list_type]-1) )
+				proc->list_index++;
+			
+			break;
+		
+		default:
+			break;
+		
+	} // switch
+	
+	
+	if( proc->list_index_pre == proc->list_index )
+		goto goto_fail;
+	
+	
+	proc->list_type_pre = proc->list_type;
+	proc->list_index_pre = proc->list_index;
+	
+	// update skill-desc
+	StartParallerWorkerWithParam(PrepPickCombatArt_UpdateSkillDesc, 0, proc);
+	
+	// M4a
+	PlaySoundEffect(0x65);
+	
+	// Draw Hand
+	PrepDrawHand( 0x10 + 0x10 * proc->list_index, 0x38, 0, 0x800);
+	
+goto_fail:	
+	return;
+}
+
+
+
+// Post replace skill
+void PrepPickCombatArt_PrepareReplaceSkillWindow(struct Proc_PrepPickSkill* proc){
+	
+	char* str = GetStringFromIndex( ENUM_msg_PrepPickSkill_TryReplaceSkill );
+
+	
+	for( int line = 0; line < 2; line++ )
+	{
+		
+		Text_Clear(&gStatScreen.text[0xB + line]);
+		
+		DrawTextInline(
+			&gStatScreen.text[0xB + line],
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 0xD, 0x6 + 2 * line),
+			TEXT_COLOR_NORMAL, 0, 0,
+			str );
+		
+
+		
+		// w.i.p. for chinese
+		while( 1 != *str++ ) // '\n'
+			if( 0 == *str )
+				goto goto_return;
+	
+	}
+	
+	
+	
+	
+goto_return:
+	proc->yeah = 1;
+	// HidePrepScreenHandCursor();
+	BG_EnableSyncByMask(0b01);
+	
+	// Icon
+	DrawIcon(
+		TILEMAP_LOCATED( gBG0TilemapBuffer, 0x0F, 0x6 ),
+		COMBAT_ART_ICON(GetUnitPrepSkillsList(proc->unit)->skills_all[proc->list_index_replace]), 
+		TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
+}
+
+
+
+
+void PrepPickCombatArt_ConfirmReplaceSkillIdle(struct Proc_PrepPickSkill* proc){
+	
+	enum{
+		// Window
+		OBJWINDOW0_XPOS = 0x73,
+		OBJWINDOW0_YPOS = 0x29,
+		OBJWINDOW0_LENGTH = 0xB,
+		OBJWINDOW0_HEIGHT = 5,
+		
+		// Hand
+		OBJHAND_XPOS_Y = 0x7C,
+		OBJHAND_XPOS_N = 0xA0,
+		OBJHAND_YPOS = 0x40,
+	};
+
+	
+	// Cursor
+	DisplayCursor(
+		0x10 + gGameState.camera.x + 0x10 * proc->list_index,
+		0x3A + gGameState.camera.y,
+		2);
+	
+	
+	
+	if( B_BUTTON & gKeyStatusPtr->newKeys )
+	{
+		Proc_Goto(proc, LABEL_PREPSLILLSLIST_POST_CANCEL);
+		PlaySoundEffect(0x6B);
+		return;
+	} // B_BUTTON
+	
+	else if ( A_BUTTON & gKeyStatusPtr->newKeys )
+	{
+		if( (proc->yeah & 1) == 0 )
+		{
+			Proc_Goto(proc, LABEL_PREPSLILLSLIST_POST_CANCEL);
+			PlaySoundEffect(0x6B);
+			return;
+		}
+		else
+		{
+			RemoveCombatArt(proc->unit, proc->skill_id_pre);
+			AddCombatArt( proc->unit, GetUnitPrepCombatArtsList(proc->unit)->skills_all[proc->list_index_replace]);
+			
+			TileMap_FillRect(
+				TILEMAP_LOCATED( gBG0TilemapBuffer, 0x0F, 0x06),
+				0x2, 0x2 , 0 );
+			BG_EnableSyncByMask(0b01);
+			
+			Proc_Goto(proc, LABEL_PREPSLILLSLIST_INIT);
+			PlaySoundEffect(0x6A);
+			return;
+		}
+	
+	} // A_BUTTON
+	
+	// DPAD
+	if( (DPAD_LEFT ==  gKeyStatusPtr->repeatedKeys) || (DPAD_RIGHT == gKeyStatusPtr->repeatedKeys) )
+	{
+		proc->yeah = 1 & (~proc->yeah);
+		PlaySoundEffect(0x65);
+	}
+	
+	// Obj Window
+	PutObjWindow(
+		OBJWINDOW0_XPOS,
+		OBJWINDOW0_YPOS,
+		OBJWINDOW0_LENGTH,
+		OBJWINDOW0_HEIGHT,
+		OAM2_PAL(OBJWINDOW_PAL) +
+			OAM2_LAYER(0b01) +
+			OAM2_CHR(OBJWINDOW_VOBJ / 0x20) );
+	
+	// Hand
+	PrepDrawHand( 
+		1 & proc->yeah
+			? OBJHAND_XPOS_Y
+			: OBJHAND_XPOS_N,
+		OBJHAND_YPOS, 0, 0x800);
 	
 	return;
 }
@@ -1735,6 +2325,85 @@ void PrepPickCombatArt_MainLoop(struct Proc_PrepPickSkill*){
 // ==========================================================
 //                  Combat Arts: On Draw
 // ==========================================================
+
+void PrepPickCombatArt_InitTexts(){
+	
+	Font_InitForUIDefault();
+	
+	Text_Init(&gPrepUnitTexts[0xE], 9); 	// "Equippable Skills"
+	Text_Init(&gPrepUnitTexts[0xF], 10);	// "Class & Unit Skills"
+	Text_Init(&gPrepUnitTexts[0x10], 8);	// "Combat Arts"
+	// Text_Init(&gPrepUnitTexts[0x11], 6);	// "Battalion"
+	Text_Init(&gPrepUnitTexts[0x12], 3);	// "none" for left RAM skills
+	Text_Init(&gStatScreen.text[0x2], 3); 	// "none" for left ROM skills
+	Text_Init(&gStatScreen.text[0x3], 3); 	// "none" for left CombatArts
+	
+	// Two for right-upper bar
+	Text_Init(&gStatScreen.text[0x0], 3); 	// "pick"
+	Text_Init(&gStatScreen.text[0x1], 6); 	// "total skill"
+	
+	// Two for Right skill list
+	Text_Init(&gStatScreen.text[0x4], 10); 	// "Skills"
+	Text_Init(&gStatScreen.text[0x5], 3); 	// "none"
+	
+	// For Obj-window text
+	Text_Init(&gStatScreen.text[0xB], 0x12);
+	Text_Init(&gStatScreen.text[0xC], 0x12);
+	Text_Init(&gStatScreen.text[0xD], 0x12);
+	
+	// For Unit Name
+	Text_Init(&gPrepUnitTexts[0x13], 7);
+	Text_Init(&gPrepUnitTexts[0x14], 10);
+	Text_Init(&gPrepUnitTexts[0x15], 15);
+	
+	// For skill name
+	Text_Init(&gStatScreen.text[0x6], 0xB); 
+	Text_Init(&gStatScreen.text[0x7], 0xB); 
+	Text_Init(&gStatScreen.text[0x8], 0xB); 
+	
+	// For more on combat-art
+	Text_Init(&gStatScreen.text[0x10], 0x4);		// "attr"
+	Text_Init(&gStatScreen.text[0x11], 0x4);		// "mag" or "phys"
+	Text_Init(&gStatScreen.text[0x12], 0x4);		// "mt"
+	Text_Init(&gStatScreen.text[0x13], 0x4);		// "hit"
+	Text_Init(&gStatScreen.text[0x14], 0x4);		// "avo"
+	Text_Init(&gStatScreen.text[0x15], 0x4);		// "crit"
+	Text_Init(&gStatScreen.text[0x16], 0x4);		// "cost"
+	Text_Init(&gStatScreen.text[0x17], 0x4);		// "eff"
+	Text_Init(&gStatScreen.text[0x18], 0x4);		// "none"
+}
+
+
+
+
+void PrepPickCombatArt_DrawWindowGfx(void){
+	
+	// 0x809A874
+	extern u16 Gfx_PrepPickSkillScreen[]; // gfx
+	extern u16 Gfx_PrepSkillScreen2[]; // gfx2
+	extern u16 Pal_PrepSkillScreen[]; // pal
+	extern u16 Tsa_PrepSubPickCombatArtScreen[]; // tsa
+	
+	ResetIconGraphics_();
+	LoadUiFrameGraphics();
+	LoadObjUIGfx();
+	
+	LoadIconPalettes(4); // item icon
+	
+	CopyDataWithPossibleUncomp(Gfx_PrepSkillScreen2, (void*)0x06006000);
+	CopyDataWithPossibleUncomp(Gfx_PrepPickSkillScreen, (void*)0x06000440);
+	
+	CopyDataWithPossibleUncomp(Tsa_PrepSubPickCombatArtScreen, gGenericBuffer);
+	CallARM_FillTileRect(gBG1TilemapBuffer, gGenericBuffer, 0x1000);
+	
+	CopyToPaletteBuffer(Pal_PrepSkillScreen, 0x1E0, 0x20);
+	CopyToPaletteBuffer(Pal_PrepSkillScreen, 0x320, 0x20);
+	EnablePaletteSync();
+	
+}
+
+
+
 
 void PrepPickCombatArt_DrawLeftIcon(struct Unit* unit, int config){
 	
@@ -1771,7 +2440,7 @@ void PrepPickCombatArt_DrawLeftIcon(struct Unit* unit, int config){
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 5),
 			TEXT_COLOR_GOLD,
 			0, 0, 
-			"Equipped:");
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_Equipped) );
 		
 	} // ON_DRAW_CONFIG_INIT
 	
@@ -1803,7 +2472,7 @@ void PrepPickCombatArt_DrawLeftIcon(struct Unit* unit, int config){
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 2, 7),
 			TEXT_COLOR_GRAY,
 			0, 0, 
-			"None");
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_None) );
 	else
 		for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_CA]; i++ )
 			DrawIcon(
@@ -1834,19 +2503,19 @@ void PrepPickCombatArt_DrawRightBarTexts(struct Unit* unit, int config){
 			&gStatScreen.text[0],
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 0xE, 0x1),
 			TEXT_COLOR_NORMAL, 0, 0,
-			"Pick" );
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_Pick) );
 		
 		DrawTextInline(
 			&gStatScreen.text[1],
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 0x15, 0x1),
 			TEXT_COLOR_NORMAL, 0, 0,
-			"Total" );
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_Total) );
 		
 		DrawTextInline(
 			&gStatScreen.text[4],
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 0xE, 0x3),
 			TEXT_COLOR_NORMAL, 0, 0,
-			"Combat" );
+			GetStringFromIndex(ENUM_msg_PrepSkillMenu_PickCombatName) );
 		
 	} // if config
 	
@@ -1897,7 +2566,7 @@ void PrepPickCombatArt_DrawTotalSkill(struct Unit* unit){
 			&gStatScreen.text[3],
 			TILEMAP_LOCATED( gBG2TilemapBuffer, 0xF, 0x5),
 			TEXT_COLOR_NORMAL, 0, 0,
-			"None" );
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_None) );
 	else		
 		for( int i = 0; i < list->total[PREP_SKLSUB_RIGHT]; i++ )
 		{
@@ -1926,11 +2595,9 @@ void PrepPickCombatArt_UpdateSkillDesc(struct Proc_PrepPickSkill* proc){
 	const int xStart = 0x5;
 	const int yStart = 0xD;
 	
-	struct PrepSkillsList* list;
+	struct PrepSkillsList* list = GetUnitPrepCombatArtsList(proc->unit);
 	int skill_id;
-	char* str;
-	
-	list = GetUnitPrepCombatArtsList(proc->unit);
+
 	
 	switch( proc->list_type )
 	{
@@ -1956,31 +2623,170 @@ void PrepPickCombatArt_UpdateSkillDesc(struct Proc_PrepPickSkill* proc){
 	
 	const struct CombatArtInfo* info = GetCombatArtInfo(skill_id);
 	
-	str = GetStringFromIndex(info->msg_name);
-	
-	if( (0 == info) || (0 == str) )
+	if( 0 == info )
 		goto goto_end;
 	
 	
+	// On Draw
+	DrawIcon(
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart, yStart ),
+		COMBAT_ART_ICON(skill_id), 
+		TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
 	
-	for( int line = 0; line < 3; line++ )
-	{
-		Text_Clear(&gStatScreen.text[6 + line]);
+	// Combat-art name
+	Text_Clear(&gStatScreen.text[6]);
+	
+	DrawTextInline(
+		&gStatScreen.text[6],
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 2, yStart),
+		TEXT_COLOR_NORMAL, 0, 0,
+		GetStringFromIndex(info->msg_name) );
+	
+	
+	// "Affin"
+	Text_Clear(&gStatScreen.text[0x10]);
+	
+	DrawTextInline(
+		&gStatScreen.text[0x10],
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 14, yStart),
+		TEXT_COLOR_NORMAL, 0, 0,
+		GetStringFromIndex(0x4F1) );
 		
+	
+	// "Mag" or "Phys"
+	Text_Clear(&gStatScreen.text[0x11]);
+	
+	DrawTextInline(
+		&gStatScreen.text[0x11],
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 18, yStart),
+		TEXT_COLOR_BLUE, 0, 0,
+		0 == info->is_magic
+			? GetStringFromIndex(ENUM_msg_PrepPickSkill_Phys)
+			: GetStringFromIndex(ENUM_msg_PrepPickSkill_Mag)
+		);
+	
+	// "Mt"
+	Text_Clear(&gStatScreen.text[0x12]);
+	
+	DrawTextInline(
+		&gStatScreen.text[0x12],
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart, yStart + 2),
+		TEXT_COLOR_NORMAL, 0, 0,
+		GetStringFromIndex(0x503)
+		);
+	
+	DrawDecNumber(
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 4, yStart + 2),
+		TEXT_COLOR_BLUE,
+		info->mt );
+	
+	
+	
+	// "Hit"
+	Text_Clear(&gStatScreen.text[0x13]);
+	
+	DrawTextInline(
+		&gStatScreen.text[0x13],
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 7, yStart + 2),
+		TEXT_COLOR_NORMAL, 0, 0,
+		GetStringFromIndex(0x4F4)
+		);
+	
+	DrawDecNumber(
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 11, yStart + 2),
+		TEXT_COLOR_BLUE,
+		info->hit );
+	
+	
+	
+	// "avo"
+	Text_Clear(&gStatScreen.text[0x14]);
+	
+	DrawTextInline(
+		&gStatScreen.text[0x14],
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 14, yStart + 2),
+		TEXT_COLOR_NORMAL, 0, 0,
+		GetStringFromIndex(0x4F5)
+		);
+	
+	DrawDecNumber(
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 18, yStart + 2),
+		TEXT_COLOR_BLUE,
+		info->avo );
+	
+	
+	
+	// "crit"
+	Text_Clear(&gStatScreen.text[0x15]);
+	
+	DrawTextInline(
+		&gStatScreen.text[0x15],
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart, yStart + 4),
+		TEXT_COLOR_NORMAL, 0, 0,
+		GetStringFromIndex(0x501)
+		);
+	
+	DrawDecNumber(
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 4, yStart + 4),
+		TEXT_COLOR_BLUE,
+		info->crit );
+	
+	
+	
+	// "cost"
+	Text_Clear(&gStatScreen.text[0x16]);
+	
+	DrawTextInline(
+		&gStatScreen.text[0x16],
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 7, yStart + 4),
+		TEXT_COLOR_NORMAL, 0, 0,
+		GetStringFromIndex(ENUM_msg_PrepPickSkill_Cost)
+		);
+	
+	DrawDecNumber(
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 11, yStart + 4),
+		TEXT_COLOR_BLUE,
+		info->cost );
+	
+	
+	
+	// "Eff"
+	Text_Clear(&gStatScreen.text[0x17]);
+	Text_Clear(&gStatScreen.text[0x18]);
+	
+	DrawTextInline(
+		&gStatScreen.text[0x17],
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 14, yStart + 4),
+		TEXT_COLOR_NORMAL, 0, 0,
+		GetStringFromIndex(ENUM_msg_PrepPickSkill_Eff)
+		);
+	
+	if( info->eff_heavy )
+		DrawIcon(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 18, yStart + 4),
+			MASTERY_ICON(MASTERY_ICON_HEAVY), 
+			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
+	
+	else if( info->eff_ride )
+		DrawIcon(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 18, yStart + 4),
+			MASTERY_ICON(MASTERY_ICON_RIDE), 
+			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
+	
+	else if( info->eff_dragon )
+		DrawIcon(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 18, yStart + 4),
+			MASTERY_ICON(MASTERY_ICON_FLY), 
+			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
+	
+	else
 		DrawTextInline(
-			&gStatScreen.text[6 + line],
-			TILEMAP_LOCATED( gBG0TilemapBuffer, xStart, yStart + 2 * line),
-			TEXT_COLOR_NORMAL, 0, 0,
-			str );
-		
-		
-		
-		// w.i.p. for chinese
-		while( 1 != *str++ ) // '\n'
-			if( 0 == *str )
-				goto goto_end;
-	
-	}
+			&gStatScreen.text[0x18],
+			TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 18, yStart + 4),
+			TEXT_COLOR_GRAY, 0, 0,
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_None)
+			);
+
 	
 goto_end:
 	BG_EnableSyncByMask(0b01);

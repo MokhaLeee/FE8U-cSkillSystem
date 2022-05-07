@@ -1,6 +1,159 @@
 #include "gbafe-chax.h"
 #include "PrepSkill.h"
 
+// =========================================================
+//                        Static
+// =========================================================
+
+
+static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
+	
+	const struct SkillROMList* char_rom_list = &CharSkillRomList[unit->pCharacterData->number]; 
+	const struct SkillROMList* class_rom_list = &ClassSkillRomList[unit->pClassData->number];
+	
+	// Total Skills: add rom-skills
+	// Character
+	for( int i = 0; i < 4; i++ )
+	{	
+		if( SKILL_VALID(char_rom_list->default_ram_skill[i]) )
+			list->skills_all[list->total[PREP_SKLSUB_RIGHT]++] 
+				= char_rom_list->default_ram_skill[i];
+		
+		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+			break;
+	}
+	
+	if( unit->level >= 10 )
+		for( int i = 0; i < 4; i++ )
+		{
+			
+			if( SKILL_VALID(char_rom_list->master_ram_skill[i]) )
+				list->skills_all[list->total[PREP_SKLSUB_RIGHT]++] 
+					= char_rom_list->master_ram_skill[i];
+			
+			if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+				break;
+		}
+		
+	// Class
+	for( int i = 0; i < 4; i++ )
+	{	
+		if( SKILL_VALID(class_rom_list->default_ram_skill[i]) )
+			list->skills_all[list->total[PREP_SKLSUB_RIGHT]++] 
+				= class_rom_list->default_ram_skill[i];
+		
+		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+			break;
+	}
+	
+	if( unit->level >= 10 )
+		for( int i = 0; i < 4; i++ )
+		{			
+			if( SKILL_VALID(class_rom_list->master_ram_skill[i]) )
+				list->skills_all[list->total[PREP_SKLSUB_RIGHT]++] 
+					= class_rom_list->master_ram_skill[i];
+			
+			if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+				break;
+		}
+}
+
+static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* list){
+	
+	const u8 tmp_calist[7] = {
+		CA_WrathStrike,
+		CA_Grounder,
+		CA_BaneOfMonsters,
+		CA_TempestLance,
+		CA_Knightkneeler,
+		CA_CurvedShot,
+		CA_HeavyDraw,
+	};
+	
+	for( int i = 0; i < 7; i++ )
+	{
+		list->skills_all[ list->total[PREP_SKLSUB_RIGHT]++ ] = tmp_calist[i];
+	
+		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+			break;
+	}
+}
+
+
+
+
+static void MakeLeftLists(struct Unit* unit, struct PrepSkillsList* prepList){
+	
+	const u8 * combatArt_list = GetCombatArtList(unit);
+	struct SkillFastTesterList* skill_list = GetOrMakeSklFastList(unit);
+	
+	InitPrepSkillsList();
+	
+	prepList->unit_index = unit->index;
+	prepList->total[PREP_SKLSUB_LEFT_RAM] = 0;
+	prepList->total[PREP_SKLSUB_LEFT_ROM] = 0;
+	prepList->total[PREP_SKLSUB_LEFT_CA] = 0;
+	prepList->total[PREP_SKLSUB_RIGHT] = 0;
+	
+	
+	// RAM Skills
+	for( int i = 0; i < UNIT_SKILL_COUNT; i++ )
+	{
+		if( SKILL_VALID( unit->supports[i] ) )
+		{
+			int count = prepList->total[PREP_SKLSUB_LEFT_RAM];
+			
+			if( count >= PREPSKILL_LISTLEN_RAM )
+				break;
+			
+			prepList->skills_ram[count] = unit->supports[i];
+			prepList->total[PREP_SKLSUB_LEFT_RAM]++;
+			
+		}
+	}
+	
+	
+	// ROM Skills
+	for( int i = 0; i < skill_list->cnt; i++ )
+	{
+		if( !isPrepSkillEquippedRAM(unit, skill_list->skills[i]) )
+		{
+			int count = prepList->total[PREP_SKLSUB_LEFT_ROM];
+			
+			if( count >= PREPSKILL_LISTLEN_ROM )
+				break;
+			
+			prepList->skills_rom[count] = skill_list->skills[i];
+			
+			prepList->total[PREP_SKLSUB_LEFT_ROM]++;
+		}
+	}
+	
+	
+	
+	// Combat Arts
+	if( NULL == combatArt_list )
+	{
+		prepList->total[PREP_SKLSUB_LEFT_CA] = 0;
+	}
+	else
+		for( int i = 0; i < PREPSKILL_LISTLEN_CA; i++ )
+			if( SKILL_VALID(combatArt_list[i]) )
+				prepList->skills_CombatArt[ prepList->total[PREP_SKLSUB_LEFT_CA]++ ]
+					= combatArt_list[i];
+
+	
+	
+	// Battalion
+	prepList->skills_battalion = 1;
+}
+
+
+
+
+// =========================================================
+//                        Global
+// =========================================================
 
 void InitPrepSkillsList(void){
 	ResetCommonSpace();
@@ -11,111 +164,8 @@ void InitPrepSkillsList(void){
 // W.I.P.
 struct PrepSkillsList* MakeUnitPrepSkillsList(struct Unit* unit){
 	
-	const struct SkillROMList* char_rom_list = &CharSkillRomList[unit->pCharacterData->number]; 
-	const struct SkillROMList* class_rom_list = &ClassSkillRomList[unit->pClassData->number];
-	struct SkillFastTesterList* list;
-	
-	InitPrepSkillsList();
-	list = GetOrMakeSklFastList(unit);
-	
-	gpCommonSpace->unit_index = unit->index;
-	gpCommonSpace->total[PREP_SKLSUB_LEFT_RAM] = 0;
-	gpCommonSpace->total[PREP_SKLSUB_LEFT_ROM] = 0;
-	gpCommonSpace->total[PREP_SKLSUB_LEFT_CA] = 0;
-	gpCommonSpace->total[PREP_SKLSUB_RIGHT] = 0;
-	
-	// RAM Skills
-	for( int i = 0; i < UNIT_SKILL_COUNT; i++ )
-	{
-		if( SKILL_VALID( unit->supports[i] ) )
-		{
-			int count = gpCommonSpace->total[PREP_SKLSUB_LEFT_RAM];
-			
-			if( count >= PREPSKILL_LISTLEN_RAM )
-				break;
-			
-			gpCommonSpace->skills_ram[count] = unit->supports[i];
-			gpCommonSpace->total[PREP_SKLSUB_LEFT_RAM]++;
-			
-		}
-	}
-	
-	
-	// ROM Skills
-	for( int i = 0; i < list->cnt; i++ )
-	{
-		if( !isPrepSkillEquippedRAM(unit, list->skills[i]) )
-		{
-			int count = gpCommonSpace->total[PREP_SKLSUB_LEFT_ROM];
-			
-			if( count >= PREPSKILL_LISTLEN_ROM )
-				break;
-			
-			gpCommonSpace->skills_rom[count] = list->skills[i];
-			
-			gpCommonSpace->total[PREP_SKLSUB_LEFT_ROM]++;
-		}
-	}
-	
-	
-	
-	// Combat Arts
-	gpCommonSpace->skills_CombatArt[0] = CA_WrathStrike;
-	gpCommonSpace->skills_CombatArt[1] = CA_BaneOfMonsters;
-	gpCommonSpace->skills_CombatArt[2] = CA_TempestLance;
-	
-	
-	// Battalion
-	gpCommonSpace->skills_battalion = 1;
-	
-	
-	// Total Skills: add rom-skills
-	// Character
-	for( int i = 0; i < 4; i++ )
-	{	
-		if( SKILL_VALID(char_rom_list->default_ram_skill[i]) )
-			gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] 
-				= char_rom_list->default_ram_skill[i];
-		
-		if( gpCommonSpace->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-			break;
-	}
-	
-	if( unit->level >= 10 )
-		for( int i = 0; i < 4; i++ )
-		{
-			
-			if( SKILL_VALID(char_rom_list->master_ram_skill[i]) )
-				gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] 
-					= char_rom_list->master_ram_skill[i];
-			
-			if( gpCommonSpace->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-				break;
-		}
-		
-	// Class
-	for( int i = 0; i < 4; i++ )
-	{	
-		if( SKILL_VALID(class_rom_list->default_ram_skill[i]) )
-			gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] 
-				= class_rom_list->default_ram_skill[i];
-		
-		if( gpCommonSpace->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-			break;
-	}
-	
-	if( unit->level >= 10 )
-		for( int i = 0; i < 4; i++ )
-		{			
-			if( SKILL_VALID(class_rom_list->master_ram_skill[i]) )
-				gpCommonSpace->skills_all[gpCommonSpace->total[PREP_SKLSUB_RIGHT]++] 
-					= class_rom_list->master_ram_skill[i];
-			
-			if( gpCommonSpace->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-				break;
-		}
-	
-	
+	MakeLeftLists(unit, gpCommonSpace);
+	MakeTotalListSkill(unit, gpCommonSpace);
 	return gpCommonSpace;
 }
 
@@ -127,6 +177,26 @@ struct PrepSkillsList* GetUnitPrepSkillsList(struct Unit* unit){
 	
 	else
 		return MakeUnitPrepSkillsList(unit);
+	
+}
+
+
+// W.I.P.
+struct PrepSkillsList* MakeUnitPrepCombatArtsList(struct Unit* unit){
+	
+	MakeLeftLists(unit, gpCommonSpace);
+	MakeTotalListCombatArt(unit, gpCommonSpace);
+	return gpCommonSpace;
+}
+
+
+struct PrepSkillsList* GetUnitPrepCombatArtsList(struct Unit* unit){
+	
+	if( unit->index == gpCommonSpace->unit_index )
+		return gpCommonSpace;
+	
+	else
+		return MakeUnitPrepCombatArtsList(unit);
 	
 }
 
@@ -205,71 +275,6 @@ int isPrepSkillEquippedRAM(struct Unit* unit, u8 skill_id){
 
 
 
-
-
-
-// ===========================================================
-//                     Combat Art
-// ===========================================================
-
-
-// W.I.P.
-struct PrepSkillsList* MakeUnitPrepCombatArtsList(struct Unit* unit){
-	
-	struct PrepSkillsList* list = gpCommonSpace;
-	
-	InitPrepSkillsList();
-	
-	list->unit_index = unit->index;
-	list->total[PREP_SKLSUB_LEFT_CA] = 0;
-	list->total[PREP_SKLSUB_RIGHT] = 0;
-	
-	
-	// Combat Arts
-	list->total[PREP_SKLSUB_LEFT_CA] = 3;
-	list->skills_CombatArt[0] = CA_WrathStrike;
-	list->skills_CombatArt[1] = CA_BaneOfMonsters;
-	list->skills_CombatArt[2] = CA_TempestLance;
-	
-	const u8 tmp_calist[7] = {
-		CA_WrathStrike,
-		CA_Grounder,
-		CA_BaneOfMonsters,
-		CA_TempestLance,
-		CA_Knightkneeler,
-		CA_CurvedShot,
-		CA_HeavyDraw,
-	};
-	
-	for( int i = 0; i < 7; i++ )
-	{
-		list->skills_all[ list->total[PREP_SKLSUB_RIGHT]++ ] = tmp_calist[i];
-	
-		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-			break;
-	}
-	
-
-	
-	return list;
-}
-
-
-struct PrepSkillsList* GetUnitPrepCombatArtsList(struct Unit* unit){
-	
-	if( unit->index == gpCommonSpace->unit_index )
-		return gpCommonSpace;
-	
-	else
-		return MakeUnitPrepCombatArtsList(unit);
-	
-}
-
-
-
-
-
-
 int isPrepCombatArtRAM(struct Unit* unit, u8 combatArt_id){
 	
 	struct PrepSkillsList* list;
@@ -282,5 +287,16 @@ int isPrepCombatArtRAM(struct Unit* unit, u8 combatArt_id){
 	
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 

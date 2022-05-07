@@ -9,7 +9,7 @@ IconSheet_FE16Mastery:
 	POIN 	Icon_Sword		Icon_Lance		Icon_Axe		Icon_Bow	Icon_Faith
 	POIN	Icon_Reason		Icon_Reason		Icon_Reason
 	POIN	Icon_Auth		Icon_Riding		Icon_Flying
-	POIN	Icon_Brawl		Icon_Heavy
+	POIN	Icon_Heavy		Icon_Brawl
 	WORD	0
 
 

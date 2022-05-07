@@ -186,7 +186,6 @@ void BattleUnwind(){
 		if( (i > 1) && (TAR_ATTACK == round[i]) && (0==CheckNormalDouble(&gBattleTarget, &gBattleActor)) )
 			if( 2 == defender_attack_counter )
 			{
-				
 				if( JudgeQuickRiposte(&gBattleTarget) )
 					SetBattleHitExt_AtkSkill(SID_QuickRiposte);
 						

@@ -71,3 +71,59 @@ int CanUnitWithWeaponUseCombatArt(struct Unit* unit, u16 weapon, u8 index){
 	
 }
 
+
+// remove skill
+int RemoveCombatArt(struct Unit* unit, const u8 index){
+	
+	u8* list = GetCombatArtList(unit);
+	
+	if( NULL == list )
+		return 0;
+	
+	for( int i = 0; i < 5; i++ )
+		if( index == list[i] )
+		{
+			list[i] = 0;
+			return 1;
+		}
+	
+	return 0;
+}
+
+
+
+// add skill
+int AddCombatArt(struct Unit* unit, const u8 index){
+	
+	u8* list = GetCombatArtList(unit);
+	
+	if( NULL == list )
+		return 0;
+	
+	for( int i = 0; i < 5; i++ )
+		if( !SKILL_VALID(list[i]) )
+		{
+			list[i] = index;
+			return 1;
+		}
+	
+	return 0;
+}
+
+
+// get total combat-arts count
+int GetUnitTotalCombatArtsCount(struct Unit* unit){
+	
+	int count = 0;
+	u8* list = GetCombatArtList(unit);
+	
+	if( NULL == list )
+		return 0;
+	
+	for( int i = 0; i < 5; i++ )
+		if( SKILL_VALID(list[i]) )
+			count++;
+	
+	return count;
+	
+}
