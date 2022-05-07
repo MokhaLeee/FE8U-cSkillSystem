@@ -24,16 +24,17 @@ endif
 EA := $(realpath .)/Tools/EventAssembler/ColorzCore$(EXE)
 
 # additional tools
-export PARSEFILE         := $(realpath .)/Tools/EventAssembler/Tools/ParseFile$(EXE)
-export PORTRAITFORMATTER := $(realpath .)/Tools/EventAssembler/Tools/PortraitFormatter$(EXE)
-export PNG2DMP           := $(realpath .)/Tools/EventAssembler/Tools/Png2Dmp$(EXE)
-export COMPRESS          := $(realpath .)/Tools/EventAssembler/Tools/compress$(EXE)
-export LYN               := $(realpath .)/Tools/EventAssembler/Tools/lyn$(EXE)
-export EADEP             := $(realpath .)/Tools/EventAssembler/ea-dep$(EXE)
+# export PARSEFILE			:= $(realpath .)/Tools/EventAssembler/Tools/ParseFile$(EXE)
+export PARSEFILE			:= $(PYTHON3) $(realpath .)/Tools/PyParseFile/ParseFileUTF8.py
+export PORTRAITFORMATTER	:= $(realpath .)/Tools/EventAssembler/Tools/PortraitFormatter$(EXE)
+export PNG2DMP				:= $(realpath .)/Tools/EventAssembler/Tools/Png2Dmp$(EXE)
+export COMPRESS				:= $(realpath .)/Tools/EventAssembler/Tools/compress$(EXE)
+export LYN					:= $(realpath .)/Tools/EventAssembler/Tools/lyn$(EXE)
+export EADEP				:= $(realpath .)/Tools/EventAssembler/ea-dep$(EXE)
 
-export PORTRAIT_PROCESS  := $(PYTHON3) $(realpath .)/Tools/FE-PyTools/portrait-process.py
-export TEXT_PROCESS      := $(PYTHON3) $(realpath .)/Tools/text-process-cfitted/text-process-cfitted.py
-export C2EA              := $(PYTHON3) $(realpath .)/Tools/FE-PyTools/NMM2CSV/c2ea.py
-export TMX2EA            := $(PYTHON3) $(realpath .)/Tools/FE-PyTools/TMX2EA/tmx2ea.py
+export PORTRAIT_PROCESS		:= $(PYTHON3) $(realpath .)/Tools/FE-PyTools/portrait-process.py
+export TEXT_PROCESS			:= $(PYTHON3) $(realpath .)/Tools/text-process-cfitted/text-process-cfitted.py
+export C2EA					:= $(PYTHON3) $(realpath .)/Tools/FE-PyTools/NMM2CSV/c2ea.py
+export TMX2EA				:= $(PYTHON3) $(realpath .)/Tools/FE-PyTools/TMX2EA/tmx2ea.py
 
 NOTIFY_PROCESS = @echo "$(notdir $<) => $(notdir $@)"

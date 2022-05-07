@@ -1,0 +1,75 @@
+## msg_umCAname
+ Combat Art[X]
+
+## msg_umCAdesc
+Combat Art:[NL]
+Gains battle bonus[NL]
+but null double attack.[X]
+
+## msg_umCAGrayBox
+You don't have Combat Art ![X]
+
+## msg_umCAselectGrayBox
+you cannot use[NL]
+Combat Art here.[X]
+
+## msg_Bksel_NoCAWarning
+No Combat Art[X]
+
+## msg_Bksel_NotUseCA
+Not Combat Art[X]
+
+## msg_CA_MagAtk
+Attack Res[X]
+
+## msg_CA_PhyAtk
+Attack Def[X]
+
+## msg_CAN_WrathStrike
+ Wrath Strike[X]
+
+## msg_CAD_WrathStrike
+Wrath Strike[X]
+
+
+## msg_CAN_Grounder
+ Grounder[X]
+
+## msg_CAD_Grounder
+Grounder[X]
+
+
+## msg_CAN_BaneOfMonsters
+ Bane Monsters[X]
+
+## msg_CAD_BaneOfMonsters
+Effective against Monsters[X]
+
+
+## msg_CAN_TempestLance
+ Tempest Lance[X]
+
+## msg_CAD_TempestLance
+Tempest Lance[X]
+
+
+## msg_CAN_Knightkneeler
+ Knight Kneeler[X]
+
+## msg_CAD_Knightkneeler
+Effective against Cavalry enemies[X]
+
+## msg_CAN_CurvedShot
+ Curved Shot[X]
+
+## msg_CAD_CurvedShot
+Curved Shot[X]
+
+
+## msg_CAN_HeavyDraw
+ Heavy Draw[X]
+
+## msg_CAD_HeavyDraw
+Heavy Draw[X]
+
+

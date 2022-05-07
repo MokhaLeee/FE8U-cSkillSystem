@@ -13,3 +13,9 @@
 [submodule "Tools/text-process-cfitted"]
 	path = Tools/text-process-cfitted
 	url = https://github.com/MokhaLeee/text-process-cfitted.git
+[submodule "Tools/PyParseFile"]
+	path = Tools/PyParseFile
+	url = https://github.com/MokhaLeee/Py-ParseFile.git
+[submodule "CN-Fonts"]
+	path = CN-Fonts
+	url = https://github.com/MokhaLeee/FE8U-cnFont-EAInstaller.git

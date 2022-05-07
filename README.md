@@ -13,7 +13,11 @@ A W.I.P. project of [Skill-lite](https://github.com/StanHash/SkillsLite.git) and
 - Download [EventAssembler release](https://github.com/StanHash/EventAssembler/releases/tag/1.0), and unzip which in `Tools` folder.
 
 - Put `Fire Emblem 8: Scared Stones`(sha1: c25b145e37456171ada4b0d440bf88a19f4d509f) clean rom named `FE8U.gba` in directory.
-- Open `Msys2` (which will be installed on DevkitPRO installation), or `Windows terminal` and get into current folder, type command `make` or `make hack` to build rom `FE-cSkillSys.gba`
+- Open `Msys2` (which will be installed on DevkitPRO installation), or `Windows terminal` and get into current folder, to build rom `FE-cSkillSys.gba`:
+```
+make writans
+make hack
+```
 
 - Further more, you can `make clean` to clean build outputs.
 

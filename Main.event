@@ -9,14 +9,6 @@
 #include "Extensions/ProcDefinitions.txt"
 #include "Main_Defs.event"
 
-// Font Glyph
-ORG FreeSpaceFont
-#define IN_FONT_RANGE
-
-ASSERT (FreeSpaceFontEnd - CURRENTOFFSET)
-#undef IN_FONT_RANGE
-
-
 
 
 // Texts
@@ -33,6 +25,15 @@ ASSERT (FreeSpaceTextEnd - CURRENTOFFSET)
 #undef IN_TEXT_RANGE
 
 
+
+// Font Glyph
+ORG FreeSpaceFont
+#define IN_FONT_RANGE
+
+#include "CN-Fonts/FE8U-CN-Font-Installer.event"
+
+ASSERT (FreeSpaceFontEnd - CURRENTOFFSET)
+#undef IN_FONT_RANGE
 
 
 // Misc

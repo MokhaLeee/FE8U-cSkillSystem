@@ -1,5 +1,5 @@
 ## msg_umCAname
- Combat Art[X]
+ 战技[X]
 
 ## msg_umCAdesc
 Combat Art:[NL]

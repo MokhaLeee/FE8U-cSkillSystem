@@ -16,19 +16,26 @@ WRITANS_INSTALLER	:= Writans/Text.event
 WRITANS_DEFINITIONS	:= Writans/TextDefinitions.event
 WRITANS_CHEADER 	:= Writans/TextCHeader.h
 
+.PHONY: writans
+writans : $(WRITANS_INSTALLER) $(WRITANS_DEFINITIONS) $(WRITANS_CHEADER)
+
 # Make text installer and definitions from text
 $(WRITANS_INSTALLER) $(WRITANS_DEFINITIONS) $(WRITANS_CHEADER): $(WRITANS_TEXT_MAIN) $(WRITANS_ALL_TEXT)
 	$(NOTIFY_PROCESS)
-	@$(TEXT_PROCESS) $(WRITANS_TEXT_MAIN) --installer $(WRITANS_INSTALLER) --definitions $(WRITANS_DEFINITIONS) --parser-exe $(PARSEFILE) --c-header $(WRITANS_CHEADER)
+	@$(TEXT_PROCESS) $(WRITANS_TEXT_MAIN) --installer $(WRITANS_INSTALLER) --definitions $(WRITANS_DEFINITIONS) --c-header $(WRITANS_CHEADER)
+
+## --parser-exe $(PARSEFILE)
 
 # Convert formatted text to insertable binary
 # Nulling output because it's annoying
 %.fetxt.dmp: %.fetxt
 	$(NOTIFY_PROCESS)
-	@$(PARSEFILE) $< -o $@ > /dev/null
+	@$(PARSEFILE) -i $< -o $@ > /dev/null
 
-.PHONY: writans
-writans : $(WRITANS_INSTALLER) $(WRITANS_DEFINITIONS) $(WRITANS_CHEADER)
+
+
+
+
 
 # ==============
 # = MAKE CLEAN =
