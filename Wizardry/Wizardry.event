@@ -74,7 +74,7 @@ ALIGN 4
 #include "CoreHacks/SkillCore/SkillCore.event"
 
 // Prep-Pick-Skill Screen
-#include "CoreHacks/PrepSkillScreen/PrepSkillScreen.event""
+#include "CoreHacks/PrepSkillScreen/PrepSkillScreen.event"
 
 // Battle System: BattleOrder & 
 #include "CoreHacks/BattleSystem/BattleSystem.event"

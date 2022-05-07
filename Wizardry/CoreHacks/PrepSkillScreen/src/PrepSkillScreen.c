@@ -69,7 +69,7 @@ static void PrepSkill_PostSubList(struct Proc_PrepUnit* proc);
 // SubMenu
 static void PrepSkillSubMenu_OnPickSkills(struct Proc_PrepUnit* proc);
 static void PrepSkillSubMenu_OnPickCombatArts(struct Proc_PrepUnit* proc);
-static void PrepSkillSubMenu_OnPickBattalions(struct Proc_PrepUnit* proc);
+// static void PrepSkillSubMenu_OnPickBattalions(struct Proc_PrepUnit* proc);
 static int PrepSkillSubMenu_Bpressed (struct Proc_PrepUnit* proc);
 
 
@@ -458,13 +458,6 @@ void PrepSkill_PreSubMenu (struct Proc_PrepUnit* proc){
 
 void PrepSkill_StartSubMenu (struct Proc_PrepUnit* proc){
 	
-	extern u16 msgAt_PrepSkillMenu_PickSkillName;
-	extern u16 msgAt_PrepSkillMenu_PickSkillDesc;
-	extern u16 msgAt_PrepSkillMenu_PickCombatName;
-	extern u16 msgAt_PrepSkillMenu_PickCombatDesc;
-	extern u16 msgAt_PrepSkillMenu_PickBattalionName;
-	extern u16 msgAt_PrepSkillMenu_PickBattalionDesc;
-	
 	
 	// LoadDialogueBoxGfx(0, -1);
 	// Font_InitForUIDefault();
@@ -475,25 +468,25 @@ void PrepSkill_StartSubMenu (struct Proc_PrepUnit* proc){
 		MENUITEM_PREPSKILL_SKILL, 
 		PrepSkillSubMenu_OnPickSkills, 
 		TEXT_COLOR_NORMAL, 
-		msgAt_PrepSkillMenu_PickSkillName, 
-		msgAt_PrepSkillMenu_PickSkillDesc
+		ENUM_msg_PrepSkillMenu_PickSkillName, 
+		ENUM_msg_PrepSkillMenu_PickSkillDesc
 	);
 	
 	SetPrepScreenMenuItem(
 		MENUITEM_PREPSKILL_COMBAT, 
 		PrepSkillSubMenu_OnPickCombatArts, 
 		TEXT_COLOR_NORMAL, 
-		msgAt_PrepSkillMenu_PickCombatName, 
-		msgAt_PrepSkillMenu_PickCombatDesc
+		ENUM_msg_PrepSkillMenu_PickCombatName, 
+		ENUM_msg_PrepSkillMenu_PickCombatDesc
 	);
 	
-	SetPrepScreenMenuItem(
+/* 	SetPrepScreenMenuItem(
 		MENUITEM_PREPSKILL_BATTALION, 
 		PrepSkillSubMenu_OnPickBattalions, 
 		TEXT_COLOR_NORMAL, 
-		msgAt_PrepSkillMenu_PickBattalionName, 
-		msgAt_PrepSkillMenu_PickBattalionDesc
-	);
+		ENUM_msg_PrepSkillMenu_PickBattalionName, 
+		ENUM_msg_PrepSkillMenu_PickBattalionDesc
+	); */
 	
 	SetPrepScreenMenuOnBPress(PrepSkillSubMenu_Bpressed);
 	
@@ -560,12 +553,12 @@ void PrepSkillSubMenu_OnPickCombatArts(struct Proc_PrepUnit* proc){
 	
 }
 
-void PrepSkillSubMenu_OnPickBattalions(struct Proc_PrepUnit* proc){
+/* void PrepSkillSubMenu_OnPickBattalions(struct Proc_PrepUnit* proc){
 	
 	Proc_Goto(proc, LABEL_PREPSKILL_SUBMENU_END);
 	proc->button_blank = MENUITEM_PREPSKILL_BATTALION;
 	
-}
+} */
 
 
 

@@ -20,7 +20,6 @@ int _lib_div(int a, int b);
 
 const void* GetIconGfx(unsigned icon);
 
-#include "../../Writans/TextCHeader.h"
 #include "vanilla-remix/prep-screen.h"
 
 #include "growth-getter.h"
@@ -30,7 +29,6 @@ const void* GetIconGfx(unsigned icon);
 #include "range-getter.h"
 #include "map-master.h"
 #include "skill-system.h"
-#include "../Features/SkillInfos/SkillsDef.h"
 #include "common-space.h"
 #include "rn-ext.h"
 #include "null-bwl.h"
@@ -39,7 +37,10 @@ const void* GetIconGfx(unsigned icon);
 #include "prep-screen-rework.h"
 #include "battle-system.h"
 #include "combat-art.h"
-#include "../Features/CombatArtInfos/CombatArtDef.h"
+
+#include "../../Writans/TextCHeader.h"
+#include "../Features/SkillsInstaller/SkillsDef.h"
+#include "../Features/CombatArtsInstaller/CombatArtDef.h"
 
 #include "gbafe16-features.h"
 
