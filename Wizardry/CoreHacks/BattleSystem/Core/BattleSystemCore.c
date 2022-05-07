@@ -14,6 +14,7 @@ void ResetBattleFlagExt(void){
 	
 	gpBattleFlagExt->isCombat = 0;
 	gpBattleFlagExt->combatArt_id = 0;
+	gpBattleFlagExt->combat_unit = 0;
 
 }
 

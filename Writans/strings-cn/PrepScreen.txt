@@ -2,7 +2,7 @@
 技能[X]
 
 ## msg_PrepSkill_EquippableSkills
-可配备特技[X]
+已配备特技[X]
 
 ## msg_PrepSkill_ClassUnitSkills
 角色 & 职业特技[X]

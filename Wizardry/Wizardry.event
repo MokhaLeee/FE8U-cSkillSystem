@@ -73,6 +73,8 @@ ALIGN 4
 // Need Null-Bwl and Bwl-Support patch installed
 #include "CoreHacks/SkillCore/SkillCore.event"
 
+// Prep-Pick-Skill Screen
+#include "CoreHacks/PrepSkillScreen/PrepSkillScreen.event""
 
 // Battle System: BattleOrder & 
 #include "CoreHacks/BattleSystem/BattleSystem.event"
@@ -90,14 +92,14 @@ ALIGN 4
 // ============================
 // Skill infos installer
 
-#include "Features/SkillInfos/SkillsInfoInstaller.event"
+#include "Features/SkillsInstaller/SkillsInfoInstaller.event"
 
 // Skill activation anime installer
 #include "Features/SkillAnimInstaller/SkillAnimInstaller.event"
 
 
 // Combat Art infos installer
-#include "Features/CombatArtInfos/CombatArtInfosInstaller.event"
+#include "Features/CombatArtsInstaller/CombatArtInfosInstaller.event"
 
 #include "Features/LevelUpFE16/LevelUpFE16.event"
 #include "Features/PrepScreenRework/PrepScreenRework.event"

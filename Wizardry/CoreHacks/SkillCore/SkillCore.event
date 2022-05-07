@@ -71,10 +71,6 @@ PUSH
 POP
 
 
-// ====================================================
-//            Prep Screen Pick-Skill Page
-// ====================================================
-#include "PrepSkillScreen/PrepSkillScreen.event"
 
 
 
