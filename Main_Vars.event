@@ -51,4 +51,9 @@ BattleHitExtCur:
 BattleHitExtArray:
 	WORD 0x3003F4C // size = 0x70; End = 0x3003FBC
 
+
+// if 0, null game-intro-gfx
+GAME_INTRO_GFX_SHOW_At:
+	WORD 1
+
 #endif // VALUE_GLOBAL

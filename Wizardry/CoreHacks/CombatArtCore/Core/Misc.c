@@ -28,10 +28,9 @@ void LoadUnit_CombatArt(struct Unit* unit){
 	bwl = NBwl_GetBwlData(char_id);
 	
 	// W.I.P.
-	bwl->combatArts[0] = CA_CurvedShot;
-	bwl->combatArts[1] = CA_HeavyDraw;
-	bwl->combatArts[2] = CA_WrathStrike;
-	bwl->combatArts[3] = CA_TempestLance;
+	bwl->combatArts[0] = CA_HeavyDraw;
+	bwl->combatArts[1] = CA_WrathStrike;
+	bwl->combatArts[2] = CA_TempestLance;
 	
 }
 

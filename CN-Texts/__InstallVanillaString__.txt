@@ -1,0 +1,16 @@
+#include strings/_0000.txt
+#include strings/_0156_ChName.txt
+#include strings/_019C_Goal.txt
+#include strings/_01C5_Tile.txt
+#include strings/_0212_CharName.txt
+#include strings/_026E_CharDesp.txt
+#include strings/_02BF_ClassName.txt
+#include strings/_0309_ClassDesp.txt
+#include strings/_0354_ItemName.txt
+#include strings/_040B_ItemDesp.txt
+#include strings/_04E5_Misc.txt
+#include strings/_0542_MSS_Rtext.txt
+#include strings/_0574_MiscGuide.txt
+#include strings/_067A_Menu.txt
+#include strings/_06F5_ClassDesp.txt
+

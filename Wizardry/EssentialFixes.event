@@ -72,8 +72,8 @@ POP
   SHORT 0
 
 //Skip H&S screen
-  ORG $CC20C
-  SHORT 0
+//  ORG $CC20C
+//  SHORT 0
 
 //Skip Intro cutscene
   ORG $C6714

@@ -1,7 +1,7 @@
 
 #define _MAIN_
 #define _DEBUG_
-
+#define _CHINESE_
 
 
 #include "EAstdlib.event"
@@ -17,6 +17,11 @@ ORG FreeSpaceText
 	ALIGN 4
 	#include "Writans/text-repoint/repointedTextTable.event"
 	
+	#ifdef _CHINESE_
+	ALIGN 4
+		#include "CN-Texts/Text.event"
+	#endif // _CHINESE_
+	
 	ALIGN 4
 	#include "Writans/Text.event"
 	
@@ -30,7 +35,9 @@ ASSERT (FreeSpaceTextEnd - CURRENTOFFSET)
 ORG FreeSpaceFont
 #define IN_FONT_RANGE
 
-#include "CN-Fonts/FE8U-CN-Font-Installer.event"
+#ifdef _CHINESE_
+	#include "CN-Fonts/FE8U-CN-Font-Installer.event"
+#endif // _CHINESE_
 
 ASSERT (FreeSpaceFontEnd - CURRENTOFFSET)
 #undef IN_FONT_RANGE

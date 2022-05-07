@@ -13,14 +13,14 @@ void DrawSkillPage(void) {
 	
 	Text_Clear(text);
 	Text_SetColorId(text, TEXT_COLOR_GOLD);
-	Text_AppendString(text, "Skills");
+	Text_AppendString(text, GetStringFromIndex(ENUM_msg_PrepSkillMenu_PickSkillName) );
 	
 	
 	if ( list->cnt == 0 ) {
 		
 		Text_SetColorId(text, TEXT_COLOR_GRAY);
 		Text_SetXCursor(text, 32);
-		Text_AppendString(text, "None");
+		Text_AppendString(text, GetStringFromIndex(ENUM_msg_PrepPickSkill_None) );
 		Text_Draw(text, TM_PAGEFRAME + TILEMAP_INDEX(X, Y));
 		return;
 	

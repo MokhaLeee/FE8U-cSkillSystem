@@ -6,7 +6,7 @@
 // It plays the same role as "Master Hack Installers" from other buildfiles.
 
 #include "6CDefinitions.event"
-
+#include "EssentialFixes.event"
 // =======================
 // = CORE HACKS BL RANGE =
 // =======================
@@ -103,6 +103,9 @@ ALIGN 4
 #include "Features/PrepScreenRework/PrepScreenRework.event"
 
 
+// A diy game-intro graphic
+#include "External/GameStartScreen/GameStartScreen.event"
+
 #include "External/_ExternPatchConfig.event"
 #include "External/MoveLimitViewFix/MoveLimitViewFix.event"
 #include "External/FE8U_Mokha_Fixs.event"
@@ -121,6 +124,6 @@ ALIGN 4
 #include "CoreHacks/StatusGetter/InjectHPGetters.event"
 #include "CoreHacks/StatusGetter/InjectMovGetters.event"
 
-#include "EssentialFixes.event"
+
 
 #endif // MASTER_HACK_INSTALLER

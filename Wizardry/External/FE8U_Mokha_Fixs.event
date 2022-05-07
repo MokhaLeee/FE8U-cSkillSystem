@@ -20,7 +20,9 @@ ORG $31646
 SHORT $0
 
 
-
+// remove "A"
+ORG $00A16E
+SHORT $E028	// b end
 
 
 POP

@@ -14,6 +14,19 @@ const struct SkillROMList CharSkillRomList[0x100] = {
 	},
 	
 	
+	[CHARACTER_SETH] = {
+		.default_rom_skill[0] = SID_BlowDeath,
+		.default_ram_skill[0] = SID_BlowArmored,
+		.master_ram_skill[0] = SID_QuickRiposte,
+	},
+	
+	[CHARACTER_INNES] = {
+		.default_rom_skill[0] = SID_BlowDeath,
+		.default_ram_skill[0] = SID_BlowUncanny,
+		.master_ram_skill[0] = SID_BlowDarting,
+	},
+	
+	
 	[CHARACTER_PABLO] = {
 		.default_rom_skill[0] = SID_QuickRiposte,
 		.default_rom_skill[1] = SID_VantageBat,
@@ -43,6 +56,23 @@ const struct SkillROMList ClassSkillRomList[0x100] = {
 		.default_ram_skill[0] = SID_AxeBreaker,
 		.default_ram_skill[1] = SID_LanceBreaker,
 		.master_ram_skill[0] = SID_BowBreaker,
+		.master_ram_skill[1] = SID_TomeBreaker,
+	},
+	
+	[CLASS_PALADIN] = {
+		.master_rom_skill[0] = SID_BlowUncanny,
+		
+		.default_ram_skill[0] = SID_AxeBreaker,
+		.default_ram_skill[1] = SID_LanceBreaker,
+		.master_ram_skill[0] = SID_BowBreaker,
+		.master_ram_skill[1] = SID_TomeBreaker,
+	},
+	
+	[CLASS_SNIPER] = {
+		.default_rom_skill[0] = SID_BlowUncanny,
+		
+		.default_ram_skill[0] = SID_AxeBreaker,
+		.default_ram_skill[1] = SID_LanceBreaker,
 		.master_ram_skill[1] = SID_TomeBreaker,
 	},
 	

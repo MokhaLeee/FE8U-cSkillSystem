@@ -1,0 +1,73 @@
+## msg_PrepPickSkillName
+技能[X]
+
+## msg_PrepSkill_EquippableSkills
+可配备特技[X]
+
+## msg_PrepSkill_ClassUnitSkills
+角色 & 职业特技[X]
+
+## msg_PrepPickSkillDesc
+配置角色技能,[NL]
+每个角色自由配置的技能[NL]
+总数不得超过五个[X]
+
+## msg_PrepSkillMenu_PickSkillName
+特技[X]
+
+## msg_PrepSkillMenu_PickSkillDesc
+配置角色技能[X]
+
+## msg_PrepSkillMenu_PickCombatName
+战技[X]
+
+## msg_PrepSkillMenu_PickCombatDesc
+配置角色战技[X]
+
+## msg_PrepSkillMenu_PickBattalionName
+骑士团[X]
+
+## msg_PrepSkillMenu_PickBattalionDesc
+配置骑士团[X]
+
+## msg_PrepPickSkill_FailAddSkill
+本技能为角色或职业固有[NL]
+技能，因而无法移除。[X]
+
+## msg_PrepPickSkill_TryRemoveSkill
+             移除技能 ？[NL]
+        是的     不是[X]
+
+
+## msg_PrepPickSkill_TryAddSkill
+             添加技能 ?[NL]
+        是的     不是[X]
+
+## msg_PrepPickSkill_TryReplaceSkill
+             替换技能 ?[NL]
+        是的     不是[X]
+
+
+## msg_PrepPickSkill_Pick
+可选[X]
+
+## msg_PrepPickSkill_Total
+合计[X]
+
+## msg_PrepPickSkill_None
+无[X]
+
+## msg_PrepPickSkill_Equipped
+已装备 :[X]
+
+## msg_PrepPickSkill_Phys
+物理[X]
+
+## msg_PrepPickSkill_Mag
+魔法[X]
+
+## msg_PrepPickSkill_Cost
+损耗[X]
+
+## msg_PrepPickSkill_Eff
+特效[X]

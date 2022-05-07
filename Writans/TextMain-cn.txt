@@ -1,0 +1,28 @@
+
+
+# 0x212
+莉丝缇亚[X]
+
+# 0x213
+帝弥托利[X]
+
+#0x21D
+Flyan[X]
+
+#0x21C
+艾尔[X]
+
+
+#0xD4C msgCharmName
+魅力[X]
+
+#include strings-cn/StatusScreen.txt
+#include strings-cn/Menu.txt
+#include strings-cn/Skills_Blow.txt
+#include strings-cn/Skills_BattleMisc.txt
+#include strings-cn/CombatArt.txt
+#include strings-cn/PrepScreen.txt
+
+## msg_end
+0[X]
+

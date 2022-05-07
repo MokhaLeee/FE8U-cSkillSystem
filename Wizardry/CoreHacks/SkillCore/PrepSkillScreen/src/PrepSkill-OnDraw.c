@@ -47,13 +47,13 @@ void PrepSkill_DrawPickTotalBar(struct Unit* unit, int config){
 			&gStatScreen.text[0],
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 0xE, 0x1),
 			TEXT_COLOR_NORMAL, 0, 0,
-			"Pick" );
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_Pick) );
 		
 		DrawTextInline(
 			&gStatScreen.text[1],
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 0x14, 0x1),
 			TEXT_COLOR_NORMAL, 0, 0,
-			"Total Skill" );
+			GetStringFromIndex( ENUM_msg_PrepPickSkill_Total ) );
 		
 	} // if config
 	
@@ -124,21 +124,21 @@ void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 5),
 			TEXT_COLOR_GOLD,
 			0, 0, 
-			"Equippable Skills");
+			GetStringFromIndex( ENUM_msg_PrepSkill_EquippableSkills ));
 	
 		DrawTextInline(
 			&gPrepUnitTexts[0xF],
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 9),
 			TEXT_COLOR_GOLD,
 			0, 0, 
-			"Class & Unit Skills");
+			GetStringFromIndex( ENUM_msg_PrepSkill_ClassUnitSkills ));
 		
 		DrawTextInline(
 			&gPrepUnitTexts[0x10],
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 1, 13),
 			TEXT_COLOR_GOLD,
 			0, 0, 
-			"Combat Arts");
+			GetStringFromIndex( ENUM_msg_PrepSkillMenu_PickCombatName ));
 		
 	} // ON_DRAW_CONFIG_INIT
 	
@@ -179,7 +179,7 @@ void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 2, 7),
 			TEXT_COLOR_GRAY,
 			0, 0, 
-			"None");
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_None));
 	else
 		for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_RAM]; i++ )
 			DrawIcon(
@@ -196,7 +196,7 @@ void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 2, 11),
 			TEXT_COLOR_GRAY,
 			0, 0, 
-			"None");
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_None));
 	else
 		for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_ROM]; i++ )
 			DrawIcon(
@@ -216,7 +216,7 @@ void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 2, 15),
 			TEXT_COLOR_GRAY,
 			0, 0, 
-			"None");
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_None));
 	else
 		for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_CA]; i++ )
 			DrawIcon(
@@ -250,7 +250,7 @@ void PrepSkill_DrawBattalionBar(struct Unit* unit, int config){
 			TILEMAP_LOCATED( gBG0TilemapBuffer, 0xF, 0x11),
 			TEXT_COLOR_GOLD,
 			0, 0, 
-			"Battalion");
+			GetStringFromIndex(ENUM_msg_PrepSkillMenu_PickBattalionName));
 		
 	} // ON_DRAW_CONFIG_INIT
 	

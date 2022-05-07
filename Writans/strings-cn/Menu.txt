@@ -1,0 +1,65 @@
+## umBMagName
+ 黑魔法[X]
+
+## umBMagDesc
+黑魔法[X]
+
+## umWMagName
+ 白魔法[X]
+
+## umWMagDesc
+白魔法[X]
+
+## umMagGrayBox
+you have run out of magic uses.[X]
+
+## umSubMagGrayBox
+Magic have no effect[NL]
+on current position.[X]
+
+
+## umGambitName
+ Gambit[X]
+
+## umGambitDesc
+Gambit:[NL]
+Three House's Style AOE attack.[X]
+
+## umAOEDefaultName
+ Default[X]
+
+## umAOEDefaultDesc
+Default[X]
+
+## umAOEAssemblyName
+ Assembly[X]
+
+## umAOEAssemblyDesc
+Assembly[X]
+
+## umAOEBaszeName
+ Basze[X]
+
+## umAOEBaszeDesc
+Basze[X]
+
+## umAOEAbsorptionName
+ Absorption[X]
+
+## umAOEAbsorptionDesc
+Absorption[X]
+
+## umAOEFusilladeName
+ Fusillade[X]
+
+## umAOEFusilladeDesc
+Fusillade[X]
+
+
+## umAOEFireArrowsName
+ FireArrows[X]
+
+## umAOEFireArrowsDesc
+FireArrows[X]
+
+

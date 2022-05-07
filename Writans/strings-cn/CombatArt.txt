@@ -1,0 +1,75 @@
+## msg_umCAname
+战技[X]
+
+## msg_umCAdesc
+战技： 通过提高武器损耗[NL]
+获得强力一击。无法追击，[NL]
+无效埋伏技能。[X]
+
+## msg_umCAGrayBox
+你无法使用战技！[X]
+
+## msg_umCAselectGrayBox
+你无法于当前状况下[NL]
+使用战技。[X]
+
+## msg_Bksel_NoCAWarning
+无战技[X]
+
+## msg_Bksel_NotUseCA
+不使用战技[X]
+
+## msg_CA_MagAtk
+魔法攻击[X]
+
+## msg_CA_PhyAtk
+物理攻击[X]
+
+## msg_CAN_WrathStrike
+ 刚击[X]
+
+## msg_CAD_WrathStrike
+刚击[X]
+
+
+## msg_CAN_Grounder
+ 燕返[X]
+
+## msg_CAD_Grounder
+燕返[X]
+
+
+## msg_CAN_BaneOfMonsters
+ 魔物斩击[X]
+
+## msg_CAD_BaneOfMonsters
+魔物特效的剑技[X]
+
+
+## msg_CAN_TempestLance
+ 旋风枪[X]
+
+## msg_CAD_TempestLance
+强有力的枪技[X]
+
+
+## msg_CAN_Knightkneeler
+ 弑骑一击[X]
+
+## msg_CAD_Knightkneeler
+骑兵特效的枪技[X]
+
+## msg_CAN_CurvedShot
+ 曲射[X]
+
+## msg_CAD_CurvedShot
+高命中的弓箭攻击[X]
+
+
+## msg_CAN_HeavyDraw
+ 强弓[X]
+
+## msg_CAD_HeavyDraw
+强有力的的弓箭攻击[X]
+
+

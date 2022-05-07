@@ -1,0 +1,54 @@
+#ifndef FreeSpace
+	#define FreeSpace $B2A610
+	ORG FreeSpace
+#endif
+	
+#include "Extensions/Hack Installation.txt"
+
+PUSH
+	// Enable H&S screen
+	ORG $CC20C
+	SHORT $D106
+	
+	// Null H&S screen timer
+	ORG $CC3B6
+	SHORT $0
+	
+	// as judge byte
+	// ORG $EF2F18
+	// GAME_INTRO_GFX_SHOW_At:
+	// WORD 1 0
+	// String("By Mokha")
+	
+	// ShouldSkipHSScreen
+	ORG $001C68
+	jumpToHack(ShouldSkipGameStartIntro)
+	
+	// Tiles ptr
+	ORG $0CC2D0
+	POIN GameIntroGfx_Tiles
+	
+	ORG $0CC2E0
+	POIN GameIntro_BG0_TSA
+	
+	ORG $0CC2D4
+	POIN GameIntro_BG1_TSA
+POP
+
+#include "src/GameStartScreen.lyn.event"
+
+ALIGN 4
+GameIntroSkip_RomJudgeByte:
+	POIN GAME_INTRO_GFX_SHOW_At
+
+ALIGN 4
+GameIntroGfx_Tiles:
+	#incbin "data/GameIntro.4bpp.lz"
+
+ALIGN 4
+GameIntro_BG0_TSA:
+	#incbin "data/GameIntro_BG0.tsa.lz"
+
+ALIGN 4
+GameIntro_BG1_TSA:
+	#incbin "data/GameIntro_BG1.tsa.lz"
