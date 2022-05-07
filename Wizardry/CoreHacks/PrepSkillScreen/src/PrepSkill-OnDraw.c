@@ -51,7 +51,7 @@ void PrepSkill_DrawPickTotalBar(struct Unit* unit, int config){
 		
 		DrawTextInline(
 			&gStatScreen.text[1],
-			TILEMAP_LOCATED( gBG0TilemapBuffer, 0x14, 0x1),
+			TILEMAP_LOCATED( gBG0TilemapBuffer, 0x15, 0x1),
 			TEXT_COLOR_NORMAL, 0, 0,
 			GetStringFromIndex( ENUM_msg_PrepPickSkill_Total ) );
 		

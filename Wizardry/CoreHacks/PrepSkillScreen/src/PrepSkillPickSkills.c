@@ -586,7 +586,7 @@ void PrepPickSkill_FailAddSkillIdle(struct Proc_PrepPickSkill* proc){
 		// Window
 		OBJWINDOW0_XPOS = 0x60,
 		OBJWINDOW0_YPOS = 0x2E,
-		OBJWINDOW0_LENGTH = 0x11,
+		OBJWINDOW0_LENGTH = 0x0E,
 		OBJWINDOW0_HEIGHT = 4,
 		
 	};

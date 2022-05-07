@@ -758,9 +758,10 @@ void PrepSkill_StartSubList(struct Proc_PrepUnit* proc){
 }
 void PrepSkill_PostSubList(struct Proc_PrepUnit* proc){
 	
-	static int (*GetNewPrepUnitListIndexAfterStatScreen)() = (const void*) 0x8095675;
+	extern struct Unit* sub_8095394(); // maybe get leader?
+	extern int sub_80958FC(struct Unit*); // Get index in Prep-Unit-List
 	
-	proc->list_num_cur = GetNewPrepUnitListIndexAfterStatScreen();
+	proc->list_num_cur = sub_80958FC( sub_8095394() );
 	proc->list_num_pre = proc->list_num_cur;
 	
 	return;
@@ -787,7 +788,11 @@ void StartPrepScreenSkillsMenu(struct Proc_AtMenu* proc){
 	child = (struct Proc_PrepUnit*)
 		Proc_StartBlocking(gProc_PrepSkillScreen, proc);
 	
+	// Here, child proc should call for :
+	// SetPrepScreenUnitListCharID(proc->unit->pCharacterData->number);
+	// to make here, the parent proc can get the unit
 	child->list_num_cur = sub_80958FC( sub_8095394() );
+	
 	child->list_num_pre = child->list_num_cur;
 	child->max_counter = proc->max_counter;
 	child->yDiff_cur = proc->yDiff;
