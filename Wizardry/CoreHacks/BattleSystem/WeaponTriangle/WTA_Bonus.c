@@ -22,7 +22,7 @@ void BattleApplyWeaponTriangleEffect(struct BattleUnit* attacker, struct BattleU
 
 
 
-void BC_WTAbonus(struct BattleUnit* attacker, struct BattleUnit* defender) {
+void BC_WTA_Bonus(struct BattleUnit* attacker, struct BattleUnit* defender) {
 	
 	// inside Pre-Battle Calc
 	

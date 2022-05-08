@@ -5,6 +5,7 @@ enum{
 	CA_WrathStrike = 0x01,
 	CA_Grounder = 0x02,
 	CA_BaneOfMonsters = 0x03,
+	CA_Assassinate = 0x4,
 	
 	
 	// Lance: 0x20

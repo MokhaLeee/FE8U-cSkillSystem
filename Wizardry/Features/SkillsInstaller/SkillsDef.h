@@ -10,18 +10,22 @@ enum{
 	SID_BlowDuelist = 0x17,
 	SID_BlowUncanny = 0x18,
 	
+	
 	SID_Vantage = 0x20,
 	SID_VantageBat = 0x21,
 	SID_Desperation = 0x22,
 	SID_DesperationBat = 0x23,
 	SID_QuickRiposte = 0x24,
 	
-	SID_SwordBreaker = 0x25,
-	SID_AxeBreaker = 0x26,
-	SID_LanceBreaker = 0x27,
-	SID_BowBreaker = 0x28,
-	SID_TomeBreaker = 0x29,
-	SID_FistBreaker = 0x2A,
+	SID_Lethality = 0x25,
+	
+	
+	SID_SwordBreaker = 0x30,
+	SID_AxeBreaker = 0x31,
+	SID_LanceBreaker = 0x32,
+	SID_BowBreaker = 0x33,
+	SID_TomeBreaker = 0x34,
+	SID_FistBreaker = 0x35,
 };
 
 

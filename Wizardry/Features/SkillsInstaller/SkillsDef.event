@@ -22,12 +22,19 @@
 #define SKILLID_DesperationBattalion 	0x23	
 #define SKILLID_QuickRiposte 			0x24	// 回击
 
-#define SKILLID_SwordBreaker			0x25
-#define SKILLID_AxeBreaker				0x26
-#define SKILLID_LanceBreaker			0x27
-#define SKILLID_BowBreaker				0x28
-#define SKILLID_TomeBreaker				0x29
-#define SKILLID_FistBreaker				0x2A
+#define SKILLID_Lethality				0x25	// 瞬杀
+
+
+
+// Battle Tri-Angle
+#define SKILLID_SwordBreaker			0x30
+#define SKILLID_AxeBreaker				0x31
+#define SKILLID_LanceBreaker			0x32
+#define SKILLID_BowBreaker				0x33
+#define SKILLID_TomeBreaker				0x34
+#define SKILLID_FistBreaker				0x35
+
+
 
 
 

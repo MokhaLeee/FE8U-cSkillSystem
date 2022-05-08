@@ -54,6 +54,26 @@ static const struct CombatArtInfo CAInfo_BaneOfMonsters = {
 };
 
 
+static const struct CombatArtInfo CAInfo_Assassinate = {
+	
+	.msg_name = ENUM_msg_CAN_Assassinate,
+	.msg_desc = ENUM_msg_CAD_Assassinate,
+	.weapon_type = ITYPE_SWORD,
+	.is_lengency = 0,
+	.is_magic = 0,
+	.eff_dragon = 0,
+	.cost = 4,
+	.mt = 0,
+	.hit = 15,
+	.avo = 15,
+	.crit = 10,
+	.range_bouns = 0,
+};
+
+
+
+
+
 
 
 
@@ -157,6 +177,7 @@ struct CombatArtInfo const* const CombatArtInfoTable[0x100] = {
 	[CA_WrathStrike] = &CAInfo_WrathStrike,
 	[CA_Grounder] = &CAInfo_Grounder,
 	[CA_BaneOfMonsters] = &CAInfo_BaneOfMonsters,
+	[CA_Assassinate] = &CAInfo_Assassinate,
 	
 	
 	// lance

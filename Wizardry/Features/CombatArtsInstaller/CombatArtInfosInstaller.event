@@ -1,6 +1,6 @@
 
 #include "CombatArtDef.event"
-#include "data/CombatArtInfo.lyn.event"
+#include "CombatArtInfo.lyn.event"
 
 // see _include/combat-art.h
 #define InjectCombatArtInfo(index, info) "PUSH; ORG CombatArtInfoTable+4*(index); POIN (info); POP"

@@ -64,6 +64,7 @@ const struct SkillROMList ClassSkillRomList[0x100] = {
 		
 		.default_ram_skill[0] = SID_AxeBreaker,
 		.default_ram_skill[1] = SID_LanceBreaker,
+		.default_ram_skill[2] = SID_Lethality,
 		.master_ram_skill[0] = SID_BowBreaker,
 		.master_ram_skill[1] = SID_TomeBreaker,
 	},

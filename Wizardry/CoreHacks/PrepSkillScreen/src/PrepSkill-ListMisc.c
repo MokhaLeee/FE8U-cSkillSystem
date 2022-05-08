@@ -60,23 +60,25 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 
 static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* list){
 	
-	const u8 tmp_calist[7] = {
+	const u8 tmp_calist[8] = {
 		CA_WrathStrike,
 		CA_Grounder,
 		CA_BaneOfMonsters,
+		CA_Assassinate,
 		CA_TempestLance,
 		CA_Knightkneeler,
 		CA_CurvedShot,
 		CA_HeavyDraw,
 	};
 	
-	for( int i = 0; i < 7; i++ )
+	for( int i = 0; i < 8; i++ )
 	{
 		list->skills_all[ list->total[PREP_SKLSUB_RIGHT]++ ] = tmp_calist[i];
 	
 		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
 			break;
 	}
+	
 }
 
 

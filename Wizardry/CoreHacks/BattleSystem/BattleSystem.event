@@ -35,7 +35,9 @@ ALIGN 4
 //                  Pre-Battle Calc
 // ====================================================
 
-#include "PreBattleCalc/PreBattleCalc.lyn.event"
+#include "BattleCalc/PreBattleCalc.lyn.event"
+#include "BattleCalc/PreBattleCalc-user.lyn.event"
+
 	PROTECT $2A95C $2A9A8		// ComputeBattleUnitStats
 	PROTECT $2AABC $2AB74		// ComputeBattleUnitAttack
 	PROTECT $2AB74 $2ABAC		// ComputeBattleUnitSpeed
@@ -45,12 +47,13 @@ ALIGN 4
 	PROTECT $2AC18 $2AC54		// ComputeBattleUnitCritRate
 	PROTECT $2AC54 $2AC60		// ComputeBattleUnitDodgeRate
 
-
+#include "BattleCalc/BattleCalcReal.lyn.event"
+#include "BattleCalc/BattleHit.lyn.event"
 
 // ====================================================
 //                  Bksel Rework
 // ====================================================
-#include "BkSel/BKSEL.lyn.event"
+#include "BattleForcast/BKSEL.lyn.event"
 
 
 

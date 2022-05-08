@@ -72,4 +72,8 @@
 ## msg_CAD_HeavyDraw
 强有力的的弓箭攻击[X]
 
+## msg_CAN_Assassinate
+ 暗杀[X]
 
+## msg_CAD_Assassinate
+攻击造成必杀时有几率杀死对方[X]

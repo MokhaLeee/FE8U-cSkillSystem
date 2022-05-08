@@ -4,6 +4,7 @@
 	#define eCA_WrathStrike 0x01
 	#define eCA_Grounder 0x02
 	#define eCA_BaneOfMonsters 0x03
+	#define eCA_CA_Assassinate 0x4
 	
 	
 	// Lance: 0x20

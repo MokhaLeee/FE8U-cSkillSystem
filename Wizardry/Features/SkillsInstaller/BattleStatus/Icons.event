@@ -1,0 +1,4 @@
+// Icons
+ALIGN 4
+SI_Lethality:
+	#incbin "Icons/Lethality.4bpp"

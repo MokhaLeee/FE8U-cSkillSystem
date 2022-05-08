@@ -39,6 +39,7 @@ void BC_Init(struct BattleUnit* attacker, struct BattleUnit* defender){
 	attacker->battleAvoidRate = 0;
 	attacker->battleCritRate = 0;
 	attacker->battleDodgeRate = 0;
+	attacker->battleSilencerRate = 0;
 }
 
 
