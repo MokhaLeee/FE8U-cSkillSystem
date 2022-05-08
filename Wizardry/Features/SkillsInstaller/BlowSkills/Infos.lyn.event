@@ -1,0 +1,24 @@
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$0;SkillInfo_BlowUncanny:
+ORG CURRENTOFFSET+$8;SkillInfo_BlowDuelist:
+ORG CURRENTOFFSET+$8;SkillInfo_BlowWarding:
+ORG CURRENTOFFSET+$8;SkillInfo_BlowFiendish:
+ORG CURRENTOFFSET+$8;SkillInfo_BlowArmored:
+ORG CURRENTOFFSET+$8;SkillInfo_BlowDeath:
+ORG CURRENTOFFSET+$8;SkillInfo_BlowDarting:
+POP
+WORD $D7C0D7D
+POIN SI_BlowUncanny
+WORD $D7A0D7B
+POIN SI_BlowDuelist
+WORD $D780D79
+POIN SI_BlowWarding
+WORD $D760D77
+POIN SI_BlowFiendish
+WORD $D740D75
+POIN SI_BlowArmored
+WORD $D720D73
+POIN SI_BlowDeath
+WORD $D700D71
+POIN SI_BlowDarting

@@ -60,6 +60,9 @@ struct SkillInfo {
 extern struct SkillInfo const* const SkillInfoTable[];
 
 
+// WIP common icon
+extern const u16 SkillIcon_WIP[];
+
 
 /**
  * Checks whether a unit has a given skill

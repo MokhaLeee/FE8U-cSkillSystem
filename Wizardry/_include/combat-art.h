@@ -10,6 +10,7 @@ struct CombatArtInfo {
 			 u32 eff_heavy : 1;
 			 u32 eff_ride : 1;
 			 u32 eff_dragon : 1;
+			 u32 double_attack : 1;
 			 
 	/* 0C */ u8 weapon_type;
 	/* 0D */ s8 range_bouns;

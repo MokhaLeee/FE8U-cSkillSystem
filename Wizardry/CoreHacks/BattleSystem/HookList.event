@@ -2,10 +2,13 @@
 // Pre-Battle Calc
 ALIGN 4
 PreBattleCalcLoopTable:
-	
 	// (struct BattleUnit* attacker, struct BattleUnit* defender)
+	
 	// Init on first
 	POIN BC_Init
+	
+	// Check WTA Bonus
+	POIN BC_WTAbonus
 	
 	// On modular
 	POIN BC_CombatArtBonus 		// CombatArtCore/Misc
@@ -16,3 +19,15 @@ PreBattleCalcLoopTable:
 	// Not did: Support / Status bonus / Weapon rank bonus
 	WORD 0
 
+
+
+
+// Battle Triangle
+ALIGN 4
+BattleTriangleBonusCalcLoopTable:
+	// (struct BattleUnit* attacker, struct BattleUnit* defender)
+	
+	POIN WTA_SwordBreaker WTA_AxeBreaker WTA_LanceBreaker
+	POIN WTA_BowBreaker WTA_TomeBreaker
+	WORD 0
+	

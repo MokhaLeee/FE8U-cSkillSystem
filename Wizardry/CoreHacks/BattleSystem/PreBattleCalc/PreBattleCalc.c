@@ -44,7 +44,7 @@ void BC_Init(struct BattleUnit* attacker, struct BattleUnit* defender){
 
 void BC_Atk(struct BattleUnit* attacker, struct BattleUnit* defender){
 	
-	attacker->battleAttack += GetItemMight(attacker->weapon) + attacker->wTriangleDmgBonus;
+	attacker->battleAttack += GetItemMight(attacker->weapon); // + attacker->wTriangleDmgBonus;
 
 	if (IsItemEffectiveAgainst(attacker->weapon, &defender->unit) == TRUE) 
 		attacker->battleAttack *= 3;
@@ -107,7 +107,7 @@ void BC_Hit(struct BattleUnit* attacker, struct BattleUnit* defender){
 	else
 		attacker->battleHitRate += attacker->unit.skl;
 	
-	attacker->battleHitRate += GetItemHit(attacker->weapon) + attacker->wTriangleHitBonus;
+	attacker->battleHitRate += GetItemHit(attacker->weapon); // + attacker->wTriangleHitBonus;
 
 	
 	// Minus zero

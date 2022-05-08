@@ -50,8 +50,22 @@ ALIGN 4
 // ====================================================
 //                  Bksel Rework
 // ====================================================
-#include "BkselRework/BKSEL.lyn.event"
+#include "BkSel/BKSEL.lyn.event"
 
+
+
+// ====================================================
+//                  Battle Triangle
+// ====================================================
+
+/*
+ * Idea:
+ * Null Vanilla WTA bonus, but put them inside pre-battle calc
+ * beacuse vanilla WTA bonus can only get hit & dmg bonus.
+ *
+ */
+
+#include "WeaponTriangle/WTA_Bonus.lyn.event"
 
 
 #endif // BATTLE_SYSTEM_REWORK

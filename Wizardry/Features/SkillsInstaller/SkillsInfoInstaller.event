@@ -4,9 +4,33 @@
 #endif // SKILL_CORE
 
 
+
+// Skill Defs
 #include SkillsDef.event
 
-#include "BlowSkills/BlowSkills.event"
-#include "BattleOrderSkills/BattleOrderSkills.event"
-#include "BattleTrangle/BattleTrangle.event"
 
+// Skill-Info-Table
+ALIGN 4
+#include "SkillInfoTable.lyn.event"
+
+#define InjectSkillInfo(aSkillId, aSkillInfo) "PUSH; ORG SkillInfoTable+4*(aSkillId); POIN (aSkillInfo); POP"
+
+
+
+
+
+// ==============================================
+//             Skill Infos Installer
+// ==============================================
+
+// Blow Skills
+#include "BlowSkills/Icons.event"
+#include "BlowSkills/Infos.lyn.event"
+
+// Battle Order Skills
+#include "BattleOrder/Icons.event"
+#include "BattleOrder/Infos.lyn.event"
+
+// Battle Triangle
+#include "BattleTriangle/Icons.event"
+#include "BattleTriangle/Infos.lyn.event"

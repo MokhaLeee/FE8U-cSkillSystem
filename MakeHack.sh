@@ -22,6 +22,7 @@ EA="$EA_DIR/ColorzCore.exe"
 if [[ $1 == all ]]; then
 	
 	make clean
+	make writans
 	make hack
 	
 fi

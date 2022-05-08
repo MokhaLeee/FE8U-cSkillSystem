@@ -1,12 +1,16 @@
 
 #include "gbafe-chax.h"
 
+// For Icon Display
 const void* GetSkillIconGfx(int skill_id){
 	
-	if( !SKILL_VALID(skill_id) || (NULL == SkillInfoTable[skill_id]) )
-		return 0;
+	const struct SkillInfo* info = SkillInfoTable[skill_id];
+	
+	if( !SKILL_VALID(skill_id) || (0 == info) || (0 == info->icon) )
+		return SkillIcon_WIP;
+	
 	else
-		return SkillInfoTable[skill_id]->icon;
+		return info->icon;
 	
 }
 

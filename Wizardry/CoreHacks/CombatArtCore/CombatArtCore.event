@@ -4,13 +4,14 @@
 ALIGN 4
 #include "Core/Core.lyn.event"
 #include "Core/Misc.lyn.event"
-#include "Menu/Menu-TargetSelect.lyn.event"
-#include "Menu/MenuPanel.lyn.event"
+#include "bmmenu/Menu-TargetSelect.lyn.event"
+#include "bmmenu/MenuPanel.lyn.event"
 #include "Bksel/BkselCombatArt.event"
 #include "CombatSelectTarget/uiSelectTargetRework.lyn.event"
 
 
 
+// Battle Anim
 ALIGN 4
 CombatArtAnimationTable:
 	//8*0x100 0

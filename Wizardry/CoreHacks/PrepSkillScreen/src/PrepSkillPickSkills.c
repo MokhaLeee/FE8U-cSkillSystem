@@ -428,6 +428,10 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 				case PREP_SKLSUB_RIGHT:
 					if( (proc->list_index+6) < list->total[PREP_SKLSUB_RIGHT] )
 						proc->list_index += 6;
+					
+					else if( _lib_div(proc->list_index, 6) < _lib_div(list->total[PREP_SKLSUB_RIGHT], 6) )
+						proc->list_index = list->total[PREP_SKLSUB_RIGHT] - 1;
+				
 					else
 					{
 						proc->list_type = PREP_SKLSUB_LEFT_RAM;
@@ -1830,6 +1834,8 @@ void PrepPickCombatArt_MainLoop(struct Proc_PrepPickSkill* proc){
 			{
 				if( (proc->list_index+6) < list->total[PREP_SKLSUB_RIGHT] )
 					proc->list_index += 6;
+				else if( _lib_div(proc->list_index, 6) < _lib_div(list->total[PREP_SKLSUB_RIGHT], 6) )
+					proc->list_index = list->total[PREP_SKLSUB_RIGHT] - 1;
 				else
 				{
 					proc->list_type = PREP_SKLSUB_LEFT_CA;
@@ -2617,7 +2623,7 @@ void PrepPickCombatArt_UpdateSkillDesc(struct Proc_PrepPickSkill* proc){
 	
 	TileMap_FillRect(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart, yStart),
-		0x10, 0x6 , 0 );
+		0x14, 0x6 , 0 );
 	
 	proc->skill_id_pre = skill_id;
 	

@@ -1,0 +1,16 @@
+ALIGN 4
+// Icon
+SI_SwordBreaker:
+	#incbin "Icons/SwordBreaker.4bpp"
+
+SI_AxeBreaker:
+	#incbin "Icons/AxeBreaker.4bpp"
+
+SI_LanceBreaker:
+	#incbin "Icons/LanceBreaker.4bpp"
+	
+SI_BowBreaker:
+	#incbin "Icons/BowBreaker.4bpp"
+
+
+	

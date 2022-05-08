@@ -1,0 +1,16 @@
+// Icons
+ALIGN 4
+SI_Vantage:
+	#incbin "Icons/Vantage.4bpp"
+
+SI_VantageBat:
+	#incbin "Icons/VantageBattalion.4bpp"
+
+SI_Desperation:
+	#incbin "Icons/Desperation.4bpp"
+	
+SI_DesperationBat:
+	#incbin "Icons/DesperationBattalion.4bpp"
+
+SI_QuickRiposte:
+	#incbin "Icons/QuickRiposte.4bpp"

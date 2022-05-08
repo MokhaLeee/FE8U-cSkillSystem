@@ -8,13 +8,14 @@ int CheckCanDouble(struct BattleUnit* actor, struct BattleUnit* target);
 static int CheckNormalDouble(struct BattleUnit* actor, struct BattleUnit* target);
 static int CheckDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target);
 static int CheckNullDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target);
-static int CheckVantage(void);
-static int CheckDesperation(void);
+static int CheckVantageBattle(void);
+static int CheckDesperationBattle(void);
 
 
-static int JudgeQuickRiposte(struct BattleUnit* bu);
-
-
+static int JudgeSkillQuickRiposte(struct BattleUnit* bu);
+static int JudgeCombatArtDouble(struct BattleUnit* bu);
+static int JudgeSkillDesperation(struct BattleUnit* bu);
+static int JudgeSkillDesperationBat(struct BattleUnit* bu);
 
 
 
@@ -71,13 +72,13 @@ void BattleUnwind(){
 	uint8_t round[4] = {0};
 	uint8_t roundInfo = 0;
 	
-	if(  1 == CheckVantage() )
+	if(  1 == CheckVantageBattle() )
 		roundInfo |= UNWIND_VANTAGE;
 
 	if( 1 == CheckCanDouble(&gBattleActor, &gBattleTarget) )
 	{
 		// 此处我们让 UNWIND_DOUBLE_ACT 与 UNWIND_DESPERA 成为互不影响
-		if( CheckDesperation() )
+		if( CheckDesperationBattle() )
 			roundInfo |= UNWIND_DESPERA;
 		else
 			roundInfo |= UNWIND_DOUBLE_ACT;	
@@ -172,21 +173,28 @@ void BattleUnwind(){
 				if( (ACT_ATTACK == round[i]) && (ACT_ATTACK == round[i-1]) && (TAR_ATTACK == round[i+1]) )
 				{
 					// Add skill to BattleHitExt
-					if ( (*SkillTester)(&gBattleActor.unit, SID_DesperationBat) )
+					if ( JudgeSkillDesperation(&gBattleActor) )
+					{
 						SetBattleHitExt_AtkSkill(SID_DesperationBat);
-					else
+						
+						gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
+						BattleHitExt_SetAttr(ATTR_HITEXT_SKILLACT_ATK);
+					}
+					else if( JudgeSkillDesperationBat(&gBattleActor) )
+					{
 						SetBattleHitExt_AtkSkill(SID_Desperation);
+						
+						gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
+						BattleHitExt_SetAttr(ATTR_HITEXT_SKILLACT_ATK);
+					}
 					
-					// just anim
-					gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
-					BattleHitExt_SetAttr(ATTR_HITEXT_SKILLACT_ATK);
 				}
 		
-		
+		// Riposte anim
 		if( (i > 1) && (TAR_ATTACK == round[i]) && (0==CheckNormalDouble(&gBattleTarget, &gBattleActor)) )
 			if( 2 == defender_attack_counter )
 			{
-				if( JudgeQuickRiposte(&gBattleTarget) )
+				if( JudgeSkillQuickRiposte(&gBattleTarget) )
 					SetBattleHitExt_AtkSkill(SID_QuickRiposte);
 						
 				gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
@@ -290,10 +298,12 @@ s8 BattleGetFollowUpOrder(struct BattleUnit** outAttacker, struct BattleUnit** o
 
 // not static
 int CheckCanDouble(struct BattleUnit* actor, struct BattleUnit* target){
-	
-	int can = CheckNormalDouble(actor, target) || CheckDoubleLoop(actor, target);
 
-	return (!CheckNullDoubleLoop(actor,target)) && can;
+	if( CheckNullDoubleLoop(actor,target) )
+		return 0;
+	
+	return CheckNormalDouble(actor, target) || CheckDoubleLoop(actor, target);
+
 
 }
 
@@ -313,8 +323,12 @@ int CheckNormalDouble(struct BattleUnit* actor, struct BattleUnit* target){
 // static 
 int CheckDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target){
 	
+	// Combat Art
+	if( JudgeCombatArtDouble(actor) )
+		return 1;
+	
 	// Quick Riposte
-	if( JudgeQuickRiposte(actor) )
+	if( JudgeSkillQuickRiposte(actor) )
 		return 1;
 	
 	// default
@@ -325,18 +339,18 @@ int CheckDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target){
 // static 
 int CheckNullDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target){
 	
-	// if attacker use combat-art, cannot double attack
-	if( &gBattleActor == actor )
-		if( 1 == gpBattleFlagExt->isCombat )
-			return 1;
-	
+	if( 1 == gpBattleFlagExt->isCombat )
+		if( &gBattleActor == actor )
+			return !JudgeCombatArtDouble(actor);
+		
+		
 	// default
 	return 0;
 }
 
 
 // static 
-int CheckVantage(void){
+int CheckVantageBattle(void){
 	
 	struct Unit* target_unit = GetUnit(gBattleTarget.unit.index);
 	
@@ -363,26 +377,21 @@ int CheckVantage(void){
 
 
 // static 
-int CheckDesperation(void){
+int CheckDesperationBattle(void){
 	
-	struct Unit* attacker_unit = GetUnit(gBattleActor.unit.index);
-	
-	// if inside combat-art, null desperation skills
+	// Combat-art enjoys priority
+	// if use double-attack combat-art, then will cause desperation
 	if( 1 == gpBattleFlagExt->isCombat )
-		return 0;
+		return JudgeCombatArtDouble(&gBattleActor);
 	
 	
-	// Desperation:  HP <50%
-	if( (*SkillTester)(attacker_unit, SID_Desperation) )
-		if( attacker_unit->curHP < (attacker_unit->maxHP / 2) )
-			return 1;
 	
-	
-	// Todo
-	// Desperation Battalion
-	if( (*SkillTester)(attacker_unit, SID_DesperationBat) )
+	if( 1 == JudgeSkillDesperation(&gBattleActor) )
 		return 1;
 	
+	
+	if( 1 == JudgeSkillDesperationBat(&gBattleActor) )
+		return 1;
 	
 	// default
 	return 0;
@@ -393,16 +402,72 @@ int CheckDesperation(void){
 // ===================================================
 //                    Skills misc
 // ===================================================
-int JudgeQuickRiposte(struct BattleUnit* bu){
+
+int JudgeCombatArtDouble(struct BattleUnit* bu){
 	
-	struct Unit* attacker_unit = GetUnit(bu->unit.index);
-	
-	// Quick Riposte:  HP >50% as defender
-	if( &gBattleTarget == bu )
-		if( (*SkillTester)(attacker_unit, SID_QuickRiposte) )
-			if( attacker_unit->curHP > (attacker_unit->maxHP / 2) )
+	if( &gBattleActor == bu )
+		if( 1 == gpBattleFlagExt->isCombat )
+		{
+			// Check Combat-Art
+			const struct CombatArtInfo* info = GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
+			
+			// if attacker use combat-art and without double attack
+			if( 1 == info->double_attack )
 				return 1;
+			
+		}
 	
 	return 0;
 }
+
+
+int JudgeSkillQuickRiposte(struct BattleUnit* bu){
+	
+	struct Unit* unit = GetUnit(bu->unit.index);
+	
+	if( &gBattleTarget != bu )
+		return 0;
+	
+	// Quick Riposte:  HP >50% as defender
+	
+	if( (*SkillTester)(unit, SID_QuickRiposte) )
+		if( GetUnitCurrentHp(unit) > (GetUnitMaxHp(unit) / 2) )
+			return 1;
+	
+	return 0;
+}
+
+
+int JudgeSkillDesperation(struct BattleUnit* bu){
+	
+	struct Unit* unit = GetUnit(bu->unit.index);
+	
+	if( &gBattleActor != bu )
+		return 0;
+	
+	// HP <50%
+	if( (*SkillTester)(unit, SID_Desperation) )
+		if( unit->curHP < (unit->maxHP / 2) )
+			return 1;
+	
+	return 0;
+}
+
+
+
+int JudgeSkillDesperationBat(struct BattleUnit* bu){
+	
+	struct Unit* unit = GetUnit(bu->unit.index);
+	
+	if( &gBattleActor != bu )
+		return 0;
+	
+	// Todo
+	if( (*SkillTester)(unit, SID_DesperationBat) )
+		return 1;
+	
+	return 0;
+}
+
+
 

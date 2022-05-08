@@ -7,7 +7,7 @@
 帝弥托利[X]
 
 #0x21D
-Flyan[X]
+芙莲[X]
 
 #0x21C
 艾尔[X]
@@ -19,7 +19,8 @@ Flyan[X]
 #include strings-cn/StatusScreen.txt
 #include strings-cn/Menu.txt
 #include strings-cn/Skills_Blow.txt
-#include strings-cn/Skills_BattleMisc.txt
+#include strings-cn/Skills_BattleOrder.txt
+#include strings-cn/Skills_BattleTriangle.txt
 #include strings-cn/CombatArt.txt
 #include strings-cn/PrepScreen.txt
 

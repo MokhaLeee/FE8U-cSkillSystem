@@ -396,7 +396,7 @@ const struct MenuDef Menu_CombatArt_WeaponSelect = {
 	._u14 = 0,
 	.onBPress = CombatArt_WeaponSelect_PressB,
 	.onRPress = MenuAutoHelpBoxSelect,
-	.onHelpBox = (void*)MenuStdHelpBox,
+	.onHelpBox = ConvoyMenu_HelpBox,
 };
 
 

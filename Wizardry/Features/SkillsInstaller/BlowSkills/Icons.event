@@ -1,0 +1,23 @@
+ALIGN 4
+// Icon
+SI_BlowArmored:
+	#incbin "Icons/BlowArmored.4bpp"
+
+SI_BlowDarting:
+	#incbin "Icons/BlowDarting.4bpp"
+
+SI_BlowDeath:
+	#incbin "Icons/BlowDeath.4bpp"
+	
+SI_BlowDuelist:
+	#incbin "Icons/BlowDuelist.4bpp"
+
+SI_BlowFiendish:
+	#incbin "Icons/BlowFiendish.4bpp"		
+
+SI_BlowWarding:
+	#incbin "Icons/BlowWarding.4bpp"
+
+SI_BlowUncanny:
+	#incbin "Icons/BlowUncanny.4bpp"
+	

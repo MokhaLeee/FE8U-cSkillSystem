@@ -62,7 +62,7 @@ static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* lis
 	
 	const u8 tmp_calist[7] = {
 		CA_WrathStrike,
-		// CA_Grounder,
+		CA_Grounder,
 		CA_BaneOfMonsters,
 		CA_TempestLance,
 		CA_Knightkneeler,
@@ -70,7 +70,7 @@ static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* lis
 		CA_HeavyDraw,
 	};
 	
-	for( int i = 0; i < 6; i++ )
+	for( int i = 0; i < 7; i++ )
 	{
 		list->skills_all[ list->total[PREP_SKLSUB_RIGHT]++ ] = tmp_calist[i];
 	

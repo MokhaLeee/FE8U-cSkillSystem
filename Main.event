@@ -31,6 +31,9 @@ ASSERT (FreeSpaceTextEnd - CURRENTOFFSET)
 
 
 
+
+
+
 // Font Glyph
 ORG FreeSpaceFont
 #define IN_FONT_RANGE
@@ -43,9 +46,18 @@ ASSERT (FreeSpaceFontEnd - CURRENTOFFSET)
 #undef IN_FONT_RANGE
 
 
+
+
+
+
+
+
+
+
 // Misc
 ORG FreeSpace
 #define IN_MAIN_HACK_RANGE	
+
 	#include "Main_Vars.event"
 	
 	// Wizardry
@@ -82,6 +94,14 @@ ASSERT (FreeSpaceEnd - CURRENTOFFSET)
 
 
 
+
+
+
+
+
+
+
+
 // Tables	
 ORG FreeSpaceTable
 #define IN_TABLE_RANGE
@@ -104,8 +124,8 @@ ORG $EF2F18
 	WORD 0 0
 	
 	ALIGN 16
-	String("Skills-Lite By Mokha, version 2022.02.23")
-	BYTE 0
+	String("cSkillSys-Proj.Lysithea By Mokha, version 2022.05.08")
+	BYTE 0 0 0
 	
 	ALIGN 16
 	WORD 0 0 0 0

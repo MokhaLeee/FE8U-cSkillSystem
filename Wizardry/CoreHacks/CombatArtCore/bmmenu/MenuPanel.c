@@ -44,6 +44,9 @@ void MenuPanel_DrawCombatArt(const struct CombatArtInfo* info){
 	u8 color;
 	struct PanelProc* panel = Proc_Find(gProc_MenuItemPanel);
 	
+	const int xPos = panel->xPos;
+	const int yPos = panel->yPos;
+	
 	if( NULL == panel )
 		return;
 	
@@ -57,24 +60,75 @@ void MenuPanel_DrawCombatArt(const struct CombatArtInfo* info){
 	
 	
 	// (int x, int y, int w, int h, int style)
-	DrawUiFrame2( panel->xPos, panel->yPos, 0xE, 0x8, 0 );
+	DrawUiFrame2( xPos, yPos, 0xE, 0x8, 0 );
 	
 	
 	// Draw
 	// Text_InsertString(struct TextHandle*, int xPos, int color, const char*)
-	// "Attack Def or Res"
+	
+	
+	// "Afin"
+	Text_InsertString(
+		&panel->text[0],
+		0x2,
+		TEXT_COLOR_NORMAL,
+		GetStringFromIndex(0x4F1) );
+	
 	if( 1 == info->is_magic )
 		Text_InsertString(
 			&panel->text[0],
-			0x1C,
+			0x1A,
 			TEXT_COLOR_GREEN,
-			GetStringFromIndex(ENUM_msg_CA_MagAtk) );
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_Mag) );
 	else
 		Text_InsertString(
 			&panel->text[0],
-			0x1C,
-			TEXT_COLOR_NORMAL,
-			GetStringFromIndex(ENUM_msg_CA_PhyAtk) );
+			0x1A,
+			TEXT_COLOR_BLUE,
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_Phys) );
+	
+	
+	// "Eff"
+	Text_InsertString(
+		&panel->text[0],
+		0x32,
+		TEXT_COLOR_NORMAL,
+		GetStringFromIndex(ENUM_msg_PrepPickSkill_Eff) );
+	
+	if( !(info->eff_heavy | info->eff_ride | info->eff_dragon) )
+		Text_InsertString(
+			&panel->text[0],
+			0x52,
+			TEXT_COLOR_GRAY,
+			GetStringFromIndex(ENUM_msg_PrepPickSkill_None) );
+	
+	Text_Draw(
+		&panel->text[0],
+		TILEMAP_LOCATED(gBG0TilemapBuffer, xPos + 1, yPos + 1) );
+	
+	// Draw Eff Icon
+	
+	if( info->eff_heavy )
+		DrawIcon(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, xPos + 11, yPos + 1),
+			MASTERY_ICON(MASTERY_ICON_HEAVY), 
+			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
+	
+	else if( info->eff_ride )
+		DrawIcon(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, xPos + 11, yPos + 1),
+			MASTERY_ICON(MASTERY_ICON_RIDE), 
+			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
+	
+	else if( info->eff_dragon )
+		DrawIcon(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, xPos + 11, yPos + 1),
+			MASTERY_ICON(MASTERY_ICON_FLY), 
+			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
+	
+		
+			
+	
 	
 	
 	// "Mt"
@@ -110,7 +164,7 @@ void MenuPanel_DrawCombatArt(const struct CombatArtInfo* info){
 	if( gBattleActor.battleAttack > 0 )
 		color = TEXT_COLOR_GREEN;
 	else
-		color = TEXT_COLOR_NORMAL;
+		color = TEXT_COLOR_BLUE;
 	
 	
 	// Bu.Atk
@@ -125,7 +179,7 @@ void MenuPanel_DrawCombatArt(const struct CombatArtInfo* info){
 	if( gBattleActor.battleHitRate > 0 )
 		color = TEXT_COLOR_GREEN;
 	else
-		color = TEXT_COLOR_NORMAL;
+		color = TEXT_COLOR_BLUE;
 	
 	Text_InsertNumberOr2Dashes(
 		&panel->text[2],
@@ -138,7 +192,7 @@ void MenuPanel_DrawCombatArt(const struct CombatArtInfo* info){
 	if( gBattleActor.battleCritRate > 0 )
 		color = TEXT_COLOR_GREEN;
 	else
-		color = TEXT_COLOR_NORMAL;
+		color = TEXT_COLOR_BLUE;
 	
 	Text_InsertNumberOr2Dashes(
 		&panel->text[1],
@@ -151,7 +205,7 @@ void MenuPanel_DrawCombatArt(const struct CombatArtInfo* info){
 	if( gBattleActor.battleAvoidRate > 0 )
 		color = TEXT_COLOR_GREEN;
 	else
-		color = TEXT_COLOR_NORMAL;
+		color = TEXT_COLOR_BLUE;
 	
 	Text_InsertNumberOr2Dashes(
 		&panel->text[2],
@@ -162,17 +216,14 @@ void MenuPanel_DrawCombatArt(const struct CombatArtInfo* info){
 	
 	
 	// Text_Display(struct TextHandle*, u16* bgMap)
-	Text_Draw(
-		&panel->text[0],
-		TILEMAP_LOCATED(gBG0TilemapBuffer, panel->xPos+1, panel->yPos+1) );
 	
 	Text_Draw(
 		&panel->text[1],
-		TILEMAP_LOCATED(gBG0TilemapBuffer, panel->xPos+1, panel->yPos+3) );
+		TILEMAP_LOCATED(gBG0TilemapBuffer, xPos + 1, yPos + 3) );
 	
 	Text_Draw(
 		&panel->text[2],
-		TILEMAP_LOCATED(gBG0TilemapBuffer, panel->xPos+1, panel->yPos+5) );
+		TILEMAP_LOCATED(gBG0TilemapBuffer, xPos + 1, yPos + 5) );
 		
 	
 	// End

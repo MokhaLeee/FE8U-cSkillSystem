@@ -1,2 +1,0 @@
-make writans
-make hack
