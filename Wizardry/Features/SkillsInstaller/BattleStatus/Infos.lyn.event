@@ -1,6 +1,0 @@
-ALIGN 4
-PUSH
-ORG CURRENTOFFSET+$0;SkillInfo_Lethality:
-POP
-WORD $DDA0DDB
-POIN SI_Lethality

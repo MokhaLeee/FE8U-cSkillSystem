@@ -9,13 +9,13 @@ LYN_REF := Tools/FE-CLib-Mokha/reference/FE8U-Decomp-20220503.o
 %.lyn.event: %.o $(LYN_REF)
 	$(NOTIFY_PROCESS)
 	@$(LYN) $< $(LYN_REF) > $@
-	@rm -f $<
+
 
 # OBJ to DMP rule
 %.dmp: %.o
 	$(NOTIFY_PROCESS)
 	@$(OBJCOPY) -S $< -O binary $@
-	@rm -f $<
+
 	
 # ========================
 # = ASSEMBLY/COMPILATION =
