@@ -9,7 +9,6 @@ void BattleGenerateHitAttributes(struct BattleUnit* attacker, struct BattleUnit*
 	
 	short attack, defense;
 	
-	struct Unit* unit_act = GetUnit(attacker->unit.index);
 	gBattleStats.damage = 0;
 
 	// Miss
@@ -24,21 +23,12 @@ void BattleGenerateHitAttributes(struct BattleUnit* attacker, struct BattleUnit*
 
 	gBattleStats.damage = attack - defense;
 	
-	// 瞬杀
-	// case 1: has skill-SID_Lethality
-	if( (*SkillTester)(unit_act, SID_Lethality) && BattleRoll1RN( GetUnitSkill(unit_act), FALSE) )
-	{
-		gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SILENCER;
-		gBattleStats.damage = BATTLE_MAX_DAMAGE;
-	}
-	
-	// case 2: normal judge
-	else if (BattleRoll1RN(gBattleStats.critRate, FALSE) ) 
+	// 瞬杀	
+	if (BattleRoll1RN(gBattleStats.critRate, FALSE) ) 
 	{
 		if ( BattleRoll1RN(gBattleStats.silencerRate, FALSE) )
 		{
 			gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SILENCER;
-
 			gBattleStats.damage = BATTLE_MAX_DAMAGE;
 		} 
 		else 
@@ -90,6 +80,12 @@ void BattleGenerateHitEffects(struct BattleUnit* attacker, struct BattleUnit* de
 
             } // switch (GetItemWeaponEffect(attacker->weapon))
 
+
+		// Check for Combat-Art: CA_Subdue(手下留情)
+		if( attacker->unit.index == gpBattleFlagExt->combat_unit )
+			if( CA_Subdue == gpBattleFlagExt->combatArt_id )
+				if( gBattleStats.damage > (defender->unit.curHP - 1) )
+					gBattleStats.damage = defender->unit.curHP - 1;
 
 
 		if (gBattleStats.damage > defender->unit.curHP)

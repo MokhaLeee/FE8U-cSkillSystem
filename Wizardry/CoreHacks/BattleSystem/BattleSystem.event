@@ -71,4 +71,30 @@ ALIGN 4
 #include "WeaponTriangle/WTA_Bonus.lyn.event"
 
 
+
+
+// ====================================================
+//            Battle Check Can Counter
+// ====================================================
+
+/*
+ * Idea:
+ * Firstly null the check can-counter calc in function: SetBattleUnitWeapon
+ * This has been set inside "WeaponEquip.c"
+ * Then we shall rework on function: BattleInitTargetCanCounter
+ *
+ */
+
+#include "CheckCanCounter/CheckCanCounter.lyn.event"
+
+
+
+
+// ====================================================
+//                 Weapon Equipment
+// ====================================================
+#include "WeaponEquip/WeaponEquip.lyn.event"
+
+
+
 #endif // BATTLE_SYSTEM_REWORK

@@ -15,8 +15,8 @@ Boost_Item_BC:
 // For Debug
 PUSH
 	
-	ORG	$2C5AC
-	//BYTE $64 $20	// Exp=100
+	// ORG	$2C5AC
+	// BYTE $64 $20	// Exp=100
 	
 	// Eirika level 10
 	ORG $8B3C2B

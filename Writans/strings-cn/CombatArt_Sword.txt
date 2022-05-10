@@ -1,0 +1,111 @@
+## msg_CAN_WrathStrike
+刚击[X]
+
+## msg_CAD_WrathStrike
+刚击[X]
+
+
+## msg_CAN_Grounder
+燕返[X]
+
+## msg_CAD_Grounder
+克制飞行系敌人[X]
+
+
+## msg_CAN_Soulblade
+魔法剑[X]
+
+## msg_CAD_Soulblade
+魔法攻击，根据自身魔防提升威力[X]
+
+
+## msg_CAN_BaneOfMonsters
+魔物斩击[X]
+
+## msg_CAD_BaneOfMonsters
+魔物特效的剑技[X]
+
+
+## msg_CAN_Sunder
+一刀两断[X]
+
+## msg_CAD_Sunder
+一刀两断[X]
+
+
+## msg_CAN_HazeSlice
+霞切[X]
+
+## msg_CAD_HazeSlice
+霞切[X]
+
+
+## msg_CAN_Hexblade
+魔刃[X]
+
+## msg_CAD_Hexblade
+魔法攻击[X]
+
+
+## msg_CAN_FinesseBlade
+秘剑[X]
+
+## msg_CAD_FinesseBlade
+根据自身技术提升威力[X]
+
+
+## msg_CAN_Windsweep
+疾风横扫[X]
+
+## msg_CAD_Windsweep
+对手无法反击[X]
+
+
+## msg_CAN_SwordDance
+剑舞[X]
+
+## msg_CAD_SwordDance
+根据自身魅力提升威力[X]
+
+
+## msg_CAN_Assassinate
+暗杀[X]
+
+## msg_CAD_Assassinate
+瞬杀概率提升(技+运)%的暗杀一击[X]
+
+
+## msg_CAN_Subdue
+手下留情[X]
+
+## msg_CAD_Subdue
+对方HP至少剩余1[X]
+
+
+## msg_CAN_FoudroyantStrike
+雷迅[X]
+
+## msg_CAD_FoudroyantStrike
+克制重装敌人与龙[X]
+
+
+## msg_CAN_SublimeHeaven
+霸天[X]
+
+## msg_CAD_SublimeHeaven
+根据自身魔力提升威力，克制龙[X]
+
+
+## msg_CAN_RupturedHeaven
+破天[X]
+
+## msg_CAD_RupturedHeaven
+根据自身魔力提升威力，克制龙[X]
+
+
+## msg_CAN_HeavensFall
+崩天[X]
+
+## msg_CAD_HeavensFall
+根据自身魔力提升威力[X]
+

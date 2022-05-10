@@ -123,9 +123,20 @@ void MenuPanel_DrawCombatArt(const struct CombatArtInfo* info){
 	else if( info->eff_dragon )
 		DrawIcon(
 			TILEMAP_LOCATED( gBG0TilemapBuffer, xPos + 11, yPos + 1),
-			MASTERY_ICON(MASTERY_ICON_FLY), 
+			MASTERY_ICON(MASTERY_ICON_DRAGON), 
 			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
 	
+	else if( info->eff_monster )
+		DrawIcon(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, xPos + 11, yPos + 1),
+			MASTERY_ICON(MASTERY_ICON_MONSTER), 
+			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
+	
+	else if( info->eff_fly )
+		DrawIcon(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, xPos + 11, yPos + 1),
+			MASTERY_ICON(MASTERY_ICON_FLY), 
+			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
 		
 			
 	

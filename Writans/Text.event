@@ -434,80 +434,176 @@ __TEXTPROCESSDB1:
 setText($DB1, __TEXTPROCESSDB1)
 
 __TEXTPROCESSDB2:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_WrathStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_TempestLance.fetxt.dmp"
 setText($DB2, __TEXTPROCESSDB2)
 
 __TEXTPROCESSDB3:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_WrathStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_TempestLance.fetxt.dmp"
 setText($DB3, __TEXTPROCESSDB3)
 
 __TEXTPROCESSDB4:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Grounder.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Knightkneeler.fetxt.dmp"
 setText($DB4, __TEXTPROCESSDB4)
 
 __TEXTPROCESSDB5:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Grounder.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Knightkneeler.fetxt.dmp"
 setText($DB5, __TEXTPROCESSDB5)
 
 __TEXTPROCESSDB6:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_BaneOfMonsters.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_CurvedShot.fetxt.dmp"
 setText($DB6, __TEXTPROCESSDB6)
 
 __TEXTPROCESSDB7:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_BaneOfMonsters.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_CurvedShot.fetxt.dmp"
 setText($DB7, __TEXTPROCESSDB7)
 
 __TEXTPROCESSDB8:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_TempestLance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_HeavyDraw.fetxt.dmp"
 setText($DB8, __TEXTPROCESSDB8)
 
 __TEXTPROCESSDB9:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_TempestLance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_HeavyDraw.fetxt.dmp"
 setText($DB9, __TEXTPROCESSDB9)
 
 __TEXTPROCESSDBA:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Knightkneeler.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_WrathStrike.fetxt.dmp"
 setText($DBA, __TEXTPROCESSDBA)
 
 __TEXTPROCESSDBB:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Knightkneeler.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_WrathStrike.fetxt.dmp"
 setText($DBB, __TEXTPROCESSDBB)
 
 __TEXTPROCESSDBC:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_CurvedShot.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Grounder.fetxt.dmp"
 setText($DBC, __TEXTPROCESSDBC)
 
 __TEXTPROCESSDBD:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_CurvedShot.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Grounder.fetxt.dmp"
 setText($DBD, __TEXTPROCESSDBD)
 
 __TEXTPROCESSDBE:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_HeavyDraw.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Soulblade.fetxt.dmp"
 setText($DBE, __TEXTPROCESSDBE)
 
 __TEXTPROCESSDBF:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_HeavyDraw.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Soulblade.fetxt.dmp"
 setText($DBF, __TEXTPROCESSDBF)
 
 __TEXTPROCESSDC0:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Assassinate.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_BaneOfMonsters.fetxt.dmp"
 setText($DC0, __TEXTPROCESSDC0)
 
 __TEXTPROCESSDC1:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Assassinate.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_BaneOfMonsters.fetxt.dmp"
 setText($DC1, __TEXTPROCESSDC1)
 
 __TEXTPROCESSDC2:
-#incbin ".TextEntries\TextMain-cnmsg_SN_Lethality.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Sunder.fetxt.dmp"
 setText($DC2, __TEXTPROCESSDC2)
 
 __TEXTPROCESSDC3:
-#incbin ".TextEntries\TextMain-cnmsg_SD_Lethality.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Sunder.fetxt.dmp"
 setText($DC3, __TEXTPROCESSDC3)
 
 __TEXTPROCESSDC4:
-#incbin ".TextEntries\TextMain-cnmsg_end.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_HazeSlice.fetxt.dmp"
 setText($DC4, __TEXTPROCESSDC4)
+
+__TEXTPROCESSDC5:
+#incbin ".TextEntries\TextMain-cnmsg_CAD_HazeSlice.fetxt.dmp"
+setText($DC5, __TEXTPROCESSDC5)
+
+__TEXTPROCESSDC6:
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Hexblade.fetxt.dmp"
+setText($DC6, __TEXTPROCESSDC6)
+
+__TEXTPROCESSDC7:
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Hexblade.fetxt.dmp"
+setText($DC7, __TEXTPROCESSDC7)
+
+__TEXTPROCESSDC8:
+#incbin ".TextEntries\TextMain-cnmsg_CAN_FinesseBlade.fetxt.dmp"
+setText($DC8, __TEXTPROCESSDC8)
+
+__TEXTPROCESSDC9:
+#incbin ".TextEntries\TextMain-cnmsg_CAD_FinesseBlade.fetxt.dmp"
+setText($DC9, __TEXTPROCESSDC9)
+
+__TEXTPROCESSDCA:
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Windsweep.fetxt.dmp"
+setText($DCA, __TEXTPROCESSDCA)
+
+__TEXTPROCESSDCB:
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Windsweep.fetxt.dmp"
+setText($DCB, __TEXTPROCESSDCB)
+
+__TEXTPROCESSDCC:
+#incbin ".TextEntries\TextMain-cnmsg_CAN_SwordDance.fetxt.dmp"
+setText($DCC, __TEXTPROCESSDCC)
+
+__TEXTPROCESSDCD:
+#incbin ".TextEntries\TextMain-cnmsg_CAD_SwordDance.fetxt.dmp"
+setText($DCD, __TEXTPROCESSDCD)
+
+__TEXTPROCESSDCE:
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Assassinate.fetxt.dmp"
+setText($DCE, __TEXTPROCESSDCE)
+
+__TEXTPROCESSDCF:
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Assassinate.fetxt.dmp"
+setText($DCF, __TEXTPROCESSDCF)
+
+__TEXTPROCESSDD0:
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Subdue.fetxt.dmp"
+setText($DD0, __TEXTPROCESSDD0)
+
+__TEXTPROCESSDD1:
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Subdue.fetxt.dmp"
+setText($DD1, __TEXTPROCESSDD1)
+
+__TEXTPROCESSDD2:
+#incbin ".TextEntries\TextMain-cnmsg_CAN_FoudroyantStrike.fetxt.dmp"
+setText($DD2, __TEXTPROCESSDD2)
+
+__TEXTPROCESSDD3:
+#incbin ".TextEntries\TextMain-cnmsg_CAD_FoudroyantStrike.fetxt.dmp"
+setText($DD3, __TEXTPROCESSDD3)
+
+__TEXTPROCESSDD4:
+#incbin ".TextEntries\TextMain-cnmsg_CAN_SublimeHeaven.fetxt.dmp"
+setText($DD4, __TEXTPROCESSDD4)
+
+__TEXTPROCESSDD5:
+#incbin ".TextEntries\TextMain-cnmsg_CAD_SublimeHeaven.fetxt.dmp"
+setText($DD5, __TEXTPROCESSDD5)
+
+__TEXTPROCESSDD6:
+#incbin ".TextEntries\TextMain-cnmsg_CAN_RupturedHeaven.fetxt.dmp"
+setText($DD6, __TEXTPROCESSDD6)
+
+__TEXTPROCESSDD7:
+#incbin ".TextEntries\TextMain-cnmsg_CAD_RupturedHeaven.fetxt.dmp"
+setText($DD7, __TEXTPROCESSDD7)
+
+__TEXTPROCESSDD8:
+#incbin ".TextEntries\TextMain-cnmsg_CAN_HeavensFall.fetxt.dmp"
+setText($DD8, __TEXTPROCESSDD8)
+
+__TEXTPROCESSDD9:
+#incbin ".TextEntries\TextMain-cnmsg_CAD_HeavensFall.fetxt.dmp"
+setText($DD9, __TEXTPROCESSDD9)
+
+__TEXTPROCESSDDA:
+#incbin ".TextEntries\TextMain-cnmsg_SN_Lethality.fetxt.dmp"
+setText($DDA, __TEXTPROCESSDDA)
+
+__TEXTPROCESSDDB:
+#incbin ".TextEntries\TextMain-cnmsg_SD_Lethality.fetxt.dmp"
+setText($DDB, __TEXTPROCESSDDB)
+
+__TEXTPROCESSDDC:
+#incbin ".TextEntries\TextMain-cnmsg_end.fetxt.dmp"
+setText($DDC, __TEXTPROCESSDDC)
 
 }
 

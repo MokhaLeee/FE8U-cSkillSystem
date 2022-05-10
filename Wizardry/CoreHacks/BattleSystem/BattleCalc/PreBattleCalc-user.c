@@ -4,11 +4,6 @@ void BC_Lethality(struct BattleUnit* attacker, struct BattleUnit* defender){
 	
 	struct Unit* unit_act = GetUnit(attacker->unit.index);
 
-	
-	// CA_Assassinate
-	if( gpBattleFlagExt->isCombat && (&gBattleActor == attacker) )
-		if( CA_Assassinate == gpBattleFlagExt->combatArt_id )
-			attacker->battleSilencerRate += GetUnitSkill(unit_act) + GetUnitLuck(unit_act);
 
 	// Skill: SID_Lethality
 	if( (*SkillTester)(unit_act, SID_Lethality) )

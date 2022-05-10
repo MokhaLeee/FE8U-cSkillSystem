@@ -3,8 +3,24 @@
 	// Sword: 0x01
 	#define eCA_WrathStrike 0x01
 	#define eCA_Grounder 0x02
-	#define eCA_BaneOfMonsters 0x03
-	#define eCA_CA_Assassinate 0x4
+	#define eCA_Soulblade 0x3
+	#define eCA_BaneOfMonsters 0x004
+	#define eCA_Sunder 0x05
+	#define eCA_Hexblade 0x06
+	#define eCA_HazeSlice 0x07
+	#define eCA_FinesseBlade 0x08
+	#define eCA_Windsweep 0x09
+	#define eCA_SwordDance 0x0A
+	#define eCA_Assassinate 0x0B
+	#define eCA_Subdue 0x0C
+	#define eCA_FoudroyantStrike 0x0D
+	#define eCA_SublimeHeaven 0x0E
+	#define eCA_RupturedHeaven 0x0F
+	#define eCA_HeavensFall 0x10
+	
+	
+	
+	
 	
 	
 	// Lance: 0x20

@@ -126,7 +126,9 @@ s8 BattleGenerateHit(struct BattleUnit* attacker, struct BattleUnit* defender) {
 		
 		return TRUE;
 		
-	} else if (defender->statusOut == UNIT_STATUS_PETRIFY || defender->statusOut == UNIT_STATUS_13) {
+	} 
+	else if (defender->statusOut == UNIT_STATUS_PETRIFY || defender->statusOut == UNIT_STATUS_13) 
+	{
 		gBattleHitIterator->info |= BATTLE_HIT_INFO_FINISHES;
 
 		gBattleHitIterator++;

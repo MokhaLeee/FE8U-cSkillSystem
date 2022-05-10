@@ -33,4 +33,17 @@ BattleTriangleBonusCalcLoopTable:
 	POIN WTA_SwordBreaker WTA_AxeBreaker WTA_LanceBreaker
 	POIN WTA_BowBreaker WTA_TomeBreaker
 	WORD 0
+
+
+// Battle Can-Counter
+ALIGN 4
+BattleCheckNullCounterLoop:
+	// int (BNC)(void)
+	// If target cannot counter, return 1
+	POIN BNC_CheckEgg
+	POIN BNC_WpnAttr
+	POIN BNC_UnitStat
+	POIN BNC_CheckRange
+	POIN BNC_CombatArt
+	WORD 0
 	

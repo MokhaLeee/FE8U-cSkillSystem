@@ -38,6 +38,8 @@ void LoadUnit_CombatArt(struct Unit* unit){
 // For Pre-Battle Calc
 void BC_CombatArtBonus(struct BattleUnit* attacker, struct BattleUnit* defender){
 	
+	struct Unit* unit_act = GetUnit(attacker->unit.index);
+	
 	if( 0 == gpBattleFlagExt->isCombat )
 		return;
 	
@@ -57,10 +59,72 @@ void BC_CombatArtBonus(struct BattleUnit* attacker, struct BattleUnit* defender)
 	if( 1 == info->is_magic )
 		attacker->weaponAttributes |= IA_MAGICDAMAGE;
 	
+	// Judge for atk_bonus
+	if( 1 == info->atk_bonus )
+		switch (gpBattleFlagExt->combatArt_id)
+		{
+			case CA_Soulblade:
+				attacker->battleAttack += ResGetter(unit_act);
+				break;
+			
+			case CA_FinesseBlade:
+				attacker->battleAttack += SklGetter(unit_act);
+				break;
+				
+			case CA_SwordDance:
+				// W.I.P.
+				break;
+			
+			case CA_Assassinate:
+				attacker->battleSilencerRate += 
+					GetUnitSkill(unit_act) + GetUnitLuck(unit_act);
+				break;
+				
+			case CA_RupturedHeaven:
+			case CA_SublimeHeaven:
+				attacker->battleAttack += MagGetter(unit_act);
+				break;
+			
+			default:
+				break;
+		}
+	
+	return;
+	
 }
 
-// COMBAT_ART_ICON
 
+// For Check Can Counter
+int BNC_CombatArt(){
+	
+	if( gBattleActor.unit.index != gpBattleFlagExt->combat_unit )
+		return 0;
+	
+	const struct CombatArtInfo *info = GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
+	
+	if( 0 == info )
+		return 0;
+	
+	if( 0 == info->special_eff )
+		return 0;
+	
+	// Check Combat Art
+	switch(gpBattleFlagExt->combatArt_id)
+	{
+		case CA_Windsweep:
+			return 1;
+		
+		
+		default:
+			return 0;
+	}
+		
+
+}
+
+
+
+// COMBAT_ART_ICON
 // For Icon Display
 const void* GetCombatArtIconGfx(int index){
 	

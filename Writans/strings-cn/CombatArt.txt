@@ -25,55 +25,33 @@
 ## msg_CA_PhyAtk
 物理攻击[X]
 
-## msg_CAN_WrathStrike
- 刚击[X]
-
-## msg_CAD_WrathStrike
-刚击[X]
-
-
-## msg_CAN_Grounder
- 燕返[X]
-
-## msg_CAD_Grounder
-燕返[X]
-
-
-## msg_CAN_BaneOfMonsters
- 魔物斩击[X]
-
-## msg_CAD_BaneOfMonsters
-魔物特效的剑技[X]
-
 
 ## msg_CAN_TempestLance
- 旋风枪[X]
+旋风枪[X]
 
 ## msg_CAD_TempestLance
 强有力的枪技[X]
 
 
 ## msg_CAN_Knightkneeler
- 弑骑一击[X]
+弑骑一击[X]
 
 ## msg_CAD_Knightkneeler
 骑兵特效的枪技[X]
 
 ## msg_CAN_CurvedShot
- 曲射[X]
+曲射[X]
 
 ## msg_CAD_CurvedShot
 高命中的弓箭攻击[X]
 
 
 ## msg_CAN_HeavyDraw
- 强弓[X]
+强弓[X]
 
 ## msg_CAD_HeavyDraw
 强有力的的弓箭攻击[X]
 
-## msg_CAN_Assassinate
- 暗杀[X]
 
-## msg_CAD_Assassinate
-攻击造成必杀时有几率杀死对方[X]
+
+

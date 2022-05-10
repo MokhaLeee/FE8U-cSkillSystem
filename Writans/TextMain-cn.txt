@@ -23,6 +23,7 @@
 #include strings-cn/Skills_BattleTriangle.txt
 #include strings-cn/PrepScreen.txt
 #include strings-cn/CombatArt.txt
+#include strings-cn/CombatArt_Sword.txt
 #include strings-cn/Skills_BattleStatus.txt
 
 ## msg_end

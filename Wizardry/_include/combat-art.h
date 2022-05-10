@@ -6,10 +6,25 @@ struct CombatArtInfo {
 	/* 04 */ const void* icon;
 	
 	/* 08 */ u32 is_lengency : 1;
+	
+			// need judge for art-varied atk bonus
+			// this will get additional calc in Pre-Battle Calc
+			 u32 atk_bonus : 1;	
+			
+			// If set, attack based on unit magic power
 			 u32 is_magic : 1;
+			 
+			 // effect to class
 			 u32 eff_heavy : 1;
 			 u32 eff_ride : 1;
 			 u32 eff_dragon : 1;
+			 u32 eff_monster : 1;
+			 u32 eff_fly : 1;
+			 
+			 // If set, mean as can-counter or battle-hit, etc. special calc
+			 u32 special_eff : 1;
+			 
+			 // If set, unit will double attack.
 			 u32 double_attack : 1;
 			 
 	/* 0C */ u8 weapon_type;
