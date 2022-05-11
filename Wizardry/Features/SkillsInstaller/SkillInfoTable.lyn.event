@@ -17,7 +17,8 @@ POIN SkillInfo_Desperation
 POIN SkillInfo_DesperationBat
 POIN SkillInfo_QuickRiposte
 POIN SkillInfo_Lethality
-WORD $0 $0 $0 $0 $0 $0 $0 $0 $0 $0
+POIN SkillInfo_Crit
+WORD $0 $0 $0 $0 $0 $0 $0 $0 $0
 POIN SkillInfo_SwordBreaker
 POIN SkillInfo_AxeBreaker
 POIN SkillInfo_LanceBreaker

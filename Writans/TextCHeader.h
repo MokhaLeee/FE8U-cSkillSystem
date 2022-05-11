@@ -147,5 +147,7 @@ enum{
 	ENUM_msg_CAD_HeavensFall = 0xDD9,
 	ENUM_msg_SN_Lethality = 0xDDA,
 	ENUM_msg_SD_Lethality = 0xDDB,
-	ENUM_msg_end = 0xDDC,
+	ENUM_msg_SN_Crit = 0xDDC,
+	ENUM_msg_SD_Crit = 0xDDD,
+	ENUM_msg_end = 0xDDE,
 };

@@ -602,8 +602,16 @@ __TEXTPROCESSDDB:
 setText($DDB, __TEXTPROCESSDDB)
 
 __TEXTPROCESSDDC:
-#incbin ".TextEntries\TextMain-cnmsg_end.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_Crit.fetxt.dmp"
 setText($DDC, __TEXTPROCESSDDC)
+
+__TEXTPROCESSDDD:
+#incbin ".TextEntries\TextMain-cnmsg_SD_Crit.fetxt.dmp"
+setText($DDD, __TEXTPROCESSDDD)
+
+__TEXTPROCESSDDE:
+#incbin ".TextEntries\TextMain-cnmsg_end.fetxt.dmp"
+setText($DDE, __TEXTPROCESSDDE)
 
 }
 

@@ -4,20 +4,19 @@ ALIGN 4
 PreBattleCalcLoopTable:
 	// (struct BattleUnit* attacker, struct BattleUnit* defender)
 	
-	// Init on first
+	// Init on first(if it has attr bonus)
 	POIN BC_Init
+	POIN BC_CombatArtBonus 	// CombatArtCore/Misc
 	
-	// Check WTA Bonus
+	
+	
 	POIN BC_WTA_Bonus
+	POIN BC_BlowBonus
+	POIN BC_BattleStatusSkills
 	
-	// CombatArtCore/Misc
-	POIN BC_CombatArtBonus 		
-	
-	// Lethality rate
-	POIN BC_Lethality
 	
 	// Common calc 
-	POIN BC_Atk BC_AS BC_DefRes BC_Hit BC_Avo BC_Crit BC_Dodge
+	POIN BC_Lethality BC_Atk BC_AS BC_DefRes BC_Hit BC_Avo BC_Crit BC_Dodge
 	
 	// Not did: Support / Status bonus / Weapon rank bonus
 	WORD 0

@@ -30,6 +30,9 @@ extern u8 ITEM_MAG_BOOSTER_ID; // 0xBC
 // ======= Get-funcs =======
 // =========================
 
+// Check For battle
+int CheckMagAttack(struct BattleUnit*);
+
 // Get unit mag pointer, you can use as *GetMagAt(unit) to get unit magic power
 s8* GetMagAt(struct Unit*);
 

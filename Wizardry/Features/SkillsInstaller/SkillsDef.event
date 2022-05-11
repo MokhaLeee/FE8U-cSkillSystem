@@ -23,6 +23,7 @@
 #define SKILLID_QuickRiposte 			0x24	// 回击
 
 #define SKILLID_Lethality				0x25	// 瞬杀
+#define SKILLID_Crit					0x26	// 必杀+
 
 
 

@@ -313,7 +313,7 @@ int CheckNormalDouble(struct BattleUnit* actor, struct BattleUnit* target){
 	if( actor->battleSpeed < target->battleSpeed )
 		return 0;
 	
-	else if( (actor->battleSpeed - target->battleSpeed) > BATTLE_FOLLOWUP_SPEED_THRESHOLD )
+	else if( (actor->battleSpeed - target->battleSpeed) > 4 )
 		return 1;
 	else
 		return 0;

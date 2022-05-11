@@ -1,7 +1,11 @@
 #include "gbafe.h"
 #include "str-mag.h"
 
-
+int CheckMagAttack(struct BattleUnit* bu){
+	
+	return 0 != ((IA_MAGICDAMAGE | IA_MAGIC) & bu->weaponAttributes);
+	
+}
 
 
 s8* GetMagAt(struct Unit* unit){

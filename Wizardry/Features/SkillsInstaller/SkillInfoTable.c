@@ -8,8 +8,8 @@ extern const struct SkillInfo SkillInfo_BlowDarting, SkillInfo_BlowDeath, SkillI
 // Battle-Order Skills
 extern const struct SkillInfo SkillInfo_Vantage, SkillInfo_VantageBat, SkillInfo_Desperation, SkillInfo_DesperationBat, SkillInfo_QuickRiposte;
 
-// Battle-Misc Skills
-extern const struct SkillInfo SkillInfo_Lethality;
+// Battle-Status Skills
+extern const struct SkillInfo SkillInfo_Lethality, SkillInfo_Crit;
 
 // Battle-Triangle Skills
 extern const struct SkillInfo SkillInfo_SwordBreaker, SkillInfo_AxeBreaker, SkillInfo_LanceBreaker, SkillInfo_BowBreaker, SkillInfo_TomeBreaker, SkillInfo_FistBreaker;
@@ -38,6 +38,7 @@ struct SkillInfo const* const SkillInfoTable[0x100] = {
 	[SID_QuickRiposte] = &SkillInfo_QuickRiposte,
 	
 	[SID_Lethality] = &SkillInfo_Lethality,
+	[SID_Crit] = &SkillInfo_Crit,
 	
 	[SID_SwordBreaker] = &SkillInfo_SwordBreaker,
 	[SID_AxeBreaker] = &SkillInfo_AxeBreaker,

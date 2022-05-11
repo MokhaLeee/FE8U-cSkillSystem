@@ -26,6 +26,7 @@ ALIGN 4
 // Blow Skills
 #include "BlowSkills/Icons.event"
 #include "BlowSkills/Infos.lyn.event"
+#include "BlowSkills/Core.lyn.event"
 
 // Battle Order Skills
 #include "BattleOrder/Icons.event"
@@ -34,7 +35,9 @@ ALIGN 4
 // Battke Misc Skills
 #include "BattleStatus/Icons.event"
 #include "BattleStatus/Infos.lyn.event"
+#include "BattleStatus/Core.lyn.event"
 
 // Battle Triangle
 #include "BattleTriangle/Icons.event"
 #include "BattleTriangle/Infos.lyn.event"
+#include "BattleTriangle/Core.lyn.event"

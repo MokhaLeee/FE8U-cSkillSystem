@@ -1,20 +1,6 @@
 #include "gbafe-chax.h"
 
-// ===========================================================
-//                         Judgement
-// ===========================================================
 
-int CheckMagAttack(struct BattleUnit* bu){
-	
-	return 0 != ((IA_MAGICDAMAGE | IA_MAGIC) & bu->weaponAttributes);
-	
-}
-
-
-
-// ===========================================================
-//                           Extern
-// ===========================================================
 
 void ComputeBattleUnitStats(struct BattleUnit* attacker, struct BattleUnit* defender){
 	
@@ -40,6 +26,22 @@ void BC_Init(struct BattleUnit* attacker, struct BattleUnit* defender){
 	attacker->battleCritRate = 0;
 	attacker->battleDodgeRate = 0;
 	attacker->battleSilencerRate = 0;
+}
+
+
+void BC_Lethality(struct BattleUnit* attacker, struct BattleUnit* defender){
+	
+	// BOSS
+	if (UNIT_CATTRIBUTES(&defender->unit) & CA_BOSS)
+		attacker->battleSilencerRate -= 30;
+	
+	
+	// Asigned
+	if( attacker->battleSilencerRate < 0 )
+		attacker->battleSilencerRate  = 0;
+	
+	if( attacker->battleSilencerRate > 100 )
+		attacker->battleSilencerRate = 100;
 }
 
 

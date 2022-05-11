@@ -36,7 +36,6 @@ ALIGN 4
 // ====================================================
 
 #include "BattleCalc/PreBattleCalc.lyn.event"
-#include "BattleCalc/PreBattleCalc-user.lyn.event"
 
 	PROTECT $2A95C $2A9A8		// ComputeBattleUnitStats
 	PROTECT $2AABC $2AB74		// ComputeBattleUnitAttack

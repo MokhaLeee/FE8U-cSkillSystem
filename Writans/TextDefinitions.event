@@ -148,6 +148,8 @@
 #define msg_CAD_HeavensFall $DD9
 #define msg_SN_Lethality $DDA
 #define msg_SD_Lethality $DDB
-#define msg_end $DDC
+#define msg_SN_Crit $DDC
+#define msg_SD_Crit $DDD
+#define msg_end $DDE
 
 #endif // TEXT_DEFINITIONS_WRITANS_TEXTMAIN_CN_TXT
