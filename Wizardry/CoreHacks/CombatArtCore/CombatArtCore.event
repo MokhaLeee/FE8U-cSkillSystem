@@ -6,7 +6,7 @@ ALIGN 4
 #include "Core/Misc.lyn.event"
 #include "bmmenu/Menu-TargetSelect.lyn.event"
 #include "bmmenu/MenuPanel.lyn.event"
-#include "Bksel/BkselCombatArt.event"
+#include "BkSel/BkselCombatArt.event"
 #include "CombatSelectTarget/uiSelectTargetRework.lyn.event"
 
 

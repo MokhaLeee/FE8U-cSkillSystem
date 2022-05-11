@@ -1,7 +1,7 @@
 
 ALIGN 4
 RangeMaxModify:
-	POIN GetCombatArt_WeaponRangeMaxBonus
+	POIN RangeGetter_CombatArtBonus
 	WORD 0
 
 ALIGN 4

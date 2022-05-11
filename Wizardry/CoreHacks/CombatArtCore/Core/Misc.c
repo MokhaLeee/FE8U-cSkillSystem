@@ -2,7 +2,7 @@
 
 
 // For Modular Range Getter
-int GetCombatArt_WeaponRangeMaxBonus(struct Unit* unit, u16 item){
+int RangeGetter_CombatArtBonus(struct Unit* unit, u16 item){
 	
 	// sine the flag is set for both attacker and defender
 	if( 1 == gpBattleFlagExt->isCombat )
@@ -95,7 +95,7 @@ void BC_CombatArtBonus(struct BattleUnit* attacker, struct BattleUnit* defender)
 
 
 // For Check Can Counter
-int BNC_CombatArt(){
+int BNullCounter_CombatArt(){
 	
 	if( gBattleActor.unit.index != gpBattleFlagExt->combat_unit )
 		return 0;
@@ -112,11 +112,11 @@ int BNC_CombatArt(){
 	switch(gpBattleFlagExt->combatArt_id)
 	{
 		case CA_Windsweep:
-			return 1;
+			return NORMAL_COUNTER;
 		
 		
 		default:
-			return 0;
+			return NORMAL_COUNTER;
 	}
 		
 

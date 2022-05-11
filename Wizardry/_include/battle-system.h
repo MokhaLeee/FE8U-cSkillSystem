@@ -7,6 +7,11 @@ enum{
 	ATTR_HITEXT_SKILLACT_ATK = 1 << 1,
 	ATTR_HITEXT_SKILLACT_DEF = 1 << 2,
 	ATTR_HITEXT_COMBAT_ART = 1 << 3,
+	
+	
+	// return value for battle-can-counter modular check
+	NORMAL_COUNTER = 0,
+	NULL_COUNTER = 1,
 };
 
 struct BattleHitExt{

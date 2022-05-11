@@ -1,0 +1,18 @@
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$0;SkillInfo_QuickRiposte:
+ORG CURRENTOFFSET+$8;SkillInfo_DesperationBat:
+ORG CURRENTOFFSET+$8;SkillInfo_Desperation:
+ORG CURRENTOFFSET+$8;SkillInfo_VantageBat:
+ORG CURRENTOFFSET+$8;SkillInfo_Vantage:
+POP
+WORD $D860D87
+POIN SI_QuickRiposte
+WORD $D840D85
+POIN SI_DesperationBat
+WORD $D820D83
+POIN SI_Desperation
+WORD $D800D81
+POIN SI_VantageBat
+WORD $D7E0D7F
+POIN SI_Vantage

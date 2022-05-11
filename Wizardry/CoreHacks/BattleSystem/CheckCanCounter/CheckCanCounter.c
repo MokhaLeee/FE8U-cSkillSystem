@@ -18,7 +18,7 @@ void BattleInitTargetCanCounter(void) {
 	BNC_Fun *it = &BattleCheckNullCounterLoop[0];
 	
 	while( *it )
-		if( 0 != (*it++)() )
+		if( NULL_COUNTER == (*it++)() )
 		{
 			gBattleTarget.weapon = 0;
 			gBattleTarget.canCounter = 0;
@@ -31,24 +31,27 @@ void BattleInitTargetCanCounter(void) {
 
 // For Modular Check Loop
 
-int BNC_CheckEgg(){
+int BNullCounter_CheckEgg(){
 	
 	// Target cannot counter if it is a gorgon egg
 	return UNIT_IS_GORGON_EGG(&gBattleTarget.unit);
 }
 
 
-int BNC_WpnAttr(){
+int BNullCounter_WpnAttr(){
 	
 	// Target cannot counter if either units are using "uncounterable" weapons
 	u32 attr = gBattleActor.weaponAttributes | gBattleTarget.weaponAttributes;
 	
-	return 0 != (attr & IA_UNCOUNTERABLE);
+	if( 0 == (attr & IA_UNCOUNTERABLE) )
+		return NORMAL_COUNTER;
+	else
+		return NULL_COUNTER;
 
 }
 
 
-int BNC_UnitStat(){
+int BNullCounter_UnitStat(){
 	
 	struct BattleUnit* bu = &gBattleTarget;
 	
@@ -58,7 +61,7 @@ int BNC_UnitStat(){
 		case UNIT_STATUS_SLEEP:
 		case UNIT_STATUS_PETRIFY:
 		case UNIT_STATUS_13:
-			return 1;
+			return NULL_COUNTER;
 
 		
 		case UNIT_STATUS_BERSERK:
@@ -67,11 +70,11 @@ int BNC_UnitStat(){
 			
 			if( UNIT_FACTION(&gBattleActor.unit) == FACTION_BLUE )
 				if( UNIT_FACTION(&gBattleTarget.unit) == FACTION_BLUE )
-					return 1;
+					return NULL_COUNTER;
 
 		
 		default:
-			return 0;
+			return NORMAL_COUNTER;
 
 	} // switch (bu->unit.statusIndex)
 	
@@ -79,17 +82,17 @@ int BNC_UnitStat(){
 }
 
 
-int BNC_CheckRange(){
+int BNullCounter_CheckRange(){
 	
 	struct BattleUnit* bu = &gBattleTarget;
 	
 	if( !IsItemCoveringRange(bu->weapon, gBattleStats.range) )
-		return 1;
+		return NULL_COUNTER;
 	
 	if( bu->weaponSlotIndex == 0xFF )
-		return 1;
+		return NULL_COUNTER;
 	
-	return 0;
+	return NORMAL_COUNTER;
 }
 
 
