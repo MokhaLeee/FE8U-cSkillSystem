@@ -41,7 +41,8 @@ int PostActionLoop(ProcPtr proc){
 			return 0;
 		}
 	
-	return 0;
+	MU_EndAll();
+	return 1;
 	
 }
 
