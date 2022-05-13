@@ -22,7 +22,7 @@ gpBattleFlagExt:
 // UnitDataExtension
 ALIGN 4
 gpUnitExtData:
-	WORD 0x02026E70	// 43(len) * 0x20(size)
+	WORD 0x02026E70	// 46(len) * 0x10(size)
 
 
 

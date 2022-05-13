@@ -36,7 +36,10 @@
 #define SKILLID_FistBreaker				0x35
 
 
-
+// Post-Action Skills
+#define SKILLID_Canto					0x50
+#define SKILLID_AlertStance				0x51
+#define SKILLID_AlertStancePlus			0x52
 
 
 ALIGN 4

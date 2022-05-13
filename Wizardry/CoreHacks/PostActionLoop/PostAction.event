@@ -1,0 +1,14 @@
+
+/*
+ * Idea: replace post-action function in 59ABFC(Check for canto)
+ */
+
+#include "src/PostAction.lyn.event"
+#include "src/UserFunctions.lyn.event"
+#include HookList.event
+
+PUSH
+ORG $59ABF8
+// _6C_NEW_CHILD_BLOCKING(gProc_PostActionLoop)
+_6C_CALL_ROUTINE_2(PostActionLoop)
+POP

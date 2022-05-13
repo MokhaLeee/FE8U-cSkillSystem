@@ -9,9 +9,8 @@ void BattleApplyWeaponTriangleEffect(struct BattleUnit* attacker, struct BattleU
 	/*
 	 * Idea:
 	 * Since vanilla WTA bonus can only get hit & dmg bonus.
-	 * So here we null the vanilla WTA bonus, but put them inside pre-battle calc
+	 * So here we null the vanilla WTA bonus
 	 * But just calculate in Pre-Battle calc
-	 * Meanwhile, we have also nulled the WTA Bonus in Pre-BattleCalc
 	 * now WTA-bonus in BattleUnit struct is just for BkSel UI.
 	 */
 	

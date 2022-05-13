@@ -14,8 +14,8 @@ extern const struct SkillInfo SkillInfo_Lethality, SkillInfo_Crit;
 // Battle-Triangle Skills
 extern const struct SkillInfo SkillInfo_SwordBreaker, SkillInfo_AxeBreaker, SkillInfo_LanceBreaker, SkillInfo_BowBreaker, SkillInfo_TomeBreaker, SkillInfo_FistBreaker;
 
-
-
+// Post-Action Skills
+extern const struct SkillInfo SkillInfo_Canto, SkillInfo_AlertStance, SkillInfo_AlertStancePlus;
 
 
 
@@ -46,6 +46,10 @@ struct SkillInfo const* const SkillInfoTable[0x100] = {
 	[SID_BowBreaker] = &SkillInfo_BowBreaker,
 	[SID_TomeBreaker] = &SkillInfo_TomeBreaker,
 	[SID_FistBreaker] = &SkillInfo_FistBreaker,
+	
+	[SID_Canto] = &SkillInfo_Canto,
+	[SID_AlertStance] = &SkillInfo_AlertStance,
+	[SID_AlertStancePlus] = &SkillInfo_AlertStancePlus,
 };
 
 

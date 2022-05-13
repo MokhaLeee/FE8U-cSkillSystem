@@ -1,7 +1,7 @@
 #include "gbafe-chax.h"
 
 // icons
-extern const u16 SI_SwordBreaker[], SI_AxeBreaker[], SI_LanceBreaker[], SI_BowBreaker[];
+extern const u16 SI_SwordBreaker[], SI_AxeBreaker[], SI_LanceBreaker[], SI_BowBreaker[], SI_TomeBreaker[];
 
 const struct SkillInfo SkillInfo_SwordBreaker = {
 	
@@ -32,8 +32,8 @@ const struct SkillInfo SkillInfo_LanceBreaker = {
 
 const struct SkillInfo SkillInfo_BowBreaker = {
 	
-	.msg_desc = ENUM_msg_SD_BlowDeath,
-	.msg_name = ENUM_msg_SN_BlowDeath,
+	.msg_desc = ENUM_msg_SD_BowBreaker,
+	.msg_name = ENUM_msg_SN_BowBreaker,
 	.icon = SI_BowBreaker,
 	
 };
@@ -43,7 +43,7 @@ const struct SkillInfo SkillInfo_TomeBreaker = {
 	
 	.msg_desc = ENUM_msg_SD_TomeBreaker,
 	.msg_name = ENUM_msg_SN_TomeBreaker,
-	.icon = 0, // W.I.P.
+	.icon = SI_TomeBreaker, 
 	
 };
 

@@ -1,0 +1,12 @@
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$0;SkillInfo_AlertStancePlus:
+ORG CURRENTOFFSET+$8;SkillInfo_AlertStance:
+ORG CURRENTOFFSET+$8;SkillInfo_Canto:
+POP
+WORD $D9C0D9D
+POIN SI_AlertStancePlus
+WORD $D9A0D9B
+POIN SI_AlertStance
+WORD $D980D99
+POIN SI_Canto

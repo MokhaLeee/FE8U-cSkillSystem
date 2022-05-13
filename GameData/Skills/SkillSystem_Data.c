@@ -9,6 +9,7 @@ const struct SkillROMList CharSkillRomList[0x100] = {
 		
 		.default_ram_skill[0] = SID_BowBreaker,
 		.default_ram_skill[1] = SID_QuickRiposte,
+		.default_ram_skill[2] = SID_AlertStancePlus,
 		.master_ram_skill[0] = SID_Vantage,
 		.master_ram_skill[1] = SID_BlowDeath,
 	},
@@ -62,6 +63,7 @@ const struct SkillROMList ClassSkillRomList[0x100] = {
 	},
 	
 	[CLASS_PALADIN] = {
+		.default_rom_skill[0] = SID_Canto,
 		.master_rom_skill[0] = SID_BlowUncanny,
 		
 		.default_ram_skill[0] = SID_AxeBreaker,

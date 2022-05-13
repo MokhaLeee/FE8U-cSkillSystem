@@ -76,8 +76,7 @@ void BC_CombatArtBonus(struct BattleUnit* attacker, struct BattleUnit* defender)
 				break;
 			
 			case CA_Assassinate:
-				attacker->battleSilencerRate += 
-					GetUnitSkill(unit_act) + GetUnitLuck(unit_act);
+				attacker->battleSilencerRate += 50;
 				break;
 				
 			case CA_RupturedHeaven:

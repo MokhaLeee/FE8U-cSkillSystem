@@ -1,0 +1,10 @@
+ALIGN 4
+// Icon
+SI_Canto:
+	#incbin "Icons/Canto.4bpp"
+
+SI_AlertStance:
+	#incbin "Icons/AlertStance.4bpp"
+
+SI_AlertStancePlus:
+	#incbin "Icons/AlertStancePlus.4bpp"

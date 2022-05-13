@@ -6,7 +6,7 @@
 // It plays the same role as "Master Hack Installers" from other buildfiles.
 
 #include "6CDefinitions.event"
-#include "EssentialFixes.event"
+
 // =======================
 // = CORE HACKS BL RANGE =
 // =======================
@@ -37,6 +37,9 @@ ALIGN 4
 #include "CoreSupport/ChapterInitHook/ChapterInitHook.event"
 #include "CoreSupport/UnitMenu/UnitMenu.event"
 #include "CoreSupport/UnitAction/UnitAction.event"
+
+// a new space to store more unit data
+#include "CoreSupport/UnitDataExtension/UnitExt.event"
 
 // Null BWL table so we can get a free save/load space
 #include "CoreSupport/NullBwl/NullBwl.event"
@@ -82,7 +85,8 @@ ALIGN 4
 // Three Houses sytle Combat-Art
 #include "CoreHacks/CombatArtCore/CombatArtCore.event"
 
-
+// Post Action Loop to insert blocking-procs, etc
+#include "CoreHacks/PostActionLoop/PostAction.event"
 
 
 
@@ -120,6 +124,7 @@ ALIGN 4
 
 
 // these will be finally replaced
+#include "EssentialFixes.event"
 #include "CoreHacks/StrMag/Combat/_Combat.event"
 #include "CoreHacks/WeaponRange/ProperRangeGetters_Internal.event"
 #include "CoreHacks/StatusGetter/InjectConGetters.event"

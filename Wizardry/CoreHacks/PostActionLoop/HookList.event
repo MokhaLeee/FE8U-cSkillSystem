@@ -1,0 +1,15 @@
+ALIGN 4
+PostActionLoopTable:
+	POIN PostAction_Canto
+	
+	// Actually I don't know why it put End-Event behand Cando in vanilla
+	// I think This may cause bug ?
+	POIN PostAction_CallEndEvent
+	
+	
+	// Hook here
+	// POIN PostAction_Template
+	
+	// End
+	WORD 0
+	

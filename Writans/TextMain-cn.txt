@@ -21,10 +21,12 @@
 #include strings-cn/Skills_Blow.txt
 #include strings-cn/Skills_BattleOrder.txt
 #include strings-cn/Skills_BattleTriangle.txt
+#include strings-cn/Skills_BattleStatus.txt
+#include strings-cn/Skills_PostAction.txt
 #include strings-cn/PrepScreen.txt
 #include strings-cn/CombatArt.txt
 #include strings-cn/CombatArt_Sword.txt
-#include strings-cn/Skills_BattleStatus.txt
+
 
 ## msg_end
 0[X]

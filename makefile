@@ -9,7 +9,7 @@ EVENT_MAIN := Main.event
 ROM_SOURCE := FE8U.gba
 ROM_TARGET := SkillSys.gba
 
-include make_tools.mk
+include tools.mk
 
 # Common cache directory
 # Used to generate dependency files in
@@ -57,10 +57,10 @@ endif
 # = COMPONENT RULES =
 # ===================
 
-include make_spritans.mk
-include make_writans.mk
-include make_game-data.mk
-include make_wizardry.mk
+include spritans.mk
+include writans.mk
+include game-data.mk
+include wizardry.mk
 
 
 # ==============

@@ -29,6 +29,7 @@
 #include "prep-screen-rework.h"
 #include "battle-system.h"
 #include "combat-art.h"
+#include "unit-ext.h"
 
 #include "../../Writans/TextCHeader.h"
 #include "../Features/SkillsInstaller/SkillsDef.h"

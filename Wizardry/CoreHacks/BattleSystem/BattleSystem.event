@@ -9,9 +9,8 @@ ALIGN 4
 #include HookList.event
 
 #include "Core/BattleSystemCore.lyn.event"
-
-	PROTECT $2AE90 $2AED0		// ClearBattleHits
-	PROTECT $2B83C $2B92C		// BattleGenerateHit
+PROTECT $2AE90 $2AED0		// ClearBattleHits
+PROTECT $2B83C $2B92C		// BattleGenerateHit
 
 
 
@@ -23,11 +22,10 @@ ALIGN 4
 // check skill: vantage & despration & QuickRiposte
 
 #include "BattleOrder/BattleOrder.lyn.event"
-
-	PROTECT $2AED0 $2AF7C		// BattleUnwind
-	PROTECT $2AF90 $2B018		// BattleCheckDoubling
-	PROTECT $2B018 $2B080		// BattleGenerateRoundHits
-	PROTECT $2B080 $2B094		// GetBattleUnitHitCount
+PROTECT $2AED0 $2AF7C		// BattleUnwind
+PROTECT $2AF90 $2B018		// BattleCheckDoubling
+PROTECT $2B018 $2B080		// BattleGenerateRoundHits
+PROTECT $2B080 $2B094		// GetBattleUnitHitCount
 
 
 
@@ -36,25 +34,29 @@ ALIGN 4
 // ====================================================
 
 #include "BattleCalc/PreBattleCalc.lyn.event"
-
-	PROTECT $2A95C $2A9A8		// ComputeBattleUnitStats
-	PROTECT $2AABC $2AB74		// ComputeBattleUnitAttack
-	PROTECT $2AB74 $2ABAC		// ComputeBattleUnitSpeed
-	PROTECT $2AA44 $2AAA4		// ComputeBattleUnitDefense
-	PROTECT $2ABAC $2ABE4		// ComputeBattleUnitHitRate
-	PROTECT $2ABE4 $2AC18		// ComputeBattleUnitAvoidRate
-	PROTECT $2AC18 $2AC54		// ComputeBattleUnitCritRate
-	PROTECT $2AC54 $2AC60		// ComputeBattleUnitDodgeRate
+PROTECT $2A95C $2A9A8		// ComputeBattleUnitStats
+PROTECT $2AABC $2AB74		// ComputeBattleUnitAttack
+PROTECT $2AB74 $2ABAC		// ComputeBattleUnitSpeed
+PROTECT $2AA44 $2AAA4		// ComputeBattleUnitDefense
+PROTECT $2ABAC $2ABE4		// ComputeBattleUnitHitRate
+PROTECT $2ABE4 $2AC18		// ComputeBattleUnitAvoidRate
+PROTECT $2AC18 $2AC54		// ComputeBattleUnitCritRate
+PROTECT $2AC54 $2AC60		// ComputeBattleUnitDodgeRate
 
 #include "BattleCalc/BattleCalcReal.lyn.event"
+PROTECT $2ACF8 $2AD54		// ComputeBattleUnitSilencerRate
+PROTECT $2ADCC $2AE90		// ComputeBattleUnitSpecialWeaponStats
+
 #include "BattleCalc/BattleHit.lyn.event"
+PROTECT $2B3EC $2B578		// BattleGenerateHitAttributes
+PROTECT $2B600 $2B83C		// BattleGenerateHitEffects
 
 // ====================================================
 //                  Bksel Rework
 // ====================================================
 #include "BattleForcast/BKSEL.lyn.event"
-
-
+PROTECT $3666C $366A0		// AddWeaponStatsAfterRound
+PROTECT $366A0 $36818		// BKSEL_SetupHitAndSuchStats
 
 // ====================================================
 //                  Battle Triangle
@@ -68,7 +70,7 @@ ALIGN 4
  */
 
 #include "WeaponTriangle/WTA_Bonus.lyn.event"
-
+PROTECT $2C7C0 $2C844		// BattleApplyWeaponTriangleEffect
 
 
 
@@ -85,7 +87,7 @@ ALIGN 4
  */
 
 #include "CheckCanCounter/CheckCanCounter.lyn.event"
-
+PROTECT $2C844 $2C8C4		// BattleInitTargetCanCounter
 
 
 
@@ -93,7 +95,7 @@ ALIGN 4
 //                 Weapon Equipment
 // ====================================================
 #include "WeaponEquip/WeaponEquip.lyn.event"
-
+PROTECT $2A730 $2A918		// SetBattleUnitWeapon
 
 
 #endif // BATTLE_SYSTEM_REWORK

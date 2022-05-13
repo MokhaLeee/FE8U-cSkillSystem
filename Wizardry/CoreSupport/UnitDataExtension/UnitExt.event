@@ -1,0 +1,14 @@
+#ifndef UNIT_DATA_EXT
+#define UNIT_DATA_EXT
+
+#include "src/Core.lyn.event"
+#include "src/Misc.lyn.event"
+#include "asm/UnitExtInit.lyn.event"
+
+PUSH
+	ORG $A4178
+	jumpToHack(UnitExtInit)
+
+POP
+
+#endif // UNIT_DATA_EXT

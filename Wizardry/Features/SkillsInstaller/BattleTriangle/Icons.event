@@ -12,5 +12,6 @@ SI_LanceBreaker:
 SI_BowBreaker:
 	#incbin "Icons/BowBreaker.4bpp"
 
-
+SI_TomeBreaker:
+	#incbin "Icons/TomeBreaker.4bpp"
 	

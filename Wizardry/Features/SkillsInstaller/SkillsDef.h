@@ -27,6 +27,11 @@ enum{
 	SID_BowBreaker = 0x33,
 	SID_TomeBreaker = 0x34,
 	SID_FistBreaker = 0x35,
+	
+	
+	SID_Canto = 0x50,
+	SID_AlertStance = 0x51,
+	SID_AlertStancePlus = 0x52,
 };
 
 

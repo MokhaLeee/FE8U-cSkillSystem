@@ -41,3 +41,9 @@ ALIGN 4
 #include "BattleTriangle/Icons.event"
 #include "BattleTriangle/Infos.lyn.event"
 #include "BattleTriangle/Core.lyn.event"
+
+// Post Action
+#include "PostActionSkills/Icons.event"
+#include "PostActionSkills/Infos.lyn.event"
+// #include "BattleTriangle/Core.lyn.event"
+

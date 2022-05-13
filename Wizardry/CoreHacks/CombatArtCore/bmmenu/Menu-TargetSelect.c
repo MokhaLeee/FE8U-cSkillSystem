@@ -37,6 +37,9 @@ const struct ProcCmd ProcCmd_CombatArt_PostTargetSelect[];
 // ================================
 
 int UMitem_CombatArt_Usability(const struct MenuItemDef* menu_item, int number){
+	// if canto, return false
+	if( US_CANTOING & gActiveUnit->state  )
+		return MENU_NOTSHOWN;
 	
 	if( 0 == UnitHasCombatArt(gActiveUnit) )
 		return MENU_NOTSHOWN;
