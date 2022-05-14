@@ -1,0 +1,46 @@
+ALIGN 4
+#include "src/CostumBlinkyRoutine.lyn.event"
+#include "src/UnitBlinkyIcon.lyn.event"
+
+ALIGN 4
+BlinkyStatusIconJumpTable:
+	FILL 0x100
+
+PUSH
+ORG $276C0
+jumpToHack(BlinkyUnitStatusIcons)
+POP
+
+#define SetStatusBlinkyIconFunc(statusID,funcPtr) "PUSH; ORG (BlinkyStatusIconJumpTable+(statusID*4)); POIN funcPtr; POP"
+
+
+#define NoStatusID 0
+#define PoisonStatusID 1
+#define SleepStatusID 2
+#define SilenceStatusID 3
+#define BerserkStatusID 4
+#define AtkRingStatusID 5
+#define DefRingStatusID 6
+#define CritRingStatusID 7
+#define AvoRingStatusID 8
+#define SickStatusID 9
+#define PetrifyStatusID 13
+
+#define BlinkyIconFuncNoIcon $80278A7
+#define BlinkyIconFuncPoisonIcon $8027701
+#define BlinkyIconFuncSleepIcon $80277A9
+#define BlinkyIconFuncSilenceIcon $8027755
+#define BlinkyIconFuncBerserkIcon $80277F9
+#define BlinkyIconFuncDancerRingIcon $8027859
+// CostumBlankyIcon_BuffStatus, CostumBlankyIcon_DeBuffStatus
+
+SetStatusBlinkyIconFunc(NoStatusID,BlinkyIconFuncNoIcon)
+SetStatusBlinkyIconFunc(PoisonStatusID,BlinkyIconFuncPoisonIcon)
+SetStatusBlinkyIconFunc(SleepStatusID,BlinkyIconFuncSleepIcon)
+SetStatusBlinkyIconFunc(SilenceStatusID,BlinkyIconFuncSilenceIcon)
+SetStatusBlinkyIconFunc(BerserkStatusID,BlinkyIconFuncBerserkIcon)
+SetStatusBlinkyIconFunc(AtkRingStatusID,BlinkyIconFuncDancerRingIcon)
+SetStatusBlinkyIconFunc(DefRingStatusID,BlinkyIconFuncDancerRingIcon)
+SetStatusBlinkyIconFunc(CritRingStatusID,BlinkyIconFuncDancerRingIcon)
+SetStatusBlinkyIconFunc(AvoRingStatusID,BlinkyIconFuncDancerRingIcon)
+SetStatusBlinkyIconFunc(SickStatusID,BlinkyIconFuncNoIcon)

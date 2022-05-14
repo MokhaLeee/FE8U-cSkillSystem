@@ -8,12 +8,12 @@
 	.short 0xF800
 .endm
 
-.type UnitExtInit, function
-.global UnitExtInit
+.type UnitExpaInit, function
+.global UnitExpaInit
 
 @ ORG $80A4178
-UnitExtInit:
-	blh		ClearUnitsExt
+UnitExpaInit:
+	blh		ClearUnitsExpa
 	add		sp, #4
 	pop		{r3}
 	mov		r8, r3

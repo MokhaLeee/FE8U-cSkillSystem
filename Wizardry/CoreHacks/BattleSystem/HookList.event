@@ -6,9 +6,8 @@ PreBattleCalcLoopTable:
 	
 	// Init on first(if it has attr bonus)
 	POIN BC_Init
-	POIN BC_CombatArtBonus 	// CombatArtCore/Misc
-	
-	
+	POIN BC_UnitStatus
+	POIN BC_CombatArtBonus
 	
 	POIN BC_WTA_Bonus
 	POIN BC_BlowBonus

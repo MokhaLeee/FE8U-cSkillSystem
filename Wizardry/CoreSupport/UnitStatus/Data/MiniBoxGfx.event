@@ -1,0 +1,38 @@
+ALIGN 4
+Gfx_UnitStatus_Attack:
+	#incbin "gfx/Gfx_UnitStatus_Attack.4bpp"
+
+ALIGN 4
+Gfx_UnitStatus_Aviod:
+	#incbin "gfx/Gfx_UnitStatus_Aviod.4bpp"
+
+ALIGN 4
+Gfx_UnitStatus_Berserk:
+	#incbin "gfx/Gfx_UnitStatus_Berserk.4bpp"
+
+ALIGN 4
+Gfx_UnitStatus_Crit:
+	#incbin "gfx/Gfx_UnitStatus_Crit.4bpp"
+
+ALIGN 4
+Gfx_UnitStatus_Defense:
+	#incbin "gfx/Gfx_UnitStatus_Defense.4bpp"
+
+ALIGN 4
+Gfx_UnitStatus_Petrify:
+	#incbin "gfx/Gfx_UnitStatus_Petrify.4bpp"
+
+ALIGN 4
+Gfx_UnitStatus_Posion:
+	#incbin "gfx/Gfx_UnitStatus_Posion.4bpp"
+
+ALIGN 4
+Gfx_UnitStatus_Silence:
+	#incbin "gfx/Gfx_UnitStatus_Silence.4bpp"
+
+ALIGN 4
+Gfx_UnitStatus_Sleep:
+	#incbin "gfx/Gfx_UnitStatus_Sleep.4bpp"
+
+
+

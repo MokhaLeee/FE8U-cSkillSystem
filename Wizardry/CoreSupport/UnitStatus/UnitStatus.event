@@ -1,0 +1,82 @@
+#ifndef UNIT_STATUS_REWORK
+#define UNIT_STATUS_REWORK
+
+#include "Data/MiniBoxGfx.event"
+#include "Data/InfoTable.lyn.event"
+
+#define InjectUnitStatusInfo(index, info) "PUSH; ORG UnitStatusInfoTable + 4*index; POIN info; POP"
+
+
+#include "Core/Core.lyn.event"
+#include "Core/UnitStatus.lyn.event"
+#include "External/ExpModularSave.lyn.event"
+#include "External/ModularStatGetter.lyn.event"
+#include "External/PreBattleCalc.lyn.event"
+
+#include "SpritIcon/UnitBlinkyIcon.event"
+#include "DuraDepletion/StatusDepletion.lyn.event"
+
+#include "Core/Hack.lyn.event"
+PROTECT $178D8 $178F4	// SetUnitStatus
+PROTECT $178F4 $17904	// SetUnitStatusExt
+PROTECT $88A2C $88B08	// HbPopulate_SSStatus
+
+
+
+
+PUSH
+// GetUnitSelectionValueThing
+ORG $1D58E
+SHORT 0x213F //change 0xF bitmask to 0x3F bitmask
+
+ORG $24D18
+SHORT 0x203F //change 0xF bitmask to 0x3F bitmask
+
+ORG $25AA6
+SHORT 0x203F //change 0xF bitmask to 0x3F bitmask
+
+ORG $27200
+SHORT 0x213F //change 0xF bitmask to 0x3F bitmask
+
+ORG $27A8C
+SHORT 0x213F //change 0xF bitmask to 0x3F bitmask
+
+ORG $27B42
+SHORT 0x213F //change 0xF bitmask to 0x3F bitmask
+
+ORG $8C470
+SHORT 0x203F //change 0xF bitmask to 0x3F bitmask
+
+ORG $8C536
+SHORT 0x203F //change 0xF bitmask to 0x3F bitmask
+
+
+ORG $8C392
+SHORT 0
+jumpToHack(MMB_DrawStatusFix)
+PROTECT $8C388 $8C45C
+
+ORG $1D732
+SHORT 0x213F //change 0xF bitmask to 0x3F bitmask
+
+
+
+
+ORG $25FC4 //restore staff targeting
+SHORT 0x203F
+
+ORG $25A22 //poison damage
+SHORT 0x203F
+
+
+
+POP
+
+
+
+
+
+
+
+
+#endif // UNIT_STATUS_REWORK

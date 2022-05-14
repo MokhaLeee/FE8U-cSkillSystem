@@ -23,7 +23,7 @@ int _lib_mod(int a, int b){
 
 // simple div a/b
 int _lib_div(int a, int b){
-	
+
 	int res = 0;
 	
 	if( a < b )

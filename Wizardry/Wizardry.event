@@ -39,7 +39,7 @@ ALIGN 4
 #include "CoreSupport/UnitAction/UnitAction.event"
 
 // a new space to store more unit data
-#include "CoreSupport/UnitDataExtension/UnitExt.event"
+#include "CoreSupport/UnitDataExpansion/UnitExpa.event"
 
 // Null BWL table so we can get a free save/load space
 #include "CoreSupport/NullBwl/NullBwl.event"
@@ -50,6 +50,9 @@ ALIGN 4
 
 // An external random number system
 #include "CoreSupport/External_RN/External_RN.event"
+
+// Expand Unit-Status to 6 bits
+#include "CoreSupport/UnitStatus/UnitStatus.event"
 
 // (Finally) Hook List for Core Supports
 #include "CoreSupport/HookList.event"

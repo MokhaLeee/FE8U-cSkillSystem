@@ -10,7 +10,6 @@ Boost_Item_BC:
 	BYTE 0 0 0 0 0
 	BYTE 2 0 0 0
 	
-	
 
 // For Debug
 PUSH

@@ -116,11 +116,11 @@ static void DrawPage1_Texts(){
 	
 	// displaying unit status name and turns
 
-	if (gStatScreen.unit->statusIndex != UNIT_STATUS_RECOVER)
+	if (GetUnitStatusIndex(gStatScreen.unit) != UNIT_STATUS_RECOVER)
 	{
 		// display name
 
-		if (gStatScreen.unit->statusIndex == UNIT_STATUS_NONE)
+		if (GetUnitStatusIndex(gStatScreen.unit) == UNIT_STATUS_NONE)
 		{
 			Text_InsertString(
 				&gStatScreen.text[STATSCREEN_TEXT_STATUS],
@@ -137,11 +137,13 @@ static void DrawPage1_Texts(){
 
 		// display turns
 
-		if (gStatScreen.unit->statusIndex != UNIT_STATUS_NONE)
+		if( UNIT_STATUS_NONE != GetUnitStatusIndex(gStatScreen.unit) )
 		{
 			DrawUiSmallNumber(
 				gBmFrameTmap0 + TILEMAP_INDEX(16, 11),
-				0, gStatScreen.unit->statusDuration);
+				0, 
+				GetUnitStatusDura(gStatScreen.unit)
+				);
 		}
 	}
 	else
@@ -152,7 +154,7 @@ static void DrawPage1_Texts(){
 
 		tmp.statusIndex = 0;
 
-		if (gStatScreen.unit->statusIndex == UNIT_STATUS_NONE)
+		if (GetUnitStatusIndex(gStatScreen.unit) == UNIT_STATUS_NONE)
 		{
 			Text_InsertString(
 				&gStatScreen.text[STATSCREEN_TEXT_STATUS],

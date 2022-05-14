@@ -17,30 +17,38 @@ HpMaxModify:
 
 PowModify:
 	// POIN MSG_Add1 | 1
+	POIN PowGetter_UnitStatus
 	WORD 0
 
 MagModify:
+	POIN MagGetter_UnitStatus
 	WORD 0
 
 SpdModify:
+	POIN SpdGetter_UnitStatus
 	WORD 0
 
 SklModify:
+	POIN SklGetter_UnitStatus
 	WORD 0
 
 LckModify:
+	POIN LckGetter_UnitStatus
 	WORD 0
 
 DefModify:
+	POIN DefGetter_UnitStatus
 	WORD 0
 
 ResModify:
+	POIN ResGetter_UnitStatus
 	WORD 0
 
 ConModify:
 	WORD 0
 
 MovModify:
+	POIN MovGetter_UnitStatus
 	WORD 0
 
 AidModify:

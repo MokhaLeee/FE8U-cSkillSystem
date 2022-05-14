@@ -19,9 +19,9 @@ gpCommonSpace:
 gpBattleFlagExt:
 	WORD 0x2026E20	// 0x10
 
-// UnitDataExtension
+// Unit Data Expansion
 ALIGN 4
-gpUnitExtData:
+gpUnitExpaData:
 	WORD 0x02026E70	// 46(len) * 0x10(size)
 
 

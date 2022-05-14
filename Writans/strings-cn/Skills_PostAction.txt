@@ -4,7 +4,7 @@
 ## msg_SD_Canto
 再动:[NL]
 若角色完成相应动作后仍有[NL]
-剩余移动力，则可再移动[X]
+剩余移动力，则可再次移动[X]
 
 
 ## msg_SN_AlertStance
@@ -21,6 +21,6 @@
 
 ## msg_SD_AlertStancePlus
 警戒态势+:[NL]
-若不行动并进行待命，[NL]
+若不行动并进行待机，[NL]
 回避+30%[X]
 

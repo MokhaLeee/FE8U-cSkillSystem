@@ -115,7 +115,7 @@ gGameSaveChunks:
 	
 	// Save Mag MSa: only FACTION_BLUE with 0x3E
 	DeclSaveChunk($0DC8, $003E, MSa_SaveUnitMag, MSa_LoadUnitMag)
-	DeclSaveChunk($0E08, $0460, MSa_SaveUnitExt, MSa_LoadUnitExt)
+	DeclSaveChunk($0E08, $0460, MSa_SaveUnitExpa, MSa_LoadUnitExpa)
 	// ends at $1268
 	// free up to $1344 ($DC free bytes)
 
@@ -159,9 +159,11 @@ gSuspendSaveChunks:
 	// Common Space: 0x40 + BattleFlagExt: 0x10
 	DeclSaveChunk($2014, $0040, MSu_SaveCommonSpace, MSu_LoadCommonSpace)
 	DeclSaveChunk($2054, $0010, MSu_SaveBattleFlagExt, MSu_LoadBattleFlagExt)
-	DeclSaveChunk($2064, $0460, MSa_SaveUnitExt, MSa_LoadUnitExt)
-	// ends at $24C4
-	// free up to $2E78 ($9B4 free bytes)
+	DeclSaveChunk($2064, $0460, MSa_SaveUnitExpa, MSa_LoadUnitExpa)
+	DeclSaveChunk($24C4, $0089, MSu_SaveUnitStatus, MSu_LoadUnitStatus)
+	
+	// ends at $2554
+	// free up to $2E78 
 
 	DeclSaveChunkEnd
 
