@@ -9,6 +9,5 @@
 
 PUSH
 ORG $59ABF8
-// _6C_NEW_CHILD_BLOCKING(gProc_PostActionLoop)
-_6C_CALL_ROUTINE_2(PostActionLoop)
+_6C_NEW_CHILD_BLOCKING(gProcPostActionHook)
 POP

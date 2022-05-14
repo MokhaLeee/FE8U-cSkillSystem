@@ -1,0 +1,10 @@
+ALIGN 4
+PostActionLoopTable:
+	
+	// void (*)(ProcPtr)
+	
+	POIN PostAction_Template
+	
+	// End
+	WORD 0
+	

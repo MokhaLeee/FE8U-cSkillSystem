@@ -89,7 +89,7 @@ ALIGN 4
 #include "CoreHacks/CombatArtCore/CombatArtCore.event"
 
 // Post Action Loop to insert blocking-procs, etc
-#include "CoreHacks/PostActionLoop/PostAction.event"
+#include "CoreHacks/PostActionHook/PostAction.event"
 
 
 
