@@ -54,12 +54,13 @@ void TickActiveFactionTurn(void) {
 		}
 		
 		if( 0 != GetUnitStatusDura(unit) )
-		{
-			// if( UNIT_STATUS_RECOVER != GetUnitStatusIndex(unit) )
-				// TryDecUnitStatusDura(unit);
-			
+		{	
 			if( 1 == GetUnitStatusDura(unit) )
 				AddTarget(unit->xPos, unit->yPos, unit->index, 0);
+			
+			else if( UNIT_STATUS_RECOVER != GetUnitStatusIndex(unit) )
+				TryDecUnitStatusDura(unit);
+
 		}
 	
 	}

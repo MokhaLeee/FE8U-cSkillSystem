@@ -32,7 +32,7 @@ int TryDecUnitStatusDura(struct Unit* unit){
 	if( 0 == status->status_dura )
 		status->status_index = 0;
 	else
-		status->status_dura = 1;
+		status->status_dura--;
 	
 	return 1;
 }
