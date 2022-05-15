@@ -2,15 +2,20 @@
 
 
 // For Modular Range Getter
-int RangeGetter_CombatArtBonus(struct Unit* unit, u16 item){
+int RangeMaxGetter_CombatArtBonus(struct Unit* unit, u16 item, int cur){
 	
 	// sine the flag is set for both attacker and defender
 	if( 1 == gpBattleFlagExt->isCombat )
 		if( unit->index == gpBattleFlagExt->combat_unit )
-			return GetCombatArtInfo(gpBattleFlagExt->combatArt_id)->range_bouns;
+			return cur + GetCombatArtInfo(gpBattleFlagExt->combatArt_id)->range_bouns;
 
 	
-	return 0;
+	return cur;
+}
+
+int RangeMinGetter_CombatArtBonus(struct Unit* unit, u16 item, int cur){
+		
+	return cur;
 }
 
 

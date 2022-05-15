@@ -11,6 +11,8 @@ MSG_Add1:
 
 
 // Modular core
+// s8 (*)(struct Unit*, s8 cur)
+
 ALIGN 4
 HpMaxModify:
 	WORD 0
