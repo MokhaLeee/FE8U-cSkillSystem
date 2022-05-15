@@ -8,7 +8,7 @@ const struct UnitStatusInfo StatusInfo_Gravity = {
 	.is_debuff = 1,
 	.is_gravity = 1,
 	.spd_bonus = -4,
-	.duration = 2,
+	.duration = 1,
 	
 	.mini_gfx = Gfx_UnitStatus_Gravity,
 };

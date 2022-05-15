@@ -32,11 +32,11 @@ void sub_80361AC(struct Porc_StatusClear *proc){
 
 
 void TickActiveFactionTurn(void) {
-	int i, displayMapChange = FALSE;
+	int displayMapChange = FALSE;
 
 	InitTargets(0, 0);
-
-	for (i = gRAMChapterData.chapterPhaseIndex + 1; i < gRAMChapterData.chapterPhaseIndex + 0x40; ++i) {
+	
+	for (int i = gRAMChapterData.chapterPhaseIndex + 1; i < gRAMChapterData.chapterPhaseIndex + 0x40; ++i) {
 		struct Unit* unit = GetUnit(i);
 
 		if (!UNIT_IS_VALID(unit))
@@ -52,18 +52,9 @@ void TickActiveFactionTurn(void) {
 			unit->torchDuration--;
 			displayMapChange = TRUE;
 		}
-		
-		if( 0 != GetUnitStatusDura(unit) )
-		{	
-			if( 1 == GetUnitStatusDura(unit) )
-				AddTarget(unit->xPos, unit->yPos, unit->index, 0);
-			
-			else if( UNIT_STATUS_RECOVER != GetUnitStatusIndex(unit) )
-				TryDecUnitStatusDura(unit);
-
-		}
 	
 	}
+	
 
 	if (displayMapChange) {
 		RenderBmMapOnBg2();
@@ -72,6 +63,87 @@ void TickActiveFactionTurn(void) {
 		NewBMXFADE(TRUE);
 		SMS_UpdateFromGameData();
 	}
+	
+	
+	/*
+	 *
+	 * 重新定一下规则：
+	 * 如果是buff, 则在自己回合清除
+	 * 如果是debuff, 则在对方回合清除
+	 *
+	 */
+	 #define DEC_STATUS(i)											\
+		struct Unit* unit = GetUnit(i);								\
+		int status_index = GetUnitStatusIndex(unit);				\
+																	\
+		if( 0 != GetUnitStatusDura(unit) )							\
+		{															\
+			if( 1 == GetUnitStatusDura(unit) )						\
+				AddTarget(unit->xPos, unit->yPos, unit->index, 0);	\
+			else if( UNIT_STATUS_RECOVER != status_index )			\
+				TryDecUnitStatusDura(unit);							\
+		}															\
+	
+	if( FACTION_BLUE == gRAMChapterData.chapterPhaseIndex )
+	{
+		// non-debuff status
+		for( int i = FACTION_BLUE + 1; i < FACTION_BLUE + 62; i++ )
+		{	
+			if( GetStatusInfo(GetUnitStatusIndex(GetUnit(i)))->is_debuff )
+				continue;
+			
+			DEC_STATUS(i)
+		}
+		
+		for( int i = FACTION_GREEN + 1; i < FACTION_GREEN + 20; i++ )
+		{
+			if( GetStatusInfo(GetUnitStatusIndex(GetUnit(i)))->is_debuff )
+				continue;
+			
+			DEC_STATUS(i)
+		}
+		
+		// debuff status
+		for( int i = FACTION_RED + 1; i < FACTION_RED + 50; i++ )
+		{
+			if( !GetStatusInfo(GetUnitStatusIndex(GetUnit(i)))->is_debuff )
+				continue;
+			
+			DEC_STATUS(i)
+		}
+	}
+	
+	else if( FACTION_RED == gRAMChapterData.chapterPhaseIndex )
+	{
+		// debuff status
+		for( int i = FACTION_BLUE + 1; i < FACTION_BLUE + 62; i++ )
+		{	
+			if( !GetStatusInfo(GetUnitStatusIndex(GetUnit(i)))->is_debuff )
+				continue;
+			
+			DEC_STATUS(i)
+		}
+		
+		for( int i = FACTION_GREEN + 1; i < FACTION_GREEN + 20; i++ )
+		{
+			if( !GetStatusInfo(GetUnitStatusIndex(GetUnit(i)))->is_debuff )
+				continue;
+			
+			DEC_STATUS(i)
+		}
+		
+		// non-debuff status
+		for( int i = FACTION_RED + 1; i < FACTION_RED + 50; i++ )
+		{
+			if( GetStatusInfo(GetUnitStatusIndex(GetUnit(i)))->is_debuff )
+				continue;
+			
+			DEC_STATUS(i)
+		}
+	}
+	
+	
+	#undef DEC_STATUS
 }
 
 
