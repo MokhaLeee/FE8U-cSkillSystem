@@ -22,7 +22,7 @@ struct SkillFastTesterList* GetOrMakeSklFastList(struct Unit* unit) {
 	
 	
 	// Get List
-	if ( &gBattleTarget == (struct BattleUnit*) unit )
+	if ( &gBattleTarget.unit == unit )
 		list = gpSkillFastList1;
 	else
 		list = gpSkillFastList0;

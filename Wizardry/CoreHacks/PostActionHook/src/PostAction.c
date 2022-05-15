@@ -81,9 +81,11 @@ static void PostAction_CallEndEvent(struct Proc* proc){
 
 
 
+// ==================================================
+//      This Proc will be inserted as blocking
+// ==================================================
 
-
-const struct ProcCmd gProcPostActionHook[] = {
+const struct ProcCmd ProcCmd_PostActionHook[] = {
 	
 	PROC_CALL (PostAction_OnInit),
 	

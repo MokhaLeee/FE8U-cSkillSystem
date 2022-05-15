@@ -1,6 +1,4 @@
-#include "FE-Clib/include/gbafe.h"
-
-int ActionStaffDoorChestUseItem(Proc*);
+#include "gbafe-chax.h"
 
 typedef int (*ActionFunc) (struct Proc*);
 
@@ -20,22 +18,9 @@ static ActionFunc FilterFunc(ActionFunc func)
 	return result;
 }
 
-int ApplyUnitAction(struct Proc* proc)
+unsigned int ApplyUnitAction(ProcPtr proc)
 {
 	gActiveUnit = GetUnit(gActionData.subjectIndex);
-
-#ifndef NO_NIGHTMARE_HARDCODED_CHECK
-
-	if (gActionData.unitActionType == UNIT_ACTION_COMBAT)
-	{
-		if (GetItemIndex(gActiveUnit->items[gActionData.itemSlotIndex]) == 0xA6)
-		{
-			ActionStaffDoorChestUseItem(proc);
-			return 0;
-		}
-	}
-
-#endif // NO_NIGHTMARE_HARDCODED_CHECK
 
 	ActionFunc func = UnitActionCallTable[gActionData.unitActionType];
 
@@ -57,6 +42,6 @@ int ApplyUnitAction(struct Proc* proc)
 
 int WaitAction(struct Proc* proc)
 {
-	gActiveUnit->state |= US_HAS_MOVED;
+	gActiveUnit->state |= US_CANTOING;
 	return 1;
 }
