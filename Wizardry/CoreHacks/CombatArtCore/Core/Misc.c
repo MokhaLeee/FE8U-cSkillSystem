@@ -123,6 +123,33 @@ int BNullCounter_CombatArt(){
 
 
 
+// For Post-Action Hook
+void PostAction_CombatArtDebuff(ProcPtr proc){
+	
+	if( !gpBattleFlagExt->isCombat )
+		return;
+	
+	if( !gpBattleFlagExt->combatArt_hitted )
+		return;
+	
+	struct Unit* unit_tar = GetUnit(gActionData.targetIndex);
+	
+	switch( gpBattleFlagExt->combatArt_id )
+	{
+		case CA_GravityShoot:
+			MU_EndAll();
+			SMS_UpdateFromGameData();
+			StartMapAnim_Gravity(unit_tar, proc);
+			SetUnitStatus(unit_tar, UNIT_NEW_STATUS_GRAVITY);
+			break;
+		
+		default:
+			break;
+	}
+}
+
+
+
 // COMBAT_ART_ICON
 // For Icon Display
 const void* GetCombatArtIconGfx(int index){
@@ -143,4 +170,7 @@ const void* GetCombatArtIconGfx(int index){
 		return info->icon;
 	
 }
+
+
+
 

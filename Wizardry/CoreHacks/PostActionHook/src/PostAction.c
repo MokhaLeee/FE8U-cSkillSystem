@@ -46,7 +46,6 @@ static void PostAction_ExecNext(struct Proc_PostAction* proc){
 		return;
 	}
 	
-	HideUnitSMS(gActiveUnit);
 	
 	(*proc->fun_cur++)(proc);
 }

@@ -37,6 +37,7 @@ ALIGN 4
 #include "CoreSupport/ChapterInitHook/ChapterInitHook.event"
 #include "CoreSupport/UnitMenu/UnitMenu.event"
 #include "CoreSupport/UnitAction/UnitAction.event"
+#include "CoreSupport/NegativeStatBoosts/NegativeStatBoosts.event"
 
 // a new space to store more unit data
 #include "CoreSupport/UnitDataExpansion/UnitExpa.event"
@@ -51,8 +52,6 @@ ALIGN 4
 // An external random number system
 #include "CoreSupport/External_RN/External_RN.event"
 
-// Expand Unit-Status to 6 bits
-#include "CoreSupport/UnitStatus/UnitStatus.event"
 
 // (Finally) Hook List for Core Supports
 #include "CoreSupport/HookList.event"
@@ -91,6 +90,8 @@ ALIGN 4
 // Post Action Loop to insert blocking-procs, etc
 #include "CoreHacks/PostActionHook/PostAction.event"
 
+// Expand Unit-Status to 6 bits
+#include "CoreHacks/UnitStatus/UnitStatusCore.event"
 
 
 
@@ -104,12 +105,19 @@ ALIGN 4
 // Skill activation anime installer
 #include "Features/SkillAnimInstaller/SkillAnimInstaller.event"
 
-
 // Combat Art infos installer
 #include "Features/CombatArtsInstaller/CombatArtInfosInstaller.event"
 
+// new Unit Status infos
+#include "Features/UnitStatusInstaller/UnitStatusInstaller.event"
+
 #include "Features/LevelUpFE16/LevelUpFE16.event"
 #include "Features/PrepScreenRework/PrepScreenRework.event"
+
+// Some Map-Sprite Anims
+// You can use them for Post-Action Hook, etc.
+#include "Features/MapAnim/MapAnim.event"
+
 
 
 // A diy game-intro graphic

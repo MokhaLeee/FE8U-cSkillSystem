@@ -16,7 +16,11 @@ void BattleGenerateHitAttributes(struct BattleUnit* attacker, struct BattleUnit*
 		gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_MISS;
 		return;
 	}
-
+	
+	// if combat-art set hitted bits in ext-flag
+	// for post-action debuff
+	if( gpBattleFlagExt->isCombat && attacker->unit.index == gpBattleFlagExt->combat_unit )
+		gpBattleFlagExt->combatArt_hitted = 1;
 
 	attack = gBattleStats.attack;
 	defense = gBattleStats.defense;

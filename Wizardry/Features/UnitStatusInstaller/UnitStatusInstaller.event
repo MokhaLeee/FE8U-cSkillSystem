@@ -1,0 +1,13 @@
+ALIGN 4
+#include "UnitStatusDef.event"
+
+
+// Gravity
+#include "Gravity/GravityInfo.lyn.event"
+
+ALIGN 4
+Gfx_UnitStatus_Gravity:
+	#incbin "Gravity/Gfx_UnitStatus_Gravity.4bpp"
+
+InjectUnitStatusInfo(EA_UNIT_NEW_STATUS_GRAVITY, StatusInfo_Gravity)
+SetStatusBlinkyIconFunc(EA_UNIT_NEW_STATUS_GRAVITY, CostumBlankyIcon_DeBuffStatus)

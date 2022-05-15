@@ -32,9 +32,10 @@
 #include "unit-expa.h"
 #include "unit-status.h"
 
-#include "../../Writans/TextCHeader.h"
+#include "gbafe16-features.h"
 #include "../Features/SkillsInstaller/SkillsDef.h"
 #include "../Features/CombatArtsInstaller/CombatArtDef.h"
+#include "../Features/UnitStatusInstaller/UnitStatusDef.h"
 
-#include "gbafe16-features.h"
+#include "../../Writans/TextCHeader.h"
 

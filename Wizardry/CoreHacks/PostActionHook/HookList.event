@@ -3,8 +3,10 @@ PostActionLoopTable:
 	
 	// void (*)(ProcPtr)
 	
-	POIN PostAction_Template
+	// POIN PostAction_Template
+	POIN PostAction_CombatArtDebuff
 	
 	// End
+	POIN ResetBattleFlagExt
 	WORD 0
 	

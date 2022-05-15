@@ -34,6 +34,7 @@
 	// Bow: 0x60
 	#define eCA_CurvedShot 0x60
 	#define eCA_HeavyDraw 0x61
+	#define eCA_GravityShoot 0x62
 	
 	
 	// Fist: 0x80

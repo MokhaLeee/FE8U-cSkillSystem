@@ -27,6 +27,9 @@ struct CombatArtInfo {
 			 // If set, unit will double attack.
 			 u32 double_attack : 1;
 			 
+			 // If set, give enmy Gravity debuff
+			 u32 is_gravity : 1;
+			 
 	/* 0C */ u8 weapon_type;
 	/* 0D */ s8 range_bouns;
 	/* 0E */ s16 cost;

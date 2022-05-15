@@ -1,9 +1,9 @@
 
 #include "CombatArtDef.event"
 #include "CombatArtInfo.lyn.event"
+#include "InstallIcons.event"
 
 // see _include/combat-art.h
 #define InjectCombatArtInfo(index, info) "PUSH; ORG CombatArtInfoTable+4*(index); POIN (info); POP"
-
 
 

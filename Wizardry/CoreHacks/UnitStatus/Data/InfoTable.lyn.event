@@ -22,13 +22,13 @@ WORD $0 $0 $0 $1 $0 $0 $0 $0 $0 $0 $0 $0 $0 $1 $0 $0 $0 $0 $51A
 POIN Gfx_UnitStatus_Petrify
 WORD $0 $0 $0 $1 $0 $0 $0 $0 $519 $0 $0 $0 $0 $0 $0 $0 $0 $0 $518 $0 $0 $0 $0 $1 $0 $0 $0 $0 $55B051E
 POIN Gfx_UnitStatus_Aviod
-WORD $0 $0 $0 $2 $0 $0 $F00 $0 $55A051D
+WORD $0 $0 $0 $2 $0 $0 $F0000 $0 $55A051D
 POIN Gfx_UnitStatus_Crit
-WORD $0 $0 $0 $2 $0 $0 $F0000 $0 $559051C
+WORD $0 $0 $0 $2 $0 $0 $F000000 $0 $559051C
 POIN Gfx_UnitStatus_Defense
-WORD $0 $0 $0 $2 $0 $A000000 $0 $0 $558051B
+WORD $0 $0 $0 $2 $0 $0 $A $0 $558051B
 POIN Gfx_UnitStatus_Attack
-WORD $0 $0 $0 $2 $0 $A0000 $0 $0 $5550517
+WORD $0 $0 $0 $2 $0 $A000000 $0 $0 $5550517
 POIN Gfx_UnitStatus_Berserk
 WORD $0 $0 $0 $1 $0 $0 $0 $0 $5560516
 POIN Gfx_UnitStatus_Silence

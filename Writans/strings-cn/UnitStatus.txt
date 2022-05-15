@@ -1,0 +1,19 @@
+## msg_UnitStatusName_Gravity
+重压[X]
+
+## msg_UnitStatusDesc_Gravity
+重压: 角色无法移动[X]
+
+
+## msg_UnitStatusName_ExposeDef
+破甲[X]
+
+## msg_UnitStatusDesc_ExposeDef
+破甲: 角色防御-5[X]
+
+
+## msg_UnitStatusName_ExposeRes
+破魔[X]
+
+## msg_UnitStatusDesc_ExposeRes
+破魔: 角色魔抗-5[X]

@@ -1,6 +1,4 @@
-#include "gbafe.h"
-#include "status-getter.h"
-#include "str-mag.h"
+#include "gbafe-chax.h"
 
 typedef s8(*Getter)(struct Unit* unit);
 
@@ -85,7 +83,7 @@ s8 SpdGetter(struct Unit* unit){
 	else
 		status = unit->spd + GetItemSklBonus(item);
 	
-	status += Get(unit, SklModify);
+	status += Get(unit, SpdModify);
 	
 	return status > 0? status : 0;
 }
@@ -129,6 +127,10 @@ s8 MovGetter(struct Unit* unit){
 	s8 status = 
 		UNIT_MOV(unit) +
 		Get(unit, MovModify);
+	
+	// For Status
+	if( GetStatusInfo( GetUnitStatusIndex(unit) )->is_gravity )
+		status = 0;
 	
 	return status > 0? status : 0;	
 }

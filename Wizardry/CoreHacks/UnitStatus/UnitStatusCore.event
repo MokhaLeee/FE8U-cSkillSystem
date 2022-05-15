@@ -4,6 +4,18 @@
 #include "Data/MiniBoxGfx.event"
 #include "Data/InfoTable.lyn.event"
 
+#define NoStatusID 0
+#define PoisonStatusID 1
+#define SleepStatusID 2
+#define SilenceStatusID 3
+#define BerserkStatusID 4
+#define AtkRingStatusID 5
+#define DefRingStatusID 6
+#define CritRingStatusID 7
+#define AvoRingStatusID 8
+#define SickStatusID 9
+#define PetrifyStatusID 13
+
 #define InjectUnitStatusInfo(index, info) "PUSH; ORG UnitStatusInfoTable + 4*index; POIN info; POP"
 
 
@@ -13,7 +25,7 @@
 #include "External/ModularStatGetter.lyn.event"
 #include "External/PreBattleCalc.lyn.event"
 
-#include "SpritIcon/UnitBlinkyIcon.event"
+#include "BlinkyIcon/UnitBlinkyIcon.event"
 #include "DuraDepletion/StatusDepletion.lyn.event"
 
 #include "Core/Hack.lyn.event"

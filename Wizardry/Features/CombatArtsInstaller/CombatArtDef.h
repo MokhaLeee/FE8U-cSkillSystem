@@ -33,7 +33,7 @@ enum{
 	// Bow: 0x60
 	CA_CurvedShot = 0x60,			// 曲射
 	CA_HeavyDraw = 0x61,			// 强弓
-	
+	CA_GravityShoot = 0x62,			// 大地震颤
 	
 	// Fist: 0x80
 	

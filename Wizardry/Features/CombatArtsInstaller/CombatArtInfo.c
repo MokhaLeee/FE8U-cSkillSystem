@@ -1,5 +1,7 @@
 #include "gbafe-chax.h"
 
+// Icons
+extern const u16 CombatArtIcon_DebuffBow[];
 
 // =================================================
 //                      Sword
@@ -383,6 +385,24 @@ static const struct CombatArtInfo CAInfo_HeavyDraw = {
 	.range_bouns = 0,
 };
 
+static const struct CombatArtInfo CAInfo_GravityShoot = {
+	
+	.msg_name = ENUM_msg_CAN_GravityShoot,
+	.msg_desc = ENUM_msg_CAD_GravityShoot,
+	.icon = CombatArtIcon_DebuffBow,
+	.weapon_type = ITYPE_BOW,
+	.is_lengency = 0,
+	.is_magic = 0,
+	.eff_fly = 1,
+	.cost = 5,
+	.mt = 0,
+	.hit = 10,
+	.avo = 0,
+	.crit = 0,
+	.range_bouns = 1,
+	.is_gravity = 1,
+};
+
 
 
 // =================================================
@@ -428,7 +448,7 @@ struct CombatArtInfo const* const CombatArtInfoTable[0x100] = {
 	// Bow
 	[CA_CurvedShot] = &CAInfo_CurvedShot,
 	[CA_HeavyDraw] = &CAInfo_HeavyDraw,
-	
+	[CA_GravityShoot] = &CAInfo_GravityShoot,
 	
 	// Fist
 	

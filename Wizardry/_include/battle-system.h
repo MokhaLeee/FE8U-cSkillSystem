@@ -29,8 +29,14 @@ extern struct BattleHitExt **BattleHitExtCur;
 
 
 struct BattleFlagExt{
-	/* 00 */u8 isCombat:1;
-	/* 00 */ u8 pad00:7;
+			// judge for combat-art
+	/* 00 */ u8 isCombat : 1;
+	
+			// if combat-art atk hitted, set this bit
+			// for post-action debuff
+			 u8 combatArt_hitted : 1;
+			 
+			 u8 pad00:7;
 
 	/* 01 */ u8 combatArt_id;
 	/* 02 */ u8 combat_unit;	// unit index of combat art actor 

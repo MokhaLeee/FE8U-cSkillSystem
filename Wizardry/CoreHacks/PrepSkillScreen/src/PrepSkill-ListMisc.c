@@ -78,7 +78,7 @@ static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* lis
 		CA_TempestLance,
 		CA_Knightkneeler,
 		CA_CurvedShot,
-		CA_HeavyDraw,
+		CA_GravityShoot,
 	};
 	
 	for( int i = 0; i < 18; i++ )

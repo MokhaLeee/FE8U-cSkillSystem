@@ -20,23 +20,25 @@ struct UnitStatusInfo{
 			 u32 phys_atk : 1;
 			 u32 double_attack : 1;
 	
-	/* 1C */ s8 pow_bonus;
-	/* 1D */ s8 mag_bonus;
-	/* 1E */ s8 skl_bonus;
-	/* 1F */ s8 spd_bonus;
-	/* 20 */ s8 def_bonus;
-	/* 21 */ s8 res_bonus;
-	/* 22 */ s8 lck_bonus;
-	/* 23 */ s8 mov_bonus;
+	/* 1C */ u8 duration;
 	
-	/* 24 */ s8 dmg_bonus;
-	/* 25 */ s8 bu_def_bonus;
-	/* 26 */ s8 hit_bonus;
-	/* 27 */ s8 avo_bonus;
-	/* 28 */ s8 crit_bonus;
-	/* 29 */ s8 silencer_bonus;
-	/* 2A */ s8 dodge_bonus;
-	/* 2B */
+	/* 1D */ s8 pow_bonus;
+	/* 1E */ s8 mag_bonus;
+	/* 1F */ s8 skl_bonus;
+	/* 20 */ s8 spd_bonus;
+	/* 21 */ s8 def_bonus;
+	/* 22 */ s8 res_bonus;
+	/* 23 */ s8 lck_bonus;
+	/* 24 */ s8 mov_bonus;
+	
+	/* 25 */ s8 dmg_bonus;
+	/* 26 */ s8 bu_def_bonus;
+	/* 27 */ s8 hit_bonus;
+	/* 28 */ s8 avo_bonus;
+	/* 29 */ s8 crit_bonus;
+	/* 2A */ s8 silencer_bonus;
+	/* 2B */ s8 dodge_bonus;
+	/* 2C */
 	
 };
 

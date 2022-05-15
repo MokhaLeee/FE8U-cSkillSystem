@@ -12,7 +12,13 @@ void SetUnitStatus(struct Unit* unit, int status) {
 	else 
 	{
 		status_at->status_index	= status;
-		status_at->status_dura	= 4 - 1;
+		
+		const struct UnitStatusInfo* info = GetStatusInfo(status);
+		
+		status_at->status_dura	= 
+			0 == info->duration
+			? 4 - 1
+			: info->duration - 1;
 	}
 }
 
@@ -21,7 +27,10 @@ void SetUnitStatusExt(struct Unit* unit, int status, int duration) {
 	struct UnitStatus* status_at = GetUnitStatusAt(unit);
 	
 	status_at->status_index	= status;
-	status_at->status_dura	= duration - 1;
+	status_at->status_dura	= 
+		duration > 1
+		? duration - 1
+		: 0;
 }
 
 

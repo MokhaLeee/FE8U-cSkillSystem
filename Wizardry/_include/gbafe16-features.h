@@ -24,3 +24,9 @@ enum{
 	MASTERY_ICON_MAX,
 	MASTERY_ICON_NULL = 0xFF,
 };
+
+
+
+
+// Map Anims
+void StartMapAnim_Gravity(struct Unit*, ProcPtr);

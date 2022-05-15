@@ -1,0 +1,20 @@
+## msg_CAN_CurvedShot
+曲射[X]
+
+## msg_CAD_CurvedShot
+高命中的弓箭攻击[X]
+
+
+## msg_CAN_HeavyDraw
+强弓[X]
+
+## msg_CAD_HeavyDraw
+强有力的的弓箭攻击[X]
+
+
+
+## msg_CAN_GravityShoot
+大地震颤[X]
+
+## msg_CAD_GravityShoot
+弓箭射击，可使敌方一回合内无法移动[X]
