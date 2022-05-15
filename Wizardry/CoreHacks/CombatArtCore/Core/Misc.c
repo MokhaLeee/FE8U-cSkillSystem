@@ -24,7 +24,11 @@ int RangeMinGetter_CombatArtBonus(struct Unit* unit, u16 item, int cur){
 void LoadUnit_CombatArt(struct Unit* unit){
 	
 	struct NewBwlData* bwl;
-	u8 char_id = unit->pCharacterData->number;
+	const u8 char_id = unit->pCharacterData->number;
+	int count = 0;
+	const struct CombatArtsROMList *list_char = &CharCombatArtsRomList[unit->pCharacterData->number];
+	const struct CombatArtsROMList *list_class = &ClassCombatArtsRomList[unit->pClassData->number];
+	
 	
 	// we use bwl table!
 	if( !NBwl_HasBwl(char_id) )
@@ -32,11 +36,42 @@ void LoadUnit_CombatArt(struct Unit* unit){
 	
 	bwl = NBwl_GetBwlData(char_id);
 	
-	// W.I.P.
-	bwl->combatArts[0] = CA_HeavyDraw;
-	bwl->combatArts[1] = CA_WrathStrike;
-	bwl->combatArts[2] = CA_TempestLance;
+	for( int i = 0; i < 5; i++ )
+		bwl->combatArts[i] = 0;
 	
+	for( int i = 0; i < 4; i++ )
+	{
+		if( count > 4 )
+			break;
+		
+		if( SKILL_VALID(list_char->default_art[i]) )
+			bwl->combatArts[count++] = list_char->default_art[i];
+		
+		if( count > 4 )
+			break;
+		
+		if( SKILL_VALID(list_class->default_art[i]) )
+			bwl->combatArts[count++] = list_class->default_art[i];
+	}
+	
+	if( unit->level < 10 )
+		return;
+	
+	
+	for( int i = 0; i < 4; i++ )
+	{	
+		if( count > 4 )
+			break;
+		
+		if( SKILL_VALID(list_char->master_art[i]) )
+			bwl->combatArts[count++] = list_char->master_art[i];
+		
+		if( count > 4 )
+			break;
+		
+		if( SKILL_VALID(list_class->master_art[i]) )
+			bwl->combatArts[count++] = list_class->master_art[i];
+	}
 }
 
 

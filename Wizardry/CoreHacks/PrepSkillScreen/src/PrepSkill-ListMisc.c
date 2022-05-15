@@ -60,34 +60,50 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 
 static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* list){
 	
-	const u8 tmp_calist[18] = {
-		CA_Grounder,
-		CA_Soulblade,
-		CA_BaneOfMonsters,
-		CA_Sunder,
-		CA_Hexblade,
-		CA_HazeSlice,
-		CA_FinesseBlade,
-		CA_Windsweep,
-		CA_Assassinate,
-		CA_Subdue,
-		CA_FoudroyantStrike,
-		CA_SublimeHeaven,
-		CA_RupturedHeaven,
-		CA_HeavensFall,
-		CA_TempestLance,
-		CA_Knightkneeler,
-		CA_CurvedShot,
-		CA_GravityShoot,
-	};
+	const struct CombatArtsROMList *list_char = &CharCombatArtsRomList[unit->pCharacterData->number];
+	const struct CombatArtsROMList *list_class = &ClassCombatArtsRomList[unit->pClassData->number];
 	
-	for( int i = 0; i < 18; i++ )
+	list->total[PREP_SKLSUB_RIGHT] = 0;
+	
+	for( int i = 0; i < 4; i++ )
 	{
-		list->skills_all[ list->total[PREP_SKLSUB_RIGHT]++ ] = tmp_calist[i];
-	
 		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
 			break;
+		
+		if( SKILL_VALID(list_char->default_art[i]) )
+			list->skills_all[list->total[PREP_SKLSUB_RIGHT]++] =
+				list_char->default_art[i];
+		
+		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+			break;
+		
+		if( SKILL_VALID(list_class->default_art[i]) )
+			list->skills_all[list->total[PREP_SKLSUB_RIGHT]++]  = 
+				list_class->default_art[i];
 	}
+	
+	
+	if( unit->level < 10 )
+		return;
+	
+	
+	for( int i = 0; i < 4; i++ )
+	{
+		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+			break;
+		
+		if( SKILL_VALID(list_char->master_art[i]) )
+			list->skills_all[list->total[PREP_SKLSUB_RIGHT]++] =
+				list_char->master_art[i];
+		
+		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+			break;
+		
+		if( SKILL_VALID(list_class->master_art[i]) )
+			list->skills_all[list->total[PREP_SKLSUB_RIGHT]++]  = 
+				list_class->master_art[i];
+	}
+	
 	
 }
 

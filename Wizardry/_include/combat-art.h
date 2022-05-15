@@ -1,5 +1,15 @@
 #pragma once
 
+struct CombatArtsROMList{
+	
+	/* 00 */ u8 default_art[4];
+	/* 04 */ u8 master_art[4];
+	/* 08 */
+};
+
+extern const struct CombatArtsROMList CharCombatArtsRomList[], ClassCombatArtsRomList[];
+
+
 struct CombatArtInfo {
 	/* 00 */ u16 msg_name;
 	/* 02 */ u16 msg_desc;

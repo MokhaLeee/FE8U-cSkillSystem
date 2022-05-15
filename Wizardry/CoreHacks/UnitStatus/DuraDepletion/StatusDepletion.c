@@ -72,6 +72,7 @@ void TickActiveFactionTurn(void) {
 	 * 如果是debuff, 则在对方回合清除
 	 *
 	 */
+	 
 	 #define DEC_STATUS(i)											\
 		struct Unit* unit = GetUnit(i);								\
 		int status_index = GetUnitStatusIndex(unit);				\
