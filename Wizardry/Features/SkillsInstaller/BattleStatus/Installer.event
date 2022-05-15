@@ -1,0 +1,21 @@
+
+// Src
+#include "Src/Infos.lyn.event"
+#include "Src/Core.lyn.event"
+
+InjectSkillInfo(SKILLID_Lethality, SkillInfo_Lethality)
+InjectSkillInfo(SKILLID_Crit, SkillInfo_Crit)
+InjectSkillInfo(SKILLID_WatchfulEye, SkillInfo_WatchfulEye)
+
+// Icons
+ALIGN 4
+SI_Lethality:
+	#incbin "Icons/Lethality.4bpp"
+
+ALIGN 4
+SI_Crit:
+	#incbin "Icons/Crit.4bpp"
+
+ALIGN 4
+SI_WatchfulEye:
+	#incbin "Icons/WatchfulEye.4bpp"

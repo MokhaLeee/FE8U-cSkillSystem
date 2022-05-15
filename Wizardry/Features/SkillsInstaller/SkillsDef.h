@@ -19,6 +19,7 @@ enum{
 	
 	SID_Lethality = 0x25,
 	SID_Crit = 0x26,
+	SID_WatchfulEye = 0x27,
 	
 	
 	SID_SwordBreaker = 0x30,

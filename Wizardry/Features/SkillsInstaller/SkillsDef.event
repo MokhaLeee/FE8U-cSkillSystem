@@ -15,6 +15,7 @@
 
 
 
+
 // Battle Misc(0x20)
 #define SKILLID_Vantage 				0x20	// 待伏
 #define SKILLID_VantageBattalion 		0x21
@@ -24,7 +25,7 @@
 
 #define SKILLID_Lethality				0x25	// 瞬杀
 #define SKILLID_Crit					0x26	// 必杀+
-
+#define SKILLID_WatchfulEye				0x27	// 命中+
 
 
 // Battle Tri-Angle

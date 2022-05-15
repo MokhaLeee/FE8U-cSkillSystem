@@ -1,9 +1,0 @@
-// Icons
-ALIGN 4
-SI_Lethality:
-	#incbin "Icons/Lethality.4bpp"
-
-ALIGN 4
-SI_Crit:
-	#incbin "Icons/Crit.4bpp"
-	

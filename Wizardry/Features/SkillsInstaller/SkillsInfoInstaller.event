@@ -33,9 +33,7 @@ ALIGN 4
 #include "BattleOrder/Infos.lyn.event"
 
 // Battke Misc Skills
-#include "BattleStatus/Icons.event"
-#include "BattleStatus/Infos.lyn.event"
-#include "BattleStatus/Core.lyn.event"
+#include "BattleStatus/Installer.event"
 
 // Battle Triangle
 #include "BattleTriangle/Icons.event"

@@ -11,6 +11,10 @@ void BC_BattleStatusSkills(struct BattleUnit* act, struct BattleUnit*){
 	// Skill: SID_Crit
 	if( (*SkillTester)(unit_act, SID_Crit) )
 		act->battleCritRate += 15;
+	
+	// Skill: SID_WatchfulEye
+	if( (*SkillTester)(unit_act, SID_WatchfulEye) )
+		act->battleHitRate += 20;
 }
 
 
