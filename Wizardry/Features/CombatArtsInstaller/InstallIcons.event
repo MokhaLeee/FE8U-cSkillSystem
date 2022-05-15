@@ -1,3 +1,5 @@
 ALIGN 4
 CombatArtIcon_DebuffBow:
 	#incbin "Icons/DebuffBowArt.4bpp"
+
+

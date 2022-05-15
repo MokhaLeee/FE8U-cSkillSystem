@@ -164,6 +164,12 @@
 #define msg_UnitStatusDesc_ExposeDef $DE9
 #define msg_UnitStatusName_ExposeRes $DEA
 #define msg_UnitStatusDesc_ExposeRes $DEB
-#define msg_end $DEC
+#define msg_UnitStatusName_Weaken $DEC
+#define msg_UnitStatusDesc_Weaken $DED
+#define msg_UnitStatusName_Avoid $DEE
+#define msg_UnitStatusDesc_Avoid $DEF
+#define msg_UnitStatusName_AvoidPlus $DF0
+#define msg_UnitStatusDesc_AvoidPlus $DF1
+#define msg_end $DF2
 
 #endif // TEXT_DEFINITIONS_WRITANS_TEXTMAIN_CN_TXT

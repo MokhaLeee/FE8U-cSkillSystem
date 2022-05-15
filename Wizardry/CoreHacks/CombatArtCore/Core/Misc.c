@@ -137,21 +137,21 @@ void BC_CombatArtBonus(struct BattleUnit* attacker, struct BattleUnit* defender)
 int BNullCounter_CombatArt(){
 	
 	if( gBattleActor.unit.index != gpBattleFlagExt->combat_unit )
-		return 0;
+		return NORMAL_COUNTER;
 	
 	const struct CombatArtInfo *info = GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
 	
 	if( 0 == info )
-		return 0;
+		return NORMAL_COUNTER;
 	
 	if( 0 == info->special_eff )
-		return 0;
+		return NORMAL_COUNTER;
 	
 	// Check Combat Art
 	switch(gpBattleFlagExt->combatArt_id)
 	{
 		case CA_Windsweep:
-			return NORMAL_COUNTER;
+			return NULL_COUNTER;
 		
 		
 		default:

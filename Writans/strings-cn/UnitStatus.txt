@@ -17,3 +17,24 @@
 
 ## msg_UnitStatusDesc_ExposeRes
 破魔: 角色魔抗-5[X]
+
+
+## msg_UnitStatusName_Weaken
+弱化[X]
+
+## msg_UnitStatusDesc_Weaken
+弱化: 角色力量与魔力-5[X]
+
+
+## msg_UnitStatusName_Avoid
+回避[X]
+
+## msg_UnitStatusDesc_Avoid
+回避: 角色回避率+15%[X]
+
+
+## msg_UnitStatusName_AvoidPlus
+回避+[X]
+
+## msg_UnitStatusDesc_AvoidPlus
+回避+: 角色回避率+30%[X]

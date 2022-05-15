@@ -1,0 +1,7 @@
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$0;StatusInfo_Weaken:
+POP
+WORD $DED0DEC
+POIN Gfx_UnitStatus_Weaken
+WORD $0 $0 $0 $FB010001 $FB $0 $0 $0

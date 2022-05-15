@@ -1,0 +1,7 @@
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$0;StatusInfo_ExposeRes:
+POP
+WORD $DEB0DEA
+POIN Gfx_UnitStatus_ExposeRes
+WORD $0 $0 $0 $10001 $0 $FB $0 $0

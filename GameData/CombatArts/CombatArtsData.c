@@ -16,7 +16,7 @@ const struct CombatArtsROMList CharCombatArtsRomList[0x100] = {
 	},
 	
 	
-	[CHARACTER_EIRIKA] = {
+	[CHARACTER_SETH] = {
 		
 		.default_art[0]	= CA_HazeSlice,
 		.default_art[1]	= CA_Hexblade,

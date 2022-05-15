@@ -1,0 +1,7 @@
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$0;StatusInfo_Avoid:
+POP
+WORD $DEF0DEE
+POIN Gfx_UnitStatus_Avoid
+WORD $0 $0 $0 $10002 $0 $0 $F0000 $0

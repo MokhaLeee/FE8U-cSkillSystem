@@ -1,0 +1,7 @@
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$0;StatusInfo_ExposeDef:
+POP
+WORD $DE90DE8
+POIN Gfx_UnitStatus_ExposeDef
+WORD $0 $0 $0 $10001 $FB000000 $0 $0 $0

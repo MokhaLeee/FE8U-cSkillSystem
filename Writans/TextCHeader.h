@@ -163,5 +163,11 @@ enum{
 	ENUM_msg_UnitStatusDesc_ExposeDef = 0xDE9,
 	ENUM_msg_UnitStatusName_ExposeRes = 0xDEA,
 	ENUM_msg_UnitStatusDesc_ExposeRes = 0xDEB,
-	ENUM_msg_end = 0xDEC,
+	ENUM_msg_UnitStatusName_Weaken = 0xDEC,
+	ENUM_msg_UnitStatusDesc_Weaken = 0xDED,
+	ENUM_msg_UnitStatusName_Avoid = 0xDEE,
+	ENUM_msg_UnitStatusDesc_Avoid = 0xDEF,
+	ENUM_msg_UnitStatusName_AvoidPlus = 0xDF0,
+	ENUM_msg_UnitStatusDesc_AvoidPlus = 0xDF1,
+	ENUM_msg_end = 0xDF2,
 };

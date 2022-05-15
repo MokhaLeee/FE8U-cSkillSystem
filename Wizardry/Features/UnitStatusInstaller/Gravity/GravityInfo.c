@@ -1,3 +1,5 @@
+
+
 #include "gbafe-chax.h"
 
 extern const u16 Gfx_UnitStatus_Gravity[];
@@ -12,3 +14,8 @@ const struct UnitStatusInfo StatusInfo_Gravity = {
 	
 	.mini_gfx = Gfx_UnitStatus_Gravity,
 };
+
+
+
+
+

@@ -666,8 +666,32 @@ __TEXTPROCESSDEB:
 setText($DEB, __TEXTPROCESSDEB)
 
 __TEXTPROCESSDEC:
-#incbin ".TextEntries\TextMain-cnmsg_end.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_Weaken.fetxt.dmp"
 setText($DEC, __TEXTPROCESSDEC)
+
+__TEXTPROCESSDED:
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_Weaken.fetxt.dmp"
+setText($DED, __TEXTPROCESSDED)
+
+__TEXTPROCESSDEE:
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_Avoid.fetxt.dmp"
+setText($DEE, __TEXTPROCESSDEE)
+
+__TEXTPROCESSDEF:
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_Avoid.fetxt.dmp"
+setText($DEF, __TEXTPROCESSDEF)
+
+__TEXTPROCESSDF0:
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_AvoidPlus.fetxt.dmp"
+setText($DF0, __TEXTPROCESSDF0)
+
+__TEXTPROCESSDF1:
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_AvoidPlus.fetxt.dmp"
+setText($DF1, __TEXTPROCESSDF1)
+
+__TEXTPROCESSDF2:
+#incbin ".TextEntries\TextMain-cnmsg_end.fetxt.dmp"
+setText($DF2, __TEXTPROCESSDF2)
 
 }
 
