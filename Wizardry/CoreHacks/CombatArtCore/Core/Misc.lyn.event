@@ -4,7 +4,7 @@ ORG CURRENTOFFSET+$1;RangeMaxGetter_CombatArtBonus:
 ORG CURRENTOFFSET+$38;RangeMinGetter_CombatArtBonus:
 ORG CURRENTOFFSET+$4;LoadUnit_CombatArt:
 ORG CURRENTOFFSET+$d0;BC_CombatArtBonus:
-ORG CURRENTOFFSET+$cc;BNullCounter_CombatArt:
+ORG CURRENTOFFSET+$cc;BCanCounter_CombatArt:
 ORG CURRENTOFFSET+$44;PostAction_CombatArtDebuff:
 ORG CURRENTOFFSET+$68;GetCombatArtIconGfx:
 POP

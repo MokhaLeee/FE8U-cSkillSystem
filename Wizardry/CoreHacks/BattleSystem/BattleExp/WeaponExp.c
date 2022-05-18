@@ -1,5 +1,8 @@
 #include "gbafe-chax.h"
 
+int GetBattleUnitUpdatedWeaponExp(struct BattleUnit* bu);
+
+
 s8 HasBattleUnitGainedWeaponLevel(struct BattleUnit* bu) {
 	int oldWexp = bu->unit.ranks[bu->weaponType];
 	int newWexp = GetBattleUnitUpdatedWeaponExp(bu);
@@ -24,7 +27,7 @@ int GetBattleUnitUpdatedWeaponExp(struct BattleUnit* bu) {
 	if (gRAMChapterData.chapterStateBits & CHAPTER_FLAG_7)
 		return -1;
 
-	if (gUnknown_0202BCB0.gameStateBits & 0x40) // TODO: GAME STATE BITS CONSTANTS
+	if (gGameState.gameStateBits & 0x40) // TODO: GAME STATE BITS CONSTANTS
 		return -1;
 
 	if (!(gBattleStats.config & BATTLE_CONFIG_ARENA)) {

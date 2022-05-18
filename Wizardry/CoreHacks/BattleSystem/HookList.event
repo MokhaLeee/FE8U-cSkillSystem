@@ -38,10 +38,16 @@ ALIGN 4
 BattleCheckNullCounterLoop:
 	// int (BNC)(void)
 	// If target cannot counter, return 1
-	POIN BNullCounter_CheckEgg
-	POIN BNullCounter_WpnAttr
-	POIN BNullCounter_UnitStat
-	POIN BNullCounter_CheckRange
-	POIN BNullCounter_CombatArt
+	POIN BCanCounter_CheckEgg
+	POIN BCanCounter_WpnAttr
+	POIN BCanCounter_UnitStat
+	
+	// Hook here
+	POIN BCanCounter_CombatArt
+	POIN BCanCounter_CheckSkill
+	
+	
+	// End
+	POIN BCanCounter_CheckRange
 	WORD 0
 	

@@ -7,6 +7,23 @@ InjectSkillInfo(SKILLID_Lethality, SkillInfo_Lethality)
 InjectSkillInfo(SKILLID_Crit, SkillInfo_Crit)
 InjectSkillInfo(SKILLID_WatchfulEye, SkillInfo_WatchfulEye)
 
+InjectSkillInfo(SKILLID_Avoid, SkillInfo_Avoid)
+InjectSkillInfo(SKILLID_AvoidSword, SkillInfo_AvoidSword)
+
+InjectSkillInfo(SKILLID_CritSword, SkillInfo_CritSword)
+InjectSkillInfo(SKILLID_CritAxe, SkillInfo_CritAxe)
+InjectSkillInfo(SKILLID_CritLance, SkillInfo_CritLance)
+InjectSkillInfo(SKILLID_CritBow, SkillInfo_CritBow)
+InjectSkillInfo(SKILLID_CritBMag, SkillInfo_CritBMag)
+InjectSkillInfo(SKILLID_CritWMag, SkillInfo_CritWMag)
+
+InjectSkillInfo(SKILLID_FaireSword, SkillInfo_FaireSword)
+InjectSkillInfo(SKILLID_FaireLance, SkillInfo_FaireLance)
+InjectSkillInfo(SKILLID_FaireAxe, SkillInfo_FaireAxe)
+InjectSkillInfo(SKILLID_FaireBow, SkillInfo_FaireBow)
+InjectSkillInfo(SKILLID_FaireBMag, SkillInfo_FaireBMag)
+
+
 // Icons
 ALIGN 4
 SI_Lethality:
@@ -19,3 +36,73 @@ SI_Crit:
 ALIGN 4
 SI_WatchfulEye:
 	#incbin "Icons/WatchfulEye.4bpp"
+
+
+
+
+// Crit
+ALIGN 4
+SI_CritSword:
+	#incbin "Icons/CritSword.4bpp"
+
+
+ALIGN 4
+SI_CritAxe:
+	#incbin "Icons/CritAxe.4bpp"
+
+
+ALIGN 4
+SI_CritLance:
+	#incbin "Icons/CritLance.4bpp"
+
+
+ALIGN 4
+SI_CritBow:
+	#incbin "Icons/CritBow.4bpp"
+
+
+ALIGN 4
+SI_CritBMag:
+	#incbin "Icons/CritBMag.4bpp"
+
+
+ALIGN 4
+SI_CritWMag:
+	#incbin "Icons/CritWMag.4bpp"
+
+
+
+
+// Faire
+ALIGN 4
+SI_FaireSword:
+	#incbin "Icons/FaireSword.4bpp"
+
+ALIGN 4
+SI_FaireLance:
+	#incbin "Icons/FaireLance.4bpp"
+
+ALIGN 4
+SI_FaireAxe:
+	#incbin "Icons/FaireAxe.4bpp"
+
+ALIGN 4
+SI_FaireBow:
+	#incbin "Icons/FaireBow.4bpp"
+
+ALIGN 4
+SI_FaireBMag:
+	#incbin "Icons/FaireBMag.4bpp"
+
+
+
+// Avoid
+ALIGN 4
+SI_Avoid:
+	#incbin "Icons/Avoid.4bpp"
+
+ALIGN 4
+SI_AvoidSword:
+	#incbin "Icons/AvoidSword.4bpp"
+
+

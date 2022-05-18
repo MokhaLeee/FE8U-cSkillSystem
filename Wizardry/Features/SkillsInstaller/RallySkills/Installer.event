@@ -1,0 +1,50 @@
+ALIGN 4
+#include "Src/Infos.lyn.event"
+
+InjectSkillInfo(SKILLID_RallyStr, SkillInfo_RallyStr)
+InjectSkillInfo(SKILLID_RallyMag, SkillInfo_RallyMag)
+InjectSkillInfo(SKILLID_RallyStr, SkillInfo_RallyStr)
+InjectSkillInfo(SKILLID_RallySpd, SkillInfo_RallySpd)
+InjectSkillInfo(SKILLID_RallyLck, SkillInfo_RallyLck)
+InjectSkillInfo(SKILLID_RallyDef, SkillInfo_RallyDef)
+InjectSkillInfo(SKILLID_RallyRes, SkillInfo_RallyRes)
+InjectSkillInfo(SKILLID_RallyMov, SkillInfo_RallyMov)
+InjectSkillInfo(SKILLID_RallySpectrum, SkillInfo_RallySpectrum)
+
+// Icons
+
+ALIGN 4
+SI_RallyStr:
+	#incbin "Icons/RallyStr.4bpp"
+
+ALIGN 4
+SI_RallyMag:
+	#incbin "Icons/RallyMag.4bpp"
+
+ALIGN 4
+SI_RallySkl:
+	#incbin "Icons/RallySkl.4bpp"
+
+ALIGN 4
+SI_RallySpd:
+	#incbin "Icons/RallySpd.4bpp"
+
+ALIGN 4
+SI_RallyLck:
+	#incbin "Icons/RallyLck.4bpp"
+
+ALIGN 4
+SI_RallyDef:
+	#incbin "Icons/RallyDef.4bpp"
+
+ALIGN 4
+SI_RallyRes:
+	#incbin "Icons/RallyRes.4bpp"
+
+ALIGN 4
+SI_RallyMov:
+	#incbin "Icons/RallyMov.4bpp"
+
+ALIGN 4
+SI_RallySpectrum:
+	#incbin "Icons/RallySpectrum.4bpp"

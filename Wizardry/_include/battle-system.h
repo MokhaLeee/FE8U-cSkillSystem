@@ -12,6 +12,7 @@ enum{
 	// return value for battle-can-counter modular check
 	NORMAL_COUNTER = 0,
 	NULL_COUNTER = 1,
+	FORCE_COUNTER = -1,
 };
 
 struct BattleHitExt{

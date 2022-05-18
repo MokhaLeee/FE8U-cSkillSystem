@@ -134,7 +134,7 @@ void BC_CombatArtBonus(struct BattleUnit* attacker, struct BattleUnit* defender)
 
 
 // For Check Can Counter
-int BNullCounter_CombatArt(){
+int BCanCounter_CombatArt(){
 	
 	if( gBattleActor.unit.index != gpBattleFlagExt->combat_unit )
 		return NORMAL_COUNTER;

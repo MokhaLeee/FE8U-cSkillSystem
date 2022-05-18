@@ -27,6 +27,16 @@
 #define SKILLID_Crit					0x26	// 必杀+
 #define SKILLID_WatchfulEye				0x27	// 命中+
 
+#define SKILLID_CritSword				0x28
+#define SKILLID_CritAxe					0x29
+#define SKILLID_CritLance				0x2A
+#define SKILLID_CritBow					0x2B
+#define SKILLID_CritBMag				0x2C
+#define SKILLID_CritWMag				0x2D
+
+#define SKILLID_Avoid					0x2E
+#define SKILLID_AvoidSword				0x2F
+
 
 // Battle Tri-Angle
 #define SKILLID_SwordBreaker			0x30
@@ -36,12 +46,34 @@
 #define SKILLID_TomeBreaker				0x34
 #define SKILLID_FistBreaker				0x35
 
+// Battle Status: Faire
+#define SKILLID_FaireSword				0x36
+#define SKILLID_FaireLance				0x37
+#define SKILLID_FaireAxe				0x38
+#define SKILLID_FaireBow				0x39
+#define SKILLID_FaireBMag				0x3A
+
+// Battle Can Counter
+#define SKILLID_CloseCounter			0x3B
+#define SKILLID_CounterAttack			0x3C
+
 
 // Post-Action Skills
 #define SKILLID_Canto					0x50
 #define SKILLID_AlertStance				0x51
 #define SKILLID_AlertStancePlus			0x52
 
+
+// Rally Skills
+#define SKILLID_RallyStr				0x60
+#define SKILLID_RallyMag				0x61
+#define SKILLID_RallySkl				0x62
+#define SKILLID_RallySpd				0x63
+#define SKILLID_RallyLck				0x64
+#define SKILLID_RallyDef				0x65
+#define SKILLID_RallyRes				0x66
+#define SKILLID_RallyMov				0x67
+#define SKILLID_RallySpectrum			0x68
 
 ALIGN 4
 

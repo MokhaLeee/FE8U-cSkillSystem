@@ -67,7 +67,7 @@ ORG FreeSpace
 	// Chapters
 	{
 		ALIGN 4
-		#include "Chapters/Chapters.event"
+		// #include "Chapters/Chapters.event"
 	}
 	
 	// Portraits

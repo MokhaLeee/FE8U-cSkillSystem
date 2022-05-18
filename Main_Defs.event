@@ -35,5 +35,11 @@
 	#define ICON_SHEET_SKILLS 0x1
 	#define ICON_SHEET_MASTERY 0x2
 	#define ICON_SHEET_COMBAT_ART 0x3
+	
+	
+	// For Unit Action
+	#define UNIT_ACTION_RALLY 0x23
+	#define UNIT_ACTION_HEROMOV 0x24
+	
 
 #endif

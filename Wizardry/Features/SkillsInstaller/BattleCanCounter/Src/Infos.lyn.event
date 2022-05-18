@@ -1,0 +1,9 @@
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$0;SkillInfo_CounterAttack:
+ORG CURRENTOFFSET+$8;SkillInfo_CloseCounter:
+POP
+WORD $DB60DB7
+POIN SI_CounterAttack
+WORD $DB40DB5
+POIN SI_CloseCounter

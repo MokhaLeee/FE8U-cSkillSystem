@@ -18,12 +18,17 @@ void BattleInitTargetCanCounter(void) {
 	BNC_Fun *it = &BattleCheckNullCounterLoop[0];
 	
 	while( *it )
-		if( NULL_COUNTER == (*it++)() )
-		{
+	{
+		int can_counter = (*it++)();
+		
+		if( NULL_COUNTER == can_counter ){
 			gBattleTarget.weapon = 0;
 			gBattleTarget.canCounter = 0;
 			return;
 		}
+		else if( FORCE_COUNTER == can_counter )
+			return;
+	}
 }
 
 
@@ -31,14 +36,14 @@ void BattleInitTargetCanCounter(void) {
 
 // For Modular Check Loop
 
-int BNullCounter_CheckEgg(){
+int BCanCounter_CheckEgg(){
 	
 	// Target cannot counter if it is a gorgon egg
 	return UNIT_IS_GORGON_EGG(&gBattleTarget.unit);
 }
 
 
-int BNullCounter_WpnAttr(){
+int BCanCounter_WpnAttr(){
 	
 	// Target cannot counter if either units are using "uncounterable" weapons
 	u32 attr = gBattleActor.weaponAttributes | gBattleTarget.weaponAttributes;
@@ -51,7 +56,7 @@ int BNullCounter_WpnAttr(){
 }
 
 
-int BNullCounter_UnitStat(){
+int BCanCounter_UnitStat(){
 	
 	struct BattleUnit* bu = &gBattleTarget;
 	
@@ -82,7 +87,7 @@ int BNullCounter_UnitStat(){
 }
 
 
-int BNullCounter_CheckRange(){
+int BCanCounter_CheckRange(){
 	
 	struct BattleUnit* bu = &gBattleTarget;
 	

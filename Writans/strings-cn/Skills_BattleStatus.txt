@@ -20,3 +20,122 @@
 ## msg_SD_WatchfulEye
 命中+：[NL]
 命中概率+20%[X]
+
+
+
+
+## msg_SN_CritSword
+剑必杀+10[X]
+
+## msg_SD_CritSword
+剑必杀+10：[NL]
+装备武器为剑时,[NL]
+必杀概率提升10%[X]
+
+
+## msg_SN_CritAxe
+斧必杀+10[X]
+
+## msg_SD_CritAxe
+斧必杀+10：[NL]
+装备武器为斧时,[NL]
+必杀概率提升10%[X]
+
+
+## msg_SN_CritLance
+枪必杀+10[X]
+
+## msg_SD_CritLance
+枪必杀+10：[NL]
+装备武器为枪时,[NL]
+必杀概率提升10%[X]
+
+
+## msg_SN_CritBow
+弓必杀+10[X]
+
+## msg_SD_CritBow
+弓必杀+10：[NL]
+装备武器为弓时,[NL]
+必杀概率提升10%[X]
+
+
+## msg_SN_CritBMag
+黑魔法必杀+10[X]
+
+## msg_SD_CritBMag
+黑魔法必杀+10：[NL]
+装备武器为黑魔法时,[NL]
+必杀概率提升10%[X]
+
+
+## msg_SN_CritWMag
+白魔法必杀+10[X]
+
+## msg_SD_CritWMag
+白魔法必杀+10：[NL]
+装备武器为白魔法时,[NL]
+必杀概率提升10%[X]
+
+
+
+## msg_SN_FaireSword
+剑术专家[X]
+
+## msg_SD_FaireSword
+剑术专家：[NL]
+装备武器为剑时,[NL]
+攻击+5[X]
+
+
+## msg_SN_FaireLance
+枪术专家[X]
+
+## msg_SD_FaireLance
+枪术专家：[NL]
+装备武器为枪时,[NL]
+攻击+5[X]
+
+
+## msg_SN_FaireAxe
+斧术专家[X]
+
+## msg_SD_FaireAxe
+斧术专家：[NL]
+装备武器为斧时,[NL]
+攻击+5[X]
+
+
+## msg_SN_FaireBow
+箭术专家[X]
+
+## msg_SD_FaireBow
+箭术专家：[NL]
+装备武器为弓时,[NL]
+攻击+5[X]
+
+
+## msg_SN_FaireBMag
+黑魔法专家[X]
+
+## msg_SD_FaireBMag
+黑魔法专家：[NL]
+装备武器为魔法时,[NL]
+攻击+5[X]
+
+
+## msg_SN_Avoid
+回避+10[X]
+
+## msg_SD_Avoid
+回避+10：[NL]
+角色回避率+10%[X]
+
+
+## msg_SN_AvoidSword
+剑回避+20[X]
+
+## msg_SD_AvoidSword
+剑回避+20：[NL]
+装备武器为剑时,[NL]
+回避率+20%[X]

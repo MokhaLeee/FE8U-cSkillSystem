@@ -1,0 +1,16 @@
+## msg_SN_CloseCounter
+近距离反击[X]
+
+## msg_SD_CloseCounter
+近距离反击：[NL]
+受到距离为一格的攻击时，[NL]
+可无视武器射程进行反击[X]
+
+
+
+## msg_SN_CounterAttack
+迎击[X]
+
+## msg_SD_CounterAttack
+迎击：[NL]
+反击时无视攻击距离[X]

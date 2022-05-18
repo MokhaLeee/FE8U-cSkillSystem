@@ -1,0 +1,16 @@
+// Src
+#include "Src/Infos.lyn.event"
+#include "Src/Core.lyn.event"
+
+InjectSkillInfo(SKILLID_CloseCounter, SkillInfo_CloseCounter)
+InjectSkillInfo(SKILLID_CounterAttack, SkillInfo_CounterAttack)
+
+// Icons
+ALIGN 4
+SI_CloseCounter:
+	#incbin "Icons/CloseCounter.4bpp"
+
+ALIGN 4
+SI_CounterAttack:
+	#incbin "Icons/CounterAttack.4bpp"
+	

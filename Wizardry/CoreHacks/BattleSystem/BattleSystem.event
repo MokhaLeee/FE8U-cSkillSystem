@@ -98,4 +98,26 @@ PROTECT $2C844 $2C8C4		// BattleInitTargetCanCounter
 PROTECT $2A730 $2A918		// SetBattleUnitWeapon
 
 
+
+// ====================================================
+//               Battle Check Effective
+// ====================================================
+#include "BattleEffective/BattleEffective.lyn.event"
+
+
+
+// ====================================================
+//                  Battle Accuracy
+// ====================================================
+#include "BattleAccuracy/StaffAccuracy.lyn.event"
+
+
+
+// ====================================================
+//                  Battle Exp
+// ====================================================
+#include "BattleExp/UnitExp.lyn.event"
+#include "BattleExp/WeaponExp.lyn.event"
+
+
 #endif // BATTLE_SYSTEM_REWORK
