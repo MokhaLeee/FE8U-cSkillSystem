@@ -10,12 +10,13 @@ extern u16 gBmFrameTmap0[0x280];
 static void (*DisplayBwl)(void) = (const void*)0x8086FAD;
 
 static void DrawPage1_Texts();
-static void DrawPage1_NumBar(Unit*);
+static void DrawPage1_NumBar(struct Unit*);
 
 // ORG 0x8087184
 void StatScreen_DrawPage1(void){
-	Unit* unit = gStatScreen.unit;
+	struct Unit* unit = gStatScreen.unit;
 	
+	PrePareForMoreTextColor();
 	DrawPage1_Texts();
 	DrawPage1_NumBar(unit);
 	
@@ -30,72 +31,84 @@ void StatScreen_DrawPage1(void){
 
 static void DrawPage1_Texts(){
 	
+	struct Unit* unit = gStatScreen.unit;
+	
 	// Draw Text
-	DrawTextInline(		// Str
+	NewDrawTextInline(		// Str
 		&gStatScreen.text[STATSCREEN_TEXT_POWLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(1, 1),
-		TEXT_COLOR_GOLD, 0, 0,
+		GetTextColorByGrowth( PowGrowthGetter(unit) ), 
+		0, 0,
 		GetStringFromIndex(0x4FE));
 		
-	DrawTextInline(		// Mag
+	NewDrawTextInline(		// Mag
 		&gStatScreen.text[STATSCREEN_TEXT_AFFINLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(1, 3),
-		TEXT_COLOR_GOLD, 0, 0,
+		GetTextColorByGrowth( MagGrowthGetter(unit) ), 
+		0, 0,
 		GetStringFromIndex(0x4FF));
 	
-	DrawTextInline(		// Skl
+	NewDrawTextInline(		// Skl
 		&gStatScreen.text[STATSCREEN_TEXT_SKLLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(1, 5),
-		TEXT_COLOR_GOLD, 0, 0,
+		GetTextColorByGrowth( SklGrowthGetter(unit) ), 
+		0, 0,
 		GetStringFromIndex(0x4EC));
 
-	DrawTextInline(		// Spd
+	NewDrawTextInline(		// Spd
 		&gStatScreen.text[STATSCREEN_TEXT_SPDLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(1, 7),
-		TEXT_COLOR_GOLD, 0, 0,
+		GetTextColorByGrowth( SpdGrowthGetter(unit) ), 
+		0, 0,
 		GetStringFromIndex(0x4ED));
 		
-	DrawTextInline(		// Def
+	NewDrawTextInline(		// Def
 		&gStatScreen.text[STATSCREEN_TEXT_DEFLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(1, 9),
-		TEXT_COLOR_GOLD, 0, 0,
+		GetTextColorByGrowth( DefGrowthGetter(unit) ), 
+		0, 0,
 		GetStringFromIndex(0x4EF));
 		
-	DrawTextInline(		// Res
+	NewDrawTextInline(		// Res
 		&gStatScreen.text[STATSCREEN_TEXT_RESLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(1, 11),
-		TEXT_COLOR_GOLD, 0, 0,
+		GetTextColorByGrowth( ResGrowthGetter(unit) ), 
+		0, 0,
 		GetStringFromIndex(0x4F0));
 		
 		
 	
-	DrawTextInline(		// Lck
+	NewDrawTextInline(		// Lck
 		&gStatScreen.text[STATSCREEN_TEXT_LCKLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(9, 1),
-		TEXT_COLOR_GOLD, 0, 0,
+		GetTextColorByGrowth( LckGrowthGetter(unit) ), 
+		0, 0,
 		GetStringFromIndex(0x4EE));
 		
 		
-	DrawTextInline(		// Mov
+	NewDrawTextInline(		// Mov
 		&gStatScreen.text[STATSCREEN_TEXT_MOVLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(9, 3),
-		TEXT_COLOR_GOLD, 0, 0,
+		TEXT_COLOR_GOLD, 
+		0, 0,
 		GetStringFromIndex(0x4F6));
 		
-	DrawTextInline(		// Con
+	NewDrawTextInline(		// Con
 		&gStatScreen.text[STATSCREEN_TEXT_CONLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(9, 5),
-		TEXT_COLOR_GOLD, 0, 0,
+		TEXT_COLOR_GOLD, 
+		0, 0,
 		GetStringFromIndex(0x4F7));
 	
-	DrawTextInline(		// Aid
+	
+	NewDrawTextInline(		// Aid
 		&gStatScreen.text[STATSCREEN_TEXT_AIDLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(9, 7),
-		TEXT_COLOR_GOLD, 0, 0,
+		TEXT_COLOR_GOLD, 
+		0, 0,
 		GetStringFromIndex(0x4F8));
-
 	
-	DrawTextInline(		// Trv
+	NewDrawTextInline(		// Trv
 		&gStatScreen.text[STATSCREEN_TEXT_RESCUENAME],
 		gBmFrameTmap0 + TILEMAP_INDEX(9, 9),
 		TEXT_COLOR_GOLD, 0, 0,
@@ -108,7 +121,7 @@ static void DrawPage1_Texts(){
 		GetUnitRescueName(gStatScreen.unit));
 	
 	
-	DrawTextInline(		// Status
+	NewDrawTextInline(		// Status
 		&gStatScreen.text[STATSCREEN_TEXT_STATUS],
 		gBmFrameTmap0 + TILEMAP_INDEX(9, 11),
 		TEXT_COLOR_GOLD, 0, 0,

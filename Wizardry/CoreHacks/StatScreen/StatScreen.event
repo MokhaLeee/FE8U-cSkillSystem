@@ -1,6 +1,8 @@
 #ifndef STATUS_SCREEN
 #define STATUS_SCREEN
 
+#include "Core/DrawStatScreenCore.lyn.event"
+
 // Draw Pages
 #include "DrawPages/DrawPageLeft.lyn.event"
 #include "DrawPages/DrawPageUnit.lyn.event"
@@ -8,7 +10,8 @@
 // Help Box
 #include "HelpBox/HelpBox.event"
 
-
+// More Palette
+#include "Data/NewPalette.event"
 
 PUSH
 	ORG $86E44

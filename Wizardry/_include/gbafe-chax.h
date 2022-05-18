@@ -31,6 +31,7 @@
 #include "combat-art.h"
 #include "unit-expa.h"
 #include "unit-status.h"
+#include "stat-screen.h"
 
 #include "gbafe16-features.h"
 #include "../Features/SkillsInstaller/SkillsDef.h"
