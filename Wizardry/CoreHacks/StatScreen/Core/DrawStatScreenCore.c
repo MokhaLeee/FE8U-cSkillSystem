@@ -6,6 +6,14 @@ void PrePareForMoreTextColor(){
 	ApplyPalettes(MSS_TEXT_PAL09, 0x8, 2);
 };
 
+void ResetTextPalInfo(){
+	
+	gCurrentFont->unk10 = gCurrentFont->unk10 & 0x0FFF;
+
+}
+
+
+
 void NewDrawTextInline(struct TextHandle* text, u16* dest, int colorId, int x, int tileWidth, const char* string){
 	
 	/*
@@ -50,7 +58,7 @@ void NewDrawTextInline(struct TextHandle* text, u16* dest, int colorId, int x, i
 	
 	gCurrentFont->unk10 = 
 		(pal_bank << 12) +
-		(gCurrentFont->unk10 & 0xFFF);
+		(gCurrentFont->unk10 & 0x0FFF);
 	
 	DrawTextInline(text, dest, colorId, x, tileWidth, string);
 	
@@ -58,58 +66,13 @@ void NewDrawTextInline(struct TextHandle* text, u16* dest, int colorId, int x, i
 }
 
 
-int GetTextColorByGrowth(int growth){
-	
-	if( growth > 100 )
-		growth = 100;
+int GetNewTextColorByGrowth(int growth){
 	
 	growth = _lib_div(growth, 10);
 	
-	switch (growth)
-	{
-		case 0:
-			return NEW_TEXT_COLOR_9;
-			break;
-		
-		case 1:
-			return NEW_TEXT_COLOR_8;
-			break;
-		
-		case 2:
-			return NEW_TEXT_COLOR_7;
-			break;
-		
-		case 3:
-			return NEW_TEXT_COLOR_6;
-			break;
-		
-		case 4:
-			return NEW_TEXT_COLOR_5;
-			break;
-		
-		case 5:
-			return NEW_TEXT_COLOR_4;
-			break;
-		
-		case 6:
-			return NEW_TEXT_COLOR_3;
-			break;
-		
-		case 7:
-			return NEW_TEXT_COLOR_2;
-			break;
-		
-		case 8:
-			return NEW_TEXT_COLOR_1;
-			break;
-		
-		case 9:
-			return NEW_TEXT_COLOR_0;
-			break;
-		
-		default:
-			return NEW_TEXT_COLOR_5;
-			break;
-		
-	}
+	if( growth > 9 )
+		growth = 9;
+	
+	return 9 - growth + 5;
+	
 }

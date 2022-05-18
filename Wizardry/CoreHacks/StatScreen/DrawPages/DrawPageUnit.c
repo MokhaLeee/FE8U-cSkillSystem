@@ -37,55 +37,69 @@ static void DrawPage1_Texts(){
 	NewDrawTextInline(		// Str
 		&gStatScreen.text[STATSCREEN_TEXT_POWLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(1, 1),
-		GetTextColorByGrowth( PowGrowthGetter(unit) ), 
+		FACTION_BLUE == UNIT_FACTION(unit)
+			? GetNewTextColorByGrowth( PowGrowthGetter(unit) )
+			: TEXT_COLOR_GOLD, 
 		0, 0,
 		GetStringFromIndex(0x4FE));
 		
 	NewDrawTextInline(		// Mag
 		&gStatScreen.text[STATSCREEN_TEXT_AFFINLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(1, 3),
-		GetTextColorByGrowth( MagGrowthGetter(unit) ), 
+		FACTION_BLUE == UNIT_FACTION(unit)
+			? GetNewTextColorByGrowth( MagGrowthGetter(unit) )
+			: TEXT_COLOR_GOLD, 
 		0, 0,
 		GetStringFromIndex(0x4FF));
 	
 	NewDrawTextInline(		// Skl
 		&gStatScreen.text[STATSCREEN_TEXT_SKLLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(1, 5),
-		GetTextColorByGrowth( SklGrowthGetter(unit) ), 
+		FACTION_BLUE == UNIT_FACTION(unit)
+			? GetNewTextColorByGrowth( SklGrowthGetter(unit) )
+			: TEXT_COLOR_GOLD, 
 		0, 0,
 		GetStringFromIndex(0x4EC));
 
 	NewDrawTextInline(		// Spd
 		&gStatScreen.text[STATSCREEN_TEXT_SPDLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(1, 7),
-		GetTextColorByGrowth( SpdGrowthGetter(unit) ), 
+		FACTION_BLUE == UNIT_FACTION(unit)
+			? GetNewTextColorByGrowth( SpdGrowthGetter(unit) )
+			: TEXT_COLOR_GOLD, 
 		0, 0,
 		GetStringFromIndex(0x4ED));
 		
 	NewDrawTextInline(		// Def
 		&gStatScreen.text[STATSCREEN_TEXT_DEFLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(1, 9),
-		GetTextColorByGrowth( DefGrowthGetter(unit) ), 
+		FACTION_BLUE == UNIT_FACTION(unit)
+			? GetNewTextColorByGrowth( DefGrowthGetter(unit) )
+			: TEXT_COLOR_GOLD, 
 		0, 0,
 		GetStringFromIndex(0x4EF));
 		
 	NewDrawTextInline(		// Res
 		&gStatScreen.text[STATSCREEN_TEXT_RESLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(1, 11),
-		GetTextColorByGrowth( ResGrowthGetter(unit) ), 
+		FACTION_BLUE == UNIT_FACTION(unit)
+			? GetNewTextColorByGrowth( ResGrowthGetter(unit) )
+			: TEXT_COLOR_GOLD, 
 		0, 0,
 		GetStringFromIndex(0x4F0));
 		
-		
-	
 	NewDrawTextInline(		// Lck
 		&gStatScreen.text[STATSCREEN_TEXT_LCKLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(9, 1),
-		GetTextColorByGrowth( LckGrowthGetter(unit) ), 
+		FACTION_BLUE == UNIT_FACTION(unit)
+			? GetNewTextColorByGrowth( LckGrowthGetter(unit) )
+			: TEXT_COLOR_GOLD, 
 		0, 0,
 		GetStringFromIndex(0x4EE));
 		
-		
+	// Below will not show for growth text
+	ResetTextPalInfo();
+	
 	NewDrawTextInline(		// Mov
 		&gStatScreen.text[STATSCREEN_TEXT_MOVLABEL],
 		gBmFrameTmap0 + TILEMAP_INDEX(9, 3),

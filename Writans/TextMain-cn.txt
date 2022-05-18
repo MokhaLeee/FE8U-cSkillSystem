@@ -16,6 +16,9 @@
 #0xD4C msgCharmName
 魅力[X]
 
+## msg_Silencer
+瞬杀[X]
+
 #include strings-cn/StatusScreen.txt
 #include strings-cn/Menu.txt
 #include strings-cn/Skills_Blow.txt

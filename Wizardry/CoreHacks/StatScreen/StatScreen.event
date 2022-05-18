@@ -6,6 +6,7 @@
 // Draw Pages
 #include "DrawPages/DrawPageLeft.lyn.event"
 #include "DrawPages/DrawPageUnit.lyn.event"
+#include "DrawPages/DrawPageItem.lyn.event"
 
 // Help Box
 #include "HelpBox/HelpBox.event"
