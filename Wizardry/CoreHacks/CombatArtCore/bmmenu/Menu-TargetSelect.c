@@ -223,6 +223,11 @@ void CombatArtSelect_HelpBox(struct MenuProc*, struct MenuItemProc* menu_item){
 
 u8 CombatArtSelect_Usability(const struct MenuItemDef*, int number){
 	
+	extern void ForEachUnitInRange(void*);
+	extern void TryAddTrapsToTargetList();
+	
+	u32 range_mask = 0;
+	
 	if( NULL == GetCombatArtList(gActiveUnit) )
 		return MENU_NOTSHOWN;
 	
@@ -231,12 +236,52 @@ u8 CombatArtSelect_Usability(const struct MenuItemDef*, int number){
 	if( 0 == ca_index )
 		return MENU_NOTSHOWN;
 	
-	if( 1 == CanUnitUseCombatArt(gActiveUnit, ca_index) )
-		return MENU_ENABLED;
+	const struct CombatArtInfo* info = GetCombatArtInfo(ca_index);
 	
-	else
+	if( NULL == info )
+		return 0;
+	
+	if( 0 == CanUnitUseCombatArt(gActiveUnit, ca_index) )
 		return MENU_DISABLED;
 	
+	// Temperory Set CombatArt flag to make mask
+	EnableCombatArtFlag(gActiveUnit, ca_index);
+	
+	// Make mask
+	for( int i = 0; i < UNIT_ITEM_COUNT; i++ )
+	{
+		u16 item = gActiveUnit->items[i];
+		
+		if( 0 == (IA_WEAPON & GetItemAttributes(item)) )
+			continue;
+				
+		if( info->weapon_type != GetItemType(item) )
+			continue;
+				
+		if( ITEM_USES(item) < info->cost )
+			continue;
+		
+		range_mask |= ItemRange2Mask(item, gActiveUnit);
+	}
+	
+	// Temperory Clear CombatArt flag after make mask
+	DisableCombatArtFlag();
+	
+	
+	// Fill Map
+	BmMapFill(gBmMapMovement, NU_MOVE_MAP);
+	BmMapFill(gBmMapRange, NU_RANGE_MAP);
+	GenerateUnitStandingReachRange(gActiveUnit, range_mask);
+	
+	// Make Target List
+	ForEachUnitInRange(AddUnitToTargetListIfNotAllied);
+	TryAddTrapsToTargetList();
+	
+	if( 0 == GetSelectTargetCount() )
+		return MENU_DISABLED;
+	
+	return MENU_ENABLED;
+
 }
 
 int CombatArtSelect_DrawText(struct MenuProc* menu, struct MenuItemProc* menu_item){

@@ -20,30 +20,37 @@ HpMaxModify:
 PowModify:
 	// POIN MSG_Add1 | 1
 	POIN PowGetter_UnitStatus
+	POIN PowGetter_DefaintSkill
 	WORD 0
 
 MagModify:
 	POIN MagGetter_UnitStatus
+	POIN MagGetter_DefaintSkill
 	WORD 0
 
 SpdModify:
 	POIN SpdGetter_UnitStatus
+	POIN SpdGetter_DefaintSkill
 	WORD 0
 
 SklModify:
 	POIN SklGetter_UnitStatus
+	POIN SklGetter_DefaintSkill
 	WORD 0
 
 LckModify:
 	POIN LckGetter_UnitStatus
+	POIN LckGetter_DefaintSkill
 	WORD 0
 
 DefModify:
 	POIN DefGetter_UnitStatus
+	POIN DefGetter_DefaintSkill
 	WORD 0
 
 ResModify:
 	POIN ResGetter_UnitStatus
+	POIN ResGetter_DefaintSkill
 	WORD 0
 
 ConModify:

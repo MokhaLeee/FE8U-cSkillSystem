@@ -1,0 +1,50 @@
+ALIGN 4
+
+// Src
+#include "Src/Infos.lyn.event"
+#include "Src/Core.lyn.event"
+#include "Src/MenuSkillsASM.lyn.event"
+
+PUSH
+	ORG $243DC
+	jumpToHack(SummonUsabilityHackASM)
+	PROTECT $0243D8 $0244B4		// SummonCommandUsability
+	
+	ORG $24190
+	jumpToHack(StealUsabilityHackASM)
+	PROTECT $02418C $0241D8		// StealCommandUsability
+	
+	ORG $23E8C
+	jumpToHack(PickUsabilityHackASM)
+	PROTECT $023E7C $023EB2		// PickCommandUsability
+POP
+
+PROTECT $023194 $0231CC		// DanceCommandUsability
+PROTECT $023F65 $023FB4		// SupplyUsability
+
+
+
+InjectSkillInfo(SKILLID_Dance, SkillInfo_Dance)
+InjectSkillInfo(SKILLID_LockTouch, SkillInfo_LockTouch)
+InjectSkillInfo(SKILLID_Summon, SkillInfo_Summon)
+InjectSkillInfo(SKILLID_Supply, SkillInfo_Supply)
+InjectSkillInfo(SKILLID_Steal, SkillInfo_Steal)
+
+
+
+// Icons
+ALIGN 4
+SI_Dance:
+	#incbin "Icons/Dance.4bpp"
+
+SI_LockTouch:
+	#incbin "Icons/LockTouch.4bpp"
+
+SI_Summon:
+	#incbin "Icons/Summon.4bpp"
+
+SI_Supply:
+	#incbin "Icons/Supply.4bpp"
+
+SI_Steal:
+	#incbin "Icons/Steal.4bpp"

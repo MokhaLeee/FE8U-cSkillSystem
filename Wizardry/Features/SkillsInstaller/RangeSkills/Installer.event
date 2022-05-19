@@ -1,0 +1,25 @@
+
+// Src
+#include "Src/Infos.lyn.event"
+#include "Src/Core.lyn.event"
+
+InjectSkillInfo(SKILLID_RangeBonusBMag1, SkillInfo_RangeBonusBMag1)
+InjectSkillInfo(SKILLID_RangeBonusBMag2, SkillInfo_RangeBonusBMag2)
+InjectSkillInfo(SKILLID_RangeBonusBow1, SkillInfo_RangeBonusBow1)
+InjectSkillInfo(SKILLID_RangeBonusBow2, SkillInfo_RangeBonusBow2)
+
+ALIGN 4
+SI_RangeBonusBMag1:
+	#incbin "Icons/RangeBonusBMag1.4bpp"
+
+ALIGN 4
+SI_RangeBonusBMag2:
+	#incbin "Icons/RangeBonusBMag2.4bpp"
+
+ALIGN 4
+SI_RangeBonusBow1:
+	#incbin "Icons/RangeBonusBow1.4bpp"
+
+ALIGN 4
+SI_RangeBonusBow2:
+	#incbin "Icons/RangeBonusBow2.4bpp"

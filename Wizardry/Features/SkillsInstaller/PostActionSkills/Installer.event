@@ -1,0 +1,23 @@
+
+ALIGN 4
+#include "Src/Infos.lyn.event"
+#include "Src/Core.lyn.event"
+#include "Src/CantoHackASM.lyn.event"
+
+PUSH
+	ORG $01D248
+	jumpToHack(CantoHackASM)
+	PROTECT $01D244 $01D300
+POP
+
+ALIGN 4
+// Icon
+SI_Canto:
+	#incbin "Icons/Canto.4bpp"
+
+SI_AlertStance:
+	#incbin "Icons/AlertStance.4bpp"
+
+SI_AlertStancePlus:
+	#incbin "Icons/AlertStancePlus.4bpp"
+

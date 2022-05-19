@@ -6,7 +6,7 @@
 
 int CheckCanDouble(struct BattleUnit* actor, struct BattleUnit* target);
 static int CheckNormalDouble(struct BattleUnit* actor, struct BattleUnit* target);
-static int CheckDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target);
+static int CheckForceDouble(struct BattleUnit* actor, struct BattleUnit* target);
 static int CheckNullDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target);
 static int CheckVantageBattle(void);
 static int CheckDesperationBattle(void);
@@ -302,7 +302,7 @@ int CheckCanDouble(struct BattleUnit* actor, struct BattleUnit* target){
 	if( CheckNullDoubleLoop(actor,target) )
 		return 0;
 	
-	return CheckNormalDouble(actor, target) || CheckDoubleLoop(actor, target);
+	return CheckNormalDouble(actor, target) || CheckForceDouble(actor, target);
 
 
 }
@@ -321,7 +321,7 @@ int CheckNormalDouble(struct BattleUnit* actor, struct BattleUnit* target){
 
 
 // static 
-int CheckDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target){
+int CheckForceDouble(struct BattleUnit* actor, struct BattleUnit* target){
 	
 	// Combat Art
 	if( JudgeCombatArtDouble(actor) )
@@ -339,11 +339,18 @@ int CheckDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target){
 // static 
 int CheckNullDoubleLoop(struct BattleUnit* actor, struct BattleUnit* target){
 	
+	struct Unit* target_unit = GetUnit(gBattleTarget.unit.index);
+	
+	// Combat Art
 	if( 1 == gpBattleFlagExt->isCombat )
 		if( &gBattleActor == actor )
 			return !JudgeCombatArtDouble(actor);
-		
-		
+	
+	// WaryFighter
+	if( 1 == (*SkillTester)(target_unit, SID_WaryFighter) )
+		if( HpCurGetter(target_unit) > (HpMaxGetter(target_unit)/2) )
+			return 1;
+	
 	// default
 	return 0;
 }

@@ -127,3 +127,36 @@ int GetUnitTotalCombatArtsCount(struct Unit* unit){
 	return count;
 	
 }
+
+
+
+// For Battle-Flag-Ext
+void EnableCombatArtFlag(struct Unit* unit, u8 combatArt_index){
+	
+	gpBattleFlagExt->isCombat = 1;
+	gpBattleFlagExt->combatArt_id = combatArt_index;
+	gpBattleFlagExt->combat_unit = unit->index;
+}
+
+
+void DisableCombatArtFlag(){
+	
+	gpBattleFlagExt->isCombat = 0;
+	gpBattleFlagExt->combatArt_id = 0;
+	gpBattleFlagExt->combat_unit = 0;
+}
+
+
+int IsFlagCombatArt(struct Unit* unit, u8 combatArt_index){
+	
+	if( 0 == gpBattleFlagExt->isCombat )
+		return 0;
+	
+	if( combatArt_index != gpBattleFlagExt->combatArt_id )
+		return 0;
+	
+	if( unit->index != gpBattleFlagExt->combat_unit )
+		return 0;
+	
+	return 1;
+}

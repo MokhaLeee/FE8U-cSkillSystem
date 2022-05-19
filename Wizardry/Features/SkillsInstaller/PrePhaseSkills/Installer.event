@@ -1,0 +1,17 @@
+
+ALIGN 4
+#include "Src/Infos.lyn.event"
+#include "Src/RenewalASM.lyn.event"
+#include "Src/PrePhaseSkillsCore.lyn.event"
+
+PUSH
+	ORG $025948
+	jumpToHack(PrePhaseRenewalHack)
+	PROTECT $025904 $0259EC
+POP
+
+InjectSkillInfo(SKILLID_Renewal, SkillInfo_Renewal)
+
+ALIGN 4
+SI_Renewal:
+	#incbin "Icons/Renewal.4bpp"

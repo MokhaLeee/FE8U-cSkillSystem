@@ -20,6 +20,16 @@ void BC_BattleStatusSkills(struct BattleUnit* act, struct BattleUnit*){
 	if( (*SkillTester)(unit_act, SID_Avoid) )
 		act->battleAvoidRate += 10;
 	
+	// Defainty
+	if( HpCurGetter(unit_act) < (HpMaxGetter(unit_act)/4) ){
+		
+		if( (*SkillTester)(unit_act, SID_DefiantCrit) )
+			act->battleCritRate += 50;
+	
+		if( (*SkillTester)(unit_act, SID_DefiantAvoid) )
+			act->battleAvoidRate += 30;
+	}
+	
 	
 	// Weapon Type Based Skills
 	if( ITYPE_SWORD == act->weaponType ){

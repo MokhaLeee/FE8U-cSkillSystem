@@ -23,6 +23,9 @@ InjectSkillInfo(SKILLID_FaireAxe, SkillInfo_FaireAxe)
 InjectSkillInfo(SKILLID_FaireBow, SkillInfo_FaireBow)
 InjectSkillInfo(SKILLID_FaireBMag, SkillInfo_FaireBMag)
 
+InjectSkillInfo(SKILLID_DefiantCrit, SkillInfo_DefiantCrit)
+InjectSkillInfo(SKILLID_DefiantAvoid, SkillInfo_DefiantAvoid)
+
 
 // Icons
 ALIGN 4
@@ -106,3 +109,11 @@ SI_AvoidSword:
 	#incbin "Icons/AvoidSword.4bpp"
 
 
+
+// Defiant
+SI_DefiantCrit:
+	#incbin "Icons/DefiantCrit.4bpp"
+
+SI_DefiantAvoid:
+	#incbin "Icons/DefiantAvoid.4bpp"
+	

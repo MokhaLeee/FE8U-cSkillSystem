@@ -3,10 +3,11 @@
 const struct SkillROMList CharSkillRomList[0x100] = {
 	
 	[CHARACTER_EIRIKA] = {
-		.default_rom_skill[0] = SID_BlowDarting,
+		.default_rom_skill[0] = SID_Supply,
+		.default_rom_skill[1] = SID_Pass,
 		.master_rom_skill[0] = SID_DesperationBat,
 		
-		.default_ram_skill[0] = SID_BowBreaker,
+		.default_ram_skill[0] = SID_RangeBonusBMag1,
 		.default_ram_skill[1] = SID_CritBMag,
 		.default_ram_skill[2] = SID_AlertStancePlus,
 		.default_ram_skill[3] =SID_RallyStr,
@@ -26,7 +27,10 @@ const struct SkillROMList CharSkillRomList[0x100] = {
 	
 	[CHARACTER_INNES] = {
 		.default_rom_skill[0] = SID_BlowDeath,
-		.default_ram_skill[0] = SID_BlowUncanny,
+		.default_ram_skill[0] = SID_Dance,
+		.default_ram_skill[1] = SID_LockTouch,
+		.default_ram_skill[2] = SID_Steal,
+		.default_ram_skill[3] = SID_Supply,
 		.master_ram_skill[0] = SID_BlowDarting,
 	},
 	
@@ -36,7 +40,8 @@ const struct SkillROMList CharSkillRomList[0x100] = {
 		.default_rom_skill[1] = SID_VantageBat,
 		.master_rom_skill[0] = SID_DesperationBat,
 		
-		.default_ram_skill[0] = SID_BowBreaker,
+		.default_ram_skill[0] = SID_Renewal,
+		.default_ram_skill[1] = SID_WaryFighter,
 		.master_ram_skill[1] = SID_BlowDeath,
 	},
 	
@@ -70,7 +75,11 @@ const struct SkillROMList ClassSkillRomList[0x100] = {
 		.default_ram_skill[0] = SID_AxeBreaker,
 		.default_ram_skill[1] = SID_CritSword,
 		.default_ram_skill[2] = SID_FaireSword,
-		.default_ram_skill[3] = SID_TomeBreaker,
+		.default_ram_skill[3] = SID_DefiantAvoid,
+	},
+	
+	[CLASS_THIEF] = {
+		.default_rom_skill[0] = SID_Steal,
 	},
 	
 	[CLASS_SNIPER] = {
@@ -82,6 +91,25 @@ const struct SkillROMList ClassSkillRomList[0x100] = {
 		.default_ram_skill[3] = SID_CritBow,
 	},
 	
+	[CLASS_SUMMONER] = {
+		.default_rom_skill[0] = SID_Summon,
+	},
 	
+	[CLASS_SUMMONER_F] = {
+		.default_rom_skill[0] = SID_Summon,
+	},
+	
+	[CLASS_ROGUE] = {
+		.default_rom_skill[0] = SID_LockTouch,
+		.default_rom_skill[1] = SID_Steal,
+	},
+	
+	[CLASS_DANCER] = {
+		.default_rom_skill[0] = SID_Dance,
+	},
+	
+	[CLASS_BARD] = {
+		.default_rom_skill[0] = SID_Dance,
+	},
 };
 

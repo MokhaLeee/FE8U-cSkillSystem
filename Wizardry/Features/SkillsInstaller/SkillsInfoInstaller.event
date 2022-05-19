@@ -29,8 +29,7 @@ ALIGN 4
 #include "BlowSkills/Core.lyn.event"
 
 // Battle Order Skills
-#include "BattleOrder/Icons.event"
-#include "BattleOrder/Infos.lyn.event"
+#include "BattleOrder/Installer.event"
 
 // Battke Misc Skills
 #include "BattleStatus/Installer.event"
@@ -44,9 +43,22 @@ ALIGN 4
 #include "BattleCanCounter/Installer.event"
 
 // Post Action
-#include "PostActionSkills/Icons.event"
-#include "PostActionSkills/Infos.lyn.event"
-#include "PostActionSkills/Core.lyn.event"
+#include "PostActionSkills/Installer.event"
+
+// Pre-Phase
+#include "PrePhaseSkills/Installer.event"
 
 // Rally
 #include "RallySkills/Installer.event"
+
+// Move 
+#include "MoveSkills/Installer.event"
+
+// Menu Skills
+#include "MenuSkills/Installer.event"
+
+// Range Skills
+#include "RangeSkills/Installer.event"
+
+// Status Getter Skills
+#include "StatusGetterSkills/Installer.event"

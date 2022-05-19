@@ -8,7 +8,8 @@
 int RangeMaxGetter(u16 item, struct Unit* unit);
 int RangeMinGetter(u16 item, struct Unit* unit);
 
-
+// UI
+char* _GetUnitRangeString(struct Unit* unit);
 
 
 

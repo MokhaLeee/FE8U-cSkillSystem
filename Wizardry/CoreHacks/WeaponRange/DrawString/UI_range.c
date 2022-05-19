@@ -10,7 +10,7 @@ char* _GetItemDisplayRangeString(int item) {
 	int min, max;
 	
 	if( 0 == ITEM_ID(item) )
-		return "ERROR";
+		return "\0";
 	
 	max = GetItemMaxRange(item);
 	min = GetItemMinRange(item);
@@ -37,7 +37,7 @@ char* _GetUnitRangeString(struct Unit* unit) {
 	item = GetUnitEquippedWeapon(unit);
 	
 	if( 0 == ITEM_ID(item) )
-		return "Nope";
+		return "\0";
 	
 	max = RangeMaxGetter(item, unit);
 	min = RangeMinGetter(item, unit);

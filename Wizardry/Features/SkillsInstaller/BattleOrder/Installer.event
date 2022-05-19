@@ -1,0 +1,38 @@
+
+// Src
+#include "Src/Infos.lyn.event"
+
+/*
+ *
+ * CoreHacks inside CoreHacks/BattleSystem/BattleOrder
+ * Here we don't write any more skill again
+ *
+ */
+
+InjectSkillInfo(SKILLID_Vantage, SkillInfo_Vantage)
+InjectSkillInfo(SKILLID_VantageBat, SkillInfo_VantageBat)
+InjectSkillInfo(SKILLID_Desperation, SkillInfo_Desperation)
+InjectSkillInfo(SKILLID_DesperationBat, SkillInfo_DesperationBat)
+InjectSkillInfo(SKILLID_QuickRiposte, SkillInfo_QuickRiposte)
+InjectSkillInfo(SKILLID_WaryFighter, SkillInfo_WaryFighter)
+
+// Icons
+ALIGN 4
+SI_Vantage:
+	#incbin "Icons/Vantage.4bpp"
+
+SI_VantageBat:
+	#incbin "Icons/VantageBattalion.4bpp"
+
+SI_Desperation:
+	#incbin "Icons/Desperation.4bpp"
+	
+SI_DesperationBat:
+	#incbin "Icons/DesperationBattalion.4bpp"
+
+SI_QuickRiposte:
+	#incbin "Icons/QuickRiposte.4bpp"
+
+SI_WaryFighter:
+	#incbin "Icons/WaryFighter.4bpp"
+	

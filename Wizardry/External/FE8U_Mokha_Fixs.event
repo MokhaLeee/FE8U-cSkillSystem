@@ -19,10 +19,11 @@ SHORT 0 0
 ORG $31646
 SHORT $0
 
-
+/* 
+// now has "RemoveA" hack
 // remove "A"
 ORG $00A16E
-SHORT $E028	// b end
+SHORT $E028	// b end */
 
 
 POP

@@ -1,0 +1,47 @@
+
+// Src
+#include "Src/Infos.lyn.event"
+#include "Src/Core.lyn.event"
+
+InjectSkillInfo(SKILLID_DefiantStr, SkillInfo_DefiantStr)
+InjectSkillInfo(SKILLID_DefiantMag, SkillInfo_DefiantMag)
+InjectSkillInfo(SKILLID_DefiantSkl, SkillInfo_DefiantSkl)
+InjectSkillInfo(SKILLID_DefiantSpd, SkillInfo_DefiantSpd)
+InjectSkillInfo(SKILLID_DefiantLck, SkillInfo_DefiantLck)
+InjectSkillInfo(SKILLID_DefiantDef, SkillInfo_DefiantDef)
+InjectSkillInfo(SKILLID_DefiantRes, SkillInfo_DefiantRes)
+
+
+
+ALIGN 4
+SI_DefiantStr:
+	#incbin "Icons/DefiantStr.4bpp"
+
+
+ALIGN 4
+SI_DefiantMag:
+	#incbin "Icons/DefiantDef.4bpp"
+
+ALIGN 4
+SI_DefiantSkl:
+	#incbin "Icons/DefiantSkl.4bpp"
+
+ALIGN 4
+SI_DefiantSpd:
+	#incbin "Icons/DefiantSpd.4bpp"
+
+ALIGN 4
+SI_DefiantLck:
+	#incbin "Icons/DefiantLck.4bpp"
+
+ALIGN 4
+SI_DefiantDef:
+	#incbin "Icons/DefiantDef.4bpp"
+
+ALIGN 4
+SI_DefiantRes:
+	#incbin "Icons/DefiantRes.4bpp"	
+
+
+
+

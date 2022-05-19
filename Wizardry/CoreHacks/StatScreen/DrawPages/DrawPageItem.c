@@ -66,7 +66,7 @@ struct SSTextDispInfo const sNewPage1TextInfo[] ={
 
 void DisplayPage1(void)
 {
-	
+	extern const u16 Page2SubWindow[];
 	
 	int i, item;
 	const char* str;
@@ -75,12 +75,12 @@ void DisplayPage1(void)
 	Text_Clear(gStatScreen.text + STATSCREEN_TEXT_BWL);
 	
 	CopyDataWithPossibleUncomp(
-		gUnknown_08A02204,
-		gUnknown_02020188);
-
+		Page2SubWindow,
+		gGenericBuffer);
+	
 	CallARM_FillTileRect(
 		gBmFrameTmap1 + TILEMAP_INDEX(1, 11),
-		gUnknown_02020188, TILEREF(0x40, STATSCREEN_BGPAL_3));
+		gGenericBuffer, TILEREF(0x40, STATSCREEN_BGPAL_3));
 
 	DisplayTexts(sNewPage1TextInfo);
 
@@ -125,6 +125,11 @@ void DisplayPage1(void)
 
 	if (!UNIT_IS_GORGON_EGG(gStatScreen.unit))
 	{
+		// for Silencer
+		DrawDecNumber(
+			gBmFrameTmap0 + TILEMAP_INDEX(8,  11),
+			TEXT_COLOR_BLUE, gBattleActor.battleSilencerRate);
+		
 		DrawDecNumber(
 			gBmFrameTmap0 + TILEMAP_INDEX(8,  13),
 			TEXT_COLOR_BLUE, gBattleActor.battleAttack);
@@ -164,11 +169,17 @@ void DisplayPage1(void)
 
     // TODO: macro, maybe?
 
-	str = GetItemDisplayRangeString(item);
-	Text_InsertString(
-		&gStatScreen.text[STATSCREEN_TEXT_BSRANGE],
-		55 - GetStringTextWidth(str),
-		TEXT_COLOR_BLUE, str);
+	str = _GetUnitRangeString(&gBattleActor.unit);
+	
+	if( '\0' != *str )
+		Text_InsertString(
+			&gStatScreen.text[STATSCREEN_TEXT_BSRANGE],
+			55 - GetStringTextWidth(str),
+			TEXT_COLOR_BLUE, str);
+	else
+		DrawDecNumber(
+			gBmFrameTmap0 + TILEMAP_INDEX(15, 11),
+			TEXT_COLOR_BLUE, 0xFF);
 	
 	// null the gfx: "Equipment"
 /* 	for (i = 0; i < 8; ++i)

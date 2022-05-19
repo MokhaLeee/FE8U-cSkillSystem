@@ -90,7 +90,7 @@ int BCanCounter_UnitStat(){
 int BCanCounter_CheckRange(){
 	
 	struct BattleUnit* bu = &gBattleTarget;
-	
+
 	if( !IsItemCoveringRange(bu->weapon, gBattleStats.range) )
 		return NULL_COUNTER;
 	

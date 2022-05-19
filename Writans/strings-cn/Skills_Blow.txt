@@ -3,7 +3,7 @@
 
 ## msg_SD_BlowDarting
 飞燕一击:[NL]
-由自己发动攻击时，攻速+6。[X]
+由自己发动攻击时，攻速+6[X]
 
 
 ## msg_SN_BlowDeath
@@ -11,7 +11,7 @@
 
 ## msg_SD_BlowDeath
 鬼神一击:[NL]
-由自己发动攻击时，力量+6。[X]
+由自己发动攻击时，力量+6[X]
 
 
 ## msg_SN_BlowArmored
@@ -19,7 +19,7 @@
 
 ## msg_SD_BlowArmored
 金刚一击:[NL]
-由自己发动攻击时，防守+6。[X]
+由自己发动攻击时，防守+6[X]
 
 
 ## msg_SN_BlowFiendish
@@ -27,7 +27,7 @@
 
 ## msg_SD_BlowFiendish
 魔神一击:[NL]
-由自己发动攻击时，魔力+6。[X]
+由自己发动攻击时，魔力+6[X]
 
 
 ## msg_SN_BlowWarding
@@ -35,7 +35,7 @@
 
 ## msg_SD_BlowWarding
 明镜一击:[NL]
-由自己发动攻击时，魔防+6。[X]
+由自己发动攻击时，魔防+6[X]
 
 
 
@@ -44,7 +44,7 @@
 
 ## msg_SD_BlowDuelist
 清流一击:[NL]
-由自己发动攻击时，回避20。[X]
+由自己发动攻击时，回避20[X]
 
 
 ## msg_SN_BlowUncanny
@@ -52,5 +52,5 @@
 
 ## msg_SD_BlowUncanny
 慧眼一击:[NL]
-由自己发动攻击时，命中+30。[X]
+由自己发动攻击时，命中+30[X]
 

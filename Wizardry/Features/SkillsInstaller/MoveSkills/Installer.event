@@ -1,0 +1,19 @@
+ALIGN 4
+
+// Src
+#include "Src/Infos.lyn.event"
+#include "Src/PassHackASM.lyn.event"
+
+InjectSkillInfo(SKILLID_Pass, SkillInfo_Pass)
+
+PUSH
+	ORG $800 //modifies movement ARM code
+	WORD 0xE59FC000 0xE12FFF1C //ldr r12,Pass; bx r12
+	POIN PassHackASM
+POP
+
+// Icons
+ALIGN 4
+SI_Pass:
+	#incbin "Icons/Pass.4bpp"
+

@@ -120,10 +120,16 @@ ALIGN 4
 
 
 
+
+
+#include "External/_ExternPatchConfig.event"
+
 // A diy game-intro graphic
 #include "External/GameStartScreen/GameStartScreen.event"
 
-#include "External/_ExternPatchConfig.event"
+// Remove char "a" or "A"
+#include "External/RemoveA/RemoveA.lyn.event"
+
 #include "External/MoveLimitViewFix/MoveLimitViewFix.event"
 #include "External/FE8U_Mokha_Fixs.event"
 #include "External/PortraitHeight/PortraitHeight.event"

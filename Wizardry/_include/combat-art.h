@@ -67,6 +67,11 @@ int AddCombatArt(struct Unit*, const u8 index);
 
 int GetUnitTotalCombatArtsCount(struct Unit* unit);
 
+// For Battle-Ext-Flag
+void EnableCombatArtFlag(struct Unit* unit, u8 combatArt_index);
+void DisableCombatArtFlag();
+int IsFlagCombatArt(struct Unit* unit, u8 combatArt_index);
+
 
 // Menu Panel
 void StartMenuPanel_CombatArt(struct MenuProc*, struct Unit*, u8 x, u8 y);

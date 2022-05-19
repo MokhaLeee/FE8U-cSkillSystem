@@ -34,10 +34,10 @@ PUSH
 	BL(prGotoMovGetter) */
 
 	//After performing an action; check if you can canto
-	ORG $1D278
+/* 	ORG $1D278
 	SHORT 0x6820 //ldr r0,[r4]
 	BL(prGotoMovGetter)
-	SHORT 0x4A09 0xE002 //ldr r2,ActionCenterStruct, b
+	SHORT 0x4A09 0xE002 //ldr r2,ActionCenterStruct, b */
 
 	//^
 	ORG $18BF0

@@ -26,9 +26,9 @@ PROTECT $18A1C $18A54 // GetUnitMagBy2Range
 PUSH
 	// W.I.P.
 	// Draw Status Screen Page2
-	ORG $87630	
+/* 	ORG $87630	
 		SHORT $2000	// mov r0, #0
-		BL(Goto_GetUnitRangeString)
+		BL(Goto_GetUnitRangeString) */
 	
 	ORG $16CC0
 	LynJump(_GetItemDisplayRangeString)

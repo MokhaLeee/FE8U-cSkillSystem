@@ -1,0 +1,43 @@
+## msg_SN_Dance
+舞蹈[X]
+
+## msg_SD_Dance
+舞蹈:[NL]
+该单位可通过舞蹈激励[NL]
+友军再次移动或者获得加成[X]
+
+
+## msg_SN_LockTouch
+开锁[X]
+
+## msg_SD_LockTouch
+开锁:[NL]
+该单位可在不使用钥匙[NL]
+的情况下解锁门与宝箱[X]
+
+
+## msg_SN_Summon
+召唤[X]
+
+## msg_SD_Summon
+召唤:[NL]
+该单位可召唤魔物，[NL]
+辅助己方战斗[X]
+
+
+## msg_SN_Supply
+运输队[X]
+
+## msg_SD_Supply
+运输队:[NL]
+该单位配备有运输队[X]
+
+
+## msg_SN_Steal
+偷盗[X]
+
+## msg_SD_Steal
+偷盗:[NL]
+速度高于敌人时，[NL]
+可盗取敌方道具[X]
+

@@ -2,6 +2,7 @@
 #define STATUS_SCREEN
 
 #include "Core/DrawStatScreenCore.lyn.event"
+#include "Core/Misc.lyn.event"
 
 // Draw Pages
 #include "DrawPages/DrawPageLeft.lyn.event"
@@ -13,6 +14,11 @@
 
 // More Palette
 #include "Data/NewPalette.event"
+
+// Page two "atk & avo & hit window"
+ALIGN 4
+Page2SubWindow:
+	#incbin "Data/Page2SubWindow.tsa.lz"
 
 PUSH
 	ORG $86E44

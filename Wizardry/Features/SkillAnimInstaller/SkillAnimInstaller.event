@@ -36,9 +36,9 @@ _thumb(ClassChangAnim)
 
 // Skills
 InjectSkillAnimation(SKILLID_Vantage, CommonSkill)
-InjectSkillAnimation(SKILLID_VantageBattalion, CommonSkill)
+InjectSkillAnimation(SKILLID_VantageBat, CommonSkill)
 InjectSkillAnimation(SKILLID_Desperation, CommonSkill)
-InjectSkillAnimation(SKILLID_DesperationBattalion, CommonSkill)
+InjectSkillAnimation(SKILLID_DesperationBat, CommonSkill)
 InjectSkillAnimation(SKILLID_QuickRiposte, DefaultOffseniveSkillActivationAnim)
 
 

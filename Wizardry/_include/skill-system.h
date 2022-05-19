@@ -16,7 +16,7 @@ enum{
 	UNIT_SKILL_COUNT = 5, // tip: max support = 7, 2 Bytes free
 	
 	// skill id range ( 1 ~ 0xFF )
-	SKILL_MAX_COUNT = 100,
+	SKILL_MAX_COUNT = 0x100,
 	
 	// max count of skill fast tester list
 	MAX_CNT_FAST_LIST = 0x1E,

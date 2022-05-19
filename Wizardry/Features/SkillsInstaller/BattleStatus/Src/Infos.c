@@ -160,3 +160,27 @@ const struct SkillInfo SkillInfo_AvoidSword = {
 	
 };
 
+
+
+
+
+// Defiant Skills
+
+extern const u16 SI_DefiantCrit[], SI_DefiantAvoid[];
+
+const struct SkillInfo SkillInfo_DefiantCrit = {
+	
+	.msg_desc = ENUM_msg_SD_DefiantCrit,
+	.msg_name = ENUM_msg_SN_DefiantCrit,
+	.icon = SI_DefiantCrit,
+	
+};
+
+
+const struct SkillInfo SkillInfo_DefiantAvoid = {
+	
+	.msg_desc = ENUM_msg_SD_DefiantAvoid,
+	.msg_name = ENUM_msg_SN_DefiantAvoid,
+	.icon = SI_DefiantAvoid,
+	
+};

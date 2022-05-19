@@ -1,7 +1,23 @@
 #ifndef SKILL_ID_DEFINITIONS
 #define SKILL_ID_DEFINITIONS
 
-// Status Getters(0x00)
+// Range Skills
+#define SKILLID_RangeBonusBMag1			0x01
+#define SKILLID_RangeBonusBMag2			0x02
+#define SKILLID_RangeBonusBow1			0x03
+#define SKILLID_RangeBonusBow2			0x04
+
+// Defiant Skills
+#define SKILLID_DefiantStr				0x06	
+#define SKILLID_DefiantMag				0x07
+#define SKILLID_DefiantSkl				0x08	
+#define SKILLID_DefiantSpd				0x09
+#define SKILLID_DefiantLck				0x0A
+#define SKILLID_DefiantDef				0x0B
+#define SKILLID_DefiantRes				0x0C
+#define SKILLID_DefiantCrit				0x0D
+#define SKILLID_DefiantAvoid			0x0E
+
 
 // Battle Status(0x10)
 // Blow Skills
@@ -18,9 +34,9 @@
 
 // Battle Misc(0x20)
 #define SKILLID_Vantage 				0x20	// 待伏
-#define SKILLID_VantageBattalion 		0x21
+#define SKILLID_VantageBat 				0x21
 #define SKILLID_Desperation 			0x22	// 猛攻
-#define SKILLID_DesperationBattalion 	0x23	
+#define SKILLID_DesperationBat		 	0x23	
 #define SKILLID_QuickRiposte 			0x24	// 回击
 
 #define SKILLID_Lethality				0x25	// 瞬杀
@@ -57,6 +73,9 @@
 #define SKILLID_CloseCounter			0x3B
 #define SKILLID_CounterAttack			0x3C
 
+// Misc
+#define SKILLID_WaryFighter				0x3D
+
 
 // Post-Action Skills
 #define SKILLID_Canto					0x50
@@ -75,6 +94,21 @@
 #define SKILLID_RallyMov				0x67
 #define SKILLID_RallySpectrum			0x68
 
-ALIGN 4
+
+// Menu Skills
+#define SKILLID_Dance					0x69
+#define SKILLID_LockTouch				0x6A
+#define SKILLID_Summon					0x6B
+#define SKILLID_Supply					0x6C
+#define SKILLID_Steal					0x6D
+
+
+//Pre-Phase skills
+#define SKILLID_Renewal					0x70
+
+
+// Move Skills
+#define SKILLID_Pass					0x71
+
 
 #endif // SKILL_ID_DEFINITIONS

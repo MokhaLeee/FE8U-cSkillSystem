@@ -1,11 +1,11 @@
 ## umBMagName
- 黑魔法[X]
+黑魔法[X]
 
 ## umBMagDesc
 黑魔法[X]
 
 ## umWMagName
- 白魔法[X]
+白魔法[X]
 
 ## umWMagDesc
 白魔法[X]

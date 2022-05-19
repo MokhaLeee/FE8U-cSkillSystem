@@ -1,6 +1,22 @@
 #pragma once
 
 enum{
+	// Range Skill
+	SID_RangeBonusBMag1 = 0x01,
+	SID_RangeBonusBMag2 = 0x02,
+	SID_RangeBonusBow1 = 0x03,
+	SID_RangeBonusBow2 = 0x04,
+	
+	// Defiant Skills
+	SID_DefiantStr = 0x06,
+	SID_DefiantMag = 0x07,
+	SID_DefiantSkl = 0x08,
+	SID_DefiantSpd = 0x09,
+	SID_DefiantLck = 0x0A,
+	SID_DefiantDef = 0x0B,
+	SID_DefiantRes = 0x0C,
+	SID_DefiantCrit = 0x0D,
+	SID_DefiantAvoid = 0x0E,
 	
 	SID_BlowDarting = 0x12,
 	SID_BlowDeath = 0x13,
@@ -49,13 +65,14 @@ enum{
 	SID_CloseCounter = 0x3B,
 	SID_CounterAttack = 0x3C,
 	
-	
+	// Misc
+	SID_WaryFighter = 0x3D,
 	
 	SID_Canto = 0x50,
 	SID_AlertStance = 0x51,
 	SID_AlertStancePlus = 0x52,
 	
-	
+	// Rally Skills
 	SID_RallyStr = 0x60,
 	SID_RallyMag = 0x61,
 	SID_RallySkl = 0x62,
@@ -65,6 +82,20 @@ enum{
 	SID_RallyRes = 0x66,
 	SID_RallyMov = 0x67,
 	SID_RallySpectrum = 0x68,
+	
+	// Menu Skills
+	SID_Dance = 0x69,
+	SID_LockTouch = 0x6A,
+	SID_Summon = 0x6B,
+	SID_Supply = 0x6C,
+	SID_Steal = 0x6D,
+	
+	// Pre-Phase
+	SID_Renewal = 0x70,
+	
+	// Move Skills
+	SID_Pass = 0x71,
+	
 };
 
 

@@ -27,7 +27,12 @@
 #include strings-cn/Skills_BattleStatus.txt
 #include strings-cn/Skills_BattleCanCounter.txt
 #include strings-cn/Skills_PostAction.txt
+#include strings-cn/Skills_PrePhase.txt
 #include strings-cn/Skills_Rally.txt
+#include strings-cn/Skills_Move.txt
+#include strings-cn/Skills_Menu.txt
+#include strings-cn/Skills_Range.txt
+#include strings-cn/Skills_Defiant.txt
 #include strings-cn/PrepScreen.txt
 #include strings-cn/CombatArt.txt
 #include strings-cn/CombatArt_Sword.txt
