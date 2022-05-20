@@ -6,8 +6,14 @@
 
 // Draw Pages
 #include "DrawPages/DrawPageLeft.lyn.event"
+PROTECT $086E44 $086FAC
+
 #include "DrawPages/DrawPageUnit.lyn.event"
+PROTECT $087184 $087484
+
 #include "DrawPages/DrawPageItem.lyn.event"
+PROTECT $087484 $087698
+
 
 // Help Box
 #include "HelpBox/HelpBox.event"
@@ -21,11 +27,6 @@ Page2SubWindow:
 	#incbin "Data/Page2SubWindow.tsa.lz"
 
 PUSH
-	ORG $86E44
-	LynJump(StatScreen_DrawLeftText)
-	
-	ORG $87184
-	LynJump(StatScreen_DrawPage1)
 	
 	// Make sure rescue debuff arrow at true place
 	ORG $0883C2

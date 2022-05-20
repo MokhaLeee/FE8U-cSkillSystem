@@ -7,11 +7,11 @@
 
 
 PUSH
-	//Stat screen
+/* 	//Stat screen
 	ORG $8731E
 	SHORT 0x68E8 //ldr r0,[r5,#0xC]
 	BL(prGotoConGetter)
-	SHORT 0x68E9 0x680A 0x2313 0x56D2 0x6849 0x2311 0x56C9 0x1853 0x68E9 //ldr r1,[r5,#0xC]; ldr r2,[r1]; mov r3,#0x13; ldsb r2,[r2,r3]; ldr r1,[r1,#0x4]; mov r3,#0x11; ldsb r1,[r1,r3]; add r3,r2,r1; ldr r1,[r5,#0xC]
+	SHORT 0x68E9 0x680A 0x2313 0x56D2 0x6849 0x2311 0x56C9 0x1853 0x68E9 //ldr r1,[r5,#0xC]; ldr r2,[r1]; mov r3,#0x13; ldsb r2,[r2,r3]; ldr r1,[r1,#0x4]; mov r3,#0x11; ldsb r1,[r1,r3]; add r3,r2,r1; ldr r1,[r5,#0xC] */
 
 /* 	//Aid getter (Yes, Aid has a getter and con doesn't. No, this does not make any sense.)
 	ORG $189CE

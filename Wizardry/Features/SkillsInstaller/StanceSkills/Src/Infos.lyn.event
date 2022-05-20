@@ -1,0 +1,33 @@
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$0;SkillInfo_StanceWarding:
+ORG CURRENTOFFSET+$8;SkillInfo_StanceSwift:
+ORG CURRENTOFFSET+$8;SkillInfo_StanceSturdy:
+ORG CURRENTOFFSET+$8;SkillInfo_StanceSteady:
+ORG CURRENTOFFSET+$8;SkillInfo_StanceReady:
+ORG CURRENTOFFSET+$8;SkillInfo_StanceMirror:
+ORG CURRENTOFFSET+$8;SkillInfo_StanceKestrel:
+ORG CURRENTOFFSET+$8;SkillInfo_StanceFierce:
+ORG CURRENTOFFSET+$8;SkillInfo_StanceDarting:
+ORG CURRENTOFFSET+$8;SkillInfo_StanceBracing:
+POP
+WORD $D910D92
+POIN SI_StanceWarding
+WORD $D8F0D90
+POIN SI_StanceSwift
+WORD $D8D0D8E
+POIN SI_StanceSturdy
+WORD $D8B0D8C
+POIN SI_StanceSteady
+WORD $D890D8A
+POIN SI_StanceReady
+WORD $D870D88
+POIN SI_StanceMirror
+WORD $D850D86
+POIN SI_StanceKestrel
+WORD $D830D84
+POIN SI_StanceFierce
+WORD $D810D82
+POIN SI_StanceDarting
+WORD $D7F0D80
+POIN SI_StanceBracing

@@ -6,7 +6,7 @@ extern int GetStringTextCenteredPos(int x, const char* str);
 extern void DrawSpecialUiChar(u16* out, int color, int chr);
 
 // ORG 0x8086E44
-void StatScreen_DrawLeftText(void){
+void DisplayLeftPanel(void){
 	Unit* unit = gStatScreen.unit;
 	const char* namestr = GetStringFromIndex(unit->pCharacterData->nameTextId);
 	unsigned namexoff = GetStringTextCenteredPos(0x30, namestr);

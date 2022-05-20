@@ -13,7 +13,7 @@ static void DrawPage1_Texts();
 static void DrawPage1_NumBar(struct Unit*);
 
 // ORG 0x8087184
-void StatScreen_DrawPage1(void){
+void DisplayPage0(void){
 	struct Unit* unit = gStatScreen.unit;
 	
 	PrePareForMoreTextColor();

@@ -28,6 +28,9 @@ ALIGN 4
 #include "BlowSkills/Infos.lyn.event"
 #include "BlowSkills/Core.lyn.event"
 
+// Stance Skills
+#include "StanceSkills/Installer.event"
+
 // Battle Order Skills
 #include "BattleOrder/Installer.event"
 

@@ -32,6 +32,9 @@ struct SkillFastTesterList* GetOrMakeSklFastList(struct Unit* unit) {
 	list->unit_id = unit->index;
 	list->cnt = 0;
 	
+/* 	
+ * this is too slow
+ 
 	for ( int i = 1; i < SKILL_MAX_COUNT; i++ ) {
 		
 		if ( 0 == JudgeSkill(unit,i) )
@@ -40,8 +43,60 @@ struct SkillFastTesterList* GetOrMakeSklFastList(struct Unit* unit) {
 		list->skills[list->cnt] = i;
 		list->cnt++;
 	
-	} // for
+	} // for */
 	
+	const struct SkillROMList* char_rom_list = &CharSkillRomList[unit->pCharacterData->number]; 
+	const struct SkillROMList* class_rom_list = &ClassSkillRomList[unit->pClassData->number];
+	
+	// Character
+	
+	for( int i = 0; i < 2; i++ )
+	{
+		int skill_id = char_rom_list->default_rom_skill[i];
+		
+		if( SKILL_VALID(skill_id) )
+			list->skills[list->cnt++] = skill_id;
+	
+	}
+	
+	if( unit->level >= 10 )
+		for( int i = 0; i < 2; i++ )
+		{
+			int skill_id = char_rom_list->master_rom_skill[i];
+			
+			if( SKILL_VALID(skill_id) )
+				list->skills[list->cnt++] = skill_id;
+		}
+	
+	// Class
+	
+	for( int i = 0; i < 2; i++ )
+	{
+		int skill_id = class_rom_list->default_rom_skill[i];
+		
+		if( SKILL_VALID(skill_id) )
+			list->skills[list->cnt++] = skill_id;
+	
+	}
+	
+	if( unit->level >= 10 )
+		for( int i = 0; i < 2; i++ )
+		{
+			int skill_id = class_rom_list->master_rom_skill[i];
+			
+			if( SKILL_VALID(skill_id) )
+				list->skills[list->cnt++] = skill_id;
+		}
+	
+	// RAM
+	for ( int i = 0; i < UNIT_SKILL_COUNT; i++ )
+	{
+		int skill_id = unit->supports[i];
+		
+		if( SKILL_VALID(skill_id) )
+			list->skills[list->cnt++] = skill_id;
+	}
+
 	return list;
 }
 

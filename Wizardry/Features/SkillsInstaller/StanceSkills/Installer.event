@@ -1,0 +1,62 @@
+
+// Src
+#include "Src/Infos.lyn.event"
+#include "Src/Core.lyn.event"
+
+InjectSkillInfo(SKILLID_StanceBracing, SkillInfo_StanceBracing)
+InjectSkillInfo(SKILLID_StanceDarting, SkillInfo_StanceDarting)
+InjectSkillInfo(SKILLID_StanceFierce, SkillInfo_StanceFierce)
+InjectSkillInfo(SKILLID_StanceKestrel, SkillInfo_StanceKestrel)
+InjectSkillInfo(SKILLID_StanceMirror, SkillInfo_StanceMirror)
+
+InjectSkillInfo(SKILLID_StanceReady, SkillInfo_StanceReady)
+InjectSkillInfo(SKILLID_StanceSteady, SkillInfo_StanceSteady)
+InjectSkillInfo(SKILLID_StanceSturdy, SkillInfo_StanceSturdy)
+InjectSkillInfo(SKILLID_StanceSwift, SkillInfo_StanceSwift)
+InjectSkillInfo(SKILLID_StanceWarding, SkillInfo_StanceWarding)
+
+
+
+ALIGN 4
+SI_StanceBracing:
+	#incbin "Icons/StanceBracing.4bpp"
+
+
+ALIGN 4
+SI_StanceDarting:
+	#incbin "Icons/StanceDarting.4bpp"
+
+ALIGN 4
+SI_StanceFierce:
+	#incbin "Icons/StanceFierce.4bpp"
+	
+ALIGN 4
+SI_StanceKestrel:
+	#incbin "Icons/StanceKestrel.4bpp"
+	
+
+ALIGN 4
+SI_StanceMirror:
+	#incbin "Icons/StanceMirror.4bpp"
+
+ALIGN 4
+SI_StanceReady:
+	#incbin "Icons/StanceReady.4bpp"
+
+ALIGN 4
+SI_StanceSteady:
+	#incbin "Icons/StanceSteady.4bpp"
+
+ALIGN 4
+SI_StanceSturdy:
+	#incbin "Icons/StanceSturdy.4bpp"
+
+
+ALIGN 4
+SI_StanceSwift:
+	#incbin "Icons/StanceSwift.4bpp"
+
+ALIGN 4
+SI_StanceWarding:
+	#incbin "Icons/StanceWarding.4bpp"
+	

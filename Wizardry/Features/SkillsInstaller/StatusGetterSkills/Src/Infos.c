@@ -1,5 +1,19 @@
 #include "gbafe-chax.h"
 
+
+extern const u16 SI_LifeAndDeath[];
+
+// Defiant Skills
+const struct SkillInfo SkillInfo_LifeAndDeath = {
+	
+	.msg_desc = ENUM_msg_SD_LifeAndDeath,
+	.msg_name = ENUM_msg_SN_LifeAndDeath,
+	.icon = SI_LifeAndDeath,
+	
+};
+
+
+
 // Defiant Skills
 
 extern const u16 SI_DefiantStr[], SI_DefiantMag[], SI_DefiantSkl[], SI_DefiantSpd[], SI_DefiantLck[], SI_DefiantDef[], SI_DefiantRes[];

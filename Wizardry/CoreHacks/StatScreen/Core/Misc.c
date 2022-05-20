@@ -43,6 +43,7 @@ void BattleGenerateUiStats(struct Unit* unit, s8 itemSlot) {
 		gBattleActor.battleAttack = 0xFF;
 		gBattleActor.battleHitRate = 0xFF;
 		gBattleActor.battleCritRate = 0xFF;
+		gBattleActor.battleSilencerRate = 0xFF;
 	}
 
 	if (GetItemWeaponEffect(gBattleActor.weapon) == WPN_EFFECT_HPHALVE)

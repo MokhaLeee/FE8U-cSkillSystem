@@ -32,8 +32,9 @@ void BC_Init(struct BattleUnit* attacker, struct BattleUnit* defender){
 void BC_Lethality(struct BattleUnit* attacker, struct BattleUnit* defender){
 	
 	// BOSS
-	if (UNIT_CATTRIBUTES(&defender->unit) & CA_BOSS)
-		attacker->battleSilencerRate -= 30;
+	if( UNIT_IS_VALID(&defender->unit) & (NULL != &defender->unit) )
+		if ( 0 != (UNIT_CATTRIBUTES(&defender->unit) & CA_BOSS) )
+			attacker->battleSilencerRate -= 30;
 	
 	
 	// Asigned

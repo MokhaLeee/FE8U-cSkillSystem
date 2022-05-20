@@ -1,0 +1,98 @@
+## msg_SN_StanceBracing
+金刚明镜架势[X]
+
+## msg_SD_StanceBracing
+金刚明镜架势:[NL]
+角色受到攻击时，[NL]
+防御与魔抗+4[X]
+
+
+
+## msg_SN_StanceDarting
+飞燕架势[X]
+
+## msg_SD_StanceDarting
+飞燕架势:[NL]
+角色受到攻击时，[NL]
+速度+6[X]
+
+
+
+## msg_SN_StanceFierce
+鬼神架势[X]
+
+## msg_SD_StanceFierce
+鬼神架势:[NL]
+角色受到攻击时，[NL]
+攻击+6[X]
+
+
+
+## msg_SN_StanceKestrel
+鬼神飞燕架势[X]
+
+## msg_SD_StanceKestrel
+鬼神飞燕架势:[NL]
+角色受到攻击时，[NL]
+攻击与速度+4[X]
+
+
+## msg_SN_StanceMirror
+鬼神明镜架势[X]
+
+## msg_SD_StanceMirror
+鬼神明镜架势:[NL]
+角色受到攻击时，[NL]
+攻击与魔抗+4[X]
+
+
+
+
+
+
+
+## msg_SN_StanceReady
+飞燕金刚架势[X]
+
+## msg_SD_StanceReady
+飞燕金刚架势:[NL]
+角色受到攻击时，[NL]
+速度与防御+4[X]
+
+
+## msg_SN_StanceSteady
+金刚架势[X]
+
+## msg_SD_StanceSteady
+金刚架势:[NL]
+角色受到攻击时，[NL]
+防御+6[X]
+
+
+## msg_SN_StanceSturdy
+鬼神金刚架势[X]
+
+## msg_SD_StanceSturdy
+鬼神金刚架势:[NL]
+角色受到攻击时，[NL]
+攻击与防御+4[X]
+
+
+
+## msg_SN_StanceSwift
+飞燕明镜架势[X]
+
+## msg_SD_StanceSwift
+飞燕明镜架势:[NL]
+角色受到攻击时，[NL]
+速度与魔抗+4[X]
+
+
+
+## msg_SN_StanceWarding
+明镜架势[X]
+
+## msg_SD_StanceWarding
+明镜架势:[NL]
+角色受到攻击时，[NL]
+魔抗+6[X]

@@ -3,6 +3,8 @@
 #include "Src/Infos.lyn.event"
 #include "Src/Core.lyn.event"
 
+InjectSkillInfo(SKILLID_LifeAndDeath, SkillInfo_LifeAndDeath)
+
 InjectSkillInfo(SKILLID_DefiantStr, SkillInfo_DefiantStr)
 InjectSkillInfo(SKILLID_DefiantMag, SkillInfo_DefiantMag)
 InjectSkillInfo(SKILLID_DefiantSkl, SkillInfo_DefiantSkl)
@@ -12,7 +14,13 @@ InjectSkillInfo(SKILLID_DefiantDef, SkillInfo_DefiantDef)
 InjectSkillInfo(SKILLID_DefiantRes, SkillInfo_DefiantRes)
 
 
+// Misc Skills
+ALIGN 4
+SI_LifeAndDeath:
+	#incbin "Icons/LifeAndDeath.4bpp"
 
+
+// Defiant Skills
 ALIGN 4
 SI_DefiantStr:
 	#incbin "Icons/DefiantStr.4bpp"

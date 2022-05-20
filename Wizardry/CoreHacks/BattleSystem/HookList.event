@@ -11,6 +11,7 @@ PreBattleCalcLoopTable:
 	
 	POIN BC_WTA_Bonus
 	POIN BC_BlowBonus
+	POIN BC_StanceBonus
 	POIN BC_BattleStatusSkills
 	
 	

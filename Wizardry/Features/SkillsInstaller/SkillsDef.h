@@ -18,6 +18,11 @@ enum{
 	SID_DefiantCrit = 0x0D,
 	SID_DefiantAvoid = 0x0E,
 	
+	// Misc Skills
+	SID_LifeAndDeath = 0x0F,
+	
+	
+	// Blow Skills
 	SID_BlowDarting = 0x12,
 	SID_BlowDeath = 0x13,
 	SID_BlowArmored = 0x14,
@@ -95,6 +100,18 @@ enum{
 	
 	// Move Skills
 	SID_Pass = 0x71,
+	
+	// Stance Skills
+	SID_StanceBracing = 0x72,	// 金刚明镜架势
+	SID_StanceDarting = 0x73,	// 飞燕架势
+	SID_StanceFierce = 0x74,	// 鬼神架势
+	SID_StanceKestrel = 0x75,	// 鬼神飞燕架势
+	SID_StanceMirror = 0x76,	// 鬼神明镜架势
+	SID_StanceReady = 0x77,		// 飞燕金刚架势
+	SID_StanceSteady = 0x78,	// 金刚架势
+	SID_StanceSturdy = 0x79,	// 鬼神金刚架势
+	SID_StanceSwift = 0x7A,		// 飞燕明镜架势
+	SID_StanceWarding = 0x7B,	// 明镜架势
 	
 };
 

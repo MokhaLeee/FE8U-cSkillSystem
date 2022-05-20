@@ -18,6 +18,8 @@
 #define SKILLID_DefiantCrit				0x0D
 #define SKILLID_DefiantAvoid			0x0E
 
+// Misc Skills
+#define SKILLID_LifeAndDeath			0x0F
 
 // Battle Status(0x10)
 // Blow Skills
@@ -109,6 +111,20 @@
 
 // Move Skills
 #define SKILLID_Pass					0x71
+
+
+// Stance Skills
+#define SKILLID_StanceBracing			0x72
+#define SKILLID_StanceDarting			0x73
+#define SKILLID_StanceFierce			0x74
+#define SKILLID_StanceKestrel			0x75
+#define SKILLID_StanceMirror			0x76
+#define SKILLID_StanceReady				0x77
+#define SKILLID_StanceSteady			0x78
+#define SKILLID_StanceSturdy			0x79
+#define SKILLID_StanceSwift				0x7A
+#define SKILLID_StanceWarding			0x7B
+
 
 
 #endif // SKILL_ID_DEFINITIONS

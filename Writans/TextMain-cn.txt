@@ -22,6 +22,7 @@
 #include strings-cn/StatusScreen.txt
 #include strings-cn/Menu.txt
 #include strings-cn/Skills_Blow.txt
+#include strings-cn/Skills_Stance.txt
 #include strings-cn/Skills_BattleOrder.txt
 #include strings-cn/Skills_BattleTriangle.txt
 #include strings-cn/Skills_BattleStatus.txt
@@ -29,10 +30,11 @@
 #include strings-cn/Skills_PostAction.txt
 #include strings-cn/Skills_PrePhase.txt
 #include strings-cn/Skills_Rally.txt
-#include strings-cn/Skills_Move.txt
 #include strings-cn/Skills_Menu.txt
 #include strings-cn/Skills_Range.txt
 #include strings-cn/Skills_Defiant.txt
+#include strings-cn/Skills_Misc.txt
+
 #include strings-cn/PrepScreen.txt
 #include strings-cn/CombatArt.txt
 #include strings-cn/CombatArt_Sword.txt

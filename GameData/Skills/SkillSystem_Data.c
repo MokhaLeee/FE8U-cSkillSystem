@@ -5,7 +5,7 @@ const struct SkillROMList CharSkillRomList[0x100] = {
 	[CHARACTER_EIRIKA] = {
 		.default_rom_skill[0] = SID_Supply,
 		.default_rom_skill[1] = SID_Pass,
-		.master_rom_skill[0] = SID_DesperationBat,
+		.master_rom_skill[0] = SID_LifeAndDeath,
 		
 		.default_ram_skill[0] = SID_RangeBonusBMag1,
 		.default_ram_skill[1] = SID_CritBMag,
@@ -42,6 +42,7 @@ const struct SkillROMList CharSkillRomList[0x100] = {
 		
 		.default_ram_skill[0] = SID_Renewal,
 		.default_ram_skill[1] = SID_WaryFighter,
+		.default_ram_skill[2] = SID_StanceSteady,
 		.master_ram_skill[1] = SID_BlowDeath,
 	},
 	
