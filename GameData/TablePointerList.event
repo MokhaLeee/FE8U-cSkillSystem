@@ -11,11 +11,62 @@ pClassMagicTable:
 
 
 // SkillSystem
-pSkillInfoTable:
-	POIN SkillInfoTable
-
-pCharSkillRomList:
-	POIN CharSkillRomList
-
-PClassSkillRomList:
+pClassSkillRomList:
 	POIN ClassSkillRomList
+
+pCharacterSkillRomList:
+	POIN CharacterSkillRomList
+
+
+pLevelSkillSword_ClassList:
+	POIN LevelSkillSword_ClassList
+pLevelSkillLance_ClassList:
+	POIN LevelSkillLance_ClassList
+pLevelSkillAxe_ClassList:
+	POIN LevelSkillAxe_ClassList
+pLevelSkillBow_ClassList:
+	POIN LevelSkillBow_ClassList
+pLevelSkillBMag_ClassList:
+	POIN LevelSkillBMag_ClassList
+pLevelSkillWMag_ClassList:
+	POIN LevelSkillWMag_ClassList	
+
+
+pLevelSkillSword_CharList:
+	POIN LevelSkillSword_CharList
+pLevelSkillLance_CharList:
+	POIN LevelSkillLance_CharList
+pLevelSkillAxe_CharList:
+	POIN LevelSkillAxe_CharList
+pLevelSkillBow_CharList:
+	POIN LevelSkillBow_CharList
+pLevelSkillBMag_CharList:
+	POIN LevelSkillBMag_CharList
+pLevelSkillWMag_CharList:
+	POIN LevelSkillWMag_CharList	
+
+
+
+
+// Combat Art
+pLevelCASword_ClassList:
+	POIN LevelCASword_ClassList
+pLevelCALance_ClassList:
+	POIN LevelCALance_ClassList
+pLevelCAAxe_ClassList:
+	POIN LevelCAAxe_ClassList
+pLevelCABow_ClassList:
+	POIN LevelCABow_ClassList	
+
+pLevelCASword_CharList:
+	POIN LevelCASword_CharList
+pLevelCALance_CharList:
+	POIN LevelCALance_CharList
+pLevelCAAxe_CharList:
+	POIN LevelCAAxe_CharList
+pLevelCABow_CharList:
+	POIN LevelCABow_CharList
+
+	
+	
+	

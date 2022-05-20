@@ -1,13 +1,12 @@
 #pragma once
 
-struct CombatArtsROMList{
-	
-	/* 00 */ u8 default_art[4];
-	/* 04 */ u8 master_art[4];
-	/* 08 */
-};
 
-extern const struct CombatArtsROMList CharCombatArtsRomList[], ClassCombatArtsRomList[];
+// For ROM Table, see skill-system.h
+// Level-based class combat-arts
+extern const struct LevelBasedSkillList_t LevelCASword_ClassList[], LevelCALance_ClassList[], LevelCAAxe_ClassList[], LevelCABow_ClassList[], LevelCABMag_ClassList[], LevelCAWMag_ClassList[];
+
+// Level-based unit combat-art
+extern const struct LevelBasedSkillList_t LevelCASword_CharList[], LevelCALance_CharList[], LevelCAAxe_CharList[], LevelCABow_CharList[];
 
 
 struct CombatArtInfo {

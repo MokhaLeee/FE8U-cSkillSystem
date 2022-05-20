@@ -100,12 +100,16 @@ int AddCombatArt(struct Unit* unit, const u8 index){
 	if( NULL == list )
 		return 0;
 	
-	for( int i = 0; i < 5; i++ )
-		if( !SKILL_VALID(list[i]) )
-		{
+	for( int i = 0; i < 5; i++ ){
+		
+		if( index == list[i] )
+			return 1;
+		
+		if( !SKILL_VALID(list[i]) ){
 			list[i] = index;
 			return 1;
 		}
+	}
 	
 	return 0;
 }

@@ -13,6 +13,7 @@
 
 #include "vanilla-remix/prep-screen.h"
 
+#include "skill-system.h"
 #include "mokha-lib.h"
 #include "growth-getter.h"
 #include "level-up.h"
@@ -20,7 +21,6 @@
 #include "str-mag.h"
 #include "range-getter.h"
 #include "map-master.h"
-#include "skill-system.h"
 #include "common-space.h"
 #include "rn-ext.h"
 #include "null-bwl.h"

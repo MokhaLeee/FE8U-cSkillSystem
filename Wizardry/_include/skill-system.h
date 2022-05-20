@@ -24,18 +24,28 @@ enum{
 
 
 // for ROM skill
-struct SkillROMList{
+struct SkillClassList_t{
 	
 	/* 00 */ u8 default_rom_skill[2];
 	/* 04 */ u8 master_rom_skill[2];
-	/* 08 */ u8 default_ram_skill[4];
-	/* 0C */ u8 master_ram_skill[4];
+	/* 08 */ u8 default_ram_skill[2];
+	/* 0C */ u8 master_ram_skill[2];
 	/* 10 */
 };
 
-extern const struct SkillROMList CharSkillRomList[], ClassSkillRomList[];
+extern const struct SkillClassList_t ClassSkillRomList[];
 
-struct LevelBasedSkillList{
+struct SkillCharacterList_t{
+	u8 rom_skill[2];
+};
+
+extern const struct SkillCharacterList_t CharacterSkillRomList[];
+
+
+
+
+
+struct LevelBasedSkillList_t{
 	
 	/* 00 */ u8 E[2];
 	/* 02 */ u8 D[2];
@@ -46,7 +56,15 @@ struct LevelBasedSkillList{
 	/* 0C */
 };
 
-extern const struct LevelBasedSkillList MasterySkills[];
+// Level-based class skills
+extern const struct LevelBasedSkillList_t LevelSkillSword_ClassList[], LevelSkillLance_ClassList[], LevelSkillAxe_ClassList[], LevelSkillBow_ClassList[], LevelSkillBMag_ClassList[], LevelSkillWMag_ClassList[];
+
+// Level-based unit skills
+extern const struct LevelBasedSkillList_t LevelSkillSword_CharList[], LevelSkillLance_CharList[], LevelSkillAxe_CharList[], LevelSkillBow_CharList[], LevelSkillBMag_CharList[], LevelSkillWMag_CharList[];
+
+
+
+
 
 
 

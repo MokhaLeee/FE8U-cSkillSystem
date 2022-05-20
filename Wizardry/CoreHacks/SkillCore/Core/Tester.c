@@ -14,31 +14,27 @@ static int JudgeSkillRAM(struct Unit* unit, const u8 skill_id){
 
 static int JudgeSkillROM(struct Unit* unit, const u8 skill_id){
 	
-	const struct SkillROMList* char_rom_list = &CharSkillRomList[unit->pCharacterData->number]; 
-	const struct SkillROMList* class_rom_list = &ClassSkillRomList[unit->pClassData->number];
+	const struct SkillCharacterList_t* list_char = 
+		&CharacterSkillRomList[unit->pCharacterData->number]; 
+	
+	const struct SkillClassList_t* list_class = 
+		&ClassSkillRomList[unit->pClassData->number];
 	
 	// Character
-	
-	for( int i = 0; i < 2; i++ )
-		if( skill_id == char_rom_list->default_rom_skill[i] )
-			return 1;
-	
-	if( unit->level >= 10 )
-		for( int i = 0; i < 2; i++ )
-			if( skill_id == char_rom_list->master_rom_skill[i] )
-				return 1;
-	
+	if( skill_id == list_char->rom_skill[0] )	return 1;
+	if( skill_id == list_char->rom_skill[1] )	return 1;
+		
 	
 	// Class
-	
-	for( int i = 0; i < 2; i++ )
-		if( skill_id == class_rom_list->default_rom_skill[i] )
-			return 1;
+	if( skill_id == list_class->default_rom_skill[0] )	return 1;
+	if( skill_id == list_class->default_rom_skill[1] )	return 1;
 	
 	if( unit->level >= 10 )
-		for( int i = 0; i < 2; i++ )
-			if( skill_id == class_rom_list->master_rom_skill[i] )
-				return 1;
+	{
+		if( skill_id == list_class->master_rom_skill[0] )	return 1;
+		if( skill_id == list_class->master_rom_skill[1] )	return 1;
+	}
+	
 	
 	return 0;
 }

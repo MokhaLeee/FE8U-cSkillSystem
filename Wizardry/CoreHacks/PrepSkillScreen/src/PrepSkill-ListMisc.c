@@ -6,104 +6,620 @@
 // =========================================================
 
 
-static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
+static int AddPrepSkilTotalList(struct PrepSkillsList* list, const int index){
 	
-	const struct SkillROMList* char_rom_list = &CharSkillRomList[unit->pCharacterData->number]; 
-	const struct SkillROMList* class_rom_list = &ClassSkillRomList[unit->pClassData->number];
+	if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+		return 0;
 	
-	// Total Skills: add rom-skills
-	// Character
-	for( int i = 0; i < 4; i++ )
-	{	
-		if( SKILL_VALID(char_rom_list->default_ram_skill[i]) )
-			list->skills_all[list->total[PREP_SKLSUB_RIGHT]++] 
-				= char_rom_list->default_ram_skill[i];
-		
-		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-			break;
-	}
+	for( int i = 0; i < list->total[PREP_SKLSUB_RIGHT]; i++ )
+		if( index == list->skills_all[i] )
+			return 1;
 	
-	if( unit->level >= 10 )
-		for( int i = 0; i < 4; i++ )
-		{
-			
-			if( SKILL_VALID(char_rom_list->master_ram_skill[i]) )
-				list->skills_all[list->total[PREP_SKLSUB_RIGHT]++] 
-					= char_rom_list->master_ram_skill[i];
-			
-			if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-				break;
-		}
-		
-	// Class
-	for( int i = 0; i < 4; i++ )
-	{	
-		if( SKILL_VALID(class_rom_list->default_ram_skill[i]) )
-			list->skills_all[list->total[PREP_SKLSUB_RIGHT]++] 
-				= class_rom_list->default_ram_skill[i];
-		
-		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-			break;
-	}
-	
-	if( unit->level >= 10 )
-		for( int i = 0; i < 4; i++ )
-		{			
-			if( SKILL_VALID(class_rom_list->master_ram_skill[i]) )
-				list->skills_all[list->total[PREP_SKLSUB_RIGHT]++] 
-					= class_rom_list->master_ram_skill[i];
-			
-			if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-				break;
-		}
+	list->skills_all[ list->total[PREP_SKLSUB_RIGHT]++ ] = index;
+	return 1;
 }
 
-static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* list){
+
+static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 	
-	const struct CombatArtsROMList *list_char = &CharCombatArtsRomList[unit->pCharacterData->number];
-	const struct CombatArtsROMList *list_class = &ClassCombatArtsRomList[unit->pClassData->number];
+	#define ADD_SKILL(aSkill)								\
+		if( SKILL_VALID(aSkill) )							\
+			if( 0 == AddPrepSkilTotalList(list, aSkill) )	\
+				return;
+	
+	int WeaponRanks[8];
+	const int num_clas = unit->pClassData->number;
+	const int num_char = unit->pCharacterData->number;
+	
+	const struct SkillClassList_t* ListClass = 
+		&ClassSkillRomList[num_clas];
 	
 	list->total[PREP_SKLSUB_RIGHT] = 0;
 	
-	for( int i = 0; i < 4; i++ )
-	{
-		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-			break;
+	// Class Normal List
+	for( int i = 0; i < 2; i++ ){
 		
-		if( SKILL_VALID(list_char->default_art[i]) )
-			list->skills_all[list->total[PREP_SKLSUB_RIGHT]++] =
-				list_char->default_art[i];
+		ADD_SKILL(ListClass->default_ram_skill[i]);
 		
-		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-			break;
-		
-		if( SKILL_VALID(list_class->default_art[i]) )
-			list->skills_all[list->total[PREP_SKLSUB_RIGHT]++]  = 
-				list_class->default_art[i];
+		if( unit->level >= 10 )
+			ADD_SKILL(ListClass->master_ram_skill[i]);
+
 	}
 	
 	
-	if( unit->level < 10 )
-		return;
 	
+	for( int i = 0; i < 8; i++ )
+		WeaponRanks[i] = GetWeaponLevelFromExp(unit->ranks[i]);
 	
-	for( int i = 0; i < 4; i++ )
-	{
-		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
+	switch( WeaponRanks[ITYPE_SWORD] ){
+		case WPN_LEVEL_S:
+			ADD_SKILL(LevelSkillSword_ClassList[num_clas].S[0]);
+			ADD_SKILL(LevelSkillSword_ClassList[num_clas].S[1]);
+			ADD_SKILL(LevelSkillSword_CharList[num_char].S[0]);
+			ADD_SKILL(LevelSkillSword_CharList[num_char].S[1]);
+			ADD_SKILL(LevelSkillSword_CharList[0].S[0]);
+			ADD_SKILL(LevelSkillSword_CharList[0].S[1]);
+			
+		case WPN_LEVEL_A:
+			ADD_SKILL(LevelSkillSword_ClassList[num_clas].A[0]);
+			ADD_SKILL(LevelSkillSword_ClassList[num_clas].A[1]);
+			ADD_SKILL(LevelSkillSword_CharList[num_char].A[0]);
+			ADD_SKILL(LevelSkillSword_CharList[num_char].A[1]);
+			ADD_SKILL(LevelSkillSword_CharList[0].A[0]);
+			ADD_SKILL(LevelSkillSword_CharList[0].A[1]);
+		
+		case WPN_LEVEL_B:
+			ADD_SKILL(LevelSkillSword_ClassList[num_clas].B[0]);
+			ADD_SKILL(LevelSkillSword_ClassList[num_clas].B[1]);
+			ADD_SKILL(LevelSkillSword_CharList[num_char].B[0]);
+			ADD_SKILL(LevelSkillSword_CharList[num_char].B[1]);
+			ADD_SKILL(LevelSkillSword_CharList[0].B[0]);
+			ADD_SKILL(LevelSkillSword_CharList[0].B[1]);
+		
+		case WPN_LEVEL_C:
+			ADD_SKILL(LevelSkillSword_ClassList[num_clas].C[0]);
+			ADD_SKILL(LevelSkillSword_ClassList[num_clas].C[1]);
+			ADD_SKILL(LevelSkillSword_CharList[num_char].C[0]);
+			ADD_SKILL(LevelSkillSword_CharList[num_char].C[1]);
+			ADD_SKILL(LevelSkillSword_CharList[0].C[0]);
+			ADD_SKILL(LevelSkillSword_CharList[0].C[1]);
+		
+		case WPN_LEVEL_D:
+			ADD_SKILL(LevelSkillSword_ClassList[num_clas].D[0]);
+			ADD_SKILL(LevelSkillSword_ClassList[num_clas].D[1]);
+			ADD_SKILL(LevelSkillSword_CharList[num_char].D[0]);
+			ADD_SKILL(LevelSkillSword_CharList[num_char].D[1]);
+			ADD_SKILL(LevelSkillSword_CharList[0].D[0]);
+			ADD_SKILL(LevelSkillSword_CharList[0].D[1]);
+		
+		case WPN_LEVEL_E:
+			ADD_SKILL(LevelSkillSword_ClassList[num_clas].E[0]);
+			ADD_SKILL(LevelSkillSword_ClassList[num_clas].E[1]);
+			ADD_SKILL(LevelSkillSword_CharList[num_char].E[0]);
+			ADD_SKILL(LevelSkillSword_CharList[num_char].E[1]);
+			ADD_SKILL(LevelSkillSword_CharList[0].E[0]);
+			ADD_SKILL(LevelSkillSword_CharList[0].E[1]);
+		
+		default:
 			break;
-		
-		if( SKILL_VALID(list_char->master_art[i]) )
-			list->skills_all[list->total[PREP_SKLSUB_RIGHT]++] =
-				list_char->master_art[i];
-		
-		if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-			break;
-		
-		if( SKILL_VALID(list_class->master_art[i]) )
-			list->skills_all[list->total[PREP_SKLSUB_RIGHT]++]  = 
-				list_class->master_art[i];
 	}
 	
+	
+	
+	switch( WeaponRanks[ITYPE_LANCE] ){
+		case WPN_LEVEL_S:
+			ADD_SKILL(LevelSkillLance_ClassList[num_clas].S[0]);
+			ADD_SKILL(LevelSkillLance_ClassList[num_clas].S[1]);
+			ADD_SKILL(LevelSkillLance_CharList[num_char].S[0]);
+			ADD_SKILL(LevelSkillLance_CharList[num_char].S[1]);
+			ADD_SKILL(LevelSkillLance_CharList[0].S[0]);
+			ADD_SKILL(LevelSkillLance_CharList[0].S[1]);
+			
+		case WPN_LEVEL_A:
+			ADD_SKILL(LevelSkillLance_ClassList[num_clas].A[0]);
+			ADD_SKILL(LevelSkillLance_ClassList[num_clas].A[1]);
+			ADD_SKILL(LevelSkillLance_CharList[num_char].A[0]);
+			ADD_SKILL(LevelSkillLance_CharList[num_char].A[1]);
+			ADD_SKILL(LevelSkillLance_CharList[0].A[0]);
+			ADD_SKILL(LevelSkillLance_CharList[0].A[1]);
+		
+		case WPN_LEVEL_B:
+			ADD_SKILL(LevelSkillLance_ClassList[num_clas].B[0]);
+			ADD_SKILL(LevelSkillLance_ClassList[num_clas].B[1]);
+			ADD_SKILL(LevelSkillLance_CharList[num_char].B[0]);
+			ADD_SKILL(LevelSkillLance_CharList[num_char].B[1]);
+			ADD_SKILL(LevelSkillLance_CharList[0].B[0]);
+			ADD_SKILL(LevelSkillLance_CharList[0].B[1]);
+		
+		case WPN_LEVEL_C:
+			ADD_SKILL(LevelSkillLance_ClassList[num_clas].C[0]);
+			ADD_SKILL(LevelSkillLance_ClassList[num_clas].C[1]);
+			ADD_SKILL(LevelSkillLance_CharList[num_char].C[0]);
+			ADD_SKILL(LevelSkillLance_CharList[num_char].C[1]);
+			ADD_SKILL(LevelSkillLance_CharList[0].C[0]);
+			ADD_SKILL(LevelSkillLance_CharList[0].C[1]);
+		
+		case WPN_LEVEL_D:
+			ADD_SKILL(LevelSkillLance_ClassList[num_clas].D[0]);
+			ADD_SKILL(LevelSkillLance_ClassList[num_clas].D[1]);
+			ADD_SKILL(LevelSkillLance_CharList[num_char].D[0]);
+			ADD_SKILL(LevelSkillLance_CharList[num_char].D[1]);
+			ADD_SKILL(LevelSkillLance_CharList[0].D[0]);
+			ADD_SKILL(LevelSkillLance_CharList[0].D[1]);
+		
+		case WPN_LEVEL_E:
+			ADD_SKILL(LevelSkillLance_ClassList[num_clas].E[0]);
+			ADD_SKILL(LevelSkillLance_ClassList[num_clas].E[1]);
+			ADD_SKILL(LevelSkillLance_CharList[num_char].E[0]);
+			ADD_SKILL(LevelSkillLance_CharList[num_char].E[1]);
+			ADD_SKILL(LevelSkillLance_CharList[0].D[0]);
+			ADD_SKILL(LevelSkillLance_CharList[0].D[1]);
+		
+		default:
+			break;
+	}
+	
+	
+	switch( WeaponRanks[ITYPE_AXE] ){
+		case WPN_LEVEL_S:
+			ADD_SKILL(LevelSkillAxe_ClassList[num_clas].S[0]);
+			ADD_SKILL(LevelSkillAxe_ClassList[num_clas].S[1]);
+			ADD_SKILL(LevelSkillAxe_CharList[num_char].S[0]);
+			ADD_SKILL(LevelSkillAxe_CharList[num_char].S[1]);
+			ADD_SKILL(LevelSkillAxe_CharList[0].S[0]);
+			ADD_SKILL(LevelSkillAxe_CharList[0].S[1]);
+			
+		case WPN_LEVEL_A:
+			ADD_SKILL(LevelSkillAxe_ClassList[num_clas].A[0]);
+			ADD_SKILL(LevelSkillAxe_ClassList[num_clas].A[1]);
+			ADD_SKILL(LevelSkillAxe_CharList[num_char].A[0]);
+			ADD_SKILL(LevelSkillAxe_CharList[num_char].A[1]);
+			ADD_SKILL(LevelSkillAxe_CharList[0].A[0]);
+			ADD_SKILL(LevelSkillAxe_CharList[0].A[1]);
+		
+		case WPN_LEVEL_B:
+			ADD_SKILL(LevelSkillAxe_ClassList[num_clas].B[0]);
+			ADD_SKILL(LevelSkillAxe_ClassList[num_clas].B[1]);
+			ADD_SKILL(LevelSkillAxe_CharList[num_char].B[0]);
+			ADD_SKILL(LevelSkillAxe_CharList[num_char].B[1]);
+			ADD_SKILL(LevelSkillAxe_CharList[0].B[0]);
+			ADD_SKILL(LevelSkillAxe_CharList[0].B[1]);
+		
+		case WPN_LEVEL_C:
+			ADD_SKILL(LevelSkillAxe_ClassList[num_clas].C[0]);
+			ADD_SKILL(LevelSkillAxe_ClassList[num_clas].C[1]);
+			ADD_SKILL(LevelSkillAxe_CharList[num_char].C[0]);
+			ADD_SKILL(LevelSkillAxe_CharList[num_char].C[1]);
+			ADD_SKILL(LevelSkillAxe_CharList[0].C[0]);
+			ADD_SKILL(LevelSkillAxe_CharList[0].C[1]);
+		
+		case WPN_LEVEL_D:
+			ADD_SKILL(LevelSkillAxe_ClassList[num_clas].D[0]);
+			ADD_SKILL(LevelSkillAxe_ClassList[num_clas].D[1]);
+			ADD_SKILL(LevelSkillAxe_CharList[num_char].D[0]);
+			ADD_SKILL(LevelSkillAxe_CharList[num_char].D[1]);
+			ADD_SKILL(LevelSkillAxe_CharList[0].D[0]);
+			ADD_SKILL(LevelSkillAxe_CharList[0].D[1]);
+		
+		case WPN_LEVEL_E:
+			ADD_SKILL(LevelSkillAxe_ClassList[num_clas].E[0]);
+			ADD_SKILL(LevelSkillAxe_ClassList[num_clas].E[1]);
+			ADD_SKILL(LevelSkillAxe_CharList[num_char].E[0]);
+			ADD_SKILL(LevelSkillAxe_CharList[num_char].E[1]);
+			ADD_SKILL(LevelSkillAxe_CharList[0].D[0]);
+			ADD_SKILL(LevelSkillAxe_CharList[0].D[1]);
+		
+		default:
+			break;
+	}
+	
+	
+	
+	
+	switch( WeaponRanks[ITYPE_BOW] ){
+		case WPN_LEVEL_S:
+			ADD_SKILL(LevelSkillBow_ClassList[num_clas].S[0]);
+			ADD_SKILL(LevelSkillBow_ClassList[num_clas].S[1]);
+			ADD_SKILL(LevelSkillBow_CharList[num_char].S[0]);
+			ADD_SKILL(LevelSkillBow_CharList[num_char].S[1]);
+			ADD_SKILL(LevelSkillBow_CharList[0].S[0]);
+			ADD_SKILL(LevelSkillBow_CharList[0].S[1]);
+			
+		case WPN_LEVEL_A:
+			ADD_SKILL(LevelSkillBow_ClassList[num_clas].A[0]);
+			ADD_SKILL(LevelSkillBow_ClassList[num_clas].A[1]);
+			ADD_SKILL(LevelSkillBow_CharList[num_char].A[0]);
+			ADD_SKILL(LevelSkillBow_CharList[num_char].A[1]);
+			ADD_SKILL(LevelSkillBow_CharList[0].A[0]);
+			ADD_SKILL(LevelSkillBow_CharList[0].A[1]);
+		
+		case WPN_LEVEL_B:
+			ADD_SKILL(LevelSkillBow_ClassList[num_clas].B[0]);
+			ADD_SKILL(LevelSkillBow_ClassList[num_clas].B[1]);
+			ADD_SKILL(LevelSkillBow_CharList[num_char].B[0]);
+			ADD_SKILL(LevelSkillBow_CharList[num_char].B[1]);
+			ADD_SKILL(LevelSkillBow_CharList[0].B[0]);
+			ADD_SKILL(LevelSkillBow_CharList[0].B[1]);
+		
+		case WPN_LEVEL_C:
+			ADD_SKILL(LevelSkillBow_ClassList[num_clas].C[0]);
+			ADD_SKILL(LevelSkillBow_ClassList[num_clas].C[1]);
+			ADD_SKILL(LevelSkillBow_CharList[num_char].C[0]);
+			ADD_SKILL(LevelSkillBow_CharList[num_char].C[1]);
+			ADD_SKILL(LevelSkillBow_CharList[0].C[0]);
+			ADD_SKILL(LevelSkillBow_CharList[0].C[1]);
+		
+		case WPN_LEVEL_D:
+			ADD_SKILL(LevelSkillBow_ClassList[num_clas].D[0]);
+			ADD_SKILL(LevelSkillBow_ClassList[num_clas].D[1]);
+			ADD_SKILL(LevelSkillBow_CharList[num_char].D[0]);
+			ADD_SKILL(LevelSkillBow_CharList[num_char].D[1]);
+			ADD_SKILL(LevelSkillBow_CharList[0].D[0]);
+			ADD_SKILL(LevelSkillBow_CharList[0].D[1]);
+		
+		case WPN_LEVEL_E:
+			ADD_SKILL(LevelSkillBow_ClassList[num_clas].E[0]);
+			ADD_SKILL(LevelSkillBow_ClassList[num_clas].E[1]);
+			ADD_SKILL(LevelSkillBow_CharList[num_char].E[0]);
+			ADD_SKILL(LevelSkillBow_CharList[num_char].E[1]);
+			ADD_SKILL(LevelSkillBow_CharList[0].E[0]);
+			ADD_SKILL(LevelSkillBow_CharList[0].E[1]);
+		
+		default:
+			break;
+	}
+	
+	int max = WeaponRanks[ITYPE_ANIMA];
+	max = (max < WeaponRanks[ITYPE_LIGHT]) ? max : WeaponRanks[ITYPE_LIGHT];
+	max = (max < WeaponRanks[ITYPE_DARK]) ? max : WeaponRanks[ITYPE_DARK];
+
+	
+	switch( max ){
+		case WPN_LEVEL_S:
+			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].S[0]);
+			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].S[1]);
+			ADD_SKILL(LevelSkillBMag_CharList[num_char].S[0]);
+			ADD_SKILL(LevelSkillBMag_CharList[num_char].S[1]);
+			ADD_SKILL(LevelSkillBMag_CharList[0].S[0]);
+			ADD_SKILL(LevelSkillBMag_CharList[0].S[1]);
+			
+		case WPN_LEVEL_A:
+			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].A[0]);
+			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].A[1]);
+			ADD_SKILL(LevelSkillBMag_CharList[num_char].A[0]);
+			ADD_SKILL(LevelSkillBMag_CharList[num_char].A[1]);
+			ADD_SKILL(LevelSkillBMag_CharList[0].A[0]);
+			ADD_SKILL(LevelSkillBMag_CharList[0].A[1]);
+		
+		case WPN_LEVEL_B:
+			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].B[0]);
+			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].B[1]);
+			ADD_SKILL(LevelSkillBMag_CharList[num_char].B[0]);
+			ADD_SKILL(LevelSkillBMag_CharList[num_char].B[1]);
+			ADD_SKILL(LevelSkillBMag_CharList[0].B[0]);
+			ADD_SKILL(LevelSkillBMag_CharList[0].B[1]);
+		
+		case WPN_LEVEL_C:
+			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].C[0]);
+			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].C[1]);
+			ADD_SKILL(LevelSkillBMag_CharList[num_char].C[0]);
+			ADD_SKILL(LevelSkillBMag_CharList[num_char].C[1]);
+			ADD_SKILL(LevelSkillBMag_CharList[0].C[0]);
+			ADD_SKILL(LevelSkillBMag_CharList[0].C[1]);
+		
+		case WPN_LEVEL_D:
+			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].D[0]);
+			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].D[1]);
+			ADD_SKILL(LevelSkillBMag_CharList[num_char].D[0]);
+			ADD_SKILL(LevelSkillBMag_CharList[num_char].D[1]);
+			ADD_SKILL(LevelSkillBMag_CharList[0].D[0]);
+			ADD_SKILL(LevelSkillBMag_CharList[0].D[1]);
+		
+		case WPN_LEVEL_E:
+			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].E[0]);
+			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].E[1]);
+			ADD_SKILL(LevelSkillBMag_CharList[num_char].E[0]);
+			ADD_SKILL(LevelSkillBMag_CharList[num_char].E[1]);
+			ADD_SKILL(LevelSkillBMag_CharList[0].E[0]);
+			ADD_SKILL(LevelSkillBMag_CharList[0].E[1]);
+		
+		default:
+			break;
+	}
+	
+	
+	
+	switch( WeaponRanks[ITYPE_STAFF] ){
+		case WPN_LEVEL_S:
+			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].S[0]);
+			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].S[1]);
+			ADD_SKILL(LevelSkillWMag_CharList[num_char].S[0]);
+			ADD_SKILL(LevelSkillWMag_CharList[num_char].S[1]);
+			ADD_SKILL(LevelSkillWMag_CharList[0].S[0]);
+			ADD_SKILL(LevelSkillWMag_CharList[0].S[1]);
+			
+		case WPN_LEVEL_A:
+			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].A[0]);
+			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].A[1]);
+			ADD_SKILL(LevelSkillWMag_CharList[num_char].A[0]);
+			ADD_SKILL(LevelSkillWMag_CharList[num_char].A[1]);
+			ADD_SKILL(LevelSkillWMag_CharList[0].A[0]);
+			ADD_SKILL(LevelSkillWMag_CharList[0].A[1]);
+		
+		case WPN_LEVEL_B:
+			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].B[0]);
+			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].B[1]);
+			ADD_SKILL(LevelSkillWMag_CharList[num_char].B[0]);
+			ADD_SKILL(LevelSkillWMag_CharList[num_char].B[1]);
+			ADD_SKILL(LevelSkillWMag_CharList[0].B[0]);
+			ADD_SKILL(LevelSkillWMag_CharList[0].B[1]);
+		
+		case WPN_LEVEL_C:
+			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].C[0]);
+			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].C[1]);
+			ADD_SKILL(LevelSkillWMag_CharList[num_char].C[0]);
+			ADD_SKILL(LevelSkillWMag_CharList[num_char].C[1]);
+			ADD_SKILL(LevelSkillWMag_CharList[0].C[0]);
+			ADD_SKILL(LevelSkillWMag_CharList[0].C[1]);
+		
+		case WPN_LEVEL_D:
+			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].D[0]);
+			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].D[1]);
+			ADD_SKILL(LevelSkillWMag_CharList[num_char].D[0]);
+			ADD_SKILL(LevelSkillWMag_CharList[num_char].D[1]);
+			ADD_SKILL(LevelSkillWMag_CharList[0].D[0]);
+			ADD_SKILL(LevelSkillWMag_CharList[0].D[1]);
+		
+		case WPN_LEVEL_E:
+			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].E[0]);
+			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].E[1]);
+			ADD_SKILL(LevelSkillWMag_CharList[num_char].E[0]);
+			ADD_SKILL(LevelSkillWMag_CharList[num_char].E[1]);
+			ADD_SKILL(LevelSkillWMag_CharList[0].E[0]);
+			ADD_SKILL(LevelSkillWMag_CharList[0].E[1]);
+		
+		default:
+			break;
+	}
+	
+	#undef ADD_SKILL
+}
+
+static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* list){
+	#define ADD_SKILL(aSkill)								\
+		if( SKILL_VALID(aSkill) )							\
+			if( 0 == AddPrepSkilTotalList(list, aSkill) )	\
+				return;
+	
+	int WeaponRanks[7];
+	const int num_clas = unit->pClassData->number;
+	const int num_char = unit->pCharacterData->number;
+	
+	list->total[PREP_SKLSUB_RIGHT] = 0;
+
+	
+	for( int i = 0; i < 7; i++ )
+		WeaponRanks[i] = GetWeaponLevelFromExp(unit->ranks[i]);
+	
+	switch( WeaponRanks[ITYPE_SWORD] ){
+		case WPN_LEVEL_S:
+			ADD_SKILL(LevelCASword_ClassList[num_clas].S[0]);
+			ADD_SKILL(LevelCASword_ClassList[num_clas].S[1]);
+			ADD_SKILL(LevelCASword_CharList[num_char].S[0]);
+			ADD_SKILL(LevelCASword_CharList[num_char].S[1]);
+			ADD_SKILL(LevelCASword_CharList[0].S[0]);
+			ADD_SKILL(LevelCASword_CharList[0].S[1]);
+			
+		case WPN_LEVEL_A:
+			ADD_SKILL(LevelCASword_ClassList[num_clas].A[0]);
+			ADD_SKILL(LevelCASword_ClassList[num_clas].A[1]);
+			ADD_SKILL(LevelCASword_CharList[num_char].A[0]);
+			ADD_SKILL(LevelCASword_CharList[num_char].A[1]);
+			ADD_SKILL(LevelCASword_CharList[0].A[0]);
+			ADD_SKILL(LevelCASword_CharList[0].A[1]);
+		
+		case WPN_LEVEL_B:
+			ADD_SKILL(LevelCASword_ClassList[num_clas].B[0]);
+			ADD_SKILL(LevelCASword_ClassList[num_clas].B[1]);
+			ADD_SKILL(LevelCASword_CharList[num_char].B[0]);
+			ADD_SKILL(LevelCASword_CharList[num_char].B[1]);
+			ADD_SKILL(LevelCASword_CharList[0].B[0]);
+			ADD_SKILL(LevelCASword_CharList[0].B[1]);
+		
+		case WPN_LEVEL_C:
+			ADD_SKILL(LevelCASword_ClassList[num_clas].C[0]);
+			ADD_SKILL(LevelCASword_ClassList[num_clas].C[1]);
+			ADD_SKILL(LevelCASword_CharList[num_char].C[0]);
+			ADD_SKILL(LevelCASword_CharList[num_char].C[1]);
+			ADD_SKILL(LevelCASword_CharList[0].C[0]);
+			ADD_SKILL(LevelCASword_CharList[0].C[1]);
+		
+		case WPN_LEVEL_D:
+			ADD_SKILL(LevelCASword_ClassList[num_clas].D[0]);
+			ADD_SKILL(LevelCASword_ClassList[num_clas].D[1]);
+			ADD_SKILL(LevelCASword_CharList[num_char].D[0]);
+			ADD_SKILL(LevelCASword_CharList[num_char].D[1]);
+			ADD_SKILL(LevelCASword_CharList[0].D[0]);
+			ADD_SKILL(LevelCASword_CharList[0].D[1]);
+		
+		case WPN_LEVEL_E:
+			ADD_SKILL(LevelCASword_ClassList[num_clas].E[0]);
+			ADD_SKILL(LevelCASword_ClassList[num_clas].E[1]);
+			ADD_SKILL(LevelCASword_CharList[num_char].E[0]);
+			ADD_SKILL(LevelCASword_CharList[num_char].E[1]);
+			ADD_SKILL(LevelCASword_CharList[0].E[0]);
+			ADD_SKILL(LevelCASword_CharList[0].E[1]);
+		
+		default:
+			break;
+	}
+	
+	
+	
+	switch( WeaponRanks[ITYPE_LANCE] ){
+		case WPN_LEVEL_S:
+			ADD_SKILL(LevelCALance_ClassList[num_clas].S[0]);
+			ADD_SKILL(LevelCALance_ClassList[num_clas].S[1]);
+			ADD_SKILL(LevelCALance_CharList[num_char].S[0]);
+			ADD_SKILL(LevelCALance_CharList[num_char].S[1]);
+			ADD_SKILL(LevelCALance_CharList[0].S[0]);
+			ADD_SKILL(LevelCALance_CharList[0].S[1]);
+			
+		case WPN_LEVEL_A:
+			ADD_SKILL(LevelCALance_ClassList[num_clas].A[0]);
+			ADD_SKILL(LevelCALance_ClassList[num_clas].A[1]);
+			ADD_SKILL(LevelCALance_CharList[num_char].A[0]);
+			ADD_SKILL(LevelCALance_CharList[num_char].A[1]);
+			ADD_SKILL(LevelCALance_CharList[0].A[0]);
+			ADD_SKILL(LevelCALance_CharList[0].A[1]);
+		
+		case WPN_LEVEL_B:
+			ADD_SKILL(LevelCALance_ClassList[num_clas].B[0]);
+			ADD_SKILL(LevelCALance_ClassList[num_clas].B[1]);
+			ADD_SKILL(LevelCALance_CharList[num_char].B[0]);
+			ADD_SKILL(LevelCALance_CharList[num_char].B[1]);
+			ADD_SKILL(LevelCALance_CharList[0].B[0]);
+			ADD_SKILL(LevelCALance_CharList[0].B[1]);
+		
+		case WPN_LEVEL_C:
+			ADD_SKILL(LevelCALance_ClassList[num_clas].C[0]);
+			ADD_SKILL(LevelCALance_ClassList[num_clas].C[1]);
+			ADD_SKILL(LevelCALance_CharList[num_char].C[0]);
+			ADD_SKILL(LevelCALance_CharList[num_char].C[1]);
+			ADD_SKILL(LevelCALance_CharList[0].C[0]);
+			ADD_SKILL(LevelCALance_CharList[0].C[1]);
+		
+		case WPN_LEVEL_D:
+			ADD_SKILL(LevelCALance_ClassList[num_clas].D[0]);
+			ADD_SKILL(LevelCALance_ClassList[num_clas].D[1]);
+			ADD_SKILL(LevelCALance_CharList[num_char].D[0]);
+			ADD_SKILL(LevelCALance_CharList[num_char].D[1]);
+			ADD_SKILL(LevelCALance_CharList[0].D[0]);
+			ADD_SKILL(LevelCALance_CharList[0].D[1]);
+		
+		case WPN_LEVEL_E:
+			ADD_SKILL(LevelCALance_ClassList[num_clas].E[0]);
+			ADD_SKILL(LevelCALance_ClassList[num_clas].E[1]);
+			ADD_SKILL(LevelCALance_CharList[num_char].E[0]);
+			ADD_SKILL(LevelCALance_CharList[num_char].E[1]);
+			ADD_SKILL(LevelCALance_CharList[0].D[0]);
+			ADD_SKILL(LevelCALance_CharList[0].D[1]);
+		
+		default:
+			break;
+	}
+	
+	
+	switch( WeaponRanks[ITYPE_AXE] ){
+		case WPN_LEVEL_S:
+			ADD_SKILL(LevelCAAxe_ClassList[num_clas].S[0]);
+			ADD_SKILL(LevelCAAxe_ClassList[num_clas].S[1]);
+			ADD_SKILL(LevelCAAxe_CharList[num_char].S[0]);
+			ADD_SKILL(LevelCAAxe_CharList[num_char].S[1]);
+			ADD_SKILL(LevelCAAxe_CharList[0].S[0]);
+			ADD_SKILL(LevelCAAxe_CharList[0].S[1]);
+			
+		case WPN_LEVEL_A:
+			ADD_SKILL(LevelCAAxe_ClassList[num_clas].A[0]);
+			ADD_SKILL(LevelCAAxe_ClassList[num_clas].A[1]);
+			ADD_SKILL(LevelCAAxe_CharList[num_char].A[0]);
+			ADD_SKILL(LevelCAAxe_CharList[num_char].A[1]);
+			ADD_SKILL(LevelCAAxe_CharList[0].A[0]);
+			ADD_SKILL(LevelCAAxe_CharList[0].A[1]);
+		
+		case WPN_LEVEL_B:
+			ADD_SKILL(LevelCAAxe_ClassList[num_clas].B[0]);
+			ADD_SKILL(LevelCAAxe_ClassList[num_clas].B[1]);
+			ADD_SKILL(LevelCAAxe_CharList[num_char].B[0]);
+			ADD_SKILL(LevelCAAxe_CharList[num_char].B[1]);
+			ADD_SKILL(LevelCAAxe_CharList[0].B[0]);
+			ADD_SKILL(LevelCAAxe_CharList[0].B[1]);
+		
+		case WPN_LEVEL_C:
+			ADD_SKILL(LevelCAAxe_ClassList[num_clas].C[0]);
+			ADD_SKILL(LevelCAAxe_ClassList[num_clas].C[1]);
+			ADD_SKILL(LevelCAAxe_CharList[num_char].C[0]);
+			ADD_SKILL(LevelCAAxe_CharList[num_char].C[1]);
+			ADD_SKILL(LevelCAAxe_CharList[0].C[0]);
+			ADD_SKILL(LevelCAAxe_CharList[0].C[1]);
+		
+		case WPN_LEVEL_D:
+			ADD_SKILL(LevelCAAxe_ClassList[num_clas].D[0]);
+			ADD_SKILL(LevelCAAxe_ClassList[num_clas].D[1]);
+			ADD_SKILL(LevelCAAxe_CharList[num_char].D[0]);
+			ADD_SKILL(LevelCAAxe_CharList[num_char].D[1]);
+			ADD_SKILL(LevelCAAxe_CharList[0].D[0]);
+			ADD_SKILL(LevelCAAxe_CharList[0].D[1]);
+		
+		case WPN_LEVEL_E:
+			ADD_SKILL(LevelCAAxe_ClassList[num_clas].E[0]);
+			ADD_SKILL(LevelCAAxe_ClassList[num_clas].E[1]);
+			ADD_SKILL(LevelCAAxe_CharList[num_char].E[0]);
+			ADD_SKILL(LevelCAAxe_CharList[num_char].E[1]);
+			ADD_SKILL(LevelCAAxe_CharList[0].D[0]);
+			ADD_SKILL(LevelCAAxe_CharList[0].D[1]);
+		
+		default:
+			break;
+	}
+	
+	
+	
+	
+	switch( WeaponRanks[ITYPE_BOW] ){
+		case WPN_LEVEL_S:
+			ADD_SKILL(LevelCABow_ClassList[num_clas].S[0]);
+			ADD_SKILL(LevelCABow_ClassList[num_clas].S[1]);
+			ADD_SKILL(LevelCABow_CharList[num_char].S[0]);
+			ADD_SKILL(LevelCABow_CharList[num_char].S[1]);
+			ADD_SKILL(LevelCABow_CharList[0].S[0]);
+			ADD_SKILL(LevelCABow_CharList[0].S[1]);
+			
+		case WPN_LEVEL_A:
+			ADD_SKILL(LevelCABow_ClassList[num_clas].A[0]);
+			ADD_SKILL(LevelCABow_ClassList[num_clas].A[1]);
+			ADD_SKILL(LevelCABow_CharList[num_char].A[0]);
+			ADD_SKILL(LevelCABow_CharList[num_char].A[1]);
+			ADD_SKILL(LevelCABow_CharList[0].A[0]);
+			ADD_SKILL(LevelCABow_CharList[0].A[1]);
+		
+		case WPN_LEVEL_B:
+			ADD_SKILL(LevelCABow_ClassList[num_clas].B[0]);
+			ADD_SKILL(LevelCABow_ClassList[num_clas].B[1]);
+			ADD_SKILL(LevelCABow_CharList[num_char].B[0]);
+			ADD_SKILL(LevelCABow_CharList[num_char].B[1]);
+			ADD_SKILL(LevelCABow_CharList[0].B[0]);
+			ADD_SKILL(LevelCABow_CharList[0].B[1]);
+		
+		case WPN_LEVEL_C:
+			ADD_SKILL(LevelCABow_ClassList[num_clas].C[0]);
+			ADD_SKILL(LevelCABow_ClassList[num_clas].C[1]);
+			ADD_SKILL(LevelCABow_CharList[num_char].C[0]);
+			ADD_SKILL(LevelCABow_CharList[num_char].C[1]);
+			ADD_SKILL(LevelCABow_CharList[0].C[0]);
+			ADD_SKILL(LevelCABow_CharList[0].C[1]);
+		
+		case WPN_LEVEL_D:
+			ADD_SKILL(LevelCABow_ClassList[num_clas].D[0]);
+			ADD_SKILL(LevelCABow_ClassList[num_clas].D[1]);
+			ADD_SKILL(LevelCABow_CharList[num_char].D[0]);
+			ADD_SKILL(LevelCABow_CharList[num_char].D[1]);
+			ADD_SKILL(LevelCABow_CharList[0].D[0]);
+			ADD_SKILL(LevelCABow_CharList[0].D[1]);
+		
+		case WPN_LEVEL_E:
+			ADD_SKILL(LevelCABow_ClassList[num_clas].E[0]);
+			ADD_SKILL(LevelCABow_ClassList[num_clas].E[1]);
+			ADD_SKILL(LevelCABow_CharList[num_char].E[0]);
+			ADD_SKILL(LevelCABow_CharList[num_char].E[1]);
+			ADD_SKILL(LevelCABow_CharList[0].E[0]);
+			ADD_SKILL(LevelCABow_CharList[0].E[1]);
+		
+		default:
+			break;
+	}
+	
+	#undef ADD_SKILL
 	
 }
 

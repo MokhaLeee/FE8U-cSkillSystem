@@ -27,11 +27,13 @@ ALIGN 4
 
 // Skill system
 ALIGN 4
-#include "Skills/SkillSystem_Data.lyn.event"
+#include "Skills/SkillsBasicData.lyn.event"
+#include "Skills/SkillsLevelBasedList_Chartacter.lyn.event"
+#include "Skills/SkillsLevelBasedList_Class.lyn.event"
 
 // Combat art
 ALIGN 4
-#include "CombatArts/CombatArtsData.lyn.event"
-
+#include "CombatArts/CombatArtsLevelBasedList_Chartacter.lyn.event"
+#include "CombatArts/CombatArtsLevelBasedList_Class.lyn.event"
 
 #endif // GAME_DATA

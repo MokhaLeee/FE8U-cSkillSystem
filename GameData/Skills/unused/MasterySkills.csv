@@ -1,9 +1,0 @@
-INLINE MasterySkills,skill_E0,skill_E1,skill_D0,skill_D1,skill_C0,skill_C1,skill_B0,skill_B1,skill_A0,skill_A1,skill_S0,skill_S1
-0x00 Sword,0,0,0,0,0,0,0,0,0,0,0,0
-0x01 Lance,0,0,0,0,0,0,0,0,0,0,0,0
-0x02 Axe,0,0,0,0,0,0,0,0,0,0,0,0
-0x03 Bow,0,0,0,0,0,0,0,0,0,0,0,0
-0x04 Staff,0,0,0,0,0,0,0,0,0,0,0,0
-0x05 Anima,0,0,0,0,0,0,0,0,0,0,0,0
-0x06 Light,0,0,0,0,0,0,0,0,0,0,0,0
-0x07 Dark,0,0,0,0,0,0,0,0,0,0,0,0

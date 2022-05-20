@@ -32,14 +32,14 @@ enum{
 	SID_BlowUncanny = 0x18,
 	
 	
-	SID_Vantage = 0x20,
+	SID_Vantage = 0x20,			// 待伏
 	SID_VantageBat = 0x21,
-	SID_Desperation = 0x22,
+	SID_Desperation = 0x22,		// 猛攻
 	SID_DesperationBat = 0x23,
-	SID_QuickRiposte = 0x24,
+	SID_QuickRiposte = 0x24,	// 回击
 	
-	SID_Lethality = 0x25,
-	SID_Crit = 0x26,
+	SID_Lethality = 0x25,		// 瞬杀
+	SID_Crit = 0x26,			// 必杀
 	SID_WatchfulEye = 0x27,
 	
 	SID_CritSword = 0x28,
@@ -49,8 +49,8 @@ enum{
 	SID_CritBMag = 0x2C,
 	SID_CritWMag = 0x2D,
 	
-	SID_Avoid = 0x2E,
-	SID_AvoidSword = 0x2F,
+	SID_Avoid = 0x2E,			// 回避
+	SID_AvoidSword = 0x2F,		// 剑回避
 	
 	
 	SID_SwordBreaker = 0x30,
@@ -67,15 +67,15 @@ enum{
 	SID_FaireBow = 0x39,
 	SID_FaireBMag = 0x3A,
 	
-	SID_CloseCounter = 0x3B,
-	SID_CounterAttack = 0x3C,
+	SID_CloseCounter = 0x3B,	// 近反
+	SID_CounterAttack = 0x3C,	// 远反
 	
 	// Misc
-	SID_WaryFighter = 0x3D,
+	SID_WaryFighter = 0x3D,		// 防阵
 	
-	SID_Canto = 0x50,
-	SID_AlertStance = 0x51,
-	SID_AlertStancePlus = 0x52,
+	SID_Canto = 0x50,			// 再动
+	SID_AlertStance = 0x51,		// 警戒
+	SID_AlertStancePlus = 0x52,	// 警戒+
 	
 	// Rally Skills
 	SID_RallyStr = 0x60,
@@ -89,17 +89,17 @@ enum{
 	SID_RallySpectrum = 0x68,
 	
 	// Menu Skills
-	SID_Dance = 0x69,
-	SID_LockTouch = 0x6A,
-	SID_Summon = 0x6B,
-	SID_Supply = 0x6C,
-	SID_Steal = 0x6D,
+	SID_Dance = 0x69,			// 舞蹈
+	SID_LockTouch = 0x6A,		// 开锁
+	SID_Summon = 0x6B,			// 召唤
+	SID_Supply = 0x6C,			// 运输队
+	SID_Steal = 0x6D,			// 偷盗
 	
 	// Pre-Phase
-	SID_Renewal = 0x70,
+	SID_Renewal = 0x70,			// 回复
 	
 	// Move Skills
-	SID_Pass = 0x71,
+	SID_Pass = 0x71,			// 穿越
 	
 	// Stance Skills
 	SID_StanceBracing = 0x72,	// 金刚明镜架势

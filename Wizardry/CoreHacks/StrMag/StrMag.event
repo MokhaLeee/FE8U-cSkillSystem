@@ -27,6 +27,7 @@ PUSH
 	// Item_Mag_Booster Icon
 	ORG $809B10 + Item_Mag_Booster * 36 + 0x1D
 	BYTE ItemIcon_Mag_Booster
+	
 POP
 
 

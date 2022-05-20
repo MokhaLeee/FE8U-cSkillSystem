@@ -44,57 +44,50 @@ struct SkillFastTesterList* GetOrMakeSklFastList(struct Unit* unit) {
 		list->cnt++;
 	
 	} // for */
+
+		
+	const struct SkillCharacterList_t* list_char = 
+		&CharacterSkillRomList[unit->pCharacterData->number]; 
 	
-	const struct SkillROMList* char_rom_list = &CharSkillRomList[unit->pCharacterData->number]; 
-	const struct SkillROMList* class_rom_list = &ClassSkillRomList[unit->pClassData->number];
+	const struct SkillClassList_t* list_class = 
+		&ClassSkillRomList[unit->pClassData->number];
 	
 	// Character
-	
-	for( int i = 0; i < 2; i++ )
-	{
-		int skill_id = char_rom_list->default_rom_skill[i];
+	for( int i = 0; i < 2; i++ ){
 		
-		if( SKILL_VALID(skill_id) )
-			list->skills[list->cnt++] = skill_id;
-	
+		int skill_index = list_char->rom_skill[i];
+		
+		if( SKILL_VALID(skill_index) )	
+			list->skills[list->cnt++] = skill_index;
 	}
-	
-	if( unit->level >= 10 )
-		for( int i = 0; i < 2; i++ )
-		{
-			int skill_id = char_rom_list->master_rom_skill[i];
-			
-			if( SKILL_VALID(skill_id) )
-				list->skills[list->cnt++] = skill_id;
-		}
+
 	
 	// Class
-	
-	for( int i = 0; i < 2; i++ )
-	{
-		int skill_id = class_rom_list->default_rom_skill[i];
+	for( int i = 0; i < 2; i++ ){
 		
-		if( SKILL_VALID(skill_id) )
-			list->skills[list->cnt++] = skill_id;
-	
+		int skill_index = list_class->default_rom_skill[i];
+		
+		if( SKILL_VALID(skill_index) )	
+			list->skills[list->cnt++] = skill_index;
 	}
 	
 	if( unit->level >= 10 )
-		for( int i = 0; i < 2; i++ )
-		{
-			int skill_id = class_rom_list->master_rom_skill[i];
-			
-			if( SKILL_VALID(skill_id) )
-				list->skills[list->cnt++] = skill_id;
+		for( int i = 0; i < 2; i++ ){
+		
+		int skill_index = list_class->master_rom_skill[i];
+		
+		if( SKILL_VALID(skill_index) )	
+			list->skills[list->cnt++] = skill_index;
 		}
+
 	
 	// RAM
 	for ( int i = 0; i < UNIT_SKILL_COUNT; i++ )
 	{
-		int skill_id = unit->supports[i];
+		int skill_index = unit->supports[i];
 		
-		if( SKILL_VALID(skill_id) )
-			list->skills[list->cnt++] = skill_id;
+		if( SKILL_VALID(skill_index) )
+			list->skills[list->cnt++] = skill_index;
 	}
 
 	return list;

@@ -14,7 +14,33 @@ s8 IsUnitEffectiveAgainst(struct Unit* actor, struct Unit* target) {
 		break;
 
 	} // switch (actorClass)
-
+	
+	// New Check for Combat-Art
+	if( gBattleActor.unit.index == actor->index )
+		if( IsFlagCombatArt(actor, 0) )
+		{
+			const struct CombatArtInfo* info 
+				= GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
+			
+			if( info->eff_all )
+				return TRUE;
+			
+			else if( info->eff_heavy )
+				effList = GetItemEffectiveness(ITEM_AXE_HAMMER);
+			
+			else if( info->eff_ride )
+				effList = GetItemEffectiveness(ITEM_SWORD_ZANBATO);
+			
+			else if( info->eff_fly )
+				effList = GetItemEffectiveness(ITEM_BOW_IRON);
+			
+			else if( info->eff_monster )
+				effList = GetItemEffectiveness(ITEM_LIGHT_IVALDI);
+			
+			else if( info->eff_dragon )
+				effList = GetItemEffectiveness(ITEM_LIGHT_IVALDI);
+		}
+	
 	if (!effList)
 		return FALSE;
 

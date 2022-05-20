@@ -9,22 +9,6 @@
 
 {
 
-__TEXTPROCESS212:
-#incbin ".TextEntries\TextMain-cn212.fetxt.dmp"
-setText($212, __TEXTPROCESS212)
-
-__TEXTPROCESS213:
-#incbin ".TextEntries\TextMain-cn213.fetxt.dmp"
-setText($213, __TEXTPROCESS213)
-
-__TEXTPROCESS21D:
-#incbin ".TextEntries\TextMain-cn21D.fetxt.dmp"
-setText($21D, __TEXTPROCESS21D)
-
-__TEXTPROCESS21C:
-#incbin ".TextEntries\TextMain-cn21C.fetxt.dmp"
-setText($21C, __TEXTPROCESS21C)
-
 __TEXTPROCESSD4C:
 #incbin ".TextEntries\TextMain-cnmsgCharmName.fetxt.dmp"
 setText($D4C, __TEXTPROCESSD4C)

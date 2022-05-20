@@ -1,5 +1,14 @@
 #include "gbafe-chax.h"
 
+
+const struct LevelBasedSkillList_t LevelBased_ClassCombatArtList[0x100] = {};
+const struct LevelBasedSkillList_t LevelBased_CharacterCombatArtList[0x100] = {};
+
+
+
+
+
+/* 
 const struct CombatArtsROMList CharCombatArtsRomList[0x100] = {
 	
 	[CHARACTER_EIRIKA] = {
@@ -72,3 +81,4 @@ const struct CombatArtsROMList ClassCombatArtsRomList[0x100] = {
 		.master_art[3]	= 0,
 	},
 };
+ */

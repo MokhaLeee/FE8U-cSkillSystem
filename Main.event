@@ -1,7 +1,8 @@
 
 #define _MAIN_
-#define _DEBUG_
+// #define _DEBUG_
 #define _CHINESE_
+#define _USE_VANILLA_CHAPTER_
 
 
 #include "EAstdlib.event"
@@ -64,21 +65,26 @@ ORG FreeSpace
 	ALIGN 4
 	#include "Wizardry/Wizardry.event"
 	
-	// Chapters
-	{
-		ALIGN 4
-		#include "Chapters/Chapters.event"
-	}
+	// FE16 Icon
+	ALIGN 4
+	#include "Spritans/FE16Icon/FE16Icon.event"
+	
+
+	
+	#ifndef _USE_VANILLA_CHAPTER_
 	
 	// Portraits
 	ALIGN 4
 	#include "Spritans/Portraits.event"
 	
-	// FE16 Icon
-	ALIGN 4
-	#include "Spritans/FE16Icon/FE16Icon.event"
-	
-	
+	// Chapters
+	{
+		ALIGN 4
+		#include "Chapters/Chapters.event"
+	}
+	#endif // _USE_VANILLA_CHAPTER_
+
+
 	// Debug
 	#ifdef _DEBUG_
 	
@@ -86,9 +92,7 @@ ORG FreeSpace
 		#include "Debug_File.event"
 		
 	#endif // _DEBUG_
-
-
-
+	
 ASSERT (FreeSpaceEnd - CURRENTOFFSET)
 #undef IN_MAIN_HACK_RANGE
 
