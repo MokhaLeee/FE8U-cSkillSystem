@@ -8,10 +8,10 @@ s8 IsUnitEffectiveAgainst(struct Unit* actor, struct Unit* target) {
 
 	switch (actorClass) {
 
-	case 0x2B:
-	case 0x2C:
-		effList = gUnknown_088ADF39;
-		break;
+		case 0x2B:
+		case 0x2C:
+			effList = gUnknown_088ADF39;
+			break;
 
 	} // switch (actorClass)
 	

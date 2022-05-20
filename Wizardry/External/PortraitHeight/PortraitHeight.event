@@ -23,8 +23,8 @@ PortraitHeightList:
 	BYTE $26	// Myrrh
 	
 	// Extern
-	BYTE $2		// Eirika
-	BYTE $4		// Seth
+//	BYTE $2		// Eirika
+//	BYTE $4		// Seth
 //	BYTE $F		// Innes
 	
 	// End
