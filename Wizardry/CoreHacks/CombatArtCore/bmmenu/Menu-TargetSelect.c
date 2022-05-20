@@ -99,9 +99,7 @@ int UMitem_CombatArt_Hover(struct MenuProc*, struct MenuItemProc*){
 		return 0;
 	
 	// Set CombatArt flag
-	gpBattleFlagExt->isCombat = 1;
-	gpBattleFlagExt->combatArt_id = list[0];
-	gpBattleFlagExt->combat_unit = gActiveUnit->index;
+	EnableCombatArtFlag(gActiveUnit, list[0]);
 	
 	
 	return 0;
@@ -243,7 +241,7 @@ u8 CombatArtSelect_Usability(const struct MenuItemDef*, int number){
 	
 	if( 0 == CanUnitUseCombatArt(gActiveUnit, ca_index) )
 		return MENU_DISABLED;
-	
+
 	// Temperory Set CombatArt flag to make mask
 	EnableCombatArtFlag(gActiveUnit, ca_index);
 	
@@ -264,8 +262,7 @@ u8 CombatArtSelect_Usability(const struct MenuItemDef*, int number){
 		range_mask |= ItemRange2Mask(item, gActiveUnit);
 	}
 	
-	// Temperory Clear CombatArt flag after make mask
-	DisableCombatArtFlag();
+	
 	
 	
 	// Fill Map
@@ -274,8 +271,14 @@ u8 CombatArtSelect_Usability(const struct MenuItemDef*, int number){
 	GenerateUnitStandingReachRange(gActiveUnit, range_mask);
 	
 	// Make Target List
+	InitTargets(gActiveUnit->xPos, gActiveUnit->yPos);
 	ForEachUnitInRange(AddUnitToTargetListIfNotAllied);
 	TryAddTrapsToTargetList();
+	
+	
+	// Temperory Clear CombatArt flag after make mask
+	// DisableCombatArtFlag();
+	gpBattleFlagExt->isCombat = 0;
 	
 	if( 0 == GetSelectTargetCount() )
 		return MENU_DISABLED;
@@ -368,10 +371,7 @@ int CombatArtSelect_Hover(struct MenuProc* menu, struct MenuItemProc* menu_item)
 	
 
 	// set flag
-	gpBattleFlagExt->isCombat = 1;
-	gpBattleFlagExt->combatArt_id = combatArt_index;
-	gpBattleFlagExt->combat_unit = gActiveUnit->index;
-	
+	EnableCombatArtFlag(gActiveUnit, combatArt_index);
 	
 	// Make mask
 	for( int i = 0; i < UNIT_ITEM_COUNT; i++ )
@@ -500,7 +500,7 @@ u8 CombatArt_WeaponSelect_PressB(struct MenuProc*, struct MenuItemProc*){
 u8 CombatArtWeaponSelect_Usability(const struct MenuItemDef*, int number){
 	
 	u16 item = gActiveUnit->items[number];
-	
+
 	const struct CombatArtInfo *info = GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
 	
 	if( 0 == ITEM_USES(item) )

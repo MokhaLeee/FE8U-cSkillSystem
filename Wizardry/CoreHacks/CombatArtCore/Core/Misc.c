@@ -4,17 +4,70 @@
 // For Modular Range Getter
 int RangeMaxGetter_CombatArtBonus(struct Unit* unit, u16 item, int cur){
 	
+	const struct CombatArtInfo *info = GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
+	
 	// sine the flag is set for both attacker and defender
-	if( 1 == gpBattleFlagExt->isCombat )
-		if( unit->index == gpBattleFlagExt->combat_unit )
-			return cur + GetCombatArtInfo(gpBattleFlagExt->combatArt_id)->range_bouns;
+	if( !IsFlagCombatArt(unit, 0) )
+		return cur;
+	
+	return cur + info->range_bouns;
+
+}
+
+int RangeMaxGetter_CombatArtFix(struct Unit* unit, u16 item, int cur){
+	
+	const struct CombatArtInfo *info = GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
+	
+	// sine the flag is set for both attacker and defender
+	if( !IsFlagCombatArt(unit, 0) )
+		return cur;
+	
+	if( !info->unnormal_range )
+		return cur;
+	
+	switch( gpBattleFlagExt->combatArt_id )
+	{
+		case CA_PointBlankVolley:
+			cur = 1;
+			break;
+			
+		default:
+			break;
+	}
 
 	
 	return cur;
 }
 
+
 int RangeMinGetter_CombatArtBonus(struct Unit* unit, u16 item, int cur){
 		
+	return cur;
+}
+
+
+int RangeMinGetter_CombatArtFix(struct Unit* unit, u16 item, int cur){
+	
+	const struct CombatArtInfo *info = GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
+	
+	// sine the flag is set for both attacker and defender
+	if( !IsFlagCombatArt(unit, 0) )
+		return cur;
+	
+	if( !info->unnormal_range )
+		return cur;
+	
+	switch( gpBattleFlagExt->combatArt_id )
+	{
+		case CA_PointBlankVolley:
+			cur = 1;
+			break;
+			
+		default:
+			break;
+	}
+
+	
 	return cur;
 }
 
@@ -103,6 +156,8 @@ void BC_CombatArtBonus(struct BattleUnit* attacker, struct BattleUnit* defender)
 	if( 1 == info->atk_bonus )
 		switch (gpBattleFlagExt->combatArt_id)
 		{
+			// Sword
+			
 			case CA_Soulblade:
 				attacker->battleAttack += ResGetter(unit_act);
 				break;
@@ -121,8 +176,40 @@ void BC_CombatArtBonus(struct BattleUnit* attacker, struct BattleUnit* defender)
 				
 			case CA_RupturedHeaven:
 			case CA_SublimeHeaven:
+			case CA_HeavensFall:
 				attacker->battleAttack += MagGetter(unit_act);
 				break;
+			
+			
+			// Lance
+			case CA_FrozenLance:
+				attacker->battleAttack += SklGetter(unit_act);
+				break;
+			
+			case CA_GlowingEmber:
+				attacker->battleAttack += DefGetter(unit_act);
+				break;
+			
+			case CA_Vengeance:
+				attacker->battleAttack += 
+					HpMaxGetter(unit_act) - HpCurGetter(unit_act);
+				break;
+				
+			case CA_LanceJab:
+				attacker->battleAttack += SpdGetter(unit_act);
+				break;
+			
+			
+			// Axe
+			case CA_LightningAxe:
+				attacker->battleAttack += ResGetter(unit_act);
+				break;
+			
+			case CA_ArmoredStrike:
+				attacker->battleAttack += DefGetter(unit_act);
+				break;
+			
+			
 			
 			default:
 				break;
@@ -166,6 +253,8 @@ int BCanCounter_CombatArt(){
 // For Post-Action Hook
 void PostAction_CombatArtDebuff(ProcPtr proc){
 	
+	extern void ForEachUnitInRange(void*);
+	
 	if( !gpBattleFlagExt->isCombat )
 		return;
 	
@@ -173,19 +262,122 @@ void PostAction_CombatArtDebuff(ProcPtr proc){
 		return;
 	
 	struct Unit* unit_tar = GetUnit(gActionData.targetIndex);
+	const struct CombatArtInfo* info = GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
 	
-	switch( gpBattleFlagExt->combatArt_id )
+	BmMapFill(gBmMapMovement, NU_MOVE_MAP);
+	BmMapFill(gBmMapRange, NU_RANGE_MAP);
+	GenerateUnitStandingReachRange(unit_tar, 0b11);
+	InitTargets(gActiveUnit->xPos, gActiveUnit->yPos);
+	ForEachUnitInRange(AddUnitToTargetListIfNotAllied);
+	
+	if( info->is_gravity )
 	{
-		case CA_GravityShoot:
-			MU_EndAll();
-			SMS_UpdateFromGameData();
+		MU_EndAll();
+		SMS_UpdateFromGameData();
+		
+		if( !info->AOE_Debuff )
+		{
 			StartMapAnim_Gravity(unit_tar, proc);
 			SetUnitStatus(unit_tar, UNIT_NEW_STATUS_GRAVITY);
-			break;
+		}
 		
-		default:
-			break;
+		else
+			for( int i = 0; i < GetSelectTargetCount(); i++ )
+			{
+				struct Unit* unit_tmp = GetUnit( GetTarget(i)->uid );
+			
+				StartMapAnim_Gravity(unit_tmp, proc);
+				SetUnitStatus(unit_tmp, UNIT_NEW_STATUS_GRAVITY);
+			}
+		return;
 	}
+	
+	
+	else if( info->debuff_atk )
+	{
+		MU_EndAll();
+		SMS_UpdateFromGameData();
+		
+		if( !info->AOE_Debuff ){
+			StartMapAnim_Gravity(unit_tar, proc);
+			SetUnitStatus(unit_tar, UNIT_NEW_STATUS_Weaken);
+		}
+		else{
+			for( int i = 0; i < GetSelectTargetCount(); i++ )
+			{
+				struct Unit* unit_tmp = GetUnit( GetTarget(i)->uid );
+			
+				StartMapAnim_Gravity(unit_tmp, proc);
+				SetUnitStatus(unit_tmp, UNIT_NEW_STATUS_Weaken);
+			}
+		}
+		return;
+	}
+	
+	
+	else if( info->debuff_def )
+	{
+		MU_EndAll();
+		SMS_UpdateFromGameData();
+		
+		if( !info->AOE_Debuff ){
+			StartMapAnim_Gravity(unit_tar, proc);
+			SetUnitStatus(unit_tar, UNIT_NEW_STATUS_ExposeDef);
+		}
+		else{
+			for( int i = 0; i < GetSelectTargetCount(); i++ )
+			{
+				struct Unit* unit_tmp = GetUnit( GetTarget(i)->uid );
+				
+				StartMapAnim_Gravity(unit_tmp, proc);
+				SetUnitStatus(unit_tmp, UNIT_NEW_STATUS_ExposeDef);
+			}
+		}
+		return;
+	}
+	
+	else if( info->debuff_res )
+	{
+		MU_EndAll();
+		SMS_UpdateFromGameData();
+		
+		if( !info->AOE_Debuff ){
+			StartMapAnim_Gravity(unit_tar, proc);
+			SetUnitStatus(unit_tar, UNIT_NEW_STATUS_ExposeRes);
+		}
+		else{
+			for( int i = 0; i < GetSelectTargetCount(); i++ )
+			{
+				struct Unit* unit_tmp = GetUnit( GetTarget(i)->uid );
+				
+				StartMapAnim_Gravity(unit_tmp, proc);
+				SetUnitStatus(unit_tmp, UNIT_NEW_STATUS_ExposeRes);
+			}
+		}
+		return;
+	}
+	
+	else if( info->debuff_Silence )
+	{
+		MU_EndAll();
+		SMS_UpdateFromGameData();
+		
+		if( !info->AOE_Debuff ){
+			StartMapAnim_Gravity(unit_tar, proc);
+			SetUnitStatusExt(unit_tar, UNIT_STATUS_SILENCED, 1);
+		}
+		else{
+			for( int i = 0; i < GetSelectTargetCount(); i++ )
+			{
+				struct Unit* unit_tmp = GetUnit( GetTarget(i)->uid );
+				
+				StartMapAnim_Gravity(unit_tmp, proc);
+				SetUnitStatusExt(unit_tar, UNIT_STATUS_SILENCED, 1);
+			}
+		}
+		return;
+	}
+
 }
 
 

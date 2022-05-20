@@ -1,0 +1,60 @@
+## msg_CAN_TempestLance
+旋风枪[X]
+## msg_CAD_TempestLance
+强有力的枪技[X]
+
+
+## msg_CAN_Knightkneeler
+弑骑一击[X]
+## msg_CAD_Knightkneeler
+骑兵特效的枪技[X]
+
+
+## msg_CAN_ShatterSlash
+破坏强击[X]
+## msg_CAD_ShatterSlash
+命中后敌方防御-5[X]
+
+
+## msg_CAN_MonsterPiercer
+魔物刺击[X]
+## msg_CAD_MonsterPiercer
+魔物特效[X]
+
+
+## msg_CAN_HitAndRun
+一击即离[X]
+## msg_CAD_HitAndRun
+战斗后自身向后退一格[X]
+
+
+## msg_CAN_SwiftStrikes
+连击[X]
+## msg_CAD_SwiftStrikes
+攻击二次[X]
+
+
+## msg_CAN_FrozenLance
+冰枪[X]
+## msg_CAD_FrozenLance
+魔法攻击，根据技术提升威力[X]
+
+
+## msg_CAN_GlowingEmber
+萤火[X]
+## msg_CAD_GlowingEmber
+根据自身防守提升威力[X]
+
+
+## msg_CAN_Vengeance
+复仇[X]
+## msg_CAD_Vengeance
+根据已失去HP提升威力[X]
+
+
+## msg_CAN_LanceJab
+突枪[X]
+## msg_CAD_LanceJab
+根据自身速度提升威力[X]
+
+

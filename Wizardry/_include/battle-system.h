@@ -37,7 +37,6 @@ struct BattleFlagExt{
 			// for post-action debuff
 			 u8 combatArt_hitted : 1;
 			 
-			 u8 pad00:7;
 
 	/* 01 */ u8 combatArt_id;
 	/* 02 */ u8 combat_unit;	// unit index of combat art actor 

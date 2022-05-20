@@ -1,13 +1,10 @@
 #include "gbafe-chax.h"
 
-// Icons
-extern const u16 CombatArtIcon_DebuffBow[];
-
 // =================================================
 //                      Sword
 // =================================================
 
-static const struct CombatArtInfo CAInfo_WrathStrike = {
+const struct CombatArtInfo CAInfo_WrathStrike = {
 	
 	.msg_name = ENUM_msg_CAN_WrathStrike,
 	.msg_desc = ENUM_msg_CAD_WrathStrike,
@@ -23,7 +20,7 @@ static const struct CombatArtInfo CAInfo_WrathStrike = {
 };
 
 
-static const struct CombatArtInfo CAInfo_Grounder = {
+const struct CombatArtInfo CAInfo_Grounder = {
 	
 	.msg_name = ENUM_msg_CAN_Grounder,
 	.msg_desc = ENUM_msg_CAD_Grounder,
@@ -40,7 +37,7 @@ static const struct CombatArtInfo CAInfo_Grounder = {
 };
 
 
-static const struct CombatArtInfo CAInfo_Soulblade = {
+const struct CombatArtInfo CAInfo_Soulblade = {
 	
 	.msg_name = ENUM_msg_CAN_Soulblade,
 	.msg_desc = ENUM_msg_CAD_Soulblade,
@@ -58,7 +55,7 @@ static const struct CombatArtInfo CAInfo_Soulblade = {
 };
 
 
-static const struct CombatArtInfo CAInfo_BaneOfMonsters = {
+const struct CombatArtInfo CAInfo_BaneOfMonsters = {
 	
 	.msg_name = ENUM_msg_CAN_BaneOfMonsters,
 	.msg_desc = ENUM_msg_CAD_BaneOfMonsters,
@@ -75,7 +72,7 @@ static const struct CombatArtInfo CAInfo_BaneOfMonsters = {
 };
 
 
-static const struct CombatArtInfo CAInfo_Sunder = {
+const struct CombatArtInfo CAInfo_Sunder = {
 	
 	.msg_name = ENUM_msg_CAN_Sunder,
 	.msg_desc = ENUM_msg_CAD_Sunder,
@@ -93,7 +90,7 @@ static const struct CombatArtInfo CAInfo_Sunder = {
 
 
 
-static const struct CombatArtInfo CAInfo_HazeSlice = {
+const struct CombatArtInfo CAInfo_HazeSlice = {
 	
 	.msg_name = ENUM_msg_CAN_HazeSlice,
 	.msg_desc = ENUM_msg_CAD_HazeSlice,
@@ -110,7 +107,7 @@ static const struct CombatArtInfo CAInfo_HazeSlice = {
 };
 
 
-static const struct CombatArtInfo CAInfo_Hexblade = {
+const struct CombatArtInfo CAInfo_Hexblade = {
 	
 	.msg_name = ENUM_msg_CAN_Hexblade,
 	.msg_desc = ENUM_msg_CAD_Hexblade,
@@ -127,7 +124,7 @@ static const struct CombatArtInfo CAInfo_Hexblade = {
 };
 
 
-static const struct CombatArtInfo CAInfo_FinesseBlade = {
+const struct CombatArtInfo CAInfo_FinesseBlade = {
 	
 	.msg_name = ENUM_msg_CAN_FinesseBlade,
 	.msg_desc = ENUM_msg_CAD_FinesseBlade,
@@ -145,7 +142,7 @@ static const struct CombatArtInfo CAInfo_FinesseBlade = {
 };
 
 
-static const struct CombatArtInfo CAInfo_Windsweep = {
+const struct CombatArtInfo CAInfo_Windsweep = {
 	
 	.msg_name = ENUM_msg_CAN_Windsweep,
 	.msg_desc = ENUM_msg_CAD_Windsweep,
@@ -164,7 +161,7 @@ static const struct CombatArtInfo CAInfo_Windsweep = {
 };
 
 
-static const struct CombatArtInfo CAInfo_SwordDance = {
+const struct CombatArtInfo CAInfo_SwordDance = {
 	
 	.msg_name = ENUM_msg_CAN_SwordDance,
 	.msg_desc = ENUM_msg_CAD_SwordDance,
@@ -183,7 +180,7 @@ static const struct CombatArtInfo CAInfo_SwordDance = {
 
 
 
-static const struct CombatArtInfo CAInfo_Assassinate = {
+const struct CombatArtInfo CAInfo_Assassinate = {
 	
 	.msg_name = ENUM_msg_CAN_Assassinate,
 	.msg_desc = ENUM_msg_CAD_Assassinate,
@@ -201,7 +198,7 @@ static const struct CombatArtInfo CAInfo_Assassinate = {
 };
 
 
-static const struct CombatArtInfo CAInfo_Subdue = {
+const struct CombatArtInfo CAInfo_Subdue = {
 	
 	.msg_name = ENUM_msg_CAN_Subdue,
 	.msg_desc = ENUM_msg_CAD_Subdue,
@@ -220,7 +217,7 @@ static const struct CombatArtInfo CAInfo_Subdue = {
 };
 
 
-static const struct CombatArtInfo CAInfo_FoudroyantStrike = {
+const struct CombatArtInfo CAInfo_FoudroyantStrike = {
 	
 	.msg_name = ENUM_msg_CAN_FoudroyantStrike,
 	.msg_desc = ENUM_msg_CAD_FoudroyantStrike,
@@ -240,7 +237,7 @@ static const struct CombatArtInfo CAInfo_FoudroyantStrike = {
 };
 
 
-static const struct CombatArtInfo CAInfo_SublimeHeaven = {
+const struct CombatArtInfo CAInfo_SublimeHeaven = {
 	
 	.msg_name = ENUM_msg_CAN_SublimeHeaven,
 	.msg_desc = ENUM_msg_CAD_SublimeHeaven,
@@ -258,7 +255,7 @@ static const struct CombatArtInfo CAInfo_SublimeHeaven = {
 };
 
 
-static const struct CombatArtInfo CAInfo_RupturedHeaven = {
+const struct CombatArtInfo CAInfo_RupturedHeaven = {
 	
 	.msg_name = ENUM_msg_CAN_RupturedHeaven,
 	.msg_desc = ENUM_msg_CAD_RupturedHeaven,
@@ -276,7 +273,7 @@ static const struct CombatArtInfo CAInfo_RupturedHeaven = {
 };
 
 
-static const struct CombatArtInfo CAInfo_HeavensFall = {
+const struct CombatArtInfo CAInfo_HeavensFall = {
 	
 	.msg_name = ENUM_msg_CAN_HeavensFall,
 	.msg_desc = ENUM_msg_CAD_HeavensFall,
@@ -292,167 +289,3 @@ static const struct CombatArtInfo CAInfo_HeavensFall = {
 	.crit = 10,
 	.range_bouns = 1,
 };
-
-
-
-
-
-
-
-
-
-
-// =================================================
-//                      Lance
-// =================================================
-
-static const struct CombatArtInfo CAInfo_TempestLance = {
-	
-	.msg_name = ENUM_msg_CAN_TempestLance,
-	.msg_desc = ENUM_msg_CAD_TempestLance,
-	.weapon_type = ITYPE_LANCE,
-	.is_lengency = 0,
-	.is_magic = 0,
-	.cost = 5,
-	.mt = 8,
-	.hit = 10,
-	.avo = 0,
-	.crit = 0,
-	.range_bouns = 0,
-};
-
-
-static const struct CombatArtInfo CAInfo_Knightkneeler = {
-	
-	.msg_name = ENUM_msg_CAN_Knightkneeler,
-	.msg_desc = ENUM_msg_CAD_Knightkneeler,
-	.weapon_type = ITYPE_LANCE,
-	.is_lengency = 0,
-	.is_magic = 0,
-	.eff_ride = 1,
-	.cost = 4,
-	.mt = 5,
-	.hit = 15,
-	.avo = 0,
-	.crit = 10,
-	.range_bouns = 0,
-};
-
-
-
-
-// =================================================
-//                       Axe
-// =================================================
-
-
-
-
-// =================================================
-//                       Bow
-// =================================================
-
-static const struct CombatArtInfo CAInfo_CurvedShot = {
-	
-	.msg_name = ENUM_msg_CAN_CurvedShot,
-	.msg_desc = ENUM_msg_CAD_CurvedShot,
-	.weapon_type = ITYPE_BOW,
-	.is_lengency = 0,
-	.is_magic = 0,
-	.eff_fly = 1,
-	.cost = 3,
-	.mt = 1,
-	.hit = 30,
-	.avo = 0,
-	.crit = 0,
-	.range_bouns = 1,
-};
-
-
-static const struct CombatArtInfo CAInfo_HeavyDraw = {
-	
-	.msg_name = ENUM_msg_CAN_HeavyDraw,
-	.msg_desc = ENUM_msg_CAD_HeavyDraw,
-	.weapon_type = ITYPE_BOW,
-	.is_lengency = 0,
-	.is_magic = 0,
-	.eff_fly = 1,
-	.cost = 5,
-	.mt = 8,
-	.hit = 10,
-	.avo = 0,
-	.crit = 0,
-	.range_bouns = 0,
-};
-
-static const struct CombatArtInfo CAInfo_GravityShoot = {
-	
-	.msg_name = ENUM_msg_CAN_GravityShoot,
-	.msg_desc = ENUM_msg_CAD_GravityShoot,
-	.icon = CombatArtIcon_DebuffBow,
-	.weapon_type = ITYPE_BOW,
-	.is_lengency = 0,
-	.is_magic = 0,
-	.eff_fly = 1,
-	.cost = 5,
-	.mt = 0,
-	.hit = 10,
-	.avo = 0,
-	.crit = 0,
-	.range_bouns = 1,
-	.is_gravity = 1,
-};
-
-
-
-// =================================================
-//                       Fist
-// =================================================
-
-
-// =================================================
-//                 Info pointer table
-// =================================================
-
-struct CombatArtInfo const* const CombatArtInfoTable[0x100] = {
-	
-	// sword
-	[CA_WrathStrike] = &CAInfo_WrathStrike,
-	[CA_Grounder] = &CAInfo_Grounder,
-	[CA_Soulblade] = &CAInfo_Soulblade,
-	[CA_BaneOfMonsters] = &CAInfo_BaneOfMonsters,
-	[CA_Sunder] = &CAInfo_Sunder,
-	[CA_Hexblade] = &CAInfo_Hexblade,
-	[CA_HazeSlice] = &CAInfo_HazeSlice,
-	[CA_FinesseBlade] = &CAInfo_FinesseBlade,
-	[CA_Windsweep] = &CAInfo_Windsweep,
-	[CA_SwordDance] = &CAInfo_SwordDance,
-	[CA_Assassinate] = &CAInfo_Assassinate,
-	[CA_Subdue] = &CAInfo_Subdue,
-	[CA_FoudroyantStrike] = &CAInfo_FoudroyantStrike,
-	[CA_SublimeHeaven] = &CAInfo_SublimeHeaven,
-	[CA_RupturedHeaven] = &CAInfo_RupturedHeaven,
-	[CA_HeavensFall] = &CAInfo_HeavensFall,
-	
-	
-	
-	// lance
-	[CA_TempestLance] = &CAInfo_TempestLance,
-	[CA_Knightkneeler] = &CAInfo_Knightkneeler,
-	
-	
-	// Axe
-	
-	
-	
-	// Bow
-	[CA_CurvedShot] = &CAInfo_CurvedShot,
-	[CA_HeavyDraw] = &CAInfo_HeavyDraw,
-	[CA_GravityShoot] = &CAInfo_GravityShoot,
-	
-	// Fist
-	
-	
-	
-};
-

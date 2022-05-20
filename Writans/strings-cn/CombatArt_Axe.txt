@@ -1,0 +1,64 @@
+## msg_CAN_Smash
+猛击[X]
+## msg_CAD_Smash
+强有力的斧技[X]
+
+
+## msg_CAN_HelmSplitter
+破盔[X]
+## msg_CAD_HelmSplitter
+重装特效[X]
+
+
+## msg_CAN_MonsterBreaker
+魔物猛击[X]
+## msg_CAD_MonsterBreaker
+魔物特效[X]
+
+
+## msg_CAN_FocusedStrike
+明镜止水[X]
+## msg_CAD_FocusedStrike
+强有力的斧技[X]
+
+
+## msg_CAN_WildAbandon
+无我境界[X]
+## msg_CAD_WildAbandon
+强有力的斧技[X]
+
+
+## msg_CAN_Spike
+劈刺[X]
+## msg_CAD_Spike
+强有力的斧技[X]
+
+
+## msg_CAN_DiamondAxe
+金刚斧[X]
+## msg_CAD_DiamondAxe
+强有力的斧技[X]
+
+
+## msg_CAN_LightningAxe
+雷斧[X]
+## msg_CAD_LightningAxe
+魔法攻击，根据魔防提升威力[X]
+
+
+## msg_CAN_ArmoredStrike
+铠甲打击[X]
+## msg_CAD_ArmoredStrike
+根据自身防御提升威力[X]
+
+
+## msg_CAN_WarMasterStrike
+战鬼一击[X]
+## msg_CAD_WarMasterStrike
+克制所有敌人[X]
+
+
+## msg_CAN_FlickeringFlower
+闪花[X]
+## msg_CAD_FlickeringFlower
+命中后敌人无法移动[X]

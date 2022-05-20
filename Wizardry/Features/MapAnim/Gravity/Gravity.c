@@ -38,7 +38,7 @@ static void ProcGravity_SubAnimExist(struct Proc_Gravity*);
 static const struct ProcCmd ProcCmd_MapAnimGravity[] = {
 	
 	PROC_CALL( ProcGravity_OnInit ),
-	PROC_CALL_2( ProcGravity_MoveCamera ),
+	// PROC_CALL_2( ProcGravity_MoveCamera ),
 	PROC_REPEAT( ProcGravity_StartSubAnim ),
 	PROC_YIELD,
 	PROC_REPEAT( ProcGravity_SubAnimExist ),

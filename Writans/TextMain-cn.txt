@@ -38,6 +38,8 @@
 #include strings-cn/PrepScreen.txt
 #include strings-cn/CombatArt.txt
 #include strings-cn/CombatArt_Sword.txt
+#include strings-cn/CombatArt_Lance.txt
+#include strings-cn/CombatArt_Axe.txt
 #include strings-cn/CombatArt_Bow.txt
 #include strings-cn/UnitStatus.txt
 

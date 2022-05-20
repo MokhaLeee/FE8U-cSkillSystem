@@ -150,7 +150,26 @@ void BattleGenerateHitEffects(struct BattleUnit* attacker, struct BattleUnit* de
 
 	if (!(gBattleHitIterator->attributes & BATTLE_HIT_ATTR_MISS) )
 	{
-		attacker->weapon = GetItemAfterUse(attacker->weapon);
+		// For combat Art
+		// attacker->weapon = GetItemAfterUse(attacker->weapon);
+		u16 weapon = attacker->weapon;
+		
+		if (0 == (GetItemAttributes(weapon) & IA_UNBREAKABLE) )
+		{
+			if( (&gBattleActor != attacker) || !gpBattleFlagExt->isCombat )
+				weapon -= (1 << 8);
+			else
+				weapon -= (GetCombatArtInfo(gpBattleFlagExt->combatArt_id)->cost << 8);
+			
+			s8 item_use = (s8)ITEM_USES(weapon);
+			
+			attacker->weapon = item_use <= 0
+				? 0
+				: weapon;
+		}
+		
+		
+		
 
 		if (!attacker->weapon)
 			attacker->weaponBroke = TRUE;

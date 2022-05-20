@@ -152,8 +152,9 @@ int IsFlagCombatArt(struct Unit* unit, u8 combatArt_index){
 	if( 0 == gpBattleFlagExt->isCombat )
 		return 0;
 	
-	if( combatArt_index != gpBattleFlagExt->combatArt_id )
-		return 0;
+	if( 0 != combatArt_index )
+		if( combatArt_index != gpBattleFlagExt->combatArt_id )
+			return 0;
 	
 	if( unit->index != gpBattleFlagExt->combat_unit )
 		return 0;

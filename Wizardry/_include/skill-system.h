@@ -35,18 +35,18 @@ struct SkillROMList{
 
 extern const struct SkillROMList CharSkillRomList[], ClassSkillRomList[];
 
-struct SkillMasteryList{
+struct LevelBasedSkillList{
 	
-	/* 00 */ u8 skill_E[2];
-	/* 02 */ u8 skill_D[2];
-	/* 04 */ u8 skill_C[2];
-	/* 06 */ u8 skill_B[2];
-	/* 08 */ u8 skill_A[2];
-	/* 0A */ u8 skill_S[2];
+	/* 00 */ u8 E[2];
+	/* 02 */ u8 D[2];
+	/* 04 */ u8 C[2];
+	/* 06 */ u8 B[2];
+	/* 08 */ u8 A[2];
+	/* 0A */ u8 S[2];
 	/* 0C */
 };
 
-extern const struct SkillMasteryList MasterySkills[];
+extern const struct LevelBasedSkillList MasterySkills[];
 
 
 

@@ -30,6 +30,7 @@ struct CombatArtInfo {
 			 u32 eff_dragon : 1;
 			 u32 eff_monster : 1;
 			 u32 eff_fly : 1;
+			 u32 eff_all : 1;
 			 
 			 // If set, mean as can-counter or battle-hit, etc. special calc
 			 u32 special_eff : 1;
@@ -39,6 +40,19 @@ struct CombatArtInfo {
 			 
 			 // If set, give enimy Gravity debuff
 			 u32 is_gravity : 1;
+			 
+			 // If set, give debuff def
+			 u32 debuff_def : 1;
+			 u32 debuff_res : 1;
+			 u32 debuff_atk : 1;
+			 
+			 u32 debuff_Silence : 1;
+			 
+			 // for 近距离连射, etc
+			 u32 unnormal_range : 1;
+			 
+			 // if AOE debuff, then effect to 1x1 targets
+			 u32 AOE_Debuff : 1;
 			 
 	/* 0C */ u8 weapon_type;
 	/* 0D */ s8 range_bouns;

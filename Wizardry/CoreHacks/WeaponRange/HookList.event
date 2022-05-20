@@ -4,10 +4,14 @@ ALIGN 4
 RangeMaxModify:
 	POIN RangeMaxGetter_CombatArtBonus
 	POIN RangeMaxGetter_SkillBonus
+	
+	POIN RangeMaxGetter_CombatArtFix
 	WORD 0
 
 ALIGN 4
 // Unused
 RangeMinModify:
 	POIN RangeMinGetter_CombatArtBonus
+	
+	POIN RangeMinGetter_CombatArtFix
 	WORD 0

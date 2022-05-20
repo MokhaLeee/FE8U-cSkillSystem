@@ -36,6 +36,8 @@ enum{
 	CA_LanceJab = 0x29,				// 突枪
 	
 	
+	
+	
 	// Axe: 0x40
 	CA_Smash = 0x40,				// 猛击
 	CA_HelmSplitter = 0x41,			// 破盔
@@ -54,8 +56,18 @@ enum{
 	
 	// Bow: 0x60
 	CA_CurvedShot = 0x60,			// 曲射
-	CA_HeavyDraw = 0x61,			// 强弓
-	CA_GravityShoot = 0x62,			// 大地震颤
+	CA_Deadeye = 0x61,				// 狙击
+	CA_Encloser = 0x62,				// 合围之箭
+	CA_HeavyDraw = 0x63,			// 强弓
+	CA_MonsterBlast = 0x64,			// 魔物射击
+	CA_SchismShot = 0x65,			// 魔法射击
+	CA_BreakShot = 0x66,			// 破坏射击
+	CA_WaningShot = 0x67, 			// 弱化射击
+	CA_PointBlankVolley = 0x67,		// 近距离连射
+	CA_WardArrow = 0x69,			// 封魔之箭
+	CA_HuntersVolley = 0x6A,		// 猎箭齐发
+	
+	CA_EncloserPlus = 0x70,			// 重压箭+
 	
 	// Fist: 0x80
 	

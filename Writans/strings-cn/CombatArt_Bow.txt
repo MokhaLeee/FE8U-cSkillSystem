@@ -1,20 +1,73 @@
 ## msg_CAN_CurvedShot
 曲射[X]
-
 ## msg_CAD_CurvedShot
 高命中的弓箭攻击[X]
 
 
+## msg_CAN_Deadeye
+狙击[X]
+## msg_CAD_Deadeye
+远射程的弓箭攻击[X]
+
+
+## msg_CAN_Encloser
+合围之箭[X]
+## msg_CAD_Encloser
+封禁敌方移动[X]
+
+
 ## msg_CAN_HeavyDraw
 强弓[X]
-
 ## msg_CAD_HeavyDraw
 强有力的的弓箭攻击[X]
 
 
+## msg_CAN_MonsterBlast
+魔物射击[X]
+## msg_CAD_MonsterBlast
+魔物特效[X]
 
-## msg_CAN_GravityShoot
-重压箭[X]
 
-## msg_CAD_GravityShoot
-重压箭:使敌方无法移动[X]
+## msg_CAN_SchismShot
+魔法射击[X]
+## msg_CAD_SchismShot
+魔法攻击，命中后敌方魔抗-5[X]
+
+
+## msg_CAN_BreakShot
+破坏射击[X]
+## msg_CAD_BreakShot
+命中后敌方防御-5[X]
+
+
+## msg_CAN_WaningShot
+弱化射击[X]
+## msg_CAD_WaningShot
+命中后敌方攻击-5[X]
+
+
+## msg_CAN_PointBlankVolley
+近距离连射[X]
+## msg_CAD_PointBlankVolley
+近距离攻击二次[X]
+
+
+## msg_CAN_WardArrow
+封魔之箭[X]
+## msg_CAD_WardArrow
+命中后敌方无法使用魔法[X]
+
+
+## msg_CAN_HuntersVolley
+猎箭齐发[X]
+## msg_CAD_HuntersVolley
+攻击二次[X]
+
+
+
+
+
+## msg_CAN_EncloserPlus
+重压箭+[X]
+## msg_CAD_EncloserPlus
+封禁敌方及其相邻单位的移动[X]

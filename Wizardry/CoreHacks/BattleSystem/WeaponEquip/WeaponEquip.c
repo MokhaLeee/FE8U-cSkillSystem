@@ -98,5 +98,6 @@ void SetBattleUnitWeapon(struct BattleUnit* bu, int itemSlot) {
 		} // if (bu->weaponAttributes & IA_MAGICDAMAGE)
 
 	}
+	
 }
 

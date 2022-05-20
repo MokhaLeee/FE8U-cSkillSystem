@@ -26,18 +26,7 @@
 物理攻击[X]
 
 
-## msg_CAN_TempestLance
-旋风枪[X]
 
-## msg_CAD_TempestLance
-强有力的枪技[X]
-
-
-## msg_CAN_Knightkneeler
-弑骑一击[X]
-
-## msg_CAD_Knightkneeler
-骑兵特效的枪技[X]
 
 
 
