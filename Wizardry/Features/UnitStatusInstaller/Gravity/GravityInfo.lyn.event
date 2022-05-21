@@ -1,0 +1,7 @@
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$0;StatusInfo_Gravity:
+POP
+WORD $E920E91
+POIN Gfx_UnitStatus_Gravity
+WORD $0 $0 $0 $10005 $FC0000 $0 $0 $0

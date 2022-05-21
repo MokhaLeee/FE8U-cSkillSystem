@@ -1,0 +1,19 @@
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$0;SkillInfo_FistBreaker:
+ORG CURRENTOFFSET+$8;SkillInfo_TomeBreaker:
+ORG CURRENTOFFSET+$8;SkillInfo_BowBreaker:
+ORG CURRENTOFFSET+$8;SkillInfo_LanceBreaker:
+ORG CURRENTOFFSET+$8;SkillInfo_AxeBreaker:
+ORG CURRENTOFFSET+$8;SkillInfo_SwordBreaker:
+POP
+WORD $DA70DA8 $0 $DA90DAA
+POIN SI_TomeBreaker
+WORD $DA50DA6
+POIN SI_BowBreaker
+WORD $DA30DA4
+POIN SI_LanceBreaker
+WORD $DA10DA2
+POIN SI_AxeBreaker
+WORD $D9F0DA0
+POIN SI_SwordBreaker

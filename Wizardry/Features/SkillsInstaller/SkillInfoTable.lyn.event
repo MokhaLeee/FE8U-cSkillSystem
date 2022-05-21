@@ -1,0 +1,24 @@
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$0;SkillInfoTable:
+POP
+WORD $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0
+POIN SkillInfo_BlowDarting
+POIN SkillInfo_BlowDeath
+POIN SkillInfo_BlowArmored
+POIN SkillInfo_BlowFiendish
+POIN SkillInfo_BlowWarding
+POIN SkillInfo_BlowDuelist
+POIN SkillInfo_BlowUncanny
+WORD $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0
+POIN SkillInfo_SwordBreaker
+POIN SkillInfo_AxeBreaker
+POIN SkillInfo_LanceBreaker
+POIN SkillInfo_BowBreaker
+POIN SkillInfo_TomeBreaker
+POIN SkillInfo_FistBreaker
+WORD $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0
+POIN SkillInfo_Canto
+POIN SkillInfo_AlertStance
+POIN SkillInfo_AlertStancePlus
+WORD $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0 $0

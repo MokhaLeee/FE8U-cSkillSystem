@@ -7,8 +7,9 @@ Equipped Skills[X]
 ## msg_PrepSkill_ClassUnitSkills
 Const Skills[X]
 
+
 ## msg_PrepPickSkillDesc
-Pick unit skills,[NL]
+Pick unit skills, [NL]
 each unit can have no[NL]
 more than 5 skills.[X]
 
@@ -55,7 +56,7 @@ Pick[X]
 Total[X]
 
 ## msg_PrepPickSkill_None
-None[X]
+No[X]
 
 ## msg_PrepPickSkill_Equipped
 Equipped:[X]

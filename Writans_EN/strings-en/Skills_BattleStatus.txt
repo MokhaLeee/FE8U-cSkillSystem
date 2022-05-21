@@ -125,10 +125,10 @@ equips B.Mag[X]
 
 
 ## msg_SN_Avoid
-回避+10[X]
+Avoid +10[X]
 
 ## msg_SD_Avoid
-Avoid+10: [NL]
+Avoid+10:[NL]
 Avoid rate +10%[X]
 
 
