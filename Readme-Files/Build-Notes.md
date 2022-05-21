@@ -4,7 +4,7 @@
 
 - have [devkitARM](https://devkitpro.org/wiki/Getting_Started) installed, and the `DEVKITARM` env variable set.
 
-- have [python 3](https://www.python.org/) installed and in your path. (the makefile *should* be able to find the correct python executable name. See [`tooks.mk`](./tooks.mk)).
+- have [python 3](https://www.python.org/) installed and in your path. (the makefile *should* be able to find the correct python executable name. See [`tooks.mk`](../tooks.mk)).
 
 - Download [EventAssembler release](https://github.com/StanHash/EventAssembler/releases/tag/1.0), and unzip which in `Tools` folder.
 
@@ -37,5 +37,5 @@ git submodule update --remote
 	
 	```pip install -r requirements.txt```
 	
-	Just follow to [Tools/PyTools/TMS2EA/SETUP.md](https://github.com/StanHash/tmx2ea/blob/c77111a9c7a13208a2afb0984b253fa84df79479/SETUP.md).
+	Just follow to [../Tools/PyTools/TMS2EA/SETUP.md](https://github.com/StanHash/tmx2ea/blob/c77111a9c7a13208a2afb0984b253fa84df79479/SETUP.md).
 	
