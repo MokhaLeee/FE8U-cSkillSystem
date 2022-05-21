@@ -1,15 +1,12 @@
 
 #define _MAIN_
-// #define _DEBUG_
-#define _CHINESE_
-#define _USE_VANILLA_CHAPTER_
+#include "Main_Defs.event"
+
 
 
 #include "EAstdlib.event"
 #include "Extensions/Hack Installation.txt"
 #include "Extensions/ProcDefinitions.txt"
-#include "Main_Defs.event"
-
 
 
 // Texts
@@ -19,13 +16,15 @@ ORG FreeSpaceText
 	#include "Writans/text-repoint/repointedTextTable.event"
 	
 	#ifdef _CHINESE_
-	ALIGN 4
+		ALIGN 4
 		#include "CN-Texts/Text.event"
-	#endif // _CHINESE_
-	
-	ALIGN 4
-	#include "Writans/Text.event"
-	
+		
+		ALIGN 4
+		#include "Writans/Text.event"
+	#else
+		ALIGN 4
+		#include "Writans_EN/Text.event"
+	#endif
 	
 ASSERT (FreeSpaceTextEnd - CURRENTOFFSET)	
 #undef IN_TEXT_RANGE
@@ -39,9 +38,9 @@ ASSERT (FreeSpaceTextEnd - CURRENTOFFSET)
 ORG FreeSpaceFont
 #define IN_FONT_RANGE
 
-#ifdef _CHINESE_
-	#include "CN-Fonts/FE8U-CN-Font-Installer.event"
-#endif // _CHINESE_
+
+#include "CN-Fonts/FE8U-CN-Font-Installer.event"
+
 
 ASSERT (FreeSpaceFontEnd - CURRENTOFFSET)
 #undef IN_FONT_RANGE

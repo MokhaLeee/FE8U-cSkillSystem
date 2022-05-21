@@ -1,0 +1,41 @@
+## msg_SN_Dance
+Dance[X]
+
+## msg_SD_Dance
+Dance:[NL]
+Unit can dance[X]
+
+
+## msg_SN_LockTouch
+Lock Touch[X]
+
+## msg_SD_LockTouch
+Lock Touch:[NL]
+Unit can use[NL]
+"Pick" command[X]
+
+
+## msg_SN_Summon
+Summon[X]
+
+## msg_SD_Summon
+Summon:[NL]
+Unit can use[NL]
+"Summon" command[X]
+
+
+## msg_SN_Supply
+Supply[X]
+
+## msg_SD_Supply
+Supply:[NL]
+Unit has Supply[X]
+
+
+## msg_SN_Steal
+Steal[X]
+
+## msg_SD_Steal
+Steal:[NL]]
+Unit can steal items[X]
+

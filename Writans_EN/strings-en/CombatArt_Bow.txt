@@ -1,0 +1,73 @@
+## msg_CAN_CurvedShot
+Curved Shot[X]
+## msg_CAD_CurvedShot
+Curved Shot[X]
+
+
+## msg_CAN_Deadeye
+Deadeye[X]
+## msg_CAD_Deadeye
+Deadeye[X]
+
+
+## msg_CAN_Encloser
+Encloser[X]
+## msg_CAD_Encloser
+Enimy cannot move[X]
+
+
+## msg_CAN_HeavyDraw
+Heavy Draw[X]
+## msg_CAD_HeavyDraw
+Heavy Draw[X]
+
+
+## msg_CAN_MonsterBlast
+Monster Blast[X]
+## msg_CAD_MonsterBlast
+Effective against monsters[X]
+
+
+## msg_CAN_SchismShot
+Schism Shot[X]
+## msg_CAD_SchismShot
+Magic attack, enimy's Res-5[X]
+
+
+## msg_CAN_BreakShot
+Break Shot[X]
+## msg_CAD_BreakShot
+enimy's Def-5[X]
+
+
+## msg_CAN_WaningShot
+Waning Shot[X]
+## msg_CAD_WaningShot
+enimy's Atk-5[X]
+
+
+## msg_CAN_PointBlankVolley
+P-B Volley[X]
+## msg_CAD_PointBlankVolley
+2 consecutive hits[X]
+
+
+## msg_CAN_WardArrow
+Ward Arrow[X]
+## msg_CAD_WardArrow
+Enimy cannot use magic[X]
+
+
+## msg_CAN_HuntersVolley
+Hunter's Volley[X]
+## msg_CAD_HuntersVolley
+2 consecutive hits[X]
+
+
+
+
+
+## msg_CAN_EncloserPlus
+Encloser+[X]
+## msg_CAD_EncloserPlus
+Enimy and adjacent units cannot move[X]

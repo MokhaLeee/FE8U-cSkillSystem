@@ -107,8 +107,13 @@ void MenuPanel_DrawCombatArt(const struct CombatArtInfo* info){
 		TILEMAP_LOCATED(gBG0TilemapBuffer, xPos + 1, yPos + 1) );
 	
 	// Draw Eff Icon
+	if( info->eff_all )
+		DrawIcon(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, xPos + 11, yPos + 1),
+			MASTERY_ICON(MASTERY_ICON_STAR), 
+			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
 	
-	if( info->eff_heavy )
+	else if( info->eff_heavy )
 		DrawIcon(
 			TILEMAP_LOCATED( gBG0TilemapBuffer, xPos + 11, yPos + 1),
 			MASTERY_ICON(MASTERY_ICON_HEAVY), 

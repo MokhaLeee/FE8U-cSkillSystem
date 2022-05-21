@@ -262,7 +262,7 @@ static void CTS_MainLoop(struct SelectTargetProc* proc){
 
 
 
-static const struct ProcCmd ProcCmd_CombatTargetSelection[] = {
+const struct ProcCmd ProcCmd_CombatTargetSelection[] = {
 	
 	PROC_NAME("NEW_PROC_COMBAT_TARGETSELECTION"),
 	

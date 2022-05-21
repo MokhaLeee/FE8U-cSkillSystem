@@ -1,9 +1,0 @@
-ALIGN 4
-PUSH
-ORG CURRENTOFFSET+$0;SkillInfo_CounterAttack:
-ORG CURRENTOFFSET+$8;SkillInfo_CloseCounter:
-POP
-WORD $DCD0DCE
-POIN SI_CounterAttack
-WORD $DCB0DCC
-POIN SI_CloseCounter

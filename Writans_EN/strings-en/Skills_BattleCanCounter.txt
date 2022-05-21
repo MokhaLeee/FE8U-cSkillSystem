@@ -1,0 +1,17 @@
+## msg_SN_CloseCounter
+Close Counter[X]
+
+## msg_SD_CloseCounter
+Close Counter:[NL]
+Enables unit to counter-attack[NL]
+if got melee attack[X]
+
+
+
+## msg_SN_CounterAttack
+Counter Attack[X]
+
+## msg_SD_CounterAttack
+Counter Attack:[NL]
+Enables unit to counter-attack[NL]
+regardless of distance[X]

@@ -3,7 +3,7 @@
 enum{
 	
 	// Real VRAM Offset to uncompress: OBJ_VRAM0 + OBJ_MOKHA_VRAMOFF
-	OBJ_ARROW_VRAMOFF = 0x5340, 
+	OBJ_ARROW_VRAMOFF = 0x5320, 
 	
 	// Real Palette index: OBJ_ARROW_PAL + 0x10
 	OBJ_ARROW_PAL = 0x3,
@@ -22,10 +22,16 @@ static void BkselObj_UpdateArrow(struct Proc_BKSEL *proc){
 	if ( (GetGameClock() & 0b111) == 0)
 		proc->obj_arrow_timer = _lib_mod( proc->obj_arrow_timer + 1, 6);
 	
-	int vram_off = (OBJ_ARROW_VRAMOFF / 0x20) + proc->obj_arrow_timer;
+	int vram_off = (OBJ_ARROW_VRAMOFF / 0x20) + 1 + proc->obj_arrow_timer;
 	
 	int xOff = (-1 == proc->pos) ? 0 : 0x9F;
 	int yOff = (1 == proc->mode) ? 0 : 0x20;
+	
+	// Ensure we are using attack target-select
+	extern const struct ProcCmd ProcCmd_CombatTargetSelection[];
+	
+	if( 0 == Proc_Find(ProcCmd_CombatTargetSelection) )
+		return;
 	
 	PutSprite(
 		0,
@@ -43,6 +49,52 @@ static void BkselObj_UpdateArrow(struct Proc_BKSEL *proc){
 		OAM2_PAL(OBJ_ARROW_PAL) + OAM2_LAYER(0b00) + OAM2_CHR(vram_off)
 	);
 	
+	
+	// Check for AOE combat
+	if( gpBattleFlagExt->isCombat )
+	{
+		const struct CombatArtInfo* info = 
+			GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
+			
+		if( !info->AOE_Debuff )
+			return;
+		
+		// Display object offsets
+		const u8 Y_OFFs[6] = {0, 1, 2, 3, 2, 1};
+		
+		// 5 display at
+		const s8 X_Real_disp[5] = {-0x10, 0, 0, 0, 0x10};
+		const s8 Y_Real_disp[5] = {0, 0x10, 0, -0x10, 0};
+		
+		const int xTar = gBattleTarget.unit.xPos * 16 - gGameState.camera.x;
+		const int yTar = gBattleTarget.unit.yPos * 16 - gGameState.camera.y;
+		
+		for( int i = 0; i < 5; i++ )
+		{
+			int xReal = xTar + X_Real_disp[i];
+			int yReal = yTar + Y_Real_disp[i];
+			
+			if( xReal > 0xF0 )
+				continue;
+		
+			if( yReal > 0xA0 )
+				continue;
+			
+			xReal = (xReal + 0x204) & 0x1FF;
+			yReal = (yReal + 0x103 + Y_OFFs[proc->obj_arrow_timer]) & 0xFF;
+			
+			PutSprite(
+				0,
+				xReal,
+				yReal,
+				gObject_8x8, 
+				OAM2_PAL(OBJ_ARROW_PAL) + OAM2_LAYER(0b00) + OAM2_CHR(OBJ_ARROW_VRAMOFF / 0x20)
+			);
+		}
+
+		
+		
+	}
 }
 
 

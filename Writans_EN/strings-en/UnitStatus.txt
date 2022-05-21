@@ -1,0 +1,40 @@
+## msg_UnitStatusName_Gravity
+Gravity[X]
+
+## msg_UnitStatusDesc_Gravity
+Gravity: Unit cannot move[X]
+
+
+## msg_UnitStatusName_ExposeDef
+Expose Def[X]
+
+## msg_UnitStatusDesc_ExposeDef
+Expose Def: Unit Def-5[X]
+
+
+## msg_UnitStatusName_ExposeRes
+Expose Res[X]
+
+## msg_UnitStatusDesc_ExposeRes
+Expose Res: Unit Res-5[X]
+
+
+## msg_UnitStatusName_Weaken
+Weaken[X]
+
+## msg_UnitStatusDesc_Weaken
+Weaken: Unit Pow and Mag-5[X]
+
+
+## msg_UnitStatusName_Avoid
+Avoid[X]
+
+## msg_UnitStatusDesc_Avoid
+Avoid: Unit avoid rate +15%[X]
+
+
+## msg_UnitStatusName_AvoidPlus
+Avoid+[X]
+
+## msg_UnitStatusDesc_AvoidPlus
+Avoid: Unit avoid rate +30%[X]

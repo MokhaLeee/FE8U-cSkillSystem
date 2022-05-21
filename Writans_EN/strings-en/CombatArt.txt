@@ -1,0 +1,35 @@
+## msg_umCAname
+ Combat Art[X]
+
+## msg_umCAdesc
+Combat Art:[NL]
+Gains battle bonus[NL]
+but null double attack.[X]
+
+## msg_umCAGrayBox
+You don't have Combat Art ![X]
+
+## msg_umCAselectGrayBox
+you cannot use[NL]
+Combat Art here.[X]
+
+## msg_Bksel_NoCAWarning
+No Combat Art[X]
+
+## msg_Bksel_NotUseCA
+Not Combat Art[X]
+
+## msg_CA_MagAtk
+Attack Res[X]
+
+## msg_CA_PhyAtk
+Attack Def[X]
+
+
+
+
+
+
+
+
+

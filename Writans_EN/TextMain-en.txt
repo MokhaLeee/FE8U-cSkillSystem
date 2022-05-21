@@ -1,0 +1,38 @@
+
+
+
+
+#0xD4C msgCharmName
+Charm[X]
+
+## msg_Silencer
+Silencer[X]
+
+#include strings-en/StatusScreen.txt
+#include strings-en/Menu.txt
+#include strings-en/Skills_Blow.txt
+#include strings-en/Skills_Stance.txt
+#include strings-en/Skills_BattleOrder.txt
+#include strings-en/Skills_BattleTriangle.txt
+#include strings-en/Skills_BattleStatus.txt
+#include strings-en/Skills_BattleCanCounter.txt
+#include strings-en/Skills_PostAction.txt
+#include strings-en/Skills_PrePhase.txt
+#include strings-en/Skills_Rally.txt
+#include strings-en/Skills_Menu.txt
+#include strings-en/Skills_Range.txt
+#include strings-en/Skills_Defiant.txt
+#include strings-en/Skills_Misc.txt
+
+#include strings-en/PrepScreen.txt
+#include strings-en/CombatArt.txt
+#include strings-en/CombatArt_Sword.txt
+#include strings-en/CombatArt_Lance.txt
+#include strings-en/CombatArt_Axe.txt
+#include strings-en/CombatArt_Bow.txt
+#include strings-en/UnitStatus.txt
+
+
+## msg_end
+0[X]
+

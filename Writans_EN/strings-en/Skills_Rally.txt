@@ -1,0 +1,72 @@
+## msg_SN_RallyStr
+力量支援[X]
+
+## msg_SD_RallyStr
+力量支援:[NL]
+支援对象力量+4[X]
+
+
+## msg_SN_RallyMag
+魔力支援[X]
+
+## msg_SD_RallyMag
+魔力支援:[NL]
+支援对象魔力+4[X]
+
+
+## msg_SN_RallySkl
+技术支援[X]
+
+## msg_SD_RallySkl
+技术支援:[NL]
+支援对象技术+4[X]
+
+
+## msg_SN_RallySpd
+速度支援[X]
+
+## msg_SD_RallySpd
+速度支援:[NL]
+支援对象速度+4[X]
+
+
+## msg_SN_RallyLck
+幸运支援[X]
+
+## msg_SD_RallyLck
+幸运支援:[NL]
+支援对象幸运+4[X]
+
+
+## msg_SN_RallyDef
+防御支援[X]
+
+## msg_SD_RallyDef
+防御支援:[NL]
+支援对象防御+4[X]
+
+
+## msg_SN_RallyRes
+魔防支援[X]
+
+## msg_SD_RallyRes
+魔防支援:[NL]
+支援对象魔防+4[X]
+
+
+## msg_SN_RallyMov
+移动支援[X]
+
+## msg_SD_RallyMov
+移动支援:[NL]
+支援对象移动+1[X]
+
+
+## msg_SN_RallySpectrum
+支援+[X]
+
+## msg_SD_RallySpectrum
+支援+:[NL]
+支援对象战斗属性+2[X]
+
+

@@ -1,0 +1,60 @@
+## msg_CAN_TempestLance
+Tempest Lance[X]
+## msg_CAD_TempestLance
+Tempest Lance[X]
+
+
+## msg_CAN_Knightkneeler
+Knight kneeler[X]
+## msg_CAD_Knightkneeler
+Effective against Cavalry enemies[X]
+
+
+## msg_CAN_ShatterSlash
+Shatter Slash[X]
+## msg_CAD_ShatterSlash
+Enimy's Def-5[X]
+
+
+## msg_CAN_MonsterPiercer
+Monster Piercer[X]
+## msg_CAD_MonsterPiercer
+Effective against monsters[X]
+
+
+## msg_CAN_HitAndRun
+Hit And Run[X]
+## msg_CAD_HitAndRun
+actor moves 1 space backwards[X]
+
+
+## msg_CAN_SwiftStrikes
+Swift Strikes[X]
+## msg_CAD_SwiftStrikes
+2 consecutive hits[X]
+
+
+## msg_CAN_FrozenLance
+Frozen Lance[X]
+## msg_CAD_FrozenLance
+Magic attack + actor's Skl[X]
+
+
+## msg_CAN_GlowingEmber
+Glowing Ember[X]
+## msg_CAD_GlowingEmber
+Dmg + actor's Def[X]
+
+
+## msg_CAN_Vengeance
+Vengeance[X]
+## msg_CAD_Vengeance
+Dmg + actor's lost HP[X]
+
+
+## msg_CAN_LanceJab
+Lance Jab[X]
+## msg_CAD_LanceJab
+Dmg + actor's Spd[X]
+
+

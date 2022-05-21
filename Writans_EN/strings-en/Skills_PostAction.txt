@@ -1,0 +1,25 @@
+## msg_SN_Canto
+Canto[X]
+
+## msg_SD_Canto
+Canto:[NL]
+Unit can move again[X]
+
+
+## msg_SN_AlertStance
+Alert Stance[X]
+
+## msg_SD_AlertStance
+Alert Stance:[NL]
+If unit takes no action[NL]
+except Wait, grants Avo +15%[X]
+
+
+## msg_SN_AlertStancePlus
+Alert Stance+[X]
+
+## msg_SD_AlertStancePlus
+Alert Stance+:[NL]
+If unit takes no action[NL]
+except Wait, grants Avo +30%[X]
+

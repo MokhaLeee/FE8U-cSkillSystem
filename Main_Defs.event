@@ -1,7 +1,44 @@
 #ifndef CUSTOM_DEF
 #define CUSTOM_DEF
 
-
+	// =====================================================
+	// -------------------  For Users ----------------------
+	// =====================================================
+	
+	// If uncommented, will load "Debug_File.event"
+	// #define _DEBUG_
+	
+	// If uncommented, will use chinese texts
+	// #define _CHINESE_
+	
+	// If commented, will load "Chapters" folder and Portraits
+	#define _USE_VANILLA_CHAPTER_
+	
+	
+	// If commented, will not load game-intro gfx
+	#define _USE_GAME_INTRO_GFX_
+	
+	
+	
+	// For Icon Display
+	#define ICON_SHEET_SKILLS 0x1
+	#define ICON_SHEET_MASTERY 0x2
+	#define ICON_SHEET_COMBAT_ART 0x3
+	
+	
+	// For Unit Action
+	#define UNIT_ACTION_RALLY 0x23
+	#define UNIT_ACTION_HEROMOV 0x24
+	
+	
+	
+	
+	
+	
+	// =====================================================
+	// --------------------  Internal ----------------------
+	// =====================================================
+	
 	#define FreeSpaceBLRange 0x1C1EC0
 	#define FreeSpace $B2A610
 	#define FreeSpaceEnd 0xC00000	
@@ -22,24 +59,6 @@
 	// Lyn Jump
 	#define LynJumpDefined
 	#define LynJump(aTarget) "WORD $46C04778 $E59FC000 $E12FFF1C; POIN aTarget; "
-
 	
 	
-	
-	
-	// =====================================================
-	// -------------------  For Users ----------------------
-	// =====================================================
-	
-	// For Icon Display
-	#define ICON_SHEET_SKILLS 0x1
-	#define ICON_SHEET_MASTERY 0x2
-	#define ICON_SHEET_COMBAT_ART 0x3
-	
-	
-	// For Unit Action
-	#define UNIT_ACTION_RALLY 0x23
-	#define UNIT_ACTION_HEROMOV 0x24
-	
-
 #endif

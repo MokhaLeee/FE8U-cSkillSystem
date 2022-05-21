@@ -1,0 +1,63 @@
+## msg_SN_BlowDarting
+Darting Blow[X]
+
+## msg_SD_BlowDarting
+Darting Blow:[NL]
+If unit initiates combat, [NL]
+grants AS +6 during combat[X]
+
+
+## msg_SN_BlowDeath
+Death Blow[X]
+
+## msg_SD_BlowDeath
+Death Blow:[NL]
+If unit initiates combat,[NL]
+grants Str +6 during combat[X]
+
+
+## msg_SN_BlowArmored
+Armored Blow[X]
+
+## msg_SD_BlowArmored
+Armored Blow:[NL]
+If unit initiates combat,[NL]
+grants Def +6 during combat[X]
+
+
+## msg_SN_BlowFiendish
+Fiendish Blow[X]
+
+## msg_SD_BlowFiendish
+Fiendish Blow:[NL]
+If unit initiates combat,[NL]
+grants Mag +6 during combat[X]
+
+
+## msg_SN_BlowWarding
+Warding Blow[X]
+
+## msg_SD_BlowWarding
+Warding Blow:[NL]
+If unit initiates combat,[NL]
+grants Res +6 during combat[X]
+
+
+
+## msg_SN_BlowDuelist
+Duelist's Blow[X]
+
+## msg_SD_BlowDuelist
+Duelist's Blow:[NL]
+If unit initiates combat,[NL]
+grants Avo +20 during combat[X]
+
+
+## msg_SN_BlowUncanny
+Uncanny Blow[X]
+
+## msg_SD_BlowUncanny
+Uncanny Blow:[NL]
+If unit initiates combat,[NL]
+grants Hit +30 during combat[X]
+

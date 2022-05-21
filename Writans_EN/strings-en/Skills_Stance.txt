@@ -1,0 +1,97 @@
+## msg_SN_StanceBracing
+Stance Bracing[X]
+
+## msg_SD_StanceBracing
+Stance Bracing:[NL]
+Grants Def and Res +4[NL]
+if attacked[X]
+
+
+## msg_SN_StanceDarting
+Stance Darting[X]
+
+## msg_SD_StanceDarting
+Stance Darting:[NL]
+Grants AS +6[NL]
+if attacked[X]
+
+
+
+## msg_SN_StanceFierce
+Stance Fierce[X]
+
+## msg_SD_StanceFierce
+Stance Fierce:[NL]
+Grants Atk +6[NL]
+if attacked[X]
+
+
+
+## msg_SN_StanceKestrel
+Stance Kestrel[X]
+
+## msg_SD_StanceKestrel
+Stance Kestrel:[NL]
+Grants Atk and AS +4[NL]
+if attacked[X]
+
+
+## msg_SN_StanceMirror
+Stance Mirror[X]
+
+## msg_SD_StanceMirror
+Stance Mirror:[NL]
+Grants Atk and Res +4[NL]
+if attacked[X]
+
+
+
+
+
+
+
+## msg_SN_StanceReady
+Stance Ready[X]
+
+## msg_SD_StanceReady
+Stance Ready:[NL]
+Grants AS and Def +4[NL]
+if attacked[X]
+
+
+## msg_SN_StanceSteady
+Stance Steady[X]
+
+## msg_SD_StanceSteady
+Stance Steady:[NL]
+Grants Def +6[NL]
+if attacked[X]
+
+
+## msg_SN_StanceSturdy
+Stance Sturdy[X]
+
+## msg_SD_StanceSturdy
+Stance Sturdy:[NL]
+Grants Atk and Def +4[NL]
+if attacked[X]
+
+
+
+## msg_SN_StanceSwift
+Stance Swift[X]
+
+## msg_SD_StanceSwift
+Stance Swift:[NL]
+Grants AS and Res +4[NL]
+if attacked[X]
+
+
+
+## msg_SN_StanceWarding
+Stance Warding[X]
+
+## msg_SD_StanceWarding
+Stance Warding:[NL]
+Grants Res +6[NL]
+if attacked[X]

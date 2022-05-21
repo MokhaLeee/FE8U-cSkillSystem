@@ -6,7 +6,7 @@ extern HookFunc_t OnLevelUpFuncList[];
 void CheckBattleUnitLevelUp(struct BattleUnit* bu) {
 	
 	// if not level up, do nothing
-	if (CanBattleUnitGainLevels(bu) && bu->unit.exp < 100)
+	if ( !CanBattleUnitGainLevels(bu) || (bu->unit.exp < 100) )
 		return;
 
 	bu->unit.exp -= 100;

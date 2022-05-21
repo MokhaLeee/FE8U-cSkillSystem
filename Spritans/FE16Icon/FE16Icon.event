@@ -10,6 +10,7 @@ IconSheet_FE16Mastery:
 	POIN	Icon_Reason		Icon_Reason		Icon_Reason
 	POIN	Icon_Auth		Icon_Riding		Icon_Flying
 	POIN	Icon_Heavy		Icon_Brawl		Icon_Monster	Icon_Dragon
+	POIN 	Icon_Star
 	WORD	0
 
 
@@ -64,3 +65,7 @@ Icon_Monster:
 ALIGN 4
 Icon_Dragon:
 	#incbin "Icons/FE16Icon_Dragon.4bpp"
+
+ALIGN 4
+Icon_Star:
+	#incbin "Icons/FE16Icon_Star.4bpp"

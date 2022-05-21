@@ -2767,7 +2767,13 @@ void PrepPickCombatArt_UpdateSkillDesc(struct Proc_PrepPickSkill* proc){
 		GetStringFromIndex(ENUM_msg_PrepPickSkill_Eff)
 		);
 	
-	if( info->eff_heavy )
+	if( info->eff_all )
+		DrawIcon(
+			TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 18, yStart + 4),
+			MASTERY_ICON(MASTERY_ICON_STAR), 
+			TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) );
+	
+	else if( info->eff_heavy )
 		DrawIcon(
 			TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 18, yStart + 4),
 			MASTERY_ICON(MASTERY_ICON_HEAVY), 

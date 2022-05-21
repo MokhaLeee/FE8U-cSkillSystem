@@ -6,7 +6,13 @@ Project of [Skill-lite](https://github.com/StanHash/SkillsLite.git) and [C-HAX](
 
 - Three-Houses style skill & combat-art system.
 - Pick unit skills & combat-arts on prep-screen.
-- CHAX style buildfile project with better quality and stability, including `c-Str/Mag-Split`, `c-Item-System-Rework`, `c-Battle-System-Rework`, `c-Stat-Screen`(with growth-based palette), etc.
+- Three-Houses style level-up, battle-calc.
+- Unit Status reworked so that we can get 4 bits buff & debuff status with a modular info table.
+- CHAX style buildfile project with better quality and stability, including `c-Str/Mag-Split`, `c-Item-System-Rework`, `c-Battle-System-Rework`, `c-Stat-Screen`, `Post-Action hook`, etc.
+
+![image](Readme-Files/cSkillSys1.gif)
+![image](Readme-Files/cSkillSys2.gif)
+![image](Readme-Files/cSkillSys3.gif)
 
 ## Compiling 
 
@@ -14,7 +20,7 @@ See [Build-Notes](Readme-Files/Build-Notes.md)
 
 ## Skills & Combat-Art List
 
-See [Skills-List](Readme-Files/Skills-List.md)
+See [Skills-List(en)](Readme-Files/Skills-List(en).md) or [Skills-List(cn)](Readme-Files/Skills-List(cn).md)
 
 ## Hacks Note
 

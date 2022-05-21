@@ -54,6 +54,11 @@ BattleHitExtArray:
 
 // if 0, null game-intro-gfx
 GAME_INTRO_GFX_SHOW_At:
-	WORD 1
 
+	#ifdef _USE_GAME_INTRO_GFX_
+	WORD 1
+	#else
+	WORD 0
+	#endif
+	
 #endif // VALUE_GLOBAL

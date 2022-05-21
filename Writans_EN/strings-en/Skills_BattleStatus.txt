@@ -1,0 +1,141 @@
+## msg_SN_Lethality
+Lethality[X]
+
+## msg_SD_Lethality
+Lethality: [NL]
+Unit may casue Lethality in[NL]
+critical attack, Skl%[X]
+
+## msg_SN_Crit
+Crit[X]
+
+## msg_SD_Crit
+Crit: [NL]
+Crit rate +15%[X]
+
+
+## msg_SN_WatchfulEye
+Watchful Eye[X]
+
+## msg_SD_WatchfulEye
+Watchful Eye: [NL]
+Hit rate +20%[X]
+
+
+
+
+## msg_SN_CritSword
+Crit Sword[X]
+
+## msg_SD_CritSword
+Crit Sword: [NL]
+Crit rate +10%,[NL]
+if equipped sword[X]
+
+
+## msg_SN_CritAxe
+Crit Axe[X]
+
+## msg_SD_CritAxe
+Crit Axe: [NL]
+Crit rate +10%,[NL]
+if equipped axe[X]
+
+
+## msg_SN_CritLance
+Crit Lance[X]
+
+## msg_SD_CritLance
+Crit Lance: [NL]
+Crit rate +10%,[NL]
+if equipped lance[X]
+
+
+## msg_SN_CritBow
+Crit Bow[X]
+
+## msg_SD_CritBow
+Crit Bow: [NL]
+Crit rate +10%,[NL]
+if equipped bow[X]
+
+
+## msg_SN_CritBMag
+Crit B.Mag[X]
+
+## msg_SD_CritBMag
+Crit B.Mag: [NL]
+Crit rate +10%,[NL]
+if equipped B.Mag[X]
+
+
+## msg_SN_CritWMag
+Crit W.Mag[X]
+
+## msg_SD_CritWMag
+Crit W.Mag: [NL]
+Crit rate +10%,[NL]
+if equipped W.Mag[X]
+
+
+
+## msg_SN_FaireSword
+Faire Sword[X]
+
+## msg_SD_FaireSword
+Faire Sword: [NL]
+Atk +5 if unit[NL]
+equips sword[X]
+
+
+## msg_SN_FaireLance
+Faire Lance[X]
+
+## msg_SD_FaireLance
+Faire Lance: [NL]
+Atk +5 if unit[NL]
+equips Lance[X]
+
+
+## msg_SN_FaireAxe
+Faire Axe[X]
+
+## msg_SD_FaireAxe
+Faire Axe: [NL]
+Atk +5 if unit[NL]
+equips Axe[X]
+
+
+## msg_SN_FaireBow
+Faire Bow[X]
+
+## msg_SD_FaireBow
+Faire Bow: [NL]
+Atk +5 if unit[NL]
+equips Bow[X]
+
+
+## msg_SN_FaireBMag
+Faire B.Mag[X]
+
+## msg_SD_FaireBMag
+Faire B.Mag: [NL]
+Atk +5 if unit[NL]
+equips B.Mag[X]
+
+
+## msg_SN_Avoid
+回避+10[X]
+
+## msg_SD_Avoid
+Avoid+10: [NL]
+Avoid rate +10%[X]
+
+
+## msg_SN_AvoidSword
+Avoid Sword[X]
+
+## msg_SD_AvoidSword
+Avoid Sword: [NL]
+Grants avoid rate +20%[NL]
+if unit equips sword[X]

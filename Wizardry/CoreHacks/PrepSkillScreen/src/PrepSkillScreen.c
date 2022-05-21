@@ -281,7 +281,7 @@ void PrepSkill_InitScreen (struct Proc_PrepUnit* proc){
 	PrepUnit_DrawLeftUnitName(unit);
 	PrepSkill_DrawPickTotalBar(unit, ON_DRAW_CONFIG_INIT);
 	PrepSkill_DrawLeftSkillsIcon(unit, ON_DRAW_CONFIG_INIT);
-	PrepSkill_DrawBattalionBar(unit, ON_DRAW_CONFIG_INIT);
+	// PrepSkill_DrawBattalionBar(unit, ON_DRAW_CONFIG_INIT);
 	
 	NewGreenTextColorManager((ProcPtr)proc);
 	LoadDialogueBoxGfx(BG_SCREEN_ADDR(0x29), 5);
@@ -637,6 +637,23 @@ void PrepSkill_UpdateSMSsAndObjs(struct Proc_PrepUnit* proc){
 	} // for
 	
 	
+	
+	PutSprite(5, 
+		0x90, 
+		0x88,
+		gObject_32x16, 
+		OAM2_PAL(0x09) + 
+			OAM2_LAYER(0b01) + 
+			OAM2_CHR(0x160 / 0x20));
+	
+	PutSprite(5, 
+		0xB0, 
+		0x88,
+		gObject_8x16, 
+		OAM2_PAL(0x09) + 
+			OAM2_LAYER(0b01) + 
+			OAM2_CHR(0x1E0 / 0x20));
+	
 	if( 0 == (proc->yDiff_cur & 0xF) )
 	{
 		gLCDControlBuffer.dispcnt.win0_on = 0;
@@ -698,7 +715,7 @@ void PrepSkill_UpdateUnitMenuTexts(struct Proc_PrepUnit* proc){
 	PrepUnit_DrawLeftUnitName(unit);
 	PrepSkill_DrawPickTotalBar(unit, ON_DRAW_CONFIG_UPDATE);
 	PrepSkill_DrawLeftSkillsIcon(unit, ON_DRAW_CONFIG_UPDATE);
-	PrepSkill_DrawBattalionBar(unit, ON_DRAW_CONFIG_INIT);
+	// PrepSkill_DrawBattalionBar(unit, ON_DRAW_CONFIG_INIT);
 }
 
 

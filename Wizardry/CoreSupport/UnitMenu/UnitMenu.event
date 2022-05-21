@@ -10,9 +10,11 @@ PUSH
     POIN UnitMenuTable
 
   // Make the unit menu wider (to fit longer words)
-
+	
+#ifndef _CHINESE_
   ORG $59d1f2
-    // BYTE 0x9 // width
+    BYTE 0x9 // width
+#endif // _CHINESE_
 
   ORG $1d4fa
     BYTE $01 // left x coord (open 1)

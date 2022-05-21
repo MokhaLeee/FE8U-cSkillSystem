@@ -37,6 +37,10 @@ const struct ProcCmd ProcCmd_CombatArt_PostTargetSelect[];
 // ================================
 
 int UMitem_CombatArt_Usability(const struct MenuItemDef* menu_item, int number){
+	
+	extern void ForEachUnitInRange(void*);
+	extern void TryAddTrapsToTargetList();
+	
 	// if canto, return false
 	if( US_CANTOING & gActiveUnit->state  )
 		return MENU_NOTSHOWN;
@@ -49,11 +53,60 @@ int UMitem_CombatArt_Usability(const struct MenuItemDef* menu_item, int number){
 	if( NULL == list )
 		return MENU_NOTSHOWN;
 	
-	for( int i = 0; i < 5; i++ )
-		if( 1 == CanUnitUseCombatArt(gActiveUnit, list[i]) )
+	for( int i = 0; i < 5; i++ ){
+		if( 0 == CanUnitUseCombatArt(gActiveUnit, list[i]) )
+			continue;
+		
+		const struct CombatArtInfo* info = GetCombatArtInfo(list[i]);
+		u32 range_mask = 0;
+		
+		if( NULL == info )
+			continue;
+
+		// Temperory Set CombatArt flag to make mask
+		EnableCombatArtFlag(gActiveUnit, list[i]);
+		
+		// Make mask
+		for( int j = 0; j < UNIT_ITEM_COUNT; j++ )
+		{
+			u16 item = gActiveUnit->items[j];
+			
+			if( 0 == (IA_WEAPON & GetItemAttributes(item)) )
+				continue;
+					
+			if( info->weapon_type != GetItemType(item) )
+				continue;
+					
+			if( ITEM_USES(item) < info->cost )
+				continue;
+			
+			range_mask |= ItemRange2Mask(item, gActiveUnit);
+		}
+		
+		
+		
+		
+		// Fill Map
+		BmMapFill(gBmMapMovement, NU_MOVE_MAP);
+		BmMapFill(gBmMapRange, NU_RANGE_MAP);
+		GenerateUnitStandingReachRange(gActiveUnit, range_mask);
+		
+		// Make Target List
+		InitTargets(gActiveUnit->xPos, gActiveUnit->yPos);
+		ForEachUnitInRange(AddUnitToTargetListIfNotAllied);
+		TryAddTrapsToTargetList();
+		
+		
+		// Temperory Clear CombatArt flag after make mask
+		// DisableCombatArtFlag();
+		gpBattleFlagExt->isCombat = 0;
+		
+		if( 0 != GetSelectTargetCount() )
 			return MENU_ENABLED;
+		
+	}
 	
-	return MENU_DISABLED;
+	return MENU_NOTSHOWN;
 		
 	
 }
@@ -454,18 +507,18 @@ const struct MenuDef Menu_CombatArt_WeaponSelect = {
 
 const struct MenuItemDef MenuItems_CombatArt_WeaponSelect[] = {
 	
-	#define COMBATART_WEAPONSELECT_ITEM { \
-		.name = 0, \
-		.nameMsgId = 0, \
-		.helpMsgId = 0, \
-		.color = MENU_COLOR_NORMAL, \
-		.overrideId = 0x49, \
-		.isAvailable = CombatArtWeaponSelect_Usability, \
-		.onDraw = UnknownMenu_Draw, \
-		.onSelected = CombatArtWeaponSelect_Effect, \
-		.onIdle = 0, \
-		.onSwitchIn = UnknownMenu_SwitchIn, \
-		.onSwitchOut = BallistaRangeMenu_SwitchOut, \
+	#define COMBATART_WEAPONSELECT_ITEM { 					\
+		.name = 0, 											\
+		.nameMsgId = 0, 									\
+		.helpMsgId = 0, 									\
+		.color = MENU_COLOR_NORMAL, 						\
+		.overrideId = 0x49, 								\
+		.isAvailable = CombatArtWeaponSelect_Usability, 	\
+		.onDraw = UnknownMenu_Draw, 						\
+		.onSelected = CombatArtWeaponSelect_Effect, 		\
+		.onIdle = 0, 										\
+		.onSwitchIn = UnknownMenu_SwitchIn, 				\
+		.onSwitchOut = BallistaRangeMenu_SwitchOut, 		\
 	}
 	
 	[0] = COMBATART_WEAPONSELECT_ITEM,

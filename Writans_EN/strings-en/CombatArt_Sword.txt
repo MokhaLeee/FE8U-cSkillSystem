@@ -1,0 +1,111 @@
+## msg_CAN_WrathStrike
+Wrath Strike[X]
+
+## msg_CAD_WrathStrike
+Wrath Strike[X]
+
+
+## msg_CAN_Grounder
+Grounder[X]
+
+## msg_CAD_Grounder
+Effective against Flying enemies[X]
+
+
+## msg_CAN_Soulblade
+Soulblade[X]
+
+## msg_CAD_Soulblade
+Magic attack + actor's Res[X]
+
+
+## msg_CAN_BaneOfMonsters
+Bane Of Monsters[X]
+
+## msg_CAD_BaneOfMonsters
+Effective against monsters[X]
+
+
+## msg_CAN_Sunder
+Sunder[X]
+
+## msg_CAD_Sunder
+Sunder[X]
+
+
+## msg_CAN_HazeSlice
+Haze Slice[X]
+
+## msg_CAD_HazeSlice
+Haze Slice[X]
+
+
+## msg_CAN_Hexblade
+Hexblade[X]
+
+## msg_CAD_Hexblade
+Magic attack[X]
+
+
+## msg_CAN_FinesseBlade
+Finesse Blade[X]
+
+## msg_CAD_FinesseBlade
+Dmg+ actor's Skl[X]
+
+
+## msg_CAN_Windsweep
+Windsweep[X]
+
+## msg_CAD_Windsweep
+Enimy cannot couter[X]
+
+
+## msg_CAN_SwordDance
+Sword Dance[X]
+
+## msg_CAD_SwordDance
+Dmg+ actor's charm[X]
+
+
+## msg_CAN_Assassinate
+Assassinate[X]
+
+## msg_CAD_Assassinate
+Silencer rate +50%[X]
+
+
+## msg_CAN_Subdue
+Subdue[X]
+
+## msg_CAD_Subdue
+Leaves foe with at least 1 HP[X]
+
+
+## msg_CAN_FoudroyantStrike
+Foudro Strike[X]
+
+## msg_CAD_FoudroyantStrike
+Effective against Armored enemies[X]
+
+
+## msg_CAN_SublimeHeaven
+Sublime Heaven[X]
+
+## msg_CAD_SublimeHeaven
+Effective against dragon[X]
+
+
+## msg_CAN_RupturedHeaven
+Ruptured Heaven[X]
+
+## msg_CAD_RupturedHeaven
+Effective against dragon[X]
+
+
+## msg_CAN_HeavensFall
+Heavens Fall[X]
+
+## msg_CAD_HeavensFall
+Effective against dragon[X]
+

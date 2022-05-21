@@ -1,0 +1,64 @@
+## msg_CAN_Smash
+Smash[X]
+## msg_CAD_Smash
+Smash[X]
+
+
+## msg_CAN_HelmSplitter
+Helm Splitter[X]
+## msg_CAD_HelmSplitter
+Effective against Armored enemies[X]
+
+
+## msg_CAN_MonsterBreaker
+Monster Breaker[X]
+## msg_CAD_MonsterBreaker
+Effective against Monsters[X]
+
+
+## msg_CAN_FocusedStrike
+Focused Strike[X]
+## msg_CAD_FocusedStrike
+Focused Strike[X]
+
+
+## msg_CAN_WildAbandon
+Wild Abandon[X]
+## msg_CAD_WildAbandon
+Wild Abandon[X]
+
+
+## msg_CAN_Spike
+Spike[X]
+## msg_CAD_Spike
+Spike[X]
+
+
+## msg_CAN_DiamondAxe
+Diamond Axe[X]
+## msg_CAD_DiamondAxe
+Diamond Axe[X]
+
+
+## msg_CAN_LightningAxe
+Lightning Axe[X]
+## msg_CAD_LightningAxe
+Magic attack + actor's Res[X]
+
+
+## msg_CAN_ArmoredStrike
+Armored Strike[X]
+## msg_CAD_ArmoredStrike
+Dmg + actor's Def[X]
+
+
+## msg_CAN_WarMasterStrike
+War-Master Strike[X]
+## msg_CAD_WarMasterStrike
+Effective against all foes[X]
+
+
+## msg_CAN_FlickeringFlower
+Flickering Flower[X]
+## msg_CAD_FlickeringFlower
+Enimy cannot move[X]

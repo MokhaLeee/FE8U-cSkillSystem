@@ -209,7 +209,6 @@ void PrepSkill_DrawLeftSkillsIcon(struct Unit* unit, int config){
 	
 	
 	// Combat Arts
-	// W.I.P.
 	if( 0 == list->total[PREP_SKLSUB_LEFT_CA] )
 		DrawTextInline(
 			&gPrepUnitTexts[0x12],

@@ -1,0 +1,33 @@
+## msg_SN_RangeBonusBMag1
+B.Mag Range +1[X]
+
+## msg_SD_RangeBonusBMag1
+B.Mag Range +1:[NL]
+Increases black magic range by 1[X]
+
+
+## msg_SN_RangeBonusBMag2
+B.Mag Range +2[X]
+
+## msg_SD_RangeBonusBMag2
+B.Mag Range +2:[NL]
+Increases black magic range by 2[X]
+
+
+
+
+
+## msg_SN_RangeBonusBow1
+Bow Range +1[X]
+
+## msg_SD_RangeBonusBow1
+Bow Range +1:[NL]
+Increases bow range by 1[X]
+
+
+## msg_SN_RangeBonusBow2
+Bow Range +2[X]
+
+## msg_SD_RangeBonusBow2
+Bow Range +2:[NL]
+Increases bow range by 2[X]

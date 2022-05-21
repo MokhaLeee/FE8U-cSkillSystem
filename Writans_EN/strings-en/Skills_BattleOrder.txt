@@ -1,0 +1,56 @@
+## msg_SN_Vantage
+Vantage[X]
+
+## msg_SD_Vantage
+Vantage:[NL]
+When unit is defender with[NL]
+HP is <50%, attack first[X]
+
+
+## msg_SN_VantageBattalion
+Vantage Battalion[X]
+
+## msg_SD_VantageBattalion
+Vantage Battalion:[NL]
+When unit is defender with[NL]
+battalion<1/3, attack first[X]
+
+
+## msg_SN_Desperation
+Desperation[X]
+
+## msg_SD_Desperation
+Desperation: When unit[NL]
+attacks with HP <50%,[NL]
+double attacks immediately[X]
+
+
+
+## msg_SN_DesperationBattalion
+Desperation Battalion[X]
+
+## msg_SD_DesperationBattalion
+Desperation Battalion: When[NL]
+unit attacks with battalion <[NL]
+1/3, doubles immediately[X]
+
+
+
+## msg_SN_QuickRiposte
+Riposte[X]
+
+## msg_SD_QuickRiposte
+Quick Riposte: [NL]
+If unit is attacked with HP[NL]
+>50%, double attacks[X]
+
+
+
+## msg_SN_WaryFighter
+Wary Fighter[X]
+
+## msg_SD_WaryFighter
+Wary Fighter:[NL]
+Prevents follow up attack[NL]
+if unit's HP >50%[X]
+
