@@ -12,7 +12,7 @@
 
 ## msg_SD_AlertStance
 警戒态势:[NL]
-若不行动并进行待命，[NL]
+若不行动并待机，[NL]
 回避+15%[X]
 
 
@@ -21,6 +21,6 @@
 
 ## msg_SD_AlertStancePlus
 警戒态势+:[NL]
-若不行动并进行待机，[NL]
+若不行动并待机，[NL]
 回避+30%[X]
 

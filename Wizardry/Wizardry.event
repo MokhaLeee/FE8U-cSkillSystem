@@ -50,7 +50,7 @@ ALIGN 4
 #include "CoreSupport/BwlSupports/BwlSupports.event"
 
 // An external random number system
-#include "CoreSupport/External_RN/External_RN.event"
+#include "CoreSupport/RN_Ext/RN_Ext.event"
 
 
 // (Finally) Hook List for Core Supports

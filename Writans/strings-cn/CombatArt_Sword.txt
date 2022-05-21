@@ -23,7 +23,7 @@
 魔物斩击[X]
 
 ## msg_CAD_BaneOfMonsters
-魔物特效的剑技[X]
+魔物特效[X]
 
 
 ## msg_CAN_Sunder
@@ -86,7 +86,7 @@
 雷迅[X]
 
 ## msg_CAD_FoudroyantStrike
-克制重装敌人与龙[X]
+克制重装敌人[X]
 
 
 ## msg_CAN_SublimeHeaven

@@ -192,8 +192,8 @@ const struct CombatArtInfo CAInfo_Assassinate = {
 	.cost = 4,
 	.mt = 0,
 	.hit = 15,
-	.avo = 15,
-	.crit = 10,
+	.avo = 10,
+	.crit = 15,
 	.range_bouns = 0,
 };
 
@@ -226,7 +226,7 @@ const struct CombatArtInfo CAInfo_FoudroyantStrike = {
 	.atk_bonus = 0,
 	.is_magic = 0,
 	.eff_heavy = 1,
-	.eff_dragon = 1,
+	.eff_dragon = 0,
 	.special_eff = 0,
 	.cost = 3,
 	.mt = 6,

@@ -7,7 +7,7 @@
 ## msg_CAN_Knightkneeler
 弑骑一击[X]
 ## msg_CAD_Knightkneeler
-骑兵特效的枪技[X]
+骑兵特效[X]
 
 
 ## msg_CAN_ShatterSlash
