@@ -3,6 +3,7 @@
 // These functions are all for fun: ComputeBattleUnitEffectiveStats
 
 
+
 void ComputeBattleUnitSilencerRate(struct BattleUnit* attacker, struct BattleUnit* defender) {
 	
 	

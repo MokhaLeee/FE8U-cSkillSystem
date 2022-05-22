@@ -54,3 +54,10 @@ Wary Fighter:[NL]
 Prevents follow up attack[NL]
 if unit's HP >50%[X]
 
+
+## msg_SN_DoubleLion
+Double Lion[X]
+## msg_SD_DoubleLion
+Double Lion:[NL]
+If unit attacks with full HP,[NL]
+enjoys Brave effect and lose 1 HP[X]

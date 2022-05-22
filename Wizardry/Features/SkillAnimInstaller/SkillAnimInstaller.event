@@ -34,7 +34,15 @@ _thumb(ClassChangAnim)
 }
 
 
+ALIGN 4
+SkillAnimationTable:
+	FILL 0x100 * 4
+
+#define InjectSkillAnimation(SkillID,function) " PUSH; ORG (SkillAnimationTable + (4*SkillID)); POIN function|1; POP"
+
+
 // Skills
+InjectSkillAnimation(0, DefaultOffseniveSkillActivationAnim)
 InjectSkillAnimation(SKILLID_Vantage, CommonSkill)
 InjectSkillAnimation(SKILLID_VantageBat, CommonSkill)
 InjectSkillAnimation(SKILLID_Desperation, CommonSkill)

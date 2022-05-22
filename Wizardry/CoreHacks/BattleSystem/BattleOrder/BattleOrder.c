@@ -12,6 +12,7 @@ static int CheckVantageBattle(void);
 static int CheckDesperationBattle(void);
 
 
+
 static int JudgeSkillQuickRiposte(struct BattleUnit* bu);
 static int JudgeCombatArtDouble(struct BattleUnit* bu);
 static int JudgeSkillDesperation(struct BattleUnit* bu);
@@ -116,13 +117,15 @@ void BattleUnwind(){
 				attacker_attack_counter++;
 		}
 			
-		if( (TAR_ATTACK == round[i]) )
+		else if( (TAR_ATTACK == round[i]) )
 		{
 			if( BattleGenerateRoundHits(&gBattleTarget, &gBattleActor) )
 				break;
 			else
 				defender_attack_counter++;
 		}
+		else 
+			break;
 		
 		// hit real
 		gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_RETALIATE;
@@ -135,8 +138,6 @@ void BattleUnwind(){
 		// to judge is battle-hits advanced
 		if( hit_cur == gBattleHitIterator )
 			continue;
-		
-		
 		
 		// Todo: Anim effect
 		
@@ -231,6 +232,27 @@ int BattleGenerateRoundHits(struct BattleUnit* actor, struct BattleUnit* target)
 	for (i = 0; i < count; ++i) 
 	{
 		gBattleHitIterator->attributes |= attrs;
+		
+		// To do:
+		// We should make a more polished add-skill-activation judge routine
+		// if there are a lot of brave-based skills activated
+		extern int HitCountCalc_SkillDoubleLion(struct BattleUnit*, int);
+		extern int HitCountCalc_BraveWeapon(struct BattleUnit*, int);
+		
+		if( 1 == i )
+			if( !HitCountCalc_BraveWeapon(actor, 0) )
+				if( 1 == HitCountCalc_SkillDoubleLion(actor, 0) ){
+					SetBattleHitExt_AtkSkill(SID_DoubleLion);	
+					gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
+					BattleHitExt_SetAttr(ATTR_HITEXT_SKILLACT_ATK);
+				}
+		if( 2 == i )
+			if( 1 == HitCountCalc_SkillDoubleLion(actor, 0) ){
+				SetBattleHitExt_AtkSkill(SID_DoubleLion);	
+				gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
+				BattleHitExt_SetAttr(ATTR_HITEXT_SKILLACT_ATK);
+			}
+		
 
 		if (BattleGenerateHit(actor, target))
 			return TRUE;
@@ -244,19 +266,29 @@ int BattleGenerateRoundHits(struct BattleUnit* actor, struct BattleUnit* target)
 // 判定勇者系武器
 int GetBattleUnitHitCount(struct BattleUnit* actor){
 	
-	// Target cannot double attack with brave weapon
-	if( &gBattleActor != actor )
-		return 1;
+	typedef int(*HitCountCalc_Func)(struct BattleUnit* actor, int cur);
 	
-	if( !(actor->weaponAttributes & IA_BRAVE) )
-		return 1;
+	extern const HitCountCalc_Func BattleHitsCountCalcLoop[];
 	
-	// attacker cannot use brave if use combat-art
-	if( gpBattleFlagExt->isCombat )
-		return 1;
+	const HitCountCalc_Func *it = BattleHitsCountCalcLoop;
 	
-	gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_BRAVE;
-	return 2;
+	int count = 1;
+	
+	while( *it ){
+		count = (*it++)(actor, count);
+		
+		// -1 to force null brave effect
+		if( -1 == count )
+			break;
+	}
+	
+	if( count > 1 )
+		gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_BRAVE;
+	
+	if( count < 1 )
+		count = 1;
+	
+	return count;
 }
 
 

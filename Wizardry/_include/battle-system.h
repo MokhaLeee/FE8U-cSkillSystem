@@ -28,6 +28,16 @@ extern struct BattleHitExt *BattleHitExtArray;
 extern struct BattleHitExt **BattleHitExtCur;
 
 
+// Expand for vanilla array
+enum{
+	BATTLE_HIT_MAX_EXPANSION = 0x20,
+};
+
+extern struct BattleHit *gBattleHitArrayReAt;
+
+
+
+// New Flag
 
 struct BattleFlagExt{
 			// judge for combat-art
@@ -40,8 +50,8 @@ struct BattleFlagExt{
 
 	/* 01 */ u8 combatArt_id;
 	/* 02 */ u8 combat_unit;	// unit index of combat art actor 
-	
-	/* 02 */ u8 pad_03[0x10 - 0x03];
+	/* 03 */ u8 hit_count;
+	/* 04 */ u8 pad_04[0x10 - 0x04];
 };
 
 extern struct BattleFlagExt* gpBattleFlagExt;	// 0x10 long
@@ -52,7 +62,10 @@ extern struct BattleFlagExt* gpBattleFlagExt;	// 0x10 long
 struct Proc_BKSEL{
 	
 	/* 00 */ PROC_HEADER;
-	/* 29 */ u8 pad[0x32 - 0x29];
+	/* 29 */ u8 pad[0x2C - 0x29];
+	/* 2C */ int32_t timer;
+	/* 30 */ u8 unk_30;
+	/* 31 */ u8 unk_31;
 	/* 32 */ u8 mode;		// 1 = Standard, 2 = Detailed
 	/* 33 */ u8 stat;		// maybe 1 when gfx are ready
 	/* 34 */ u8 wake_up;	// if 0, main loop goto idle mode

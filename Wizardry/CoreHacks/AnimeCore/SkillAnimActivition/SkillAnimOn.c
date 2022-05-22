@@ -90,7 +90,7 @@ int cSkillActivationAnims(struct Anim* anim){
 	else
 	{
 		// Skills
-		
+		_debug_();
 		if( ATTR_HITEXT_SKILLACT_ATK & attr_ext )
 			skill_act = SortAnimActSkill(bh_ext_cur->atk_skills, 3);
 		
@@ -112,14 +112,13 @@ int cSkillActivationAnims(struct Anim* anim){
 		icon = GetIconGfx( SKILL_ICON(skill_act) );
 	}
 	
-	
-	if( 0 != anim_func )
-	{
-		// maybe set as activating skill
-		anim->state3 |= 0x20;
-		
-		anim_func(anim);
-	}
+	if( 0 == anim_func )
+		anim_func = SkillAnimationTable[0];
+
+	// maybe set as activating skill
+	anim->state3 |= 0x20;	
+	anim_func(anim);
+
 	
 	
 	// =====================================================
@@ -154,7 +153,7 @@ int cSkillActivationAnims(struct Anim* anim){
 u8 SortAnimActSkill(u8 skills[], const int max_num){
 	
 	for( int i = 0; i < max_num; i++ )
-		if( 0 != SkillAnimationTable[skills[i]] )
+		if( SKILL_VALID(skills[i]) )
 			return skills[i];
 	
 	return 0;

@@ -7,7 +7,7 @@ const struct SkillCharacterList_t CharacterSkillRomList[0x100] = {
 	
 	[CHARACTER_EIRIKA] = {
 		.rom_skill[0] = SID_Supply,
-		.rom_skill[1] = 0,
+		.rom_skill[1] = SID_DoubleLion,
 	},
 	
 	[CHARACTER_EPHRAIM] = {
@@ -23,7 +23,7 @@ const struct SkillCharacterList_t CharacterSkillRomList[0x100] = {
 	
 	[CHARACTER_INNES] = {
 		.rom_skill[0] = SID_BlowDeath,
-		.rom_skill[0] = SID_Dance,
+		.rom_skill[0] = SID_DoubleLion,
 
 	},
 	

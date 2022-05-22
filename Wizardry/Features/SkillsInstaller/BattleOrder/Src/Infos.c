@@ -1,7 +1,7 @@
 #include "gbafe-chax.h"
 
 // icons
-extern const u16 SI_Vantage[], SI_VantageBat[], SI_Desperation[], SI_DesperationBat[], SI_QuickRiposte[], SI_WaryFighter[];
+extern const u16 SI_Vantage[], SI_VantageBat[], SI_Desperation[], SI_DesperationBat[], SI_QuickRiposte[], SI_WaryFighter[], SI_DoubleLion[];
 
 
 const struct SkillInfo SkillInfo_Vantage = {
@@ -54,5 +54,14 @@ const struct SkillInfo SkillInfo_WaryFighter = {
 	.msg_desc = ENUM_msg_SD_WaryFighter,
 	.msg_name = ENUM_msg_SN_WaryFighter,
 	.icon = SI_WaryFighter,
+	
+};
+
+
+const struct SkillInfo SkillInfo_DoubleLion = {
+	
+	.msg_desc = ENUM_msg_SD_DoubleLion,
+	.msg_name = ENUM_msg_SN_DoubleLion,
+	.icon = SI_DoubleLion,
 	
 };

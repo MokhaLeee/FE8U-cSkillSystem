@@ -8,16 +8,15 @@ ALIGN 4
 
 // Standard draw
 ALIGN 4
-gGfx_BkselObjArrow0:
-	#incbin "data/gfxBkselObjArrow0.4bpp.lz"
-
-ALIGN 4
-gGfx_BkselObjArrow1:
-	#incbin "data/gfxBkselObjArrow1.4bpp.lz"
+gGfx_BkselObjArrow:
+	#incbin "data/gfxBkselObjArrow.4bpp.lz"
 
 ALIGN 4
 gPal_BkselObjArrow:
 	#incbin "data/gfxBkselObjArrow.gbapal"
+
+
+
 
 
 // Tsa window:

@@ -25,6 +25,13 @@ gpUnitExpaData:
 	WORD 0x02026E70	// 46(len) * 0x10(size)
 
 
+// Repoint gBattleHitArray
+#define gBattleHitArrayRe 0x2027300	// 0x20 * 4
+
+ALIGN 4
+gBattleHitArrayReAt:
+	WORD gBattleHitArrayRe
+
 
 // RecoverableRN2
 ALIGN 4

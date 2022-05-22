@@ -579,6 +579,17 @@ void PostAction_CombatArtDebuff(ProcPtr proc){
 }
 
 
+// For Battle-order hit-count-calc
+int HitCountCalc_CombatArt(struct BattleUnit* actor, int cur){
+	
+	// attacker cannot use brave if use combat-art
+	if( gpBattleFlagExt->isCombat )
+		if( &gBattleActor == actor )
+			return -1;
+	
+	return cur;
+}
+
 
 // COMBAT_ART_ICON
 // For Icon Display

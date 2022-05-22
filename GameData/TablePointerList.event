@@ -67,6 +67,15 @@ pLevelCAAxe_CharList:
 pLevelCABow_CharList:
 	POIN LevelCABow_CharList
 
-	
-	
-	
+
+// Info Tables
+pSkillInfoTable:
+	POIN SkillInfoTable	
+
+pCombatArtInfoTable:
+	POIN CombatArtInfoTable
+
+PSkillAnimationTable:
+	POIN SkillAnimationTable
+
+

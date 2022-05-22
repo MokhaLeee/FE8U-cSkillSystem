@@ -1,7 +1,10 @@
 #include "gbafe-chax.h"
 
 int GetOffensiveStaffAccuracy(struct Unit* actor, struct Unit* target) {
-	int baseAccuracy = (GetUnitPower(actor) - GetUnitResistance(target)) * 5;
+	
+	// Str/Mag !
+	int baseAccuracy = (MagGetter(actor) - GetUnitResistance(target)) * 5;
+	
 	int unitSkill = GetUnitSkill(actor);
 	int distance = RECT_DISTANCE(actor->xPos, actor->yPos, target->xPos, target->yPos);
 

@@ -4,6 +4,11 @@ ALIGN 4
 #include "Src/Core.lyn.event"
 #include "Src/CantoHackASM.lyn.event"
 
+
+InjectSkillInfo(SKILLID_Canto, SkillInfo_Canto)
+InjectSkillInfo(SKILLID_AlertStance, SkillInfo_AlertStance)
+InjectSkillInfo(SKILLID_AlertStancePlus, SkillInfo_AlertStancePlus)
+
 PUSH
 	ORG $01D248
 	jumpToHack(CantoHackASM)

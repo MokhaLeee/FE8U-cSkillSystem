@@ -21,6 +21,11 @@
 // Misc Skills
 #define SKILLID_LifeAndDeath			0x0F
 
+// Range Skills
+#define SKILLID_RangeBonusBMag1_ext		0x10
+#define SKILLID_RangeBonusBow1_ext		0x11
+
+
 // Battle Status(0x10)
 // Blow Skills
 #define SKILLID_BlowDarting 			0x12	// Darting Blow: 	AS +6
@@ -78,6 +83,8 @@
 // Misc
 #define SKILLID_WaryFighter				0x3D
 
+// Battle Order
+#define SKILLID_DoubleLion				0x3F
 
 // Post-Action Skills
 #define SKILLID_Canto					0x50

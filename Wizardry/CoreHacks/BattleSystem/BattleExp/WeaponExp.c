@@ -9,7 +9,11 @@ s8 HasBattleUnitGainedWeaponLevel(struct BattleUnit* bu) {
 
 	if (newWexp < 0)
 		return FALSE;
-
+	
+	// Makes it so that you cannot gain weapon ranks for weapons you don't have a rank in
+	if( oldWexp <= 0 )
+		return FALSE;
+	
 	return GetWeaponLevelFromExp(oldWexp) != GetWeaponLevelFromExp(newWexp);
 }
 

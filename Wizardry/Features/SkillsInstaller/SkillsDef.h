@@ -21,6 +21,9 @@ enum{
 	// Misc Skills
 	SID_LifeAndDeath = 0x0F,
 	
+	// Range Skills
+	SID_RangeBonusBMag1_ext = 0x10,
+	SID_RangeBonusBow1_ext = 0x11,
 	
 	// Blow Skills
 	SID_BlowDarting = 0x12,
@@ -72,6 +75,9 @@ enum{
 	
 	// Misc
 	SID_WaryFighter = 0x3D,		// 防阵
+	
+	// Battle Order
+	SID_DoubleLion = 0x3F,		// 狮子连斩
 	
 	SID_Canto = 0x50,			// 再动
 	SID_AlertStance = 0x51,		// 警戒

@@ -101,7 +101,7 @@ static void BkselObj_UpdateArrow(struct Proc_BKSEL *proc){
 
 void Bksel_InitMore(struct Proc_BKSEL *proc){
 	
-	extern u16 gGfx_BkselObjArrow0[], gGfx_BkselObjArrow1[], gPal_BkselObjArrow[];
+	extern u16 gGfx_BkselObjArrow[], gPal_BkselObjArrow[];
 	extern void StartParallelWorker(void* func, ProcPtr);
 	extern void BKSEL_InitGfx(ProcPtr);
 	
@@ -121,8 +121,9 @@ void Bksel_InitMore(struct Proc_BKSEL *proc){
 	
 	
 	// Gfx
-	CopyDataWithPossibleUncomp(gGfx_BkselObjArrow0, OBJ_VRAM0 + OBJ_ARROW_VRAMOFF);
-	CopyDataWithPossibleUncomp(gGfx_BkselObjArrow1, OBJ_VRAM0 + OBJ_ARROW_VRAMOFF + 0x400);
+	CopyDataWithPossibleUncomp(gGfx_BkselObjArrow, gGenericBuffer);
+	CopyTileGfxForObj(gGenericBuffer, OBJ_VRAM0 + OBJ_ARROW_VRAMOFF, 7, 2);
+	
 	
 	// Pal
 	ApplyPalettes(gPal_BkselObjArrow, OBJ_ARROW_PAL + 0x10, 1);

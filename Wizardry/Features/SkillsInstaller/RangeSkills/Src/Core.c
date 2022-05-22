@@ -9,6 +9,9 @@ int RangeMaxGetter_SkillBonus(struct Unit* unit, u16 item, int cur){
 		if( (*SkillTester)(unit, SID_RangeBonusBow1) )
 			cur += 1;
 		
+		if( (*SkillTester)(unit, SID_RangeBonusBow1_ext) )
+			cur += 1;
+		
 		if( (*SkillTester)(unit, SID_RangeBonusBow2) )
 			cur += 2;
 	}
@@ -17,6 +20,9 @@ int RangeMaxGetter_SkillBonus(struct Unit* unit, u16 item, int cur){
 	if( (ITYPE_ANIMA==type) || (ITYPE_LIGHT==type) || (ITYPE_DARK==type) )
 	{
 		if( (*SkillTester)(unit, SID_RangeBonusBMag1) )
+			cur += 1;
+		
+		if( (*SkillTester)(unit, SID_RangeBonusBMag1_ext) )
 			cur += 1;
 		
 		if( (*SkillTester)(unit, SID_RangeBonusBMag2) )

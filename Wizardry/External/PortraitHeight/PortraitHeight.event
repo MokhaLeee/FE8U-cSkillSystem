@@ -22,11 +22,17 @@ PortraitHeightList:
 	BYTE $23	// Dozla
 	BYTE $26	// Myrrh
 	
-	// Extern
-//	BYTE $2		// Eirika
-//	BYTE $4		// Seth
-//	BYTE $F		// Innes
 	
+#ifndef _USE_VANILLA_CHAPTER_
+	
+	// Extern
+	BYTE $2		// Eirika
+	BYTE $4		// Seth
+
+#endif // 	_USE_VANILLA_CHAPTER_
+
+
+
 	// End
 	BYTE 0
 

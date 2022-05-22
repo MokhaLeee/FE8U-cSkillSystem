@@ -84,6 +84,9 @@ ALIGN 4
 // Battle System: BattleOrder & 
 #include "CoreHacks/BattleSystem/BattleSystem.event"
 
+// Misc Hacks for Battle Anime
+#include "CoreHacks/AnimeCore/AnimeCore.event"
+
 // Three Houses sytle Combat-Art
 #include "CoreHacks/CombatArtCore/CombatArtCore.event"
 
@@ -135,18 +138,20 @@ ALIGN 4
 #include "External/PortraitHeight/PortraitHeight.event"
 #include "External/HpBars/HpBars.event"
 #include "External/MovementArrowHack/MovementArrowHack.event"
-#include "External/FixWpnRnk.event"
 #include "External/SemitransparencyChanges.event"
 #include "External/StatScreenBlink/SSBlink.event"
 
 
-// these will be finally replaced
+// <!>
+// put these small hacks at the end of wizardry
+// to automatically test whether their conflicts to existing c-hax by "PROTECT"
 #include "EssentialFixes.event"
 #include "CoreHacks/StrMag/Combat/_Combat.event"
 #include "CoreHacks/WeaponRange/ProperRangeGetters_Internal.event"
 #include "CoreHacks/StatusGetter/InjectConGetters.event"
 #include "CoreHacks/StatusGetter/InjectHPGetters.event"
 #include "CoreHacks/StatusGetter/InjectMovGetters.event"
+#include "CoreHacks/BattleSystem/Expansion/RepontArray.event"
 
 
 

@@ -4,34 +4,33 @@
 // Judge for double attack and weapon use
 void AddWeaponStatsAfterRound(struct BattleUnit* bu, u8 *hit, int *item_use){
 	
-	if( *item_use <= 0 )
-		return;
+	int GetBattleUnitHitCount(struct BattleUnit* actor);
 
-	// Combat Art
-	if( (bu == &gBattleActor) && (gpBattleFlagExt->isCombat) )
-		if(bu->unit.index == gpBattleFlagExt->combat_unit)
-		{
-			const struct CombatArtInfo* info = GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
-			
-			if( 0 != info )
-			{
-				(*hit)++;
-				(*item_use) -= info->cost;
-				return;
-			}
-		}
+	const struct CombatArtInfo* info = GetCombatArtInfo(gpBattleFlagExt->combatArt_id);
 	
-	// normal attack
-	(*hit)++;
-	(*item_use)--;
+	const int item_cost = IsFlagCombatArt(&bu->unit, 0)
+		? info->cost
+		: 1;
+		
+	struct BattleUnit* tar = (&gBattleActor == bu)
+		? &gBattleTarget
+		: &gBattleActor;
 	
+	const int round_count = 
+		(1 + CheckCanDouble(bu, tar)) *
+		GetBattleUnitHitCount(bu);
 	
-	if( 0 == (IA_BRAVE & bu->weaponAttributes) )
-		return;
+	for( int i = 0; i < round_count; i++ ){
+		
+		*item_use -= item_cost;
+		
+		if( *item_use <= 0 )
+			break;
+		
+		(*hit)++;
+		
+	}
 	
-	
-	(*hit)++;
-	(*item_use)--;
 	
 }
 
@@ -54,9 +53,7 @@ void BKSEL_SetupHitAndSuchStats(struct Proc_BKSEL *proc){
 	{
 		AddWeaponStatsAfterRound(&gBattleActor, &proc->act_hit, &act_itemuse);
 		
-		if( CheckCanDouble(&gBattleActor, &gBattleTarget) )
-			AddWeaponStatsAfterRound(&gBattleActor, &proc->act_hit, &act_itemuse);
-		
+
 		if( 0 != IsUnitEffectiveAgainst(&gBattleActor.unit, &gBattleTarget.unit) )
 			proc->act_eff = 1;
 		
@@ -75,9 +72,6 @@ void BKSEL_SetupHitAndSuchStats(struct Proc_BKSEL *proc){
 	if( 0 != gBattleTarget.weapon )
 	{
 		AddWeaponStatsAfterRound(&gBattleTarget, &proc->tar_hit, &tar_itemuse);
-		
-		if( CheckCanDouble(&gBattleTarget, &gBattleActor) )
-			AddWeaponStatsAfterRound(&gBattleTarget, &proc->tar_hit, &tar_itemuse);
 		
 		if( 0 != IsUnitEffectiveAgainst(&gBattleTarget.unit, &gBattleActor.unit) )
 			proc->tar_eff = 1;

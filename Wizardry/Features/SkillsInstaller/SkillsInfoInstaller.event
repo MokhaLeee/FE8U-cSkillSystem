@@ -8,10 +8,13 @@
 // Skill Defs
 #include SkillsDef.event
 
-
 // Skill-Info-Table
 ALIGN 4
-#include "SkillInfoTable.lyn.event"
+SkillInfoTable:
+	FILL 0x100 * 4
+
+	
+
 
 #define InjectSkillInfo(aSkillId, aSkillInfo) "PUSH; ORG SkillInfoTable+4*(aSkillId); POIN (aSkillInfo); POP"
 
@@ -23,45 +26,16 @@ ALIGN 4
 //             Skill Infos Installer
 // ==============================================
 
-// Blow Skills
-#include "BlowSkills/Icons.event"
-#include "BlowSkills/Infos.lyn.event"
-#include "BlowSkills/Core.lyn.event"
-
-// Stance Skills
+#include "BlowSkills/Installer.event"
 #include "StanceSkills/Installer.event"
-
-// Battle Order Skills
 #include "BattleOrder/Installer.event"
-
-// Battke Misc Skills
 #include "BattleStatus/Installer.event"
-
-// Battle Triangle
-#include "BattleTriangle/Icons.event"
-#include "BattleTriangle/Infos.lyn.event"
-#include "BattleTriangle/Core.lyn.event"
-
-// Battle Can-Counter
+#include "BattleTriangle/Installer.event"
 #include "BattleCanCounter/Installer.event"
-
-// Post Action
 #include "PostActionSkills/Installer.event"
-
-// Pre-Phase
 #include "PrePhaseSkills/Installer.event"
-
-// Rally
 #include "RallySkills/Installer.event"
-
-// Move 
 #include "MoveSkills/Installer.event"
-
-// Menu Skills
 #include "MenuSkills/Installer.event"
-
-// Range Skills
 #include "RangeSkills/Installer.event"
-
-// Status Getter Skills
 #include "StatusGetterSkills/Installer.event"

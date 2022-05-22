@@ -1,12 +1,15 @@
 ALIGN 4
 PUSH
-ORG CURRENTOFFSET+$0;SkillInfo_WaryFighter:
+ORG CURRENTOFFSET+$0;SkillInfo_DoubleLion:
+ORG CURRENTOFFSET+$8;SkillInfo_WaryFighter:
 ORG CURRENTOFFSET+$8;SkillInfo_QuickRiposte:
 ORG CURRENTOFFSET+$8;SkillInfo_DesperationBat:
 ORG CURRENTOFFSET+$8;SkillInfo_Desperation:
 ORG CURRENTOFFSET+$8;SkillInfo_VantageBat:
 ORG CURRENTOFFSET+$8;SkillInfo_Vantage:
 POP
+WORD $D9F0DA0
+POIN SI_DoubleLion
 WORD $D9D0D9E
 POIN SI_WaryFighter
 WORD $D9B0D9C

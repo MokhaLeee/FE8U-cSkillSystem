@@ -1,0 +1,37 @@
+
+#include "Src/Infos.lyn.event"
+#include "Src/Core.lyn.event"
+
+
+InjectSkillInfo(SKILLID_BlowDarting, SkillInfo_BlowDarting)
+InjectSkillInfo(SKILLID_BlowDeath, SkillInfo_BlowDeath)
+InjectSkillInfo(SKILLID_BlowArmored, SkillInfo_BlowArmored)
+InjectSkillInfo(SKILLID_BlowFiendish, SkillInfo_BlowFiendish)
+InjectSkillInfo(SKILLID_BlowWarding, SkillInfo_BlowWarding)
+InjectSkillInfo(SKILLID_BlowDuelist, SkillInfo_BlowDuelist)
+InjectSkillInfo(SKILLID_BlowUncanny, SkillInfo_BlowUncanny)
+
+
+ALIGN 4
+// Icon
+SI_BlowArmored:
+	#incbin "Icons/BlowArmored.4bpp"
+
+SI_BlowDarting:
+	#incbin "Icons/BlowDarting.4bpp"
+
+SI_BlowDeath:
+	#incbin "Icons/BlowDeath.4bpp"
+	
+SI_BlowDuelist:
+	#incbin "Icons/BlowDuelist.4bpp"
+
+SI_BlowFiendish:
+	#incbin "Icons/BlowFiendish.4bpp"		
+
+SI_BlowWarding:
+	#incbin "Icons/BlowWarding.4bpp"
+
+SI_BlowUncanny:
+	#incbin "Icons/BlowUncanny.4bpp"
+	

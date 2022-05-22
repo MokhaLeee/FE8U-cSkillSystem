@@ -54,3 +54,11 @@
 若HP高于50%，受到敌人[NL]
 攻击时，双方都不可追击[X]
 
+
+## msg_SN_DoubleLion
+shi子连斩[X]
+## msg_SD_DoubleLion
+shi子连斩:[NL]
+满血状态下主动攻击[NL]
+获得勇者效果，战斗后HP-1[X]
+

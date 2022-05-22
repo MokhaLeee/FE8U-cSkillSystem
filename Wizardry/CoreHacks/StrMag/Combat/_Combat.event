@@ -10,9 +10,9 @@
 	SHORT 0009	// lsl r1,#0 */
 	
 	//Staff accuracy
-	ORG $2CCE2
+/* 	ORG $2CCE2
 	BL(prGotoMagGetter)
-	PROTECT $02CCDC $02CD62
+	PROTECT $02CCDC $02CD62 */
 	
 	//Healing amount
 	ORG $17012
@@ -44,7 +44,7 @@
 	jumpToHack(Arena_Fix3)
 	ORG $5849C
 	jumpToHack(Arena_Fix4)
-	PROTECT $0581EC $058842
+	// PROTECT $0581EC $058842
 	
 	POP
 	

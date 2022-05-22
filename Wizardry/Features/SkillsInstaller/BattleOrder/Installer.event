@@ -1,6 +1,7 @@
 
 // Src
 #include "Src/Infos.lyn.event"
+#include "Src/Core.lyn.event"
 
 /*
  *
@@ -15,6 +16,7 @@ InjectSkillInfo(SKILLID_Desperation, SkillInfo_Desperation)
 InjectSkillInfo(SKILLID_DesperationBat, SkillInfo_DesperationBat)
 InjectSkillInfo(SKILLID_QuickRiposte, SkillInfo_QuickRiposte)
 InjectSkillInfo(SKILLID_WaryFighter, SkillInfo_WaryFighter)
+InjectSkillInfo(SKILLID_DoubleLion, SkillInfo_DoubleLion)
 
 // Icons
 ALIGN 4
@@ -35,4 +37,6 @@ SI_QuickRiposte:
 
 SI_WaryFighter:
 	#incbin "Icons/WaryFighter.4bpp"
-	
+
+SI_DoubleLion:
+	#incbin "Icons/DoubleLion.4bpp"

@@ -39,7 +39,7 @@ int GetBattleUnitExpGain(struct BattleUnit* actor, struct BattleUnit* target) {
 		result = 1;
 
 	ModifyUnitSpecialExp(&actor->unit, &target->unit, &result);
-
+	result = 100;
 	return result;
 }
 

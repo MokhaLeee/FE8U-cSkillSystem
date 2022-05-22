@@ -342,1024 +342,1032 @@ __TEXTPROCESSD9E:
 setText($D9E, __TEXTPROCESSD9E)
 
 __TEXTPROCESSD9F:
-#incbin ".TextEntries\TextMain-cnmsg_SN_SwordBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_DoubleLion.fetxt.dmp"
 setText($D9F, __TEXTPROCESSD9F)
 
 __TEXTPROCESSDA0:
-#incbin ".TextEntries\TextMain-cnmsg_SD_SwordBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_DoubleLion.fetxt.dmp"
 setText($DA0, __TEXTPROCESSDA0)
 
 __TEXTPROCESSDA1:
-#incbin ".TextEntries\TextMain-cnmsg_SN_AxeBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_SwordBreaker.fetxt.dmp"
 setText($DA1, __TEXTPROCESSDA1)
 
 __TEXTPROCESSDA2:
-#incbin ".TextEntries\TextMain-cnmsg_SD_AxeBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_SwordBreaker.fetxt.dmp"
 setText($DA2, __TEXTPROCESSDA2)
 
 __TEXTPROCESSDA3:
-#incbin ".TextEntries\TextMain-cnmsg_SN_LanceBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_AxeBreaker.fetxt.dmp"
 setText($DA3, __TEXTPROCESSDA3)
 
 __TEXTPROCESSDA4:
-#incbin ".TextEntries\TextMain-cnmsg_SD_LanceBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_AxeBreaker.fetxt.dmp"
 setText($DA4, __TEXTPROCESSDA4)
 
 __TEXTPROCESSDA5:
-#incbin ".TextEntries\TextMain-cnmsg_SN_BowBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_LanceBreaker.fetxt.dmp"
 setText($DA5, __TEXTPROCESSDA5)
 
 __TEXTPROCESSDA6:
-#incbin ".TextEntries\TextMain-cnmsg_SD_BowBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_LanceBreaker.fetxt.dmp"
 setText($DA6, __TEXTPROCESSDA6)
 
 __TEXTPROCESSDA7:
-#incbin ".TextEntries\TextMain-cnmsg_SN_FistBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_BowBreaker.fetxt.dmp"
 setText($DA7, __TEXTPROCESSDA7)
 
 __TEXTPROCESSDA8:
-#incbin ".TextEntries\TextMain-cnmsg_SD_FistBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_BowBreaker.fetxt.dmp"
 setText($DA8, __TEXTPROCESSDA8)
 
 __TEXTPROCESSDA9:
-#incbin ".TextEntries\TextMain-cnmsg_SN_TomeBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_FistBreaker.fetxt.dmp"
 setText($DA9, __TEXTPROCESSDA9)
 
 __TEXTPROCESSDAA:
-#incbin ".TextEntries\TextMain-cnmsg_SD_TomeBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_FistBreaker.fetxt.dmp"
 setText($DAA, __TEXTPROCESSDAA)
 
 __TEXTPROCESSDAB:
-#incbin ".TextEntries\TextMain-cnmsg_SN_Lethality.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_TomeBreaker.fetxt.dmp"
 setText($DAB, __TEXTPROCESSDAB)
 
 __TEXTPROCESSDAC:
-#incbin ".TextEntries\TextMain-cnmsg_SD_Lethality.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_TomeBreaker.fetxt.dmp"
 setText($DAC, __TEXTPROCESSDAC)
 
 __TEXTPROCESSDAD:
-#incbin ".TextEntries\TextMain-cnmsg_SN_Crit.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_Lethality.fetxt.dmp"
 setText($DAD, __TEXTPROCESSDAD)
 
 __TEXTPROCESSDAE:
-#incbin ".TextEntries\TextMain-cnmsg_SD_Crit.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_Lethality.fetxt.dmp"
 setText($DAE, __TEXTPROCESSDAE)
 
 __TEXTPROCESSDAF:
-#incbin ".TextEntries\TextMain-cnmsg_SN_WatchfulEye.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_Crit.fetxt.dmp"
 setText($DAF, __TEXTPROCESSDAF)
 
 __TEXTPROCESSDB0:
-#incbin ".TextEntries\TextMain-cnmsg_SD_WatchfulEye.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_Crit.fetxt.dmp"
 setText($DB0, __TEXTPROCESSDB0)
 
 __TEXTPROCESSDB1:
-#incbin ".TextEntries\TextMain-cnmsg_SN_CritSword.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_WatchfulEye.fetxt.dmp"
 setText($DB1, __TEXTPROCESSDB1)
 
 __TEXTPROCESSDB2:
-#incbin ".TextEntries\TextMain-cnmsg_SD_CritSword.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_WatchfulEye.fetxt.dmp"
 setText($DB2, __TEXTPROCESSDB2)
 
 __TEXTPROCESSDB3:
-#incbin ".TextEntries\TextMain-cnmsg_SN_CritAxe.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_CritSword.fetxt.dmp"
 setText($DB3, __TEXTPROCESSDB3)
 
 __TEXTPROCESSDB4:
-#incbin ".TextEntries\TextMain-cnmsg_SD_CritAxe.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_CritSword.fetxt.dmp"
 setText($DB4, __TEXTPROCESSDB4)
 
 __TEXTPROCESSDB5:
-#incbin ".TextEntries\TextMain-cnmsg_SN_CritLance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_CritAxe.fetxt.dmp"
 setText($DB5, __TEXTPROCESSDB5)
 
 __TEXTPROCESSDB6:
-#incbin ".TextEntries\TextMain-cnmsg_SD_CritLance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_CritAxe.fetxt.dmp"
 setText($DB6, __TEXTPROCESSDB6)
 
 __TEXTPROCESSDB7:
-#incbin ".TextEntries\TextMain-cnmsg_SN_CritBow.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_CritLance.fetxt.dmp"
 setText($DB7, __TEXTPROCESSDB7)
 
 __TEXTPROCESSDB8:
-#incbin ".TextEntries\TextMain-cnmsg_SD_CritBow.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_CritLance.fetxt.dmp"
 setText($DB8, __TEXTPROCESSDB8)
 
 __TEXTPROCESSDB9:
-#incbin ".TextEntries\TextMain-cnmsg_SN_CritBMag.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_CritBow.fetxt.dmp"
 setText($DB9, __TEXTPROCESSDB9)
 
 __TEXTPROCESSDBA:
-#incbin ".TextEntries\TextMain-cnmsg_SD_CritBMag.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_CritBow.fetxt.dmp"
 setText($DBA, __TEXTPROCESSDBA)
 
 __TEXTPROCESSDBB:
-#incbin ".TextEntries\TextMain-cnmsg_SN_CritWMag.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_CritBMag.fetxt.dmp"
 setText($DBB, __TEXTPROCESSDBB)
 
 __TEXTPROCESSDBC:
-#incbin ".TextEntries\TextMain-cnmsg_SD_CritWMag.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_CritBMag.fetxt.dmp"
 setText($DBC, __TEXTPROCESSDBC)
 
 __TEXTPROCESSDBD:
-#incbin ".TextEntries\TextMain-cnmsg_SN_FaireSword.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_CritWMag.fetxt.dmp"
 setText($DBD, __TEXTPROCESSDBD)
 
 __TEXTPROCESSDBE:
-#incbin ".TextEntries\TextMain-cnmsg_SD_FaireSword.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_CritWMag.fetxt.dmp"
 setText($DBE, __TEXTPROCESSDBE)
 
 __TEXTPROCESSDBF:
-#incbin ".TextEntries\TextMain-cnmsg_SN_FaireLance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_FaireSword.fetxt.dmp"
 setText($DBF, __TEXTPROCESSDBF)
 
 __TEXTPROCESSDC0:
-#incbin ".TextEntries\TextMain-cnmsg_SD_FaireLance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_FaireSword.fetxt.dmp"
 setText($DC0, __TEXTPROCESSDC0)
 
 __TEXTPROCESSDC1:
-#incbin ".TextEntries\TextMain-cnmsg_SN_FaireAxe.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_FaireLance.fetxt.dmp"
 setText($DC1, __TEXTPROCESSDC1)
 
 __TEXTPROCESSDC2:
-#incbin ".TextEntries\TextMain-cnmsg_SD_FaireAxe.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_FaireLance.fetxt.dmp"
 setText($DC2, __TEXTPROCESSDC2)
 
 __TEXTPROCESSDC3:
-#incbin ".TextEntries\TextMain-cnmsg_SN_FaireBow.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_FaireAxe.fetxt.dmp"
 setText($DC3, __TEXTPROCESSDC3)
 
 __TEXTPROCESSDC4:
-#incbin ".TextEntries\TextMain-cnmsg_SD_FaireBow.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_FaireAxe.fetxt.dmp"
 setText($DC4, __TEXTPROCESSDC4)
 
 __TEXTPROCESSDC5:
-#incbin ".TextEntries\TextMain-cnmsg_SN_FaireBMag.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_FaireBow.fetxt.dmp"
 setText($DC5, __TEXTPROCESSDC5)
 
 __TEXTPROCESSDC6:
-#incbin ".TextEntries\TextMain-cnmsg_SD_FaireBMag.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_FaireBow.fetxt.dmp"
 setText($DC6, __TEXTPROCESSDC6)
 
 __TEXTPROCESSDC7:
-#incbin ".TextEntries\TextMain-cnmsg_SN_Avoid.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_FaireBMag.fetxt.dmp"
 setText($DC7, __TEXTPROCESSDC7)
 
 __TEXTPROCESSDC8:
-#incbin ".TextEntries\TextMain-cnmsg_SD_Avoid.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_FaireBMag.fetxt.dmp"
 setText($DC8, __TEXTPROCESSDC8)
 
 __TEXTPROCESSDC9:
-#incbin ".TextEntries\TextMain-cnmsg_SN_AvoidSword.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_Avoid.fetxt.dmp"
 setText($DC9, __TEXTPROCESSDC9)
 
 __TEXTPROCESSDCA:
-#incbin ".TextEntries\TextMain-cnmsg_SD_AvoidSword.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_Avoid.fetxt.dmp"
 setText($DCA, __TEXTPROCESSDCA)
 
 __TEXTPROCESSDCB:
-#incbin ".TextEntries\TextMain-cnmsg_SN_CloseCounter.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_AvoidSword.fetxt.dmp"
 setText($DCB, __TEXTPROCESSDCB)
 
 __TEXTPROCESSDCC:
-#incbin ".TextEntries\TextMain-cnmsg_SD_CloseCounter.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_AvoidSword.fetxt.dmp"
 setText($DCC, __TEXTPROCESSDCC)
 
 __TEXTPROCESSDCD:
-#incbin ".TextEntries\TextMain-cnmsg_SN_CounterAttack.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_CloseCounter.fetxt.dmp"
 setText($DCD, __TEXTPROCESSDCD)
 
 __TEXTPROCESSDCE:
-#incbin ".TextEntries\TextMain-cnmsg_SD_CounterAttack.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_CloseCounter.fetxt.dmp"
 setText($DCE, __TEXTPROCESSDCE)
 
 __TEXTPROCESSDCF:
-#incbin ".TextEntries\TextMain-cnmsg_SN_Canto.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_CounterAttack.fetxt.dmp"
 setText($DCF, __TEXTPROCESSDCF)
 
 __TEXTPROCESSDD0:
-#incbin ".TextEntries\TextMain-cnmsg_SD_Canto.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_CounterAttack.fetxt.dmp"
 setText($DD0, __TEXTPROCESSDD0)
 
 __TEXTPROCESSDD1:
-#incbin ".TextEntries\TextMain-cnmsg_SN_AlertStance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_Canto.fetxt.dmp"
 setText($DD1, __TEXTPROCESSDD1)
 
 __TEXTPROCESSDD2:
-#incbin ".TextEntries\TextMain-cnmsg_SD_AlertStance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_Canto.fetxt.dmp"
 setText($DD2, __TEXTPROCESSDD2)
 
 __TEXTPROCESSDD3:
-#incbin ".TextEntries\TextMain-cnmsg_SN_AlertStancePlus.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_AlertStance.fetxt.dmp"
 setText($DD3, __TEXTPROCESSDD3)
 
 __TEXTPROCESSDD4:
-#incbin ".TextEntries\TextMain-cnmsg_SD_AlertStancePlus.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_AlertStance.fetxt.dmp"
 setText($DD4, __TEXTPROCESSDD4)
 
 __TEXTPROCESSDD5:
-#incbin ".TextEntries\TextMain-cnmsg_SN_Renewal.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_AlertStancePlus.fetxt.dmp"
 setText($DD5, __TEXTPROCESSDD5)
 
 __TEXTPROCESSDD6:
-#incbin ".TextEntries\TextMain-cnmsg_SD_Renewal.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_AlertStancePlus.fetxt.dmp"
 setText($DD6, __TEXTPROCESSDD6)
 
 __TEXTPROCESSDD7:
-#incbin ".TextEntries\TextMain-cnmsg_SN_RallyStr.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_Renewal.fetxt.dmp"
 setText($DD7, __TEXTPROCESSDD7)
 
 __TEXTPROCESSDD8:
-#incbin ".TextEntries\TextMain-cnmsg_SD_RallyStr.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_Renewal.fetxt.dmp"
 setText($DD8, __TEXTPROCESSDD8)
 
 __TEXTPROCESSDD9:
-#incbin ".TextEntries\TextMain-cnmsg_SN_RallyMag.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_RallyStr.fetxt.dmp"
 setText($DD9, __TEXTPROCESSDD9)
 
 __TEXTPROCESSDDA:
-#incbin ".TextEntries\TextMain-cnmsg_SD_RallyMag.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_RallyStr.fetxt.dmp"
 setText($DDA, __TEXTPROCESSDDA)
 
 __TEXTPROCESSDDB:
-#incbin ".TextEntries\TextMain-cnmsg_SN_RallySkl.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_RallyMag.fetxt.dmp"
 setText($DDB, __TEXTPROCESSDDB)
 
 __TEXTPROCESSDDC:
-#incbin ".TextEntries\TextMain-cnmsg_SD_RallySkl.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_RallyMag.fetxt.dmp"
 setText($DDC, __TEXTPROCESSDDC)
 
 __TEXTPROCESSDDD:
-#incbin ".TextEntries\TextMain-cnmsg_SN_RallySpd.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_RallySkl.fetxt.dmp"
 setText($DDD, __TEXTPROCESSDDD)
 
 __TEXTPROCESSDDE:
-#incbin ".TextEntries\TextMain-cnmsg_SD_RallySpd.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_RallySkl.fetxt.dmp"
 setText($DDE, __TEXTPROCESSDDE)
 
 __TEXTPROCESSDDF:
-#incbin ".TextEntries\TextMain-cnmsg_SN_RallyLck.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_RallySpd.fetxt.dmp"
 setText($DDF, __TEXTPROCESSDDF)
 
 __TEXTPROCESSDE0:
-#incbin ".TextEntries\TextMain-cnmsg_SD_RallyLck.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_RallySpd.fetxt.dmp"
 setText($DE0, __TEXTPROCESSDE0)
 
 __TEXTPROCESSDE1:
-#incbin ".TextEntries\TextMain-cnmsg_SN_RallyDef.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_RallyLck.fetxt.dmp"
 setText($DE1, __TEXTPROCESSDE1)
 
 __TEXTPROCESSDE2:
-#incbin ".TextEntries\TextMain-cnmsg_SD_RallyDef.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_RallyLck.fetxt.dmp"
 setText($DE2, __TEXTPROCESSDE2)
 
 __TEXTPROCESSDE3:
-#incbin ".TextEntries\TextMain-cnmsg_SN_RallyRes.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_RallyDef.fetxt.dmp"
 setText($DE3, __TEXTPROCESSDE3)
 
 __TEXTPROCESSDE4:
-#incbin ".TextEntries\TextMain-cnmsg_SD_RallyRes.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_RallyDef.fetxt.dmp"
 setText($DE4, __TEXTPROCESSDE4)
 
 __TEXTPROCESSDE5:
-#incbin ".TextEntries\TextMain-cnmsg_SN_RallyMov.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_RallyRes.fetxt.dmp"
 setText($DE5, __TEXTPROCESSDE5)
 
 __TEXTPROCESSDE6:
-#incbin ".TextEntries\TextMain-cnmsg_SD_RallyMov.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_RallyRes.fetxt.dmp"
 setText($DE6, __TEXTPROCESSDE6)
 
 __TEXTPROCESSDE7:
-#incbin ".TextEntries\TextMain-cnmsg_SN_RallySpectrum.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_RallyMov.fetxt.dmp"
 setText($DE7, __TEXTPROCESSDE7)
 
 __TEXTPROCESSDE8:
-#incbin ".TextEntries\TextMain-cnmsg_SD_RallySpectrum.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_RallyMov.fetxt.dmp"
 setText($DE8, __TEXTPROCESSDE8)
 
 __TEXTPROCESSDE9:
-#incbin ".TextEntries\TextMain-cnmsg_SN_Dance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_RallySpectrum.fetxt.dmp"
 setText($DE9, __TEXTPROCESSDE9)
 
 __TEXTPROCESSDEA:
-#incbin ".TextEntries\TextMain-cnmsg_SD_Dance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_RallySpectrum.fetxt.dmp"
 setText($DEA, __TEXTPROCESSDEA)
 
 __TEXTPROCESSDEB:
-#incbin ".TextEntries\TextMain-cnmsg_SN_LockTouch.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_Dance.fetxt.dmp"
 setText($DEB, __TEXTPROCESSDEB)
 
 __TEXTPROCESSDEC:
-#incbin ".TextEntries\TextMain-cnmsg_SD_LockTouch.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_Dance.fetxt.dmp"
 setText($DEC, __TEXTPROCESSDEC)
 
 __TEXTPROCESSDED:
-#incbin ".TextEntries\TextMain-cnmsg_SN_Summon.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_LockTouch.fetxt.dmp"
 setText($DED, __TEXTPROCESSDED)
 
 __TEXTPROCESSDEE:
-#incbin ".TextEntries\TextMain-cnmsg_SD_Summon.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_LockTouch.fetxt.dmp"
 setText($DEE, __TEXTPROCESSDEE)
 
 __TEXTPROCESSDEF:
-#incbin ".TextEntries\TextMain-cnmsg_SN_Supply.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_Summon.fetxt.dmp"
 setText($DEF, __TEXTPROCESSDEF)
 
 __TEXTPROCESSDF0:
-#incbin ".TextEntries\TextMain-cnmsg_SD_Supply.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_Summon.fetxt.dmp"
 setText($DF0, __TEXTPROCESSDF0)
 
 __TEXTPROCESSDF1:
-#incbin ".TextEntries\TextMain-cnmsg_SN_Steal.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_Supply.fetxt.dmp"
 setText($DF1, __TEXTPROCESSDF1)
 
 __TEXTPROCESSDF2:
-#incbin ".TextEntries\TextMain-cnmsg_SD_Steal.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_Supply.fetxt.dmp"
 setText($DF2, __TEXTPROCESSDF2)
 
 __TEXTPROCESSDF3:
-#incbin ".TextEntries\TextMain-cnmsg_SN_RangeBonusBMag1.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_Steal.fetxt.dmp"
 setText($DF3, __TEXTPROCESSDF3)
 
 __TEXTPROCESSDF4:
-#incbin ".TextEntries\TextMain-cnmsg_SD_RangeBonusBMag1.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_Steal.fetxt.dmp"
 setText($DF4, __TEXTPROCESSDF4)
 
 __TEXTPROCESSDF5:
-#incbin ".TextEntries\TextMain-cnmsg_SN_RangeBonusBMag2.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_RangeBonusBMag1.fetxt.dmp"
 setText($DF5, __TEXTPROCESSDF5)
 
 __TEXTPROCESSDF6:
-#incbin ".TextEntries\TextMain-cnmsg_SD_RangeBonusBMag2.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_RangeBonusBMag1.fetxt.dmp"
 setText($DF6, __TEXTPROCESSDF6)
 
 __TEXTPROCESSDF7:
-#incbin ".TextEntries\TextMain-cnmsg_SN_RangeBonusBow1.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_RangeBonusBMag2.fetxt.dmp"
 setText($DF7, __TEXTPROCESSDF7)
 
 __TEXTPROCESSDF8:
-#incbin ".TextEntries\TextMain-cnmsg_SD_RangeBonusBow1.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_RangeBonusBMag2.fetxt.dmp"
 setText($DF8, __TEXTPROCESSDF8)
 
 __TEXTPROCESSDF9:
-#incbin ".TextEntries\TextMain-cnmsg_SN_RangeBonusBow2.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_RangeBonusBow1.fetxt.dmp"
 setText($DF9, __TEXTPROCESSDF9)
 
 __TEXTPROCESSDFA:
-#incbin ".TextEntries\TextMain-cnmsg_SD_RangeBonusBow2.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_RangeBonusBow1.fetxt.dmp"
 setText($DFA, __TEXTPROCESSDFA)
 
 __TEXTPROCESSDFB:
-#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantCrit.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_RangeBonusBow2.fetxt.dmp"
 setText($DFB, __TEXTPROCESSDFB)
 
 __TEXTPROCESSDFC:
-#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantCrit.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_RangeBonusBow2.fetxt.dmp"
 setText($DFC, __TEXTPROCESSDFC)
 
 __TEXTPROCESSDFD:
-#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantAvoid.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantCrit.fetxt.dmp"
 setText($DFD, __TEXTPROCESSDFD)
 
 __TEXTPROCESSDFE:
-#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantAvoid.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantCrit.fetxt.dmp"
 setText($DFE, __TEXTPROCESSDFE)
 
 __TEXTPROCESSDFF:
-#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantStr.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantAvoid.fetxt.dmp"
 setText($DFF, __TEXTPROCESSDFF)
 
 __TEXTPROCESSE00:
-#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantStr.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantAvoid.fetxt.dmp"
 setText($E00, __TEXTPROCESSE00)
 
 __TEXTPROCESSE01:
-#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantMag.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantStr.fetxt.dmp"
 setText($E01, __TEXTPROCESSE01)
 
 __TEXTPROCESSE02:
-#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantMag.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantStr.fetxt.dmp"
 setText($E02, __TEXTPROCESSE02)
 
 __TEXTPROCESSE03:
-#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantSkl.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantMag.fetxt.dmp"
 setText($E03, __TEXTPROCESSE03)
 
 __TEXTPROCESSE04:
-#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantSkl.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantMag.fetxt.dmp"
 setText($E04, __TEXTPROCESSE04)
 
 __TEXTPROCESSE05:
-#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantSpd.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantSkl.fetxt.dmp"
 setText($E05, __TEXTPROCESSE05)
 
 __TEXTPROCESSE06:
-#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantSpd.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantSkl.fetxt.dmp"
 setText($E06, __TEXTPROCESSE06)
 
 __TEXTPROCESSE07:
-#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantLck.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantSpd.fetxt.dmp"
 setText($E07, __TEXTPROCESSE07)
 
 __TEXTPROCESSE08:
-#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantLck.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantSpd.fetxt.dmp"
 setText($E08, __TEXTPROCESSE08)
 
 __TEXTPROCESSE09:
-#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantDef.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantLck.fetxt.dmp"
 setText($E09, __TEXTPROCESSE09)
 
 __TEXTPROCESSE0A:
-#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantDef.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantLck.fetxt.dmp"
 setText($E0A, __TEXTPROCESSE0A)
 
 __TEXTPROCESSE0B:
-#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantRes.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantDef.fetxt.dmp"
 setText($E0B, __TEXTPROCESSE0B)
 
 __TEXTPROCESSE0C:
-#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantRes.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantDef.fetxt.dmp"
 setText($E0C, __TEXTPROCESSE0C)
 
 __TEXTPROCESSE0D:
-#incbin ".TextEntries\TextMain-cnmsg_SN_Pass.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_DefiantRes.fetxt.dmp"
 setText($E0D, __TEXTPROCESSE0D)
 
 __TEXTPROCESSE0E:
-#incbin ".TextEntries\TextMain-cnmsg_SD_Pass.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_DefiantRes.fetxt.dmp"
 setText($E0E, __TEXTPROCESSE0E)
 
 __TEXTPROCESSE0F:
-#incbin ".TextEntries\TextMain-cnmsg_SN_LifeAndDeath.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_Pass.fetxt.dmp"
 setText($E0F, __TEXTPROCESSE0F)
 
 __TEXTPROCESSE10:
-#incbin ".TextEntries\TextMain-cnmsg_SD_LifeAndDeath.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_Pass.fetxt.dmp"
 setText($E10, __TEXTPROCESSE10)
 
 __TEXTPROCESSE11:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkillName.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SN_LifeAndDeath.fetxt.dmp"
 setText($E11, __TEXTPROCESSE11)
 
 __TEXTPROCESSE12:
-#incbin ".TextEntries\TextMain-cnmsg_PrepSkill_EquippableSkills.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_SD_LifeAndDeath.fetxt.dmp"
 setText($E12, __TEXTPROCESSE12)
 
 __TEXTPROCESSE13:
-#incbin ".TextEntries\TextMain-cnmsg_PrepSkill_ClassUnitSkills.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkillName.fetxt.dmp"
 setText($E13, __TEXTPROCESSE13)
 
 __TEXTPROCESSE14:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkillDesc.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepSkill_EquippableSkills.fetxt.dmp"
 setText($E14, __TEXTPROCESSE14)
 
 __TEXTPROCESSE15:
-#incbin ".TextEntries\TextMain-cnmsg_PrepSkillMenu_PickSkillName.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepSkill_ClassUnitSkills.fetxt.dmp"
 setText($E15, __TEXTPROCESSE15)
 
 __TEXTPROCESSE16:
-#incbin ".TextEntries\TextMain-cnmsg_PrepSkillMenu_PickSkillDesc.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkillDesc.fetxt.dmp"
 setText($E16, __TEXTPROCESSE16)
 
 __TEXTPROCESSE17:
-#incbin ".TextEntries\TextMain-cnmsg_PrepSkillMenu_PickCombatName.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepSkillMenu_PickSkillName.fetxt.dmp"
 setText($E17, __TEXTPROCESSE17)
 
 __TEXTPROCESSE18:
-#incbin ".TextEntries\TextMain-cnmsg_PrepSkillMenu_PickCombatDesc.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepSkillMenu_PickSkillDesc.fetxt.dmp"
 setText($E18, __TEXTPROCESSE18)
 
 __TEXTPROCESSE19:
-#incbin ".TextEntries\TextMain-cnmsg_PrepSkillMenu_PickBattalionName.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepSkillMenu_PickCombatName.fetxt.dmp"
 setText($E19, __TEXTPROCESSE19)
 
 __TEXTPROCESSE1A:
-#incbin ".TextEntries\TextMain-cnmsg_PrepSkillMenu_PickBattalionDesc.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepSkillMenu_PickCombatDesc.fetxt.dmp"
 setText($E1A, __TEXTPROCESSE1A)
 
 __TEXTPROCESSE1B:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_FailAddSkill.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepSkillMenu_PickBattalionName.fetxt.dmp"
 setText($E1B, __TEXTPROCESSE1B)
 
 __TEXTPROCESSE1C:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_TryRemoveSkill.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepSkillMenu_PickBattalionDesc.fetxt.dmp"
 setText($E1C, __TEXTPROCESSE1C)
 
 __TEXTPROCESSE1D:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_TryAddSkill.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_FailAddSkill.fetxt.dmp"
 setText($E1D, __TEXTPROCESSE1D)
 
 __TEXTPROCESSE1E:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_TryReplaceSkill.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_TryRemoveSkill.fetxt.dmp"
 setText($E1E, __TEXTPROCESSE1E)
 
 __TEXTPROCESSE1F:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Pick.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_TryAddSkill.fetxt.dmp"
 setText($E1F, __TEXTPROCESSE1F)
 
 __TEXTPROCESSE20:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Total.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_TryReplaceSkill.fetxt.dmp"
 setText($E20, __TEXTPROCESSE20)
 
 __TEXTPROCESSE21:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_None.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Pick.fetxt.dmp"
 setText($E21, __TEXTPROCESSE21)
 
 __TEXTPROCESSE22:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Equipped.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Total.fetxt.dmp"
 setText($E22, __TEXTPROCESSE22)
 
 __TEXTPROCESSE23:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Phys.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_None.fetxt.dmp"
 setText($E23, __TEXTPROCESSE23)
 
 __TEXTPROCESSE24:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Mag.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Equipped.fetxt.dmp"
 setText($E24, __TEXTPROCESSE24)
 
 __TEXTPROCESSE25:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Cost.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Phys.fetxt.dmp"
 setText($E25, __TEXTPROCESSE25)
 
 __TEXTPROCESSE26:
-#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Eff.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Mag.fetxt.dmp"
 setText($E26, __TEXTPROCESSE26)
 
 __TEXTPROCESSE27:
-#incbin ".TextEntries\TextMain-cnmsg_umCAname.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Cost.fetxt.dmp"
 setText($E27, __TEXTPROCESSE27)
 
 __TEXTPROCESSE28:
-#incbin ".TextEntries\TextMain-cnmsg_umCAdesc.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_PrepPickSkill_Eff.fetxt.dmp"
 setText($E28, __TEXTPROCESSE28)
 
 __TEXTPROCESSE29:
-#incbin ".TextEntries\TextMain-cnmsg_umCAGrayBox.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_umCAname.fetxt.dmp"
 setText($E29, __TEXTPROCESSE29)
 
 __TEXTPROCESSE2A:
-#incbin ".TextEntries\TextMain-cnmsg_umCAselectGrayBox.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_umCAdesc.fetxt.dmp"
 setText($E2A, __TEXTPROCESSE2A)
 
 __TEXTPROCESSE2B:
-#incbin ".TextEntries\TextMain-cnmsg_Bksel_NoCAWarning.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_umCAGrayBox.fetxt.dmp"
 setText($E2B, __TEXTPROCESSE2B)
 
 __TEXTPROCESSE2C:
-#incbin ".TextEntries\TextMain-cnmsg_Bksel_NotUseCA.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_umCAselectGrayBox.fetxt.dmp"
 setText($E2C, __TEXTPROCESSE2C)
 
 __TEXTPROCESSE2D:
-#incbin ".TextEntries\TextMain-cnmsg_CA_MagAtk.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_Bksel_NoCAWarning.fetxt.dmp"
 setText($E2D, __TEXTPROCESSE2D)
 
 __TEXTPROCESSE2E:
-#incbin ".TextEntries\TextMain-cnmsg_CA_PhyAtk.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_Bksel_NotUseCA.fetxt.dmp"
 setText($E2E, __TEXTPROCESSE2E)
 
 __TEXTPROCESSE2F:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_WrathStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CA_MagAtk.fetxt.dmp"
 setText($E2F, __TEXTPROCESSE2F)
 
 __TEXTPROCESSE30:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_WrathStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CA_PhyAtk.fetxt.dmp"
 setText($E30, __TEXTPROCESSE30)
 
 __TEXTPROCESSE31:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Grounder.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_WrathStrike.fetxt.dmp"
 setText($E31, __TEXTPROCESSE31)
 
 __TEXTPROCESSE32:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Grounder.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_WrathStrike.fetxt.dmp"
 setText($E32, __TEXTPROCESSE32)
 
 __TEXTPROCESSE33:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Soulblade.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Grounder.fetxt.dmp"
 setText($E33, __TEXTPROCESSE33)
 
 __TEXTPROCESSE34:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Soulblade.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Grounder.fetxt.dmp"
 setText($E34, __TEXTPROCESSE34)
 
 __TEXTPROCESSE35:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_BaneOfMonsters.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Soulblade.fetxt.dmp"
 setText($E35, __TEXTPROCESSE35)
 
 __TEXTPROCESSE36:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_BaneOfMonsters.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Soulblade.fetxt.dmp"
 setText($E36, __TEXTPROCESSE36)
 
 __TEXTPROCESSE37:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Sunder.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_BaneOfMonsters.fetxt.dmp"
 setText($E37, __TEXTPROCESSE37)
 
 __TEXTPROCESSE38:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Sunder.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_BaneOfMonsters.fetxt.dmp"
 setText($E38, __TEXTPROCESSE38)
 
 __TEXTPROCESSE39:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_HazeSlice.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Sunder.fetxt.dmp"
 setText($E39, __TEXTPROCESSE39)
 
 __TEXTPROCESSE3A:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_HazeSlice.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Sunder.fetxt.dmp"
 setText($E3A, __TEXTPROCESSE3A)
 
 __TEXTPROCESSE3B:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Hexblade.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_HazeSlice.fetxt.dmp"
 setText($E3B, __TEXTPROCESSE3B)
 
 __TEXTPROCESSE3C:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Hexblade.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_HazeSlice.fetxt.dmp"
 setText($E3C, __TEXTPROCESSE3C)
 
 __TEXTPROCESSE3D:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_FinesseBlade.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Hexblade.fetxt.dmp"
 setText($E3D, __TEXTPROCESSE3D)
 
 __TEXTPROCESSE3E:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_FinesseBlade.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Hexblade.fetxt.dmp"
 setText($E3E, __TEXTPROCESSE3E)
 
 __TEXTPROCESSE3F:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Windsweep.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_FinesseBlade.fetxt.dmp"
 setText($E3F, __TEXTPROCESSE3F)
 
 __TEXTPROCESSE40:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Windsweep.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_FinesseBlade.fetxt.dmp"
 setText($E40, __TEXTPROCESSE40)
 
 __TEXTPROCESSE41:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_SwordDance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Windsweep.fetxt.dmp"
 setText($E41, __TEXTPROCESSE41)
 
 __TEXTPROCESSE42:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_SwordDance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Windsweep.fetxt.dmp"
 setText($E42, __TEXTPROCESSE42)
 
 __TEXTPROCESSE43:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Assassinate.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_SwordDance.fetxt.dmp"
 setText($E43, __TEXTPROCESSE43)
 
 __TEXTPROCESSE44:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Assassinate.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_SwordDance.fetxt.dmp"
 setText($E44, __TEXTPROCESSE44)
 
 __TEXTPROCESSE45:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Subdue.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Assassinate.fetxt.dmp"
 setText($E45, __TEXTPROCESSE45)
 
 __TEXTPROCESSE46:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Subdue.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Assassinate.fetxt.dmp"
 setText($E46, __TEXTPROCESSE46)
 
 __TEXTPROCESSE47:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_FoudroyantStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Subdue.fetxt.dmp"
 setText($E47, __TEXTPROCESSE47)
 
 __TEXTPROCESSE48:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_FoudroyantStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Subdue.fetxt.dmp"
 setText($E48, __TEXTPROCESSE48)
 
 __TEXTPROCESSE49:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_SublimeHeaven.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_FoudroyantStrike.fetxt.dmp"
 setText($E49, __TEXTPROCESSE49)
 
 __TEXTPROCESSE4A:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_SublimeHeaven.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_FoudroyantStrike.fetxt.dmp"
 setText($E4A, __TEXTPROCESSE4A)
 
 __TEXTPROCESSE4B:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_RupturedHeaven.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_SublimeHeaven.fetxt.dmp"
 setText($E4B, __TEXTPROCESSE4B)
 
 __TEXTPROCESSE4C:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_RupturedHeaven.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_SublimeHeaven.fetxt.dmp"
 setText($E4C, __TEXTPROCESSE4C)
 
 __TEXTPROCESSE4D:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_HeavensFall.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_RupturedHeaven.fetxt.dmp"
 setText($E4D, __TEXTPROCESSE4D)
 
 __TEXTPROCESSE4E:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_HeavensFall.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_RupturedHeaven.fetxt.dmp"
 setText($E4E, __TEXTPROCESSE4E)
 
 __TEXTPROCESSE4F:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_TempestLance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_HeavensFall.fetxt.dmp"
 setText($E4F, __TEXTPROCESSE4F)
 
 __TEXTPROCESSE50:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_TempestLance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_HeavensFall.fetxt.dmp"
 setText($E50, __TEXTPROCESSE50)
 
 __TEXTPROCESSE51:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Knightkneeler.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_TempestLance.fetxt.dmp"
 setText($E51, __TEXTPROCESSE51)
 
 __TEXTPROCESSE52:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Knightkneeler.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_TempestLance.fetxt.dmp"
 setText($E52, __TEXTPROCESSE52)
 
 __TEXTPROCESSE53:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_ShatterSlash.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Knightkneeler.fetxt.dmp"
 setText($E53, __TEXTPROCESSE53)
 
 __TEXTPROCESSE54:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_ShatterSlash.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Knightkneeler.fetxt.dmp"
 setText($E54, __TEXTPROCESSE54)
 
 __TEXTPROCESSE55:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_MonsterPiercer.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_ShatterSlash.fetxt.dmp"
 setText($E55, __TEXTPROCESSE55)
 
 __TEXTPROCESSE56:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_MonsterPiercer.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_ShatterSlash.fetxt.dmp"
 setText($E56, __TEXTPROCESSE56)
 
 __TEXTPROCESSE57:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_HitAndRun.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_MonsterPiercer.fetxt.dmp"
 setText($E57, __TEXTPROCESSE57)
 
 __TEXTPROCESSE58:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_HitAndRun.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_MonsterPiercer.fetxt.dmp"
 setText($E58, __TEXTPROCESSE58)
 
 __TEXTPROCESSE59:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_SwiftStrikes.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_HitAndRun.fetxt.dmp"
 setText($E59, __TEXTPROCESSE59)
 
 __TEXTPROCESSE5A:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_SwiftStrikes.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_HitAndRun.fetxt.dmp"
 setText($E5A, __TEXTPROCESSE5A)
 
 __TEXTPROCESSE5B:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_FrozenLance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_SwiftStrikes.fetxt.dmp"
 setText($E5B, __TEXTPROCESSE5B)
 
 __TEXTPROCESSE5C:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_FrozenLance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_SwiftStrikes.fetxt.dmp"
 setText($E5C, __TEXTPROCESSE5C)
 
 __TEXTPROCESSE5D:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_GlowingEmber.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_FrozenLance.fetxt.dmp"
 setText($E5D, __TEXTPROCESSE5D)
 
 __TEXTPROCESSE5E:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_GlowingEmber.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_FrozenLance.fetxt.dmp"
 setText($E5E, __TEXTPROCESSE5E)
 
 __TEXTPROCESSE5F:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Vengeance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_GlowingEmber.fetxt.dmp"
 setText($E5F, __TEXTPROCESSE5F)
 
 __TEXTPROCESSE60:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Vengeance.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_GlowingEmber.fetxt.dmp"
 setText($E60, __TEXTPROCESSE60)
 
 __TEXTPROCESSE61:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_LanceJab.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Vengeance.fetxt.dmp"
 setText($E61, __TEXTPROCESSE61)
 
 __TEXTPROCESSE62:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_LanceJab.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Vengeance.fetxt.dmp"
 setText($E62, __TEXTPROCESSE62)
 
 __TEXTPROCESSE63:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Smash.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_LanceJab.fetxt.dmp"
 setText($E63, __TEXTPROCESSE63)
 
 __TEXTPROCESSE64:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Smash.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_LanceJab.fetxt.dmp"
 setText($E64, __TEXTPROCESSE64)
 
 __TEXTPROCESSE65:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_HelmSplitter.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Smash.fetxt.dmp"
 setText($E65, __TEXTPROCESSE65)
 
 __TEXTPROCESSE66:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_HelmSplitter.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Smash.fetxt.dmp"
 setText($E66, __TEXTPROCESSE66)
 
 __TEXTPROCESSE67:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_MonsterBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_HelmSplitter.fetxt.dmp"
 setText($E67, __TEXTPROCESSE67)
 
 __TEXTPROCESSE68:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_MonsterBreaker.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_HelmSplitter.fetxt.dmp"
 setText($E68, __TEXTPROCESSE68)
 
 __TEXTPROCESSE69:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_FocusedStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_MonsterBreaker.fetxt.dmp"
 setText($E69, __TEXTPROCESSE69)
 
 __TEXTPROCESSE6A:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_FocusedStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_MonsterBreaker.fetxt.dmp"
 setText($E6A, __TEXTPROCESSE6A)
 
 __TEXTPROCESSE6B:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_WildAbandon.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_FocusedStrike.fetxt.dmp"
 setText($E6B, __TEXTPROCESSE6B)
 
 __TEXTPROCESSE6C:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_WildAbandon.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_FocusedStrike.fetxt.dmp"
 setText($E6C, __TEXTPROCESSE6C)
 
 __TEXTPROCESSE6D:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Spike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_WildAbandon.fetxt.dmp"
 setText($E6D, __TEXTPROCESSE6D)
 
 __TEXTPROCESSE6E:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Spike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_WildAbandon.fetxt.dmp"
 setText($E6E, __TEXTPROCESSE6E)
 
 __TEXTPROCESSE6F:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_DiamondAxe.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Spike.fetxt.dmp"
 setText($E6F, __TEXTPROCESSE6F)
 
 __TEXTPROCESSE70:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_DiamondAxe.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Spike.fetxt.dmp"
 setText($E70, __TEXTPROCESSE70)
 
 __TEXTPROCESSE71:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_LightningAxe.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_DiamondAxe.fetxt.dmp"
 setText($E71, __TEXTPROCESSE71)
 
 __TEXTPROCESSE72:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_LightningAxe.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_DiamondAxe.fetxt.dmp"
 setText($E72, __TEXTPROCESSE72)
 
 __TEXTPROCESSE73:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_ArmoredStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_LightningAxe.fetxt.dmp"
 setText($E73, __TEXTPROCESSE73)
 
 __TEXTPROCESSE74:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_ArmoredStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_LightningAxe.fetxt.dmp"
 setText($E74, __TEXTPROCESSE74)
 
 __TEXTPROCESSE75:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_WarMasterStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_ArmoredStrike.fetxt.dmp"
 setText($E75, __TEXTPROCESSE75)
 
 __TEXTPROCESSE76:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_WarMasterStrike.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_ArmoredStrike.fetxt.dmp"
 setText($E76, __TEXTPROCESSE76)
 
 __TEXTPROCESSE77:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_FlickeringFlower.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_WarMasterStrike.fetxt.dmp"
 setText($E77, __TEXTPROCESSE77)
 
 __TEXTPROCESSE78:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_FlickeringFlower.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_WarMasterStrike.fetxt.dmp"
 setText($E78, __TEXTPROCESSE78)
 
 __TEXTPROCESSE79:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_CurvedShot.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_FlickeringFlower.fetxt.dmp"
 setText($E79, __TEXTPROCESSE79)
 
 __TEXTPROCESSE7A:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_CurvedShot.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_FlickeringFlower.fetxt.dmp"
 setText($E7A, __TEXTPROCESSE7A)
 
 __TEXTPROCESSE7B:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Deadeye.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_CurvedShot.fetxt.dmp"
 setText($E7B, __TEXTPROCESSE7B)
 
 __TEXTPROCESSE7C:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Deadeye.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_CurvedShot.fetxt.dmp"
 setText($E7C, __TEXTPROCESSE7C)
 
 __TEXTPROCESSE7D:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_Encloser.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Deadeye.fetxt.dmp"
 setText($E7D, __TEXTPROCESSE7D)
 
 __TEXTPROCESSE7E:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_Encloser.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Deadeye.fetxt.dmp"
 setText($E7E, __TEXTPROCESSE7E)
 
 __TEXTPROCESSE7F:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_HeavyDraw.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_Encloser.fetxt.dmp"
 setText($E7F, __TEXTPROCESSE7F)
 
 __TEXTPROCESSE80:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_HeavyDraw.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_Encloser.fetxt.dmp"
 setText($E80, __TEXTPROCESSE80)
 
 __TEXTPROCESSE81:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_MonsterBlast.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_HeavyDraw.fetxt.dmp"
 setText($E81, __TEXTPROCESSE81)
 
 __TEXTPROCESSE82:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_MonsterBlast.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_HeavyDraw.fetxt.dmp"
 setText($E82, __TEXTPROCESSE82)
 
 __TEXTPROCESSE83:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_SchismShot.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_MonsterBlast.fetxt.dmp"
 setText($E83, __TEXTPROCESSE83)
 
 __TEXTPROCESSE84:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_SchismShot.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_MonsterBlast.fetxt.dmp"
 setText($E84, __TEXTPROCESSE84)
 
 __TEXTPROCESSE85:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_BreakShot.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_SchismShot.fetxt.dmp"
 setText($E85, __TEXTPROCESSE85)
 
 __TEXTPROCESSE86:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_BreakShot.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_SchismShot.fetxt.dmp"
 setText($E86, __TEXTPROCESSE86)
 
 __TEXTPROCESSE87:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_WaningShot.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_BreakShot.fetxt.dmp"
 setText($E87, __TEXTPROCESSE87)
 
 __TEXTPROCESSE88:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_WaningShot.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_BreakShot.fetxt.dmp"
 setText($E88, __TEXTPROCESSE88)
 
 __TEXTPROCESSE89:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_PointBlankVolley.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_WaningShot.fetxt.dmp"
 setText($E89, __TEXTPROCESSE89)
 
 __TEXTPROCESSE8A:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_PointBlankVolley.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_WaningShot.fetxt.dmp"
 setText($E8A, __TEXTPROCESSE8A)
 
 __TEXTPROCESSE8B:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_WardArrow.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_PointBlankVolley.fetxt.dmp"
 setText($E8B, __TEXTPROCESSE8B)
 
 __TEXTPROCESSE8C:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_WardArrow.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_PointBlankVolley.fetxt.dmp"
 setText($E8C, __TEXTPROCESSE8C)
 
 __TEXTPROCESSE8D:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_HuntersVolley.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_WardArrow.fetxt.dmp"
 setText($E8D, __TEXTPROCESSE8D)
 
 __TEXTPROCESSE8E:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_HuntersVolley.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_WardArrow.fetxt.dmp"
 setText($E8E, __TEXTPROCESSE8E)
 
 __TEXTPROCESSE8F:
-#incbin ".TextEntries\TextMain-cnmsg_CAN_EncloserPlus.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_HuntersVolley.fetxt.dmp"
 setText($E8F, __TEXTPROCESSE8F)
 
 __TEXTPROCESSE90:
-#incbin ".TextEntries\TextMain-cnmsg_CAD_EncloserPlus.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_HuntersVolley.fetxt.dmp"
 setText($E90, __TEXTPROCESSE90)
 
 __TEXTPROCESSE91:
-#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_Gravity.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAN_EncloserPlus.fetxt.dmp"
 setText($E91, __TEXTPROCESSE91)
 
 __TEXTPROCESSE92:
-#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_Gravity.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_CAD_EncloserPlus.fetxt.dmp"
 setText($E92, __TEXTPROCESSE92)
 
 __TEXTPROCESSE93:
-#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_ExposeDef.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_Gravity.fetxt.dmp"
 setText($E93, __TEXTPROCESSE93)
 
 __TEXTPROCESSE94:
-#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_ExposeDef.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_Gravity.fetxt.dmp"
 setText($E94, __TEXTPROCESSE94)
 
 __TEXTPROCESSE95:
-#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_ExposeRes.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_ExposeDef.fetxt.dmp"
 setText($E95, __TEXTPROCESSE95)
 
 __TEXTPROCESSE96:
-#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_ExposeRes.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_ExposeDef.fetxt.dmp"
 setText($E96, __TEXTPROCESSE96)
 
 __TEXTPROCESSE97:
-#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_Weaken.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_ExposeRes.fetxt.dmp"
 setText($E97, __TEXTPROCESSE97)
 
 __TEXTPROCESSE98:
-#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_Weaken.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_ExposeRes.fetxt.dmp"
 setText($E98, __TEXTPROCESSE98)
 
 __TEXTPROCESSE99:
-#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_Avoid.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_Weaken.fetxt.dmp"
 setText($E99, __TEXTPROCESSE99)
 
 __TEXTPROCESSE9A:
-#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_Avoid.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_Weaken.fetxt.dmp"
 setText($E9A, __TEXTPROCESSE9A)
 
 __TEXTPROCESSE9B:
-#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_AvoidPlus.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_Avoid.fetxt.dmp"
 setText($E9B, __TEXTPROCESSE9B)
 
 __TEXTPROCESSE9C:
-#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_AvoidPlus.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_Avoid.fetxt.dmp"
 setText($E9C, __TEXTPROCESSE9C)
 
 __TEXTPROCESSE9D:
-#incbin ".TextEntries\TextMain-cnmsg_end.fetxt.dmp"
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusName_AvoidPlus.fetxt.dmp"
 setText($E9D, __TEXTPROCESSE9D)
+
+__TEXTPROCESSE9E:
+#incbin ".TextEntries\TextMain-cnmsg_UnitStatusDesc_AvoidPlus.fetxt.dmp"
+setText($E9E, __TEXTPROCESSE9E)
+
+__TEXTPROCESSE9F:
+#incbin ".TextEntries\TextMain-cnmsg_end.fetxt.dmp"
+setText($E9F, __TEXTPROCESSE9F)
 
 }
 

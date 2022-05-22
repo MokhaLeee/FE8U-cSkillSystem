@@ -1,0 +1,57 @@
+#ifndef C_SKILLSYS_ANIME_CORE
+#define C_SKILLSYS_ANIME_CORE
+
+
+
+// Judge for whether call for Ekr anime or map anime
+
+#include "JudgeMapOrEkr/JudgeMapOrEkr.lyn.event"
+
+PUSH
+	ORG $55BC4
+	jumpToHack(JudgeCallEkrOrMapAnim)
+	PROTECT $055BC4 $055BD4
+POP
+
+
+
+
+// ====================================================
+//                       Skill Anim
+// ====================================================
+
+#include "SkillAnimActivition/SkillAnimOn.lyn.event"
+#include "SkillAnimActivition/SkillAnimOnASM.lyn.event"
+
+PUSH
+	ORG $59048
+	jumpToHack(SkillActivationAnims)
+	
+	// Make defensive skill use opponent's x-location.
+	// Replace proc loop with proc call (can yield).
+	// This means we no longer have to break proc loop,
+	// allowing us to replace the call to breakProcLoop
+	// with a call to getTargetAIS.
+	// Originally the proc loop would immediately break.
+	// It seems whoever designed battle animation stuff
+	// didn't know about proc call.
+	ORG $5D9408
+		BYTE 0x16
+	ORG $6E614
+		WORD 0xF7EB6DE0 0x2302FE4D 0x48055E1A
+		WORD 0x21802301 0xF0040049 0x2000F9BD
+		WORD 0xBC02BC10 0x00004708
+
+POP
+
+#include "SkillAnimActivition/SkillBox-SkillSystemFE8/SkillProcDisplay.lyn.event"
+
+ALIGN 4
+SPD_ProcDisplayTiles:
+	#incbin "SkillAnimActivition/data/ProcDisplayTiles.4bpp.lz"
+
+
+
+
+
+#endif // C_SKILLSYS_ANIME_CORE

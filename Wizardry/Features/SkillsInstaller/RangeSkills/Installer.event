@@ -8,6 +8,9 @@ InjectSkillInfo(SKILLID_RangeBonusBMag2, SkillInfo_RangeBonusBMag2)
 InjectSkillInfo(SKILLID_RangeBonusBow1, SkillInfo_RangeBonusBow1)
 InjectSkillInfo(SKILLID_RangeBonusBow2, SkillInfo_RangeBonusBow2)
 
+InjectSkillInfo(SKILLID_RangeBonusBMag1_ext, SkillInfo_RangeBonusBMag1)
+InjectSkillInfo(SKILLID_RangeBonusBow1_ext, SkillInfo_RangeBonusBow1)
+
 ALIGN 4
 SI_RangeBonusBMag1:
 	#incbin "Icons/RangeBonusBMag1.4bpp"
