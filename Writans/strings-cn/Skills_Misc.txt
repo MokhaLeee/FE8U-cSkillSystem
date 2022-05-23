@@ -6,9 +6,3 @@
 可穿越敌方单位所在区域[X]
 
 
-## msg_SN_LifeAndDeath
-死线[X]
-
-## msg_SD_LifeAndDeath
-死线:[NL]
-力量与魔力+5，双抗-5[X]

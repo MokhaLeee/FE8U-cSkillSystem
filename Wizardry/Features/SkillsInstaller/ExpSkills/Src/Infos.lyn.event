@@ -1,0 +1,9 @@
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$0;SkillInfo_RoyalLineage:
+ORG CURRENTOFFSET+$8;SkillInfo_Discipline:
+POP
+WORD $E2F0E30
+POIN SI_RoyalLineage
+WORD $E2D0E2E
+POIN SI_Discipline

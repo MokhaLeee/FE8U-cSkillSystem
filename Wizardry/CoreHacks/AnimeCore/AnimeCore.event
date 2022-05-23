@@ -23,6 +23,19 @@ POP
 #include "SkillAnimActivition/SkillAnimOn.lyn.event"
 #include "SkillAnimActivition/SkillAnimOnASM.lyn.event"
 
+ALIGN 4
+SkillAnimationTable:
+	FILL 0x100 * 4
+
+CombatArtAnimationTable:
+	FILL 0x100 * 4
+
+#define InjectSkillAnimation(SkillID,function) " PUSH; ORG (SkillAnimationTable + (4*SkillID)); POIN function|1; POP"
+
+#define InjectCombatArtAnimation(index, function) " PUSH; ORG (CombatArtAnimationTable + (4*index)); POIN function|1; POP"
+
+
+
 PUSH
 	ORG $59048
 	jumpToHack(SkillActivationAnims)

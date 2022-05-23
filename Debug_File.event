@@ -46,7 +46,10 @@ PUSH
 	BYTE $A5
 	
 	ORG $80A309
-	BYTE $35		// Weapon range of Fire
+	// BYTE $35		// Weapon range of Fire
+	
+	ORG $80A2F8
+	BYTE $23		// Fire attack twice
 	
 	ORG $8AEBB4
 	BYTE $F1		// Eirika support with Seth

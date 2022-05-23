@@ -1,7 +1,25 @@
 #include "gbafe-chax.h"
 
+int CheckSkillDoubleLion(struct BattleUnit*);
+int CheckSkillRuinedBladePlus(struct BattleUnit*);
+
 // For DoubleLion: BattleOrder/HitCountCalc
-int HitCountCalc_SkillDoubleLion(struct BattleUnit* actor, int cur){
+int HitCountCalc_OrderSkills(struct BattleUnit* actor, int cur){
+	
+	// attacker cannot use brave if use combat-art
+	if( CheckSkillDoubleLion(actor) )
+		cur++;
+
+	
+	if( CheckSkillRuinedBladePlus(actor) )
+		cur++;
+		
+	return cur;
+	
+}
+
+
+int CheckSkillDoubleLion(struct BattleUnit* actor){
 	
 	struct Unit* unit_act = GetUnit(actor->unit.index);
 	
@@ -9,8 +27,10 @@ int HitCountCalc_SkillDoubleLion(struct BattleUnit* actor, int cur){
 	if( &gBattleActor == actor )
 		if( (*SkillTester)(unit_act, SID_DoubleLion) )
 			if( GetUnitCurrentHp(unit_act) == GetUnitMaxHp(unit_act) )
-				return cur + 2;
+				return 1;
 	
-	return cur;
-	
+	return 0;
+}
+int CheckSkillRuinedBladePlus(struct BattleUnit* actor){
+	return (*SkillTester)(&actor->unit, SID_RuinedBladePlus);
 }

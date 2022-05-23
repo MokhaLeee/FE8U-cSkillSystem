@@ -84,16 +84,53 @@ void BKSEL_SetupHitAndSuchStats(struct Proc_BKSEL *proc){
 	}
 	
 	
+	
+	
+	
+	
+	// For real-dmg, here we make a battle calc
+	gBattleActor.battleAttack -= gBattleTarget.battleDefense;
+	gBattleTarget.battleAttack -= gBattleActor.battleDefense;
+	gBattleTarget.battleDefense = 0;
+	gBattleActor.battleDefense = 0;
+	
+	// Minus zero
+	if( gBattleActor.battleAttack < 0 )
+		gBattleActor.battleAttack = 0;
+	if( gBattleTarget.battleAttack < 0 )
+		gBattleTarget.battleAttack = 0;
+	
+	// For real-dmg
+	
+	// RuinedBlade
+	if( (*SkillTester)(&gBattleActor.unit, SID_RuinedBlade) )
+		gBattleActor.battleAttack += 5;
+	if( (*SkillTester)(&gBattleTarget.unit, SID_RuinedBlade) )
+		gBattleTarget.battleAttack += 5;
+	
+	// RuinedBladePlus
+	if( (*SkillTester)(&gBattleActor.unit, SID_RuinedBladePlus) )
+		gBattleActor.battleAttack += 5;
+	if( (*SkillTester)(&gBattleTarget.unit, SID_RuinedBladePlus) )
+		gBattleTarget.battleAttack += 5;
+	
+	// FlashingBladePlus
+	if( (*SkillTester)(&gBattleActor.unit, SID_FlashingBladePlus) )
+		gBattleActor.battleAttack += 3;
+	if( (*SkillTester)(&gBattleTarget.unit, SID_FlashingBladePlus) )
+		gBattleTarget.battleAttack += 3;
+	
+
+	
+	
+	
+	
 	// For Object x2x4
-	extern const u8 Gfx_BkSel[11][0x40];
+	extern const u8 Gfx_BkSel[12][0x80];
 	
 	switch(proc->act_hit){
 		case 0:
 		case 1:
-			CopyTileGfxForObj(Gfx_BkSel[0], OBJ_VRAM0 + 0x5D00, 1, 2);
-			CopyTileGfxForObj(Gfx_BkSel[0], OBJ_VRAM0 + 0x5D20, 1, 2);
-			break;
-		
 		case 2:
 		case 3:
 		case 4:
@@ -102,23 +139,17 @@ void BKSEL_SetupHitAndSuchStats(struct Proc_BKSEL *proc){
 		case 7:
 		case 8:
 		case 9:
-			CopyTileGfxForObj(Gfx_BkSel[1], OBJ_VRAM0 + 0x5D00, 1, 2);
-			CopyTileGfxForObj(Gfx_BkSel[proc->act_hit], OBJ_VRAM0 + 0x5D20, 1, 2);
+			CopyTileGfxForObj(Gfx_BkSel[ proc->act_hit ], OBJ_VRAM0 + 0x5D00, 2, 2);
 			break;
 		
 		default:
-			CopyTileGfxForObj(Gfx_BkSel[1], OBJ_VRAM0 + 0x5D00, 1, 2);
-			CopyTileGfxForObj(Gfx_BkSel[10], OBJ_VRAM0 + 0x5D20, 1, 2);
+			CopyTileGfxForObj(Gfx_BkSel[10], OBJ_VRAM0 + 0x5D00, 2, 2);
 			break;
 	};
 	
 	switch(proc->tar_hit){
 		case 0:
 		case 1:
-			CopyTileGfxForObj(Gfx_BkSel[0], OBJ_VRAM0 + 0x5D40, 1, 2);
-			CopyTileGfxForObj(Gfx_BkSel[0], OBJ_VRAM0 + 0x5D60, 1, 2);
-			break;
-		
 		case 2:
 		case 3:
 		case 4:
@@ -127,13 +158,11 @@ void BKSEL_SetupHitAndSuchStats(struct Proc_BKSEL *proc){
 		case 7:
 		case 8:
 		case 9:
-			CopyTileGfxForObj(Gfx_BkSel[1], OBJ_VRAM0 + 0x5D40, 1, 2);
-			CopyTileGfxForObj(Gfx_BkSel[proc->tar_hit], OBJ_VRAM0 + 0x5D60, 1, 2);
+			CopyTileGfxForObj(Gfx_BkSel[ proc->tar_hit ], OBJ_VRAM0 + 0x5D40, 2, 2);
 			break;
 		
 		default:
-			CopyTileGfxForObj(Gfx_BkSel[1], OBJ_VRAM0 + 0x5D40, 1, 2);
-			CopyTileGfxForObj(Gfx_BkSel[10], OBJ_VRAM0 + 0x5D60, 1, 2);
+			CopyTileGfxForObj(Gfx_BkSel[10], OBJ_VRAM0 + 0x5D40, 2, 2);
 			break;
 	};
 }

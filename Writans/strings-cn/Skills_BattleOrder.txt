@@ -56,9 +56,9 @@
 
 
 ## msg_SN_DoubleLion
-shi子连斩[X]
+狮子连斩[X]
 ## msg_SD_DoubleLion
-shi子连斩:[NL]
+狮子连斩:[NL]
 满血状态下主动攻击[NL]
-获得勇者效果，战斗后HP-1[X]
+次数+1，战斗后HP-1[X]
 

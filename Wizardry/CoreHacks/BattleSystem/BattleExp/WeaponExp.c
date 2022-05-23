@@ -20,7 +20,7 @@ s8 HasBattleUnitGainedWeaponLevel(struct BattleUnit* bu) {
 
 
 int GetBattleUnitUpdatedWeaponExp(struct BattleUnit* bu) {
-	int i, result;
+	int i, result, exp;
 
 	if (UNIT_FACTION(&bu->unit) != FACTION_BLUE)
 		return -1;
@@ -44,10 +44,17 @@ int GetBattleUnitUpdatedWeaponExp(struct BattleUnit* bu) {
 		if (bu->weaponAttributes & (IA_MAGICDAMAGE | IA_LOCK_3))
 			return -1;
 	}
-
+	
+	exp = GetItemAwardedExp(bu->weapon) * bu->wexpMultiplier;
+	
+	// Todo: make a calc loop
+	if( (*SkillTester)(&bu->unit, SID_Discipline) )
+		exp = exp * 2;	
+	
 	result = bu->unit.ranks[bu->weaponType];
-	result += GetItemAwardedExp(bu->weapon) * bu->wexpMultiplier;
-
+	result += exp;
+	
+	
 	for (i = 0; i < 8; ++i) {
 		if (i == bu->weaponType)
 			continue;

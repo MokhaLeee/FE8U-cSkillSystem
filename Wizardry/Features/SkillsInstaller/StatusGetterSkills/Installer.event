@@ -4,6 +4,10 @@
 #include "Src/Core.lyn.event"
 
 InjectSkillInfo(SKILLID_LifeAndDeath, SkillInfo_LifeAndDeath)
+InjectSkillInfo(SKILLID_Fury, SkillInfo_Fury)
+InjectSkillInfo(SKILLID_FuryPlus, SkillInfo_FuryPlus)
+InjectSkillInfo(SKILLID_FortressDef, SkillInfo_FortressDef)
+InjectSkillInfo(SKILLID_FortressRes, SkillInfo_FortressRes)
 
 InjectSkillInfo(SKILLID_DefiantStr, SkillInfo_DefiantStr)
 InjectSkillInfo(SKILLID_DefiantMag, SkillInfo_DefiantMag)
@@ -21,35 +25,35 @@ SI_LifeAndDeath:
 
 
 // Defiant Skills
-ALIGN 4
 SI_DefiantStr:
 	#incbin "Icons/DefiantStr.4bpp"
 
-
-ALIGN 4
 SI_DefiantMag:
 	#incbin "Icons/DefiantDef.4bpp"
 
-ALIGN 4
 SI_DefiantSkl:
 	#incbin "Icons/DefiantSkl.4bpp"
 
-ALIGN 4
 SI_DefiantSpd:
 	#incbin "Icons/DefiantSpd.4bpp"
 
-ALIGN 4
 SI_DefiantLck:
 	#incbin "Icons/DefiantLck.4bpp"
 
-ALIGN 4
 SI_DefiantDef:
 	#incbin "Icons/DefiantDef.4bpp"
 
-ALIGN 4
 SI_DefiantRes:
 	#incbin "Icons/DefiantRes.4bpp"	
 
+SI_Fury:
+	#incbin "Icons/Fury.4bpp"	
 
+SI_FuryPlus:
+	#incbin "Icons/FuryPlus.4bpp"
 
+SI_FortressDef:
+	#incbin "Icons/FortressDef.4bpp"	
 
+SI_FortressRes:
+	#incbin "Icons/FortressRes.4bpp"	

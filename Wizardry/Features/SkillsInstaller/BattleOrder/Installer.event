@@ -18,6 +18,16 @@ InjectSkillInfo(SKILLID_QuickRiposte, SkillInfo_QuickRiposte)
 InjectSkillInfo(SKILLID_WaryFighter, SkillInfo_WaryFighter)
 InjectSkillInfo(SKILLID_DoubleLion, SkillInfo_DoubleLion)
 
+
+// Anime
+InjectSkillAnimation(SKILLID_Vantage, CommonSkill)
+InjectSkillAnimation(SKILLID_VantageBat, CommonSkill)
+InjectSkillAnimation(SKILLID_Desperation, CommonSkill)
+InjectSkillAnimation(SKILLID_DesperationBat, CommonSkill)
+InjectSkillAnimation(SKILLID_QuickRiposte, DefaultOffseniveSkillActivationAnim)
+InjectSkillAnimation(SKILLID_DoubleLion, DragonFang)
+
+
 // Icons
 ALIGN 4
 SI_Vantage:

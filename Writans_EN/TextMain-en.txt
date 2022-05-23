@@ -22,6 +22,8 @@ Silencer[X]
 #include strings-en/Skills_Menu.txt
 #include strings-en/Skills_Range.txt
 #include strings-en/Skills_Defiant.txt
+#include strings-en/Skills_UnitStatus.txt
+#include strings-en/Skills_Exp.txt
 #include strings-en/Skills_Misc.txt
 
 #include strings-en/PrepScreen.txt

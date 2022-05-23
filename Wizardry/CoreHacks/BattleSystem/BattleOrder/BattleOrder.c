@@ -218,7 +218,8 @@ int BattleGenerateRoundHits(struct BattleUnit* actor, struct BattleUnit* target)
 	
 	// Function declear
 	int GetBattleUnitHitCount(struct BattleUnit* actor);
-	extern s8 BattleGenerateHit(struct BattleUnit* actor, struct BattleUnit* target);
+	s8 BattleGenerateHit(struct BattleUnit* actor, struct BattleUnit* target);
+	u8 *SortHitActivitionSkills(struct BattleUnit* actor, struct BattleUnit*, u8 arr[10]);
 	
 	int i, count;
 	u32 attrs;
@@ -228,30 +229,21 @@ int BattleGenerateRoundHits(struct BattleUnit* actor, struct BattleUnit* target)
 
 	attrs = gBattleHitIterator->attributes;
 	count = GetBattleUnitHitCount(actor);
-
+	
+	// Sort for Skill Activition
+	u8 ArrTmp[0x20] = {0};
+	u8 *SkillActArr = SortHitActivitionSkills(actor, target, ArrTmp);
+	
 	for (i = 0; i < count; ++i) 
 	{
 		gBattleHitIterator->attributes |= attrs;
 		
-		// To do:
-		// We should make a more polished add-skill-activation judge routine
-		// if there are a lot of brave-based skills activated
-		extern int HitCountCalc_SkillDoubleLion(struct BattleUnit*, int);
-		extern int HitCountCalc_BraveWeapon(struct BattleUnit*, int);
-		
-		if( 1 == i )
-			if( !HitCountCalc_BraveWeapon(actor, 0) )
-				if( 1 == HitCountCalc_SkillDoubleLion(actor, 0) ){
-					SetBattleHitExt_AtkSkill(SID_DoubleLion);	
-					gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
-					BattleHitExt_SetAttr(ATTR_HITEXT_SKILLACT_ATK);
-				}
-		if( 2 == i )
-			if( 1 == HitCountCalc_SkillDoubleLion(actor, 0) ){
-				SetBattleHitExt_AtkSkill(SID_DoubleLion);	
-				gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
-				BattleHitExt_SetAttr(ATTR_HITEXT_SKILLACT_ATK);
-			}
+		if( SKILL_VALID(SkillActArr[i]) ){
+			
+			SetBattleHitExt_AtkSkill(SkillActArr[i]);	
+			gBattleHitIterator->attributes |= BATTLE_HIT_ATTR_SURESHOT;
+			BattleHitExt_SetAttr(ATTR_HITEXT_SKILLACT_ATK);
+		}
 		
 
 		if (BattleGenerateHit(actor, target))

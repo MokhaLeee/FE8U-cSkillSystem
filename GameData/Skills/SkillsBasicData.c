@@ -6,8 +6,8 @@
 const struct SkillCharacterList_t CharacterSkillRomList[0x100] = {
 	
 	[CHARACTER_EIRIKA] = {
-		.rom_skill[0] = SID_Supply,
-		.rom_skill[1] = SID_DoubleLion,
+		.rom_skill[0] = SID_DoubleLion,
+		.rom_skill[1] = SID_RuinedBladePlus,
 	},
 	
 	[CHARACTER_EPHRAIM] = {
@@ -17,13 +17,13 @@ const struct SkillCharacterList_t CharacterSkillRomList[0x100] = {
 	
 	
 	[CHARACTER_SETH] = {
-		.rom_skill[0] = SID_BlowDeath,
-		.rom_skill[0] = SID_BlowArmored,
+		.rom_skill[0] = SID_RuinedBlade,
+		.rom_skill[1] = SID_InfinityEdge,
 	},
 	
 	[CHARACTER_INNES] = {
 		.rom_skill[0] = SID_BlowDeath,
-		.rom_skill[0] = SID_DoubleLion,
+		.rom_skill[1] = SID_DoubleLion,
 
 	},
 	
@@ -31,6 +31,16 @@ const struct SkillCharacterList_t CharacterSkillRomList[0x100] = {
 	[CHARACTER_PABLO] = {
 		.rom_skill[0] = SID_QuickRiposte,
 		.rom_skill[1] = SID_VantageBat,
+	},
+	
+	[CHARACTER_CAELLACH_CC] = {
+		.rom_skill[0] = SID_QuickRiposte,
+		.rom_skill[1] = SID_WaryFighter,
+	},
+	
+	[CHARACTER_CAELLACH] = {
+		.rom_skill[0] = SID_QuickRiposte,
+		.rom_skill[1] = SID_WaryFighter,
 	},
 	
 	[CHARACTER_RIEV] = {

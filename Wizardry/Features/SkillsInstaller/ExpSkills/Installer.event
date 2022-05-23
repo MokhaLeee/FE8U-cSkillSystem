@@ -1,0 +1,12 @@
+ALIGN 4
+#include "Src/Infos.lyn.event"
+
+
+// Icons
+ALIGN 4
+SI_Discipline:
+	#incbin "Icons/Discipline.4bpp"
+
+SI_RoyalLineage:
+	#incbin "Icons/RoyalLineage.4bpp"
+	

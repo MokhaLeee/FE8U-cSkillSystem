@@ -1,6 +1,15 @@
 ALIGN 4
 PUSH
-ORG CURRENTOFFSET+$0;SkillInfo_DefiantAvoid:
+ORG CURRENTOFFSET+$0;SkillInfo_FlashingBladePlus:
+ORG CURRENTOFFSET+$8;SkillInfo_FlashingBlade:
+ORG CURRENTOFFSET+$8;SkillInfo_HeavyBladePlus:
+ORG CURRENTOFFSET+$8;SkillInfo_HeavyBlade:
+ORG CURRENTOFFSET+$8;SkillInfo_LunaAttack:
+ORG CURRENTOFFSET+$8;SkillInfo_SorceryBlade:
+ORG CURRENTOFFSET+$8;SkillInfo_InfinityEdge:
+ORG CURRENTOFFSET+$8;SkillInfo_RuinedBladePlus:
+ORG CURRENTOFFSET+$8;SkillInfo_RuinedBlade:
+ORG CURRENTOFFSET+$8;SkillInfo_DefiantAvoid:
 ORG CURRENTOFFSET+$8;SkillInfo_DefiantCrit:
 ORG CURRENTOFFSET+$8;SkillInfo_AvoidSword:
 ORG CURRENTOFFSET+$8;SkillInfo_Avoid:
@@ -19,9 +28,17 @@ ORG CURRENTOFFSET+$8;SkillInfo_WatchfulEye:
 ORG CURRENTOFFSET+$8;SkillInfo_Crit:
 ORG CURRENTOFFSET+$8;SkillInfo_Lethality:
 POP
-WORD $DFF0E00
+WORD $DD90DDA $0 $DD50DD6 $0 $DD70DD8 $0 $DD30DD4 $0 $DDB0DDC
+POIN SI_LunaAttack
+WORD $DDD0DDE $0 $DD10DD2
+POIN SI_InfinityEdge
+WORD $DCF0DD0
+POIN SI_RuinedBladePlus
+WORD $DCD0DCE
+POIN SI_RuinedBlade
+WORD $E130E14
 POIN SI_DefiantAvoid
-WORD $DFD0DFE
+WORD $E110E12
 POIN SI_DefiantCrit
 WORD $DCB0DCC
 POIN SI_AvoidSword

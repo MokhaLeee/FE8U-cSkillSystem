@@ -139,3 +139,74 @@ Avoid Sword[X]
 Avoid Sword: [NL]
 Grants avoid rate +20%[NL]
 if unit equips sword[X]
+
+
+## msg_SN_RuinedBlade
+Ruined Blade[X]
+## msg_SD_RuinedBlade
+Ruined Blade: [NL]
+Str/Mag-5, Spd+5, casue[NL]
+5 real damge in combat[X]
+
+
+## msg_SN_RuinedBladePlus
+Ruined Blade+[X]
+## msg_SD_RuinedBladePlus
+Ruined Blade+:[NL]
+Spd +5, deal real damage +5,[NL]
+battle hit +1 but cannot crit[X]
+
+
+## msg_SN_InfinityEdge
+Infinity Edge[X]
+## msg_SD_InfinityEdge
+Infinity Edge: [NL]
+Critical attack deal 300% damage[X]
+
+
+## msg_SN_HeavyBlade
+Heavy Blade[X]
+## msg_SD_HeavyBlade
+Heavy Blade: [NL]
+If unit's attack is higher than[NL]
+foe, critical rate +15%[X]
+
+
+## msg_SN_FlashingBlade
+Flashing Blade[X]
+## msg_SD_FlashingBlade
+Flashing Blade: [NL]
+If unit's AS is higher than
+foe, critical rate +15% [X]
+
+
+## msg_SN_HeavyBladePlus
+Heavy Blade+[X]
+## msg_SD_HeavyBladePlus
+Heavy Blade+: [NL]
+Str+5. If unit's attack is higher[NL]
+than foe, critical rate +25%[X]
+
+
+## msg_SN_FlashingBladePlus
+Flashing Blade+[X]
+## msg_SD_FlashingBladePlus
+Flashing Blade+: [NL]
+Dmg+3. If unit's AS is higher[NL]
+than foe, critical rate +25%[X]
+
+
+## msg_SN_LunaAttack
+Luna Attack[X]
+## msg_SD_LunaAttack
+Luna Attack: [NL]
+Grants real dmg bonus[NL]
+as foe's Def x25%[X]
+
+
+## msg_SN_SorceryBlade
+Sorcery Blade[X]
+## msg_SD_SorceryBlade
+Sorcery Blade: [NL]
+Target defense is calculated as[NL]
+lower value of Def or Res[X]

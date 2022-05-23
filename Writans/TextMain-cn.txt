@@ -22,6 +22,8 @@
 #include strings-cn/Skills_Menu.txt
 #include strings-cn/Skills_Range.txt
 #include strings-cn/Skills_Defiant.txt
+#include strings-cn/Skills_UnitStatus.txt
+#include strings-cn/Skills_Exp.txt
 #include strings-cn/Skills_Misc.txt
 
 #include strings-cn/PrepScreen.txt

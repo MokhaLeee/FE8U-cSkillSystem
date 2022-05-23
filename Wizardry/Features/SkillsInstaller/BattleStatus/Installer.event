@@ -26,6 +26,20 @@ InjectSkillInfo(SKILLID_FaireBMag, SkillInfo_FaireBMag)
 InjectSkillInfo(SKILLID_DefiantCrit, SkillInfo_DefiantCrit)
 InjectSkillInfo(SKILLID_DefiantAvoid, SkillInfo_DefiantAvoid)
 
+// Core in BattleSystem/BattleHit & Skills_StatusGetter
+InjectSkillInfo(SKILLID_InfinityEdge, SkillInfo_InfinityEdge)
+InjectSkillInfo(SKILLID_RuinedBlade, SkillInfo_RuinedBlade)
+InjectSkillInfo(SKILLID_RuinedBladePlus, SkillInfo_RuinedBladePlus)
+InjectSkillInfo(SKILLID_SorceryBlade, SkillInfo_SorceryBlade)
+InjectSkillInfo(SKILLID_LunaAttack, SkillInfo_LunaAttack)
+
+InjectSkillInfo(SKILLID_HeavyBladePlus, SkillInfo_HeavyBladePlus)
+InjectSkillInfo(SKILLID_HeavyBlade, SkillInfo_HeavyBlade)
+InjectSkillInfo(SKILLID_FlashingBladePlus, SkillInfo_FlashingBladePlus)
+InjectSkillInfo(SKILLID_FlashingBlade, SkillInfo_FlashingBlade)
+
+
+InjectSkillAnimation(SKILLID_RuinedBladePlus, Aether)
 
 // Icons
 ALIGN 4
@@ -116,4 +130,22 @@ SI_DefiantCrit:
 
 SI_DefiantAvoid:
 	#incbin "Icons/DefiantAvoid.4bpp"
+
+
+// 无尽 破败
+SI_RuinedBlade:
+	#incbin "Icons/RuinedBlade.4bpp"
+
+SI_RuinedBladePlus:
+	#incbin "Icons/RuinedBladePlus.4bpp"
+	
+SI_InfinityEdge:
+	#incbin "Icons/InfinityEdge.4bpp"
+
+SI_LunaAttack:
+	#incbin "Icons/LunaAttack.4bpp"
+	
+
+// 刚 & 柔剑
+
 	

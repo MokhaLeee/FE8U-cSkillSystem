@@ -90,13 +90,22 @@ void BC_DefRes(struct BattleUnit* actor, struct BattleUnit* target){
 	// Check Luna
 	if( IA_NEGATE_DEFENSE & target->weaponAttributes )
 		actor->battleDefense += 0;
-		
+	
+	// Check SorceryBlade
+	else if( (*SkillTester)(&actor->unit, SID_SorceryBlade) )
+		actor->battleDefense += 
+			actor->unit.res < actor->unit.def
+			? actor->terrainResistance + actor->unit.res
+			: actor->terrainDefense + actor->unit.def;
+	
 	// Check Magic
 	else if ( CheckMagAttack(target) )
 		actor->battleDefense += actor->terrainResistance + actor->unit.res;
 
 	else
 		actor->battleDefense += actor->terrainDefense + actor->unit.def;
+	
+	
 	
 	// Minus zero
 	if( actor->battleDefense < 0 )
@@ -148,6 +157,10 @@ void BC_Crit(struct BattleUnit* actor, struct BattleUnit* target){
 	actor->battleCritRate += 
 		GetItemCrit(actor->weapon) + 
 		(actor->unit.skl + actor->unit.lck) / 2;
+	
+	// To do
+	if( (*SkillTester)(&actor->unit, SID_RuinedBladePlus) )
+		actor->battleCritRate = 0;
 	
 	if (actor->battleCritRate < 0)
 		actor->battleCritRate = 0;

@@ -90,7 +90,6 @@ int cSkillActivationAnims(struct Anim* anim){
 	else
 	{
 		// Skills
-		_debug_();
 		if( ATTR_HITEXT_SKILLACT_ATK & attr_ext )
 			skill_act = SortAnimActSkill(bh_ext_cur->atk_skills, 3);
 		

@@ -39,7 +39,12 @@ int GetBattleUnitExpGain(struct BattleUnit* actor, struct BattleUnit* target) {
 		result = 1;
 
 	ModifyUnitSpecialExp(&actor->unit, &target->unit, &result);
-	result = 100;
+	
+	
+	// To do: make a modular calc loop
+	if( (*SkillTester)(&actor->unit, SID_RoyalLineage) )
+		result += result / 4;	
+	
 	return result;
 }
 

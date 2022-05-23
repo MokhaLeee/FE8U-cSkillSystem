@@ -39,3 +39,4 @@ SkillInfoTable:
 #include "MenuSkills/Installer.event"
 #include "RangeSkills/Installer.event"
 #include "StatusGetterSkills/Installer.event"
+#include "ExpSkills/Installer.event"

@@ -11,7 +11,12 @@ PUSH
 POP
 
 InjectSkillInfo(SKILLID_Renewal, SkillInfo_Renewal)
+InjectSkillInfo(SKILLID_ArmorMarch, SkillInfo_ArmorMarch)
+
 
 ALIGN 4
 SI_Renewal:
 	#incbin "Icons/Renewal.4bpp"
+
+SI_ArmorMarch:
+	#incbin "Icons/ArmorMarch.4bpp"

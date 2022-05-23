@@ -33,24 +33,20 @@ _thumb(ClassChangAnim)
   #include "ClassChang/ClassChangAnim.event"
 }
 
+ALIGN 4
+_thumb(Aether)
+{
+  #include "Aether/Skill.event"
+}
 
 ALIGN 4
-SkillAnimationTable:
-	FILL 0x100 * 4
-
-#define InjectSkillAnimation(SkillID,function) " PUSH; ORG (SkillAnimationTable + (4*SkillID)); POIN function|1; POP"
-
+_thumb(DragonFang)
+{
+  #include "DragonFang/Skill.event"
+}
 
 // Skills
 InjectSkillAnimation(0, DefaultOffseniveSkillActivationAnim)
-InjectSkillAnimation(SKILLID_Vantage, CommonSkill)
-InjectSkillAnimation(SKILLID_VantageBat, CommonSkill)
-InjectSkillAnimation(SKILLID_Desperation, CommonSkill)
-InjectSkillAnimation(SKILLID_DesperationBat, CommonSkill)
-InjectSkillAnimation(SKILLID_QuickRiposte, DefaultOffseniveSkillActivationAnim)
-
-
-
 
 // Combat Arts
 InjectCombatArtAnimation(0, ClassChangAnim)

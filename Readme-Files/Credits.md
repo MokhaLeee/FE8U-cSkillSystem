@@ -12,6 +12,8 @@
 - `Gonzales`: Main contributator for Three-Houses style skill-icons and other important items.
 - `Zarg`: Monster & Dragon Icon
 - `Jeorge Reds`: Skill Icon: Weapon Crit+
+- `Mikey Seregon`: Skill Activition Anime: Aether
+- `GratedShtick`: Skill Activition Anime: Dragon Fang
 
 ## Special Thanks
 

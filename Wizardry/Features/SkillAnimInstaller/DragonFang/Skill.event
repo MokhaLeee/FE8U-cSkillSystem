@@ -1,0 +1,73 @@
+//Generated with Skill Animation Creator.
+
+#incbin skillanimtemplate.dmp
+POIN Frames
+POIN TSAList
+POIN GraphicsList
+POIN PalettesList
+WORD 0x03D1 //#play sound SE:Activate Skill Animation //sound id
+
+Frames:    //SHORT image duration
+SHORT 0 1
+SHORT 1 4
+SHORT 2 4
+SHORT 3 9
+SHORT 2 4
+SHORT 1 4
+SHORT 0 1
+SHORT 0xFFFF
+ALIGN 4
+
+TSAList:
+POIN TSA_Skill_g000
+POIN TSA_Skill_g001
+POIN TSA_Skill_g002
+POIN TSA_Skill_g003
+POIN TSA_Skill_g002
+POIN TSA_Skill_g001
+POIN TSA_Skill_g000
+
+GraphicsList:
+POIN Graphics_Skill_g000
+POIN Graphics_Skill_g001
+POIN Graphics_Skill_g002
+POIN Graphics_Skill_g003
+POIN Graphics_Skill_g002
+POIN Graphics_Skill_g001
+POIN Graphics_Skill_g000
+
+PalettesList:
+POIN Pal_Skill_g000
+POIN Pal_Skill_g001
+POIN Pal_Skill_g002
+POIN Pal_Skill_g003
+POIN Pal_Skill_g002
+POIN Pal_Skill_g001
+POIN Pal_Skill_g000
+
+TSA_Skill_g000:
+#incbin "Skill_g000.map.bin"
+TSA_Skill_g001:
+#incbin "Skill_g001.map.bin"
+TSA_Skill_g002:
+#incbin "Skill_g002.map.bin"
+TSA_Skill_g003:
+#incbin "Skill_g003.map.bin"
+
+Graphics_Skill_g000:
+#incbin "Skill_g000.img.bin"
+Graphics_Skill_g001:
+#incbin "Skill_g001.img.bin"
+Graphics_Skill_g002:
+#incbin "Skill_g002.img.bin"
+Graphics_Skill_g003:
+#incbin "Skill_g003.img.bin"
+
+Pal_Skill_g000:
+#incbin "Skill_g000.pal.bin"
+Pal_Skill_g001:
+#incbin "Skill_g001.pal.bin"
+Pal_Skill_g002:
+#incbin "Skill_g002.pal.bin"
+Pal_Skill_g003:
+#incbin "Skill_g003.pal.bin"

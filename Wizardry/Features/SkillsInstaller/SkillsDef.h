@@ -103,9 +103,8 @@ enum{
 	
 	// Pre-Phase
 	SID_Renewal = 0x70,			// 回复
+	SID_ArmorMarch = 0x71,		// 重装行军
 	
-	// Move Skills
-	SID_Pass = 0x71,			// 穿越
 	
 	// Stance Skills
 	SID_StanceBracing = 0x72,	// 金刚明镜架势
@@ -119,6 +118,29 @@ enum{
 	SID_StanceSwift = 0x7A,		// 飞燕明镜架势
 	SID_StanceWarding = 0x7B,	// 明镜架势
 	
+	// Move Skills
+	SID_Pass = 0x7C,				// 穿越
+	SID_RuinedBladePlus = 0x7D,		// 破败之刃+
+	
+	// Battle Status
+	SID_RuinedBlade = 0x80,			// 破败之刃
+	SID_InfinityEdge = 0x81,		// 无尽之刃
+	SID_HeavyBlade = 0x82,			// 刚剑
+	SID_HeavyBladePlus = 0x83,		// 刚剑+
+	SID_FlashingBlade = 0x84,		// 柔剑
+	SID_FlashingBladePlus = 0x85,	// 柔剑+
+	SID_LunaAttack = 0x86,			// 月光
+	SID_SorceryBlade = 0x87,		// 魔道之刃
+	
+	// Unit Status
+	SID_Fury = 0x88,				// 狮子奋迅
+	SID_FuryPlus = 0x89,			// 狮子奋迅+
+	SID_FortressDef = 0x8A,			// 防守壁垒
+	SID_FortressRes = 0x8B,			// 魔防壁垒
+	
+	// Exp Skills
+	SID_Discipline = 0x8C,			// 天才
+	SID_RoyalLineage = 0x8D,		// 血统
 };
 
 

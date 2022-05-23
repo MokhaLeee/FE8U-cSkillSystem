@@ -1,0 +1,12 @@
+
+## msg_SN_Discipline
+天才[X]
+## msg_SD_Discipline
+天才:[NL]
+角色获取2倍武器经验[X]
+
+## msg_SN_RoyalLineage
+血统[X]
+## msg_SD_RoyalLineage
+血统:[NL]
+角色额外获得25%经验值[X]

@@ -5,3 +5,11 @@ Renewal[X]
 Renewal:[NL]
 Unit recovers up to 30% of max[NL]
 HP at the start of each turn[X]
+
+
+## msg_SN_ArmorMarch
+Armor March[X]
+## msg_SD_ArmorMarch
+Armor March:[NL]
+Grants Mov +2 if unit stand near[NL]
+an armored ally on start of the turn[X]

@@ -27,7 +27,7 @@ PreBattleCalcLoopTable:
 ALIGN 4
 BattleHitsCountCalcLoop:
 	// int(*)(struct BattleUnit* actor, int cur)
-	POIN HitCountCalc_SkillDoubleLion
+	POIN HitCountCalc_OrderSkills
 	POIN HitCountCalc_CombatArt
 	POIN HitCountCalc_BraveWeapon
 	WORD 0

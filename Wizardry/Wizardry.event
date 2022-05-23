@@ -101,12 +101,12 @@ ALIGN 4
 // ============================
 // = ADDITIONAL FEATURE HACKS =
 // ============================
-// Skill infos installer
-
-#include "Features/SkillsInstaller/SkillsInfoInstaller.event"
 
 // Skill activation anime installer
 #include "Features/SkillAnimInstaller/SkillAnimInstaller.event"
+
+// Skill infos installer
+#include "Features/SkillsInstaller/SkillsInfoInstaller.event"
 
 // Combat Art infos installer
 #include "Features/CombatArtsInstaller/CombatArtInfosInstaller.event"

@@ -11,23 +11,6 @@ ALIGN 4
 
 
 
-// Battle Anim
-ALIGN 4
-CombatArtAnimationTable:
-	//8*0x100 0
-	POIN ClassChangAnim	// DefaultOffsensiveSkillAnim
-	WORD   0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
-	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
-	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
-	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
-	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
-	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
-	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
-	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
-
-#define InjectCombatArtAnimation(index, function) " PUSH; ORG (CombatArtAnimationTable + (4*index)); POIN function|1; POP"
-
-
 
 // Icon
 InjectIconSheet(ICON_SHEET_COMBAT_ART, GetCombatArtIconGfx)

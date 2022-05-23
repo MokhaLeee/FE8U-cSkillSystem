@@ -1,7 +1,15 @@
 ## msg_SN_Renewal
 回复[X]
-
 ## msg_SD_Renewal
 回复:[NL]
 回合开始时，回复最高[NL]
 最大生命值30%的血量[X]
+
+
+## msg_SN_ArmorMarch
+重装行军[X]
+## msg_SD_ArmorMarch
+重装行军:[NL]
+回合开始时，若与重装[NL]
+角色相邻，移动+2[X]
+

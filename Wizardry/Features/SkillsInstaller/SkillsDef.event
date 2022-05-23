@@ -114,10 +114,9 @@
 
 //Pre-Phase skills
 #define SKILLID_Renewal					0x70
+#define SKILLID_ArmorMarch 0x71				// 重装行军
 
 
-// Move Skills
-#define SKILLID_Pass					0x71
 
 
 // Stance Skills
@@ -131,6 +130,32 @@
 #define SKILLID_StanceSturdy			0x79
 #define SKILLID_StanceSwift				0x7A
 #define SKILLID_StanceWarding			0x7B
+
+
+// Move Skills
+#define SKILLID_Pass					0x7C
+#define SKILLID_RuinedBladePlus 0x7D		// 破败之刃+
+
+// Battle Status
+#define SKILLID_RuinedBlade 0x80			// 破败之刃
+#define SKILLID_InfinityEdge 0x81			// 无尽之刃
+#define SKILLID_HeavyBlade 0x82				// 刚剑
+#define SKILLID_HeavyBladePlus 0x83			// 刚剑+
+#define SKILLID_FlashingBlade 0x84			// 柔剑
+#define SKILLID_FlashingBladePlus 0x85		// 柔剑+
+#define SKILLID_LunaAttack 0x86				// 月光
+#define SKILLID_SorceryBlade 0x87			// 魔道之刃
+
+
+// Unit status
+#define SKILLID_Fury 0x88					// 狮子奋迅
+#define SKILLID_FuryPlus 0x89				// 狮子奋迅+
+#define SKILLID_FortressDef 0x8A			// 防守壁垒
+#define SKILLID_FortressRes 0x8B			// 魔防壁垒
+
+// Exp Skills
+#define SKILLID_Discipline 0x8C				// 天才
+#define SKILLID_RoyalLineage 0x8D			// 血统
 
 
 

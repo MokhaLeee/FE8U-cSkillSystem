@@ -1,8 +1,9 @@
 #include "gbafe-chax.h"
 
-void BC_BattleStatusSkills(struct BattleUnit* act, struct BattleUnit*){
+void BC_BattleStatusSkills(struct BattleUnit* act, struct BattleUnit* tar){
 	
 	struct Unit* unit_act = GetUnit(act->unit.index);
+	struct Unit* unit_tar = GetUnit(tar->unit.index);
 	
 	// Lethality
 	if( (*SkillTester)(unit_act, SID_Lethality) )
@@ -30,6 +31,31 @@ void BC_BattleStatusSkills(struct BattleUnit* act, struct BattleUnit*){
 			act->battleAvoidRate += 30;
 	}
 	
+	// 刚柔剑
+	if( act->battleAttack > tar->battleAttack ){
+		
+		if( (*SkillTester)(unit_act, SID_HeavyBlade) )
+			act->battleCritRate += 15;
+		
+		if( (*SkillTester)(unit_act, SID_HeavyBladePlus) )
+			act->battleCritRate += 25;
+	}
+	
+	if( act->battleSpeed > tar->battleSpeed ){
+		
+		if( (*SkillTester)(unit_act, SID_FlashingBlade) )
+			act->battleCritRate += 15;
+		
+		if( (*SkillTester)(unit_act, SID_FlashingBladePlus) )
+			act->battleCritRate += 25;
+	}
+	
+	// LunaAttack
+	if( (*SkillTester)(unit_act, SID_LunaAttack) )
+		act->battleAttack +=
+			CheckMagAttack(act)
+			? GetUnitResistance(unit_tar) / 4
+			: GetUnitDefense(unit_tar) / 4;
 	
 	// Weapon Type Based Skills
 	if( ITYPE_SWORD == act->weaponType ){

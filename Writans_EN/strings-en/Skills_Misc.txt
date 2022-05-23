@@ -7,10 +7,3 @@ Unit can get through[NL]
 place enimy stands[X]
 
 
-## msg_SN_LifeAndDeath
-Life And Death[X]
-
-## msg_SD_LifeAndDeath
-Life And Death:[NL]
-Pow and Mag +5[NL]
-Def and Res -5[X]

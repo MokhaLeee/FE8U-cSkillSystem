@@ -1,0 +1,37 @@
+## msg_SN_LifeAndDeath
+死线[X]
+
+## msg_SD_LifeAndDeath
+死线:[NL]
+力魔速+5，双抗-5[X]
+
+## msg_SN_Fury
+狮子奋迅[X]
+## msg_SD_Fury
+狮子奋迅: [NL]
+全属性+3,战斗后HP-6[X]
+
+
+## msg_SN_FuryPlus
+狮子奋迅+[X]
+## msg_SD_FuryPlus
+狮子奋迅+: [NL]
+全属性+4,战斗后HP-8[X]
+
+
+## msg_SN_FortressDef
+防守堡垒[X]
+## msg_SD_FortressDef
+防守堡垒: [NL]
+攻击-3，防御+5[X]
+
+
+
+
+## msg_SN_FortressRes
+魔防堡垒[X]
+## msg_SD_FortressRes
+魔防堡垒: [NL]
+攻击-3，魔防+5[X]
+
+
