@@ -82,6 +82,58 @@ void BKSEL_SetupHitAndSuchStats(struct Proc_BKSEL *proc){
 		if( (gBattleTarget.wTriangleHitBonus > 0) && (IA_REVERTTRIANGLE & gBattleTarget.weaponAttributes) )
 			proc->tar_eff = 1;
 	}
+	
+	
+	// For Object x2x4
+	extern const u8 Gfx_BkSel[11][0x40];
+	
+	switch(proc->act_hit){
+		case 0:
+		case 1:
+			CopyTileGfxForObj(Gfx_BkSel[0], OBJ_VRAM0 + 0x5D00, 1, 2);
+			CopyTileGfxForObj(Gfx_BkSel[0], OBJ_VRAM0 + 0x5D20, 1, 2);
+			break;
+		
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+			CopyTileGfxForObj(Gfx_BkSel[1], OBJ_VRAM0 + 0x5D00, 1, 2);
+			CopyTileGfxForObj(Gfx_BkSel[proc->act_hit], OBJ_VRAM0 + 0x5D20, 1, 2);
+			break;
+		
+		default:
+			break;
+	};
+	
+	switch(proc->tar_hit){
+		case 0:
+		case 1:
+			CopyTileGfxForObj(Gfx_BkSel[0], OBJ_VRAM0 + 0x5D40, 1, 2);
+			CopyTileGfxForObj(Gfx_BkSel[0], OBJ_VRAM0 + 0x5D60, 1, 2);
+			break;
+		
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+			CopyTileGfxForObj(Gfx_BkSel[1], OBJ_VRAM0 + 0x5D40, 1, 2);
+			CopyTileGfxForObj(Gfx_BkSel[proc->tar_hit], OBJ_VRAM0 + 0x5D60, 1, 2);
+			break;
+		
+		default:
+			CopyTileGfxForObj(Gfx_BkSel[1], OBJ_VRAM0 + 0x5D40, 1, 2);
+			CopyTileGfxForObj(Gfx_BkSel[10], OBJ_VRAM0 + 0x5D60, 1, 2);
+			break;
+	};
 }
 
 

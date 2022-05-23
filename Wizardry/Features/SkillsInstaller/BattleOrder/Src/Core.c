@@ -9,7 +9,7 @@ int HitCountCalc_SkillDoubleLion(struct BattleUnit* actor, int cur){
 	if( &gBattleActor == actor )
 		if( (*SkillTester)(unit_act, SID_DoubleLion) )
 			if( GetUnitCurrentHp(unit_act) == GetUnitMaxHp(unit_act) )
-				return cur + 1;
+				return cur + 2;
 	
 	return cur;
 	

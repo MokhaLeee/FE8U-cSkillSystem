@@ -65,6 +65,13 @@ PROTECT $2B600 $2B83C		// BattleGenerateHitEffects
 PROTECT $3666C $366A0		// AddWeaponStatsAfterRound
 PROTECT $366A0 $36818		// BKSEL_SetupHitAndSuchStats
 
+ALIGN 4
+Gfx_BkSel:
+	#incbin "BattleForcast/Gfx_BkSel.4bpp"
+
+Pal_BkSel:
+	#incbin "BattleForcast/Gfx_BkSel.gbapal"
+
 PUSH
 	// Make sure BkSel always deiplay x2 or x4 obj
 	ORG $36F94
@@ -73,6 +80,10 @@ PUSH
 	ORG $36FB6
 	SHORT $2004	// MOV R0, #4
 	SHORT 0 0 0
+	
+	// Repoint Palette
+	ORG $36E14
+	POIN Pal_BkSel
 POP
 
 // ====================================================
