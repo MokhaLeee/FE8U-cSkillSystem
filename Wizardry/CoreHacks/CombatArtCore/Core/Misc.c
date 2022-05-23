@@ -357,11 +357,11 @@ void BC_CombatArtBonus(struct BattleUnit* attacker, struct BattleUnit* defender)
 			// Sword
 			
 			case CA_Soulblade:
-				attacker->battleAttack += ResGetter(unit_act);
+				attacker->battleAttack += ResGetter(unit_act) / 3;
 				break;
 			
 			case CA_FinesseBlade:
-				attacker->battleAttack += SklGetter(unit_act);
+				attacker->battleAttack += SklGetter(unit_act) / 3;
 				break;
 				
 			case CA_SwordDance:
@@ -375,17 +375,17 @@ void BC_CombatArtBonus(struct BattleUnit* attacker, struct BattleUnit* defender)
 			case CA_RupturedHeaven:
 			case CA_SublimeHeaven:
 			case CA_HeavensFall:
-				attacker->battleAttack += MagGetter(unit_act);
+				attacker->battleAttack += MagGetter(unit_act) / 4;
 				break;
 			
 			
 			// Lance
 			case CA_FrozenLance:
-				attacker->battleAttack += SklGetter(unit_act);
+				attacker->battleAttack += SklGetter(unit_act) / 3;
 				break;
 			
 			case CA_GlowingEmber:
-				attacker->battleAttack += DefGetter(unit_act);
+				attacker->battleAttack += DefGetter(unit_act) / 3;
 				break;
 			
 			case CA_Vengeance:
@@ -394,17 +394,17 @@ void BC_CombatArtBonus(struct BattleUnit* attacker, struct BattleUnit* defender)
 				break;
 				
 			case CA_LanceJab:
-				attacker->battleAttack += SpdGetter(unit_act);
+				attacker->battleAttack += SpdGetter(unit_act) / 3;
 				break;
 			
 			
 			// Axe
 			case CA_LightningAxe:
-				attacker->battleAttack += ResGetter(unit_act);
+				attacker->battleAttack += ResGetter(unit_act) / 3;
 				break;
 			
 			case CA_ArmoredStrike:
-				attacker->battleAttack += DefGetter(unit_act);
+				attacker->battleAttack += DefGetter(unit_act) / 3;
 				break;
 			
 			

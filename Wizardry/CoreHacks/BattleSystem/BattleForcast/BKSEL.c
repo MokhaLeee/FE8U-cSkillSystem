@@ -107,6 +107,8 @@ void BKSEL_SetupHitAndSuchStats(struct Proc_BKSEL *proc){
 			break;
 		
 		default:
+			CopyTileGfxForObj(Gfx_BkSel[1], OBJ_VRAM0 + 0x5D00, 1, 2);
+			CopyTileGfxForObj(Gfx_BkSel[10], OBJ_VRAM0 + 0x5D20, 1, 2);
 			break;
 	};
 	

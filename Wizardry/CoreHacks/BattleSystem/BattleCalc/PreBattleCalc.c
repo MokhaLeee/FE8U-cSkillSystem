@@ -2,7 +2,7 @@
 
 
 
-void ComputeBattleUnitStats(struct BattleUnit* attacker, struct BattleUnit* defender){
+void ComputeBattleUnitStats(struct BattleUnit* actor, struct BattleUnit* target){
 	
 	typedef void (*BC_Fun) (struct BattleUnit*, struct BattleUnit*);
 	extern BC_Fun PreBattleCalcLoopTable[];
@@ -10,150 +10,155 @@ void ComputeBattleUnitStats(struct BattleUnit* attacker, struct BattleUnit* defe
 	BC_Fun *it = &PreBattleCalcLoopTable[0];
 	
 	while( *it )
-		(*it++)(attacker, defender);
+		(*it++)(actor, target);
 	
 }
 
 
 
-void BC_Init(struct BattleUnit* attacker, struct BattleUnit* defender){
+void BC_Init(struct BattleUnit* actor, struct BattleUnit* target){
 	
-	attacker->battleAttack = 0;
-	attacker->battleDefense = 0;
-	attacker->battleSpeed = 0;
-	attacker->battleHitRate = 0;
-	attacker->battleAvoidRate = 0;
-	attacker->battleCritRate = 0;
-	attacker->battleDodgeRate = 0;
-	attacker->battleSilencerRate = 0;
+	actor->battleAttack = 0;
+	actor->battleDefense = 0;
+	actor->battleSpeed = 0;
+	actor->battleHitRate = 0;
+	actor->battleAvoidRate = 0;
+	actor->battleCritRate = 0;
+	actor->battleDodgeRate = 0;
+	actor->battleSilencerRate = 0;
 }
 
 
-void BC_Lethality(struct BattleUnit* attacker, struct BattleUnit* defender){
+void BC_Lethality(struct BattleUnit* actor, struct BattleUnit* target){
 	
 	// BOSS
-	if( UNIT_IS_VALID(&defender->unit) & (NULL != &defender->unit) )
-		if ( 0 != (UNIT_CATTRIBUTES(&defender->unit) & CA_BOSS) )
-			attacker->battleSilencerRate -= 30;
+	if( UNIT_IS_VALID(&target->unit) & (NULL != &target->unit) )
+		if ( 0 != (UNIT_CATTRIBUTES(&target->unit) & CA_BOSS) )
+			actor->battleSilencerRate -= 30;
 	
 	
 	// Asigned
-	if( attacker->battleSilencerRate < 0 )
-		attacker->battleSilencerRate  = 0;
+	if( actor->battleSilencerRate < 0 )
+		actor->battleSilencerRate  = 0;
 	
-	if( attacker->battleSilencerRate > 100 )
-		attacker->battleSilencerRate = 100;
+	if( actor->battleSilencerRate > 100 )
+		actor->battleSilencerRate = 100;
 }
 
 
-void BC_Atk(struct BattleUnit* attacker, struct BattleUnit* defender){
+void BC_Atk(struct BattleUnit* actor, struct BattleUnit* target){
 	
-	attacker->battleAttack += GetItemMight(attacker->weapon); // + attacker->wTriangleDmgBonus;
+	actor->battleAttack += GetItemMight(actor->weapon); // + actor->wTriangleDmgBonus;
 
-	if (IsItemEffectiveAgainst(attacker->weapon, &defender->unit) == TRUE) 
-		attacker->battleAttack *= 3;
+	if (IsItemEffectiveAgainst(actor->weapon, &target->unit) == TRUE) 
+		actor->battleAttack *= 3;
 	
 	// Check Magic
-	if( CheckMagAttack(attacker) )
-		attacker->battleAttack += *GetMagAt(&attacker->unit);
+	if( CheckMagAttack(actor) )
+		actor->battleAttack += *GetMagAt(&actor->unit);
 
 	else
-		attacker->battleAttack += attacker->unit.pow;
+		actor->battleAttack += actor->unit.pow;
 	
 	// Minus zero
-	if( attacker->battleAttack < 0 )
-		attacker->battleAttack = 0;
+	if( actor->battleAttack < 0 )
+		actor->battleAttack = 0;
 }
 
 
-void BC_AS(struct BattleUnit* attacker, struct BattleUnit* defender){
+void BC_AS(struct BattleUnit* actor, struct BattleUnit* target){
 	
-	s16 power = CheckMagAttack(attacker)
-		? attacker->unit.pow
-		: *GetMagAt(&attacker->unit);
+	s16 power = CheckMagAttack(actor)
+		? actor->unit.pow
+		: *GetMagAt(&actor->unit);
 
-	attacker->battleSpeed += attacker->unit.spd;
+	actor->battleSpeed += actor->unit.spd;
 	
-	if( GetItemWeight(attacker->weaponBefore) > _lib_div(power, 5) )
-		attacker->battleSpeed -=  GetItemWeight(attacker->weaponBefore) - _lib_div(power, 5);
+	if( GetItemWeight(actor->weaponBefore) > _lib_div(power, 5) )
+		actor->battleSpeed -=  GetItemWeight(actor->weaponBefore) - _lib_div(power, 5);
 	
 	
 	// Minus zero
-	if( attacker->battleSpeed < 0 )
-		attacker->battleSpeed = 0;
+	if( actor->battleSpeed < 0 )
+		actor->battleSpeed = 0;
 }
 
 
 
-void BC_DefRes(struct BattleUnit* attacker, struct BattleUnit* defender){
+void BC_DefRes(struct BattleUnit* actor, struct BattleUnit* target){
 	
 	// Check Luna
-	if( IA_NEGATE_DEFENSE & defender->weaponAttributes )
-		attacker->battleDefense += 0;
+	if( IA_NEGATE_DEFENSE & target->weaponAttributes )
+		actor->battleDefense += 0;
 		
 	// Check Magic
-	else if ( CheckMagAttack(defender) )
-		attacker->battleDefense += attacker->terrainResistance + attacker->unit.res;
+	else if ( CheckMagAttack(target) )
+		actor->battleDefense += actor->terrainResistance + actor->unit.res;
 
 	else
-		attacker->battleDefense += attacker->terrainDefense + attacker->unit.def;
+		actor->battleDefense += actor->terrainDefense + actor->unit.def;
 	
 	// Minus zero
-	if( attacker->battleDefense < 0 )
-		attacker->battleDefense = 0;
+	if( actor->battleDefense < 0 )
+		actor->battleDefense = 0;
 }
 
 
-void BC_Hit(struct BattleUnit* attacker, struct BattleUnit* defender){
-	
-	if( CheckMagAttack(attacker) )
-		attacker->battleHitRate += (attacker->unit.skl + attacker->unit.lck) / 2;
-	else
-		attacker->battleHitRate += attacker->unit.skl;
-	
-	attacker->battleHitRate += GetItemHit(attacker->weapon); // + attacker->wTriangleHitBonus;
+void BC_Hit(struct BattleUnit* actor, struct BattleUnit* target){
 
+	int distance = UNIT_IS_VALID(&target->unit) & (NULL != &target->unit)
+		? RECT_DISTANCE(actor->unit.xPos, actor->unit.yPos, target->unit.xPos, target->unit.yPos)
+		: 0;
+	
+	if( CheckMagAttack(actor) )
+		actor->battleHitRate += (actor->unit.skl + actor->unit.lck) / 2;
+	else
+		actor->battleHitRate += actor->unit.skl;
+	
+	actor->battleHitRate += GetItemHit(actor->weapon); // + actor->wTriangleHitBonus;
+
+	if( distance > 2 )
+		actor->battleHitRate -= 20 * (distance - 2);
 	
 	// Minus zero
-	if( attacker->battleHitRate < 0 )
-		attacker->battleHitRate = 0;
+	if( actor->battleHitRate < 0 )
+		actor->battleHitRate = 0;
 }
 
 
 // Avo = unit.spd - [weight - floor(unit.pow/5)] + fix
-void BC_Avo(struct BattleUnit* attacker, struct BattleUnit* defender){
+void BC_Avo(struct BattleUnit* actor, struct BattleUnit* target){
+		
+	if( CheckMagAttack(actor) )
+		actor->battleAvoidRate += (actor->unit.spd + actor->unit.lck) / 2;
+	else
+		actor->battleAvoidRate += actor->unit.spd;
 	
-	s16 power = CheckMagAttack(attacker)
-		? attacker->unit.pow
-		: *GetMagAt(&attacker->unit);
+	actor->battleAvoidRate += actor->terrainAvoid;
+
 	
-	attacker->battleAvoidRate += attacker->unit.spd + attacker->unit.lck + attacker->terrainAvoid;
-	
-	if( GetItemWeight(attacker->weaponBefore) > _lib_div(power, 5) )
-		attacker->battleAvoidRate -=  GetItemWeight(attacker->weaponBefore) - _lib_div(power, 5);
-	
-	if (attacker->battleAvoidRate < 0)
-		attacker->battleAvoidRate = 0;
+	if (actor->battleAvoidRate < 0)
+		actor->battleAvoidRate = 0;
 	
 }
 
 
-void BC_Crit(struct BattleUnit* attacker, struct BattleUnit* defender){
+void BC_Crit(struct BattleUnit* actor, struct BattleUnit* target){
 	
-	attacker->battleCritRate += 
-		GetItemCrit(attacker->weapon) + 
-		(attacker->unit.skl + attacker->unit.lck) / 2;
+	actor->battleCritRate += 
+		GetItemCrit(actor->weapon) + 
+		(actor->unit.skl + actor->unit.lck) / 2;
 	
-	if (attacker->battleCritRate < 0)
-		attacker->battleCritRate = 0;
+	if (actor->battleCritRate < 0)
+		actor->battleCritRate = 0;
 }
 
 
-void BC_Dodge(struct BattleUnit* attacker, struct BattleUnit* defender){
+void BC_Dodge(struct BattleUnit* actor, struct BattleUnit* target){
 	
-	attacker->battleDodgeRate += attacker->unit.lck;
+	actor->battleDodgeRate += actor->unit.lck;
 	
-	if (attacker->battleDodgeRate < 0)
-		attacker->battleDodgeRate = 0;
+	if (actor->battleDodgeRate < 0)
+		actor->battleDodgeRate = 0;
 	
 }

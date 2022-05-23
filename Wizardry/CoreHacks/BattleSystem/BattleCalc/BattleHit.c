@@ -42,15 +42,17 @@ void BattleGenerateHitAttributes(struct BattleUnit* attacker, struct BattleUnit*
 		}
 	}
 	
+	
 	// Apply damage
-	if (gBattleStats.damage > BATTLE_MAX_DAMAGE)
-		gBattleStats.damage = BATTLE_MAX_DAMAGE;
-
 	if (gBattleStats.damage < 0)
 		gBattleStats.damage = 0;
 	
 	// Todo: 破败之刃
 	// gBattleStats.damage = gBattleStats.damage + 1;
+	
+	
+	if (gBattleStats.damage > BATTLE_MAX_DAMAGE)
+		gBattleStats.damage = BATTLE_MAX_DAMAGE;
 	
 	// 石化
 	BattleCheckPetrify(attacker, defender);
