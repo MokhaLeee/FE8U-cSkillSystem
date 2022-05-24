@@ -1,6 +1,6 @@
 ALIGN 4
 PUSH
-ORG CURRENTOFFSET+$1;PrePareForMoreTextColor:
+ORG CURRENTOFFSET+$1;PrepareForMoreTextColor:
 ORG CURRENTOFFSET+$20;ResetTextPalInfo:
 ORG CURRENTOFFSET+$14;NewDrawTextInline:
 ORG CURRENTOFFSET+$58;GetNewTextColorByGrowth:

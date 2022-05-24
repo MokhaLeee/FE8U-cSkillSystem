@@ -30,11 +30,13 @@ SkillAnimationTable:
 CombatArtAnimationTable:
 	FILL 0x100 * 4
 
-#define InjectSkillAnimation(SkillID,function) " PUSH; ORG (SkillAnimationTable + (4*SkillID)); POIN function|1; POP"
+#define DefaultOffseniveSkillActivationAnim 0x806E311
 
+#define InjectSkillAnimation(SkillID,function) " PUSH; ORG (SkillAnimationTable + (4*SkillID)); POIN function|1; POP"
 #define InjectCombatArtAnimation(index, function) " PUSH; ORG (CombatArtAnimationTable + (4*index)); POIN function|1; POP"
 
-
+InjectSkillAnimation(0, DefaultOffseniveSkillActivationAnim)
+// InjectCombatArtAnimation(0, DefaultOffseniveSkillActivationAnim)
 
 PUSH
 	ORG $59048

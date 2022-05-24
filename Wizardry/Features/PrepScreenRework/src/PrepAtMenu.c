@@ -160,9 +160,7 @@ void newPrepMenu_OnInit(struct Proc_AtMenu* proc){
 
 
 void newPrepMenu_StartMenuAndDrawText (struct Proc_AtMenu* proc){
-	
-	extern u16 msgAt_PrepPickSkillName;
-	extern u16 msgAt_PrepPickSkillDesc;
+
 	
 	BG_Fill(gBG0TilemapBuffer, 0);
 	BG_Fill(gBG1TilemapBuffer, 0);
@@ -195,8 +193,8 @@ void newPrepMenu_StartMenuAndDrawText (struct Proc_AtMenu* proc){
 		CMD_PREPMENU_SKILLS,
 		newPrepMenuEffect_Skills,
 		TEXT_COLOR_NORMAL,
-		msgAt_PrepPickSkillName,
-		msgAt_PrepPickSkillDesc
+		ENUM_msg_PrepPickSkillName,
+		ENUM_msg_PrepPickSkillDesc
 	);
 	
 	SetPrepScreenMenuItem(

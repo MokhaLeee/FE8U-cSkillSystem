@@ -1,6 +1,6 @@
 #include "gbafe-chax.h"
 
-void PrePareForMoreTextColor(){
+void PrepareForMoreTextColor(){
 	extern const u16 MSS_TEXT_PAL09[];
 	
 	ApplyPalettes(MSS_TEXT_PAL09, 0x8, 2);

@@ -18,7 +18,7 @@ enum new_stat_screen_color{
 };
 
 
-void PrePareForMoreTextColor();
+void PrepareForMoreTextColor();
 void ResetTextPalInfo();
 
 void NewDrawTextInline(struct TextHandle* text, u16* dest, int colorId, int x, int tileWidth, const char* string);

@@ -9,46 +9,6 @@ ALIGN 4
 
 
 
-// msg
-ALIGN 4
-msgAt_PrepPickSkillName:
-	SHORT msg_PrepPickSkillName
-
-msgAt_PrepPickSkillDesc:
-	SHORT msg_PrepPickSkillDesc
-
-msgAt_PrepSkillMenu_PickSkillName:
-	SHORT msg_PrepSkillMenu_PickSkillName
-
-msgAt_PrepSkillMenu_PickSkillDesc:
-	SHORT msg_PrepSkillMenu_PickSkillDesc
-
-msgAt_PrepSkillMenu_PickCombatName:
-	SHORT msg_PrepSkillMenu_PickCombatName
-
-msgAt_PrepSkillMenu_PickCombatDesc:
-	SHORT msg_PrepSkillMenu_PickCombatDesc
-
-msgAt_PrepSkillMenu_PickBattalionName:
-	SHORT msg_PrepSkillMenu_PickBattalionName
-
-msgAt_PrepSkillMenu_PickBattalionDesc:
-	SHORT msg_PrepSkillMenu_PickBattalionDesc
-
-msgAt_PrepPickSkill_FailAddSkill:
-	SHORT msg_PrepPickSkill_FailAddSkill
-
-msgAt_PrepPickSkill_TryRemoveSkill:
-	SHORT msg_PrepPickSkill_TryRemoveSkill
-
-msgAt_PrepPickSkill_TryAddSkill:
-	SHORT msg_PrepPickSkill_TryAddSkill
-
-msgAt_PrepPickSkill_TryReplaceSkill:
-	SHORT msg_PrepPickSkill_TryReplaceSkill
-
-
-
 
 // Gfx
 ALIGN 4

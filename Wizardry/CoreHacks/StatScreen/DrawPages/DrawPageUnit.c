@@ -16,7 +16,7 @@ static void DrawPage1_NumBar(struct Unit*);
 void DisplayPage0(void){
 	struct Unit* unit = gStatScreen.unit;
 	
-	PrePareForMoreTextColor();
+	PrepareForMoreTextColor();
 	DrawPage1_Texts();
 	DrawPage1_NumBar(unit);
 	

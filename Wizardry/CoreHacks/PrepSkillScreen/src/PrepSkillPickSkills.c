@@ -25,10 +25,6 @@ enum{
 };
 
 
-extern u16 msgAt_PrepPickSkill_FailAddSkill;
-extern u16 msgAt_PrepPickSkill_TryRemoveSkill;
-extern u16 msgAt_PrepPickSkill_TryAddSkill;
-extern u16 msgAt_PrepPickSkill_TryReplaceSkill;
 
 // ========================================
 // ======= There will added in cLib =======
@@ -549,7 +545,7 @@ void PrepPickSkill_FailAddSkillPre(struct Proc_PrepPickSkill* proc){
 	
 	char* str;
 	
-	str = GetStringFromIndex( msgAt_PrepPickSkill_FailAddSkill );
+	str = GetStringFromIndex( ENUM_msg_PrepPickSkill_FailAddSkill );
 	
 
 	TileMap_FillRect(
@@ -628,7 +624,7 @@ void PrepPickSkil_PrepareRemoveSkillWindow(struct Proc_PrepPickSkill* proc){
 	
 	char* str;
 	
-	str = GetStringFromIndex( msgAt_PrepPickSkill_TryRemoveSkill );
+	str = GetStringFromIndex( ENUM_msg_PrepPickSkill_TryRemoveSkill );
 	
 	
 	for( int line = 0; line < 2; line++ )
@@ -759,7 +755,7 @@ void PrepPickSkil_PrepareAddSkillWindow(struct Proc_PrepPickSkill* proc){
 	
 	char* str;
 	
-	str = GetStringFromIndex( msgAt_PrepPickSkill_TryAddSkill );
+	str = GetStringFromIndex( ENUM_msg_PrepPickSkill_TryAddSkill );
 	
 	
 	for( int line = 0; line < 2; line++ )
@@ -967,7 +963,7 @@ void PrepPickSkil_PrepareReplaceSkillWindow(struct Proc_PrepPickSkill* proc){
 	
 	char* str;
 	
-	str = GetStringFromIndex( msgAt_PrepPickSkill_TryReplaceSkill );
+	str = GetStringFromIndex( ENUM_msg_PrepPickSkill_TryReplaceSkill );
 	
 	
 	for( int line = 0; line < 2; line++ )
@@ -2009,7 +2005,7 @@ void PrepPickCombatArt_PrepareAddSkillWindow(struct Proc_PrepPickSkill* proc){
 	
 	char* str;
 	
-	str = GetStringFromIndex( msgAt_PrepPickSkill_TryAddSkill );
+	str = GetStringFromIndex( ENUM_msg_PrepPickSkill_TryAddSkill );
 	
 	
 	for( int line = 0; line < 2; line++ )

@@ -1,7 +1,7 @@
 #ifndef STATUS_SCREEN
 #define STATUS_SCREEN
 
-#include "Core/DrawStatScreenCore.lyn.event"
+#include "Core/Core.lyn.event"
 #include "Core/Misc.lyn.event"
 
 // Draw Pages

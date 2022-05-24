@@ -103,7 +103,7 @@ ALIGN 4
 // ============================
 
 // Skill activation anime installer
-#include "Features/SkillAnimInstaller/SkillAnimInstaller.event"
+#include "Features/ActivitionAnimInstaller/ActivitionAnimInstaller.event"
 
 // Skill infos installer
 #include "Features/SkillsInstaller/SkillsInfoInstaller.event"

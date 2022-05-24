@@ -4,7 +4,7 @@
 #endif // _thumb
 
 
-#define DefaultOffseniveSkillActivationAnim 0x806E311
+
 
 
 ALIGN 4
