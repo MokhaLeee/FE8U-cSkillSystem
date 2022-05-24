@@ -36,6 +36,52 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 	
 	list->total[PREP_SKLSUB_RIGHT] = 0;
 	
+	// Tmp
+	const u8 skills_tmp[32] = {
+		SID_RangeBonusBMag1,
+		SID_RangeBonusBMag2,
+		SID_RangeBonusBow1,
+		SID_RangeBonusBow2 ,
+		SID_DefiantStr,
+		SID_DefiantMag ,
+		SID_DefiantSkl ,
+		SID_DefiantSpd ,
+		SID_DefiantLck ,
+		SID_DefiantDef ,
+		
+		SID_DefiantCrit ,
+		SID_DefiantAvoid ,
+		SID_LifeAndDeath ,
+		SID_RangeBonusBMag1_ext ,
+		SID_RangeBonusBow1_ext,
+		SID_BlowDarting,
+		SID_BlowDeath ,
+		SID_BlowArmored ,
+		SID_BlowFiendish ,
+		SID_BlowWarding ,
+		
+		SID_BlowDuelist ,
+		SID_BlowUncanny ,
+		SID_Vantage ,
+		SID_VantageBat,
+		SID_Desperation ,
+		SID_DesperationBat,
+		SID_QuickRiposte,
+		SID_Lethality ,
+		SID_Crit ,
+		SID_WatchfulEye ,
+		SID_SorceryBlade,
+		SID_FuryPlus,
+	};
+	
+	for( int i = 0; i < 32; i++ )
+		ADD_SKILL(skills_tmp[i]);
+	
+	
+	
+	
+	
+	
 	// Class Normal List
 	for( int i = 0; i < 2; i++ ){
 		
@@ -708,16 +754,16 @@ void InitPrepSkillsList(void){
 // W.I.P.
 struct PrepSkillsList* MakeUnitPrepSkillsList(struct Unit* unit){
 	
-	MakeLeftLists(unit, gpCommonSpace);
-	MakeTotalListSkill(unit, gpCommonSpace);
-	return gpCommonSpace;
+	MakeLeftLists(unit, gpPrepSkillList);
+	MakeTotalListSkill(unit, gpPrepSkillList);
+	return gpPrepSkillList;
 }
 
 
 struct PrepSkillsList* GetUnitPrepSkillsList(struct Unit* unit){
 	
-	if( unit->index == gpCommonSpace->unit_index )
-		return gpCommonSpace;
+	if( unit->index == gpPrepSkillList->unit_index )
+		return gpPrepSkillList;
 	
 	else
 		return MakeUnitPrepSkillsList(unit);
@@ -728,16 +774,16 @@ struct PrepSkillsList* GetUnitPrepSkillsList(struct Unit* unit){
 // W.I.P.
 struct PrepSkillsList* MakeUnitPrepCombatArtsList(struct Unit* unit){
 	
-	MakeLeftLists(unit, gpCommonSpace);
-	MakeTotalListCombatArt(unit, gpCommonSpace);
-	return gpCommonSpace;
+	MakeLeftLists(unit, gpPrepSkillList);
+	MakeTotalListCombatArt(unit, gpPrepSkillList);
+	return gpPrepSkillList;
 }
 
 
 struct PrepSkillsList* GetUnitPrepCombatArtsList(struct Unit* unit){
 	
-	if( unit->index == gpCommonSpace->unit_index )
-		return gpCommonSpace;
+	if( unit->index == gpPrepSkillList->unit_index )
+		return gpPrepSkillList;
 	
 	else
 		return MakeUnitPrepCombatArtsList(unit);
@@ -787,7 +833,7 @@ int PrepSkillAddRamSkillFromList(struct Unit* unit, u8 skill_id){
 // Misc judgement
 int IsPrepSkillListValid(){
 	
-	return !(0 == gpCommonSpace->unit_index);
+	return !(0 == gpPrepSkillList->unit_index);
 }
 
 

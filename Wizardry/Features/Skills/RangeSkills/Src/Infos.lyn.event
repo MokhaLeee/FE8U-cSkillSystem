@@ -10,6 +10,6 @@ POIN SI_RangeBonusBow2
 WORD $E0D0E0E
 POIN SI_RangeBonusBow1
 WORD $E0B0E0C
-POIN SI_RangeBonusBMag1
+POIN SI_RangeBonusBMag2
 WORD $E090E0A
 POIN SI_RangeBonusBMag1

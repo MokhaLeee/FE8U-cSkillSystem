@@ -87,7 +87,7 @@ static void PrepPickSkil_CancelOnSkill(struct Proc_PrepPickSkill* proc);
 // ================= Core =================
 // ========================================
 
-const static struct ProcCmd gProc_PrepSkillPickSkillList[] = {
+const struct ProcCmd gProc_PrepSkillPickSkillList[] = {
 	
 	PROC_NAME	("PREP_SKILLSCREEN_PICKSKILLS"),
 	PROC_SET_END_CB (PrepPickSkill_OnEnd),
@@ -198,9 +198,15 @@ void PrepPickSkill_InitSkillsList (struct Proc_PrepPickSkill* proc){
 	proc->list_type = PREP_SKLSUB_RIGHT;
 	proc->list_type_pre = PREP_SKLSUB_RIGHT;
 	
-	proc->list_index = 0;
+	proc->list_index = proc->head_line * 6;	// this will be set in function PrepSkill_StartPickSkillScreen
 	proc->list_index_pre = 0;
 	proc->skill_id_pre = 0; // update on desc
+	
+	proc->scroll_type = PREP_SCROLL_NOPE;
+	proc->scroll_diffCur = 0;
+	proc->scroll_step = 0x4;
+	proc->displaying_count = 0;
+	proc->right_disp_reset = 1;
 }
 
 
@@ -283,6 +289,13 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 	struct PrepSkillsList* list;
 	int xHand, yHand;
 	
+	if( PREP_SCROLL_NOPE != proc->scroll_type )
+		goto goto_scroll;
+	
+	// Check scroll speed
+	proc->scroll_step = 0 == (L_BUTTON & gKeyStatusPtr->heldKeys)
+		? 4 : 8;
+	
 	list = GetUnitPrepSkillsList(proc->unit);
 	
 	// Handle normal button
@@ -356,9 +369,11 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 		case DPAD_LEFT:
 			if( PREP_SKLSUB_RIGHT == proc->list_type )
 			{
+				int line_cur = _lib_div(proc->list_index, 6) - proc->head_line;
+				
 				if( _lib_mod(proc->list_index, 6) == 0 )
 				{
-					if( _lib_div(proc->list_index, 6) < 2 )
+					if( line_cur < 2 )
 						proc->list_type = PREP_SKLSUB_LEFT_RAM;
 
 					else
@@ -381,21 +396,38 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 			break;
 		
 		case DPAD_RIGHT:
-			if( proc->list_index < (list->total[proc->list_type]-1) )
-				proc->list_index++;
-			else if( PREP_SKLSUB_RIGHT != proc->list_type )
-			{
-				proc->list_type = PREP_SKLSUB_RIGHT;
-				proc->list_index = 0;
+
+			if( PREP_SKLSUB_RIGHT != proc->list_type ){
+				if( proc->list_index < (list->total[proc->list_type]-1) )
+					proc->list_index++;
+				else{
+					proc->list_type = PREP_SKLSUB_RIGHT;
+					proc->list_index = 6 * proc->head_line;
+				}
 			}
+			else{
+				if( proc->list_index < (list->total[proc->list_type]-1) ){
+					proc->list_index++;
+					
+					if( _lib_div(proc->list_index, 6) > (proc->head_line + 2) )
+						proc->scroll_type = PREP_SCROLL_DOWN;
+				}
+			}
+
 			break;
 		
 		case DPAD_UP:
 			switch( proc->list_type )
 			{
 				case PREP_SKLSUB_RIGHT:
-					if( proc->list_index >= 6 )
+					if( proc->list_index >= 6 * (proc->head_line + 1) )
 						proc->list_index -= 6;
+					
+					else if( proc->head_line != 0 ){
+						proc->list_index -= 6;
+						proc->scroll_type = PREP_SCROLL_UP;
+					}
+					
 					break;
 				
 				case PREP_SKLSUB_LEFT_RAM:
@@ -422,17 +454,29 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 			switch( proc->list_type )
 			{
 				case PREP_SKLSUB_RIGHT:
+					/*
+					 * 1. 下一列不是末尾，直接 +6并进一步做判断：
+					 * 		当前不位于底部则什么都不做
+					 *		位于底部则补一个scrolling
+					 *
+					 * 2. 下一列是末尾，则首先加到末尾处在向上面那样做判断
+					 * 3. 当前是末尾：什么都不做；
+					 */
+					 
+					// end
+					if( _lib_div(proc->list_index, 6) == _lib_div(list->total[PREP_SKLSUB_RIGHT] - 1, 6) )
+						break;
+					
+					// judge for index
 					if( (proc->list_index+6) < list->total[PREP_SKLSUB_RIGHT] )
 						proc->list_index += 6;
-					
-					else if( _lib_div(proc->list_index, 6) < _lib_div(list->total[PREP_SKLSUB_RIGHT], 6) )
-						proc->list_index = list->total[PREP_SKLSUB_RIGHT] - 1;
-				
 					else
-					{
-						proc->list_type = PREP_SKLSUB_LEFT_RAM;
-						proc->list_index = 0;
-					}	
+						proc->list_index = list->total[PREP_SKLSUB_RIGHT] - 1;
+
+					// Judge for scrolling
+					if( _lib_div(proc->list_index, 6) > (proc->head_line + 2) )
+						proc->scroll_type = PREP_SCROLL_DOWN;
+					
 					break;
 				
 				case PREP_SKLSUB_LEFT_RAM:
@@ -479,30 +523,35 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 	
 	
 	// Draw Hand
-	switch ( proc->list_type )
-	{
-		
-		case PREP_SKLSUB_LEFT_RAM:
-			xHand = 0x10 + 0x10 * proc->list_index;
-			yHand = 0x38;
-			break;
-		
-		case PREP_SKLSUB_LEFT_ROM:
-			xHand = 0x10 + 0x10 * _lib_mod(proc->list_index, 5);
-			yHand = 0x48 + 0x10 * _lib_div(proc->list_index, 5);
-			break;
+	if( PREP_SCROLL_NOPE == proc->scroll_type ){
+		switch ( proc->list_type )
+		{
 			
+			case PREP_SKLSUB_LEFT_RAM:
+				xHand = 0x10 + 0x10 * proc->list_index;
+				yHand = 0x38;
+				break;
 			
-		case PREP_SKLSUB_RIGHT:
-		default:
-			xHand = 0x78 + 0x10 * _lib_mod(proc->list_index, 6);
-			yHand = 0x28 + 0x10 * _lib_div(proc->list_index, 6);
-			break;
+			case PREP_SKLSUB_LEFT_ROM:
+				xHand = 0x10 + 0x10 * _lib_mod(proc->list_index, 5);
+				yHand = 0x48 + 0x10 * _lib_div(proc->list_index, 5);
+				break;
+				
+				
+			case PREP_SKLSUB_RIGHT:
+			default:
+				xHand = 0x78 + 0x10 * _lib_mod(proc->list_index, 6);
+				yHand = 0x28 + 0x10 * (_lib_div(proc->list_index, 6) - proc->head_line);
+				break;
+		}
+		
+		PrepDrawHand( xHand, yHand, 0, 0x800);
 	}
 	
-	PrepDrawHand( xHand, yHand, 0, 0x800);
-	
 goto_fail:
+	return;
+
+goto_scroll:
 	return;
 }
 
@@ -1290,7 +1339,10 @@ void PrepPickSkill_DrawTotalSkill(struct Unit* unit){
 			TILEMAP_LOCATED( gBG2TilemapBuffer, 0xF, 0x5),
 			TEXT_COLOR_NORMAL, 0, 0,
 			GetStringFromIndex(ENUM_msg_PrepPickSkill_None) );
-	else		
+			
+	// No we made this in Objects
+	
+/* 	else		
 		for( int i = 0; i < list->total[PREP_SKLSUB_RIGHT]; i++ )
 		{
 			int yOff = i / 6;
@@ -1305,7 +1357,7 @@ void PrepPickSkill_DrawTotalSkill(struct Unit* unit){
 				SKILL_ICON(list->skills_all[i]), 
 				TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) 
 			);
-		}
+		} */
 	
 
 }
@@ -2834,6 +2886,7 @@ void PrepSkill_StartPickSkillScreen(struct Proc_PrepUnit* proc){
 		Proc_StartBlocking(gProc_PrepSkillPickSkillList, proc);
 	
 	child->unit = GetPrepScreenUnitListEntry(proc->list_num_cur);
+	child->head_line = 0;
 }
 
 void PrepSkill_StartPickCombatArtScreen(struct Proc_PrepUnit* proc){
@@ -2843,5 +2896,6 @@ void PrepSkill_StartPickCombatArtScreen(struct Proc_PrepUnit* proc){
 		Proc_StartBlocking(gProc_PrepSkillPickCombatArtList, proc);
 	
 	child->unit = GetPrepScreenUnitListEntry(proc->list_num_cur);
+	child->head_line = 0;
 }
 

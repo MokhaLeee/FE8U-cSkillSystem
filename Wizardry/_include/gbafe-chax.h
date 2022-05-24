@@ -34,9 +34,9 @@
 #include "stat-screen.h"
 
 #include "gbafe16-features.h"
-#include "../Features/SkillsInstaller/SkillsDef.h"
-#include "../Features/CombatArtsInstaller/CombatArtDef.h"
-#include "../Features/UnitStatusInstaller/UnitStatusDef.h"
+#include "../Features/Skills/SkillsDef.h"
+#include "../Features/CombatArts/CombatArtDef.h"
+#include "../Features/UnitStatusInfos/UnitStatusDef.h"
 
 #include "../../Writans/TextCHeader.h"
 

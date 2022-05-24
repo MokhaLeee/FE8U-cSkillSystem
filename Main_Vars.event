@@ -33,6 +33,11 @@ gBattleHitArrayReAt:
 	WORD gBattleHitArrayRe
 
 
+// On Prep-Screen Skill List
+gpPrepSkillList:
+	WORD 0x2027380		// 0x130
+
+
 // RecoverableRN2
 ALIGN 4
 gpRneState:

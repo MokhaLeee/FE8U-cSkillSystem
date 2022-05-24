@@ -15,6 +15,11 @@ enum{
 	OBJWINDOW_VOBJ = 0x4000,
 	OBJWINDOW_PAL = 0x6,
 	
+	// Skill Icons
+	VOBJ_SKILL_ICONS = 0x4400,
+
+
+
 
 	// Sub-menu items	
 	MENUITEM_PREPSKILL_SKILL = 0,
@@ -35,8 +40,13 @@ enum{
 	// list length
 	PREPSKILL_LISTLEN_RAM = 5,
 	PREPSKILL_LISTLEN_ROM = 5,
-	PREPSKILL_LISTLEN_ALL = 18,
+	PREPSKILL_LISTLEN_ALL = 0x100,
 	PREPSKILL_LISTLEN_CA = 5,
+	
+	// Scroll
+	PREP_SCROLL_NOPE = 0,
+	PREP_SCROLL_UP = 1,
+	PREP_SCROLL_DOWN = 2,
 	
 };
 
@@ -68,10 +78,18 @@ struct Proc_PrepPickSkill{
 	/* 34 */ u8 list_type_pre;
 	/* 35 */ u8 list_index_replace;
 	/* 36 */ u8 yeah;
+	/* 37 */ u8 head_line;
+	/* 38 */ u8 scroll_type;	// 0 = none, 1 = up, 2 = down
+	/* 39 */ u8 scroll_diffCur;
+	/* 3A */ u8 scroll_step;	// 0x4 or 0x8
+	/* 3B */ u8 displaying_count;	// number of current displaying icons
+	/* 3C */ u8 right_disp_reset;	// if set, reload total list icon obj
 };
 
-// need gpCommonSpace!
-extern struct PrepSkillsList* gpCommonSpace;
+extern const struct ProcCmd gProc_PrepSkillPickSkillList[];
+
+// need gpPrepSkillList!
+extern struct PrepSkillsList* gpPrepSkillList;
 
 
 

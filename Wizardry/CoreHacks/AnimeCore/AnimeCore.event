@@ -66,7 +66,28 @@ SPD_ProcDisplayTiles:
 	#incbin "SkillAnimActivition/data/ProcDisplayTiles.4bpp.lz"
 
 
+// ====================================================
+//                 New Ekr Anim Proc
+// ====================================================
 
+#include "NewEkrSkillProc/NewEkrSkillProc.lyn.event"
+#include "NewEkrSkillProc/EkrSkill_BgHack.lyn.event"
+
+PUSH
+	ORG $5D9320
+	_6C_JUMP(gProcCmd_NewEkrSkill)
+	
+	// Make here to load from another position
+	// So that we can get enough space for "jumpToHack"
+	// ldr: 01001 + (3 bits)Rd + (8 bits) offset/4, note that current pc = real adr + 2
+	ORG $6E492
+	SHORT $4C87		// 0x4C + (0x6E6B0 - 0x6E492 - 2)/4
+	
+	ORG $6E4B6
+	SHORT 0
+	jumpToHack(EkrSkill_BgConfigHackASM)
+	
+POP
 
 
 #endif // C_SKILLSYS_ANIME_CORE

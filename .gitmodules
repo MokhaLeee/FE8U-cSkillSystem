@@ -19,3 +19,6 @@
 [submodule "CN-Fonts"]
 	path = CN-Fonts
 	url = https://github.com/MokhaLeee/FE8U-cnFont-EAInstaller.git
+[submodule "Wizardry/External/EventThumb"]
+	path = Wizardry/External/EventThumb
+	url = https://github.com/MokhaLeee/EventThumb.git

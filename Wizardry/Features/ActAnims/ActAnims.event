@@ -10,7 +10,7 @@
 ALIGN 4
 _thumb(CommonSkill)
 {
-	#include "CommonSkill/CommonSkillAnim.event"
+  #include "CommonSkill/CommonSkillAnim.event"
 }
 
 ALIGN 4
