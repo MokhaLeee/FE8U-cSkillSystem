@@ -3,7 +3,31 @@
 typedef void (*HookFunc)(struct Unit* unit);
 extern HookFunc OnLoadUnitFuncList[];
 
+void UnitLoadStatsFromChracter(struct Unit* unit, const struct CharacterData* character) {
+	unit->maxHP = character->baseHP + unit->pClassData->baseHP;
+	unit->pow   = character->basePow + unit->pClassData->basePow;
+	unit->skl   = character->baseSkl + unit->pClassData->baseSkl;
+	unit->spd   = character->baseSpd + unit->pClassData->baseSpd;
+	unit->def   = character->baseDef + unit->pClassData->baseDef;
+	unit->res   = character->baseRes + unit->pClassData->baseRes;
+	unit->lck   = character->baseLck;
 
+	unit->conBonus = 0;
+
+/* 	we will put this in modular load unit
+
+	for (int i = 0; i < 8; ++i) {
+		unit->ranks[i] = unit->pClassData->baseRanks[i];
+
+		if (unit->pCharacterData->baseRanks[i])
+			unit->ranks[i] = unit->pCharacterData->baseRanks[i];
+    } */
+
+	if (UNIT_FACTION(unit) == FACTION_BLUE && (unit->level != UNIT_LEVEL_MAX))
+		unit->exp = 0;
+	else
+		unit->exp = UNIT_EXP_DISABLED;
+}
 
 struct Unit* LoadUnit(const struct UnitDefinition* uDef) {
 	struct UnitDefinition buf;
@@ -92,6 +116,9 @@ struct Unit* LoadUnit(const struct UnitDefinition* uDef) {
 	ClearUnit(unit);
 
 	UnitInitFromDefinition(unit, uDef);
+	
+	// Also made a hack
+	// To use new LoadUnit
 	UnitLoadStatsFromChracter(unit, unit->pCharacterData);
 	UnitHideIfUnderRoof(unit);
 

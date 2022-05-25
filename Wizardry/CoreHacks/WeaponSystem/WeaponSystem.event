@@ -1,0 +1,23 @@
+
+// ====================================================
+//                        Core
+// ====================================================
+#include "Core/RankCore.lyn.event"
+
+
+// ====================================================
+//                 Weapon Equipment
+// ====================================================
+#include "WeaponEquip/WeaponEquip.lyn.event"
+PROTECT $2A730 $2A918		// SetBattleUnitWeapon
+
+
+
+// ====================================================
+//                  Battle Exp
+// ====================================================
+#include "WeaponExp/WeaponExp.lyn.event"
+#include "WeaponExp/MiscHacks.lyn.event"
+PROTECT $2c0b4 $2C1B0		// GetBattleUnitUpdatedWeaponExp
+PROTECT $2c1b0 $2C1EC		// HasBattleUnitGainedWeaponLevel
+

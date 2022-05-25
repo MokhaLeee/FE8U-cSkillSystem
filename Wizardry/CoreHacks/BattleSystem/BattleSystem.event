@@ -119,11 +119,7 @@ PROTECT $2C844 $2C8C4		// BattleInitTargetCanCounter
 
 
 
-// ====================================================
-//                 Weapon Equipment
-// ====================================================
-#include "WeaponEquip/WeaponEquip.lyn.event"
-PROTECT $2A730 $2A918		// SetBattleUnitWeapon
+
 
 
 
@@ -147,12 +143,11 @@ PROTECT $2CCDC $2CD64		// GetOffensiveStaffAccuracy
 //                  Battle Exp
 // ====================================================
 #include "BattleExp/UnitExp.lyn.event"
-#include "BattleExp/WeaponExp.lyn.event"
+
 PROTECT $2B92C $2B9A0		// BattleApplyExpGains
 PROTECT $2c368 $2C398		// GetUnitRoundExp
 PROTECT $2c534 $2C5B8		// GetBattleUnitExpGain
-PROTECT $2c0b4 $2C1B0		// GetBattleUnitUpdatedWeaponExp
-PROTECT $2c1b0 $2C1EC		// HasBattleUnitGainedWeaponLevel
+
 
 
 #endif // BATTLE_SYSTEM_REWORK

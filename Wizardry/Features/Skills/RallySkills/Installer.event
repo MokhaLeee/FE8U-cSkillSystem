@@ -3,7 +3,7 @@ ALIGN 4
 
 InjectSkillInfo(SKILLID_RallyStr, SkillInfo_RallyStr)
 InjectSkillInfo(SKILLID_RallyMag, SkillInfo_RallyMag)
-InjectSkillInfo(SKILLID_RallyStr, SkillInfo_RallyStr)
+InjectSkillInfo(SKILLID_RallySkl, SkillInfo_RallySkl)
 InjectSkillInfo(SKILLID_RallySpd, SkillInfo_RallySpd)
 InjectSkillInfo(SKILLID_RallyLck, SkillInfo_RallyLck)
 InjectSkillInfo(SKILLID_RallyDef, SkillInfo_RallyDef)

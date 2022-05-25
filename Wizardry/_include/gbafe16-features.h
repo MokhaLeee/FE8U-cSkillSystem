@@ -1,8 +1,8 @@
 #pragma once
 
-#define SKILL_ICON(aSkillId) ((1 << 8) + (aSkillId))
-#define MASTERY_ICON(aSkillId) ((2 << 8) + (aSkillId))
-#define COMBAT_ART_ICON(aSkillId) ((3 << 8) + (aSkillId))
+#define SKILL_ICON(index) ((1 << 8) + (index))
+#define MASTERY_ICON(index) ((2 << 8) + (index))
+#define COMBAT_ART_ICON(index) ((3 << 8) + (index))
 
 enum{
 	MASTERY_ICON_SWORD = 0,

@@ -36,4 +36,10 @@ ALIGN 4
 #include "CombatArts/CombatArtsLevelBasedList_Chartacter.lyn.event"
 #include "CombatArts/CombatArtsLevelBasedList_Class.lyn.event"
 
+
+// Weapon System
+#include "WeaponSystem/NewWRanksROM.lyn.event"
+
+
+
 #endif // GAME_DATA

@@ -7,7 +7,7 @@ int UnitHasExpaData(struct Unit* unit){
 	return (char_id < UNIT_EXPA_MAX) && GetCharacterData(char_id)->affinity;
 }
 
-struct UnitExpa* GetUnitExt(struct Unit* unit){
+struct UnitExpa* GetUnitExpa(struct Unit* unit){
 	
 	if( !UnitHasExpaData(unit) )
 		return NULL;

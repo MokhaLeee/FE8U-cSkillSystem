@@ -167,7 +167,7 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 		
 		// Exp Skills
 		SID_Discipline ,			// 天才
-		SID_RoyalLineage ,		// 血统
+		SID_RoyalLineage ,			// 血统
 	};
 	
 	for( int i = 0; i < 0x100; i++ )

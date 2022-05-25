@@ -54,9 +54,6 @@ void U2B_Vanilla(struct BattleUnit* bu, struct Unit* unit){
 
 // (802C1EC) UpdateUnitFromBattle
 void B2U_Vanilla(struct Unit* unit, struct BattleUnit* bu){
-	extern int GetBattleUnitUpdatedWeaponExp(struct BattleUnit*);
-	
-    int tmp;
 
     unit->level = bu->unit.level;
     unit->exp   = bu->unit.exp;
@@ -78,13 +75,17 @@ void B2U_Vanilla(struct Unit* unit, struct BattleUnit* bu){
 
     UnitCheckStatCaps(unit);
 
-    tmp = GetBattleUnitUpdatedWeaponExp(bu);
+/* 	This has been worked in WeaponSystem
+
+	extern int GetBattleUnitUpdatedWeaponExp(struct BattleUnit*);
+	
+    int tmp = GetBattleUnitUpdatedWeaponExp(bu);
 
     if (tmp > 0)
-        unit->ranks[bu->weaponType] = tmp;
+        unit->ranks[bu->weaponType] = tmp; */
 
-    for (tmp = 0; tmp < UNIT_ITEM_COUNT; ++tmp)
-        unit->items[tmp] = bu->unit.items[tmp];
+    for (int i = 0; i < UNIT_ITEM_COUNT; ++i)
+        unit->items[i] = bu->unit.items[i]; 
 
     UnitRemoveInvalidItems(unit);
 

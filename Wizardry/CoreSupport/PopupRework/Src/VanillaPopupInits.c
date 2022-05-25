@@ -44,6 +44,7 @@ int PopR_InitWRankUp(void) {
 		SetPopupWType(gBattleTarget.weaponType);
 		return TRUE;
 	}
+	SetPopupWType(gBattleActor.weaponType);
 
 	return FALSE;
 }

@@ -32,6 +32,7 @@
 #include "unit-expa.h"
 #include "unit-status.h"
 #include "stat-screen.h"
+#include "weapon-system.h"
 
 #include "gbafe16-features.h"
 #include "../Features/Skills/SkillsDef.h"
