@@ -26,9 +26,6 @@ POP
 // =========================
 ALIGN 4
 
-// Credit to Zane
-#include "External/EventThumb/THUMBLIB2.event"
-
 // Mokha common functions
 #include "CoreSupport/MokhaLib/LibFun.lyn.event"
 #include "CoreSupport/CommonSpace/CommonSpace.event"

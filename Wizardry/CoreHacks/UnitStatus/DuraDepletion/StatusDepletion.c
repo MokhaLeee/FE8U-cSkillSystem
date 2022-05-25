@@ -67,9 +67,9 @@ void TickActiveFactionTurn(void) {
 	
 	/*
 	 *
-	 * 重新定一下规则：
-	 * 如果是buff, 则在自己回合清除
-	 * 如果是debuff, 则在对方回合清除
+	 * new rule：
+	 * if buff, clear it in own phase
+	 * if debuff, clear in enimy's phase
 	 *
 	 */
 	 
@@ -96,13 +96,6 @@ void TickActiveFactionTurn(void) {
 			DEC_STATUS(i)
 		}
 		
-		for( int i = FACTION_GREEN + 1; i < FACTION_GREEN + 20; i++ )
-		{
-			if( GetStatusInfo(GetUnitStatusIndex(GetUnit(i)))->is_debuff )
-				continue;
-			
-			DEC_STATUS(i)
-		}
 		
 		// debuff status
 		for( int i = FACTION_RED + 1; i < FACTION_RED + 50; i++ )
@@ -135,6 +128,17 @@ void TickActiveFactionTurn(void) {
 		
 		// non-debuff status
 		for( int i = FACTION_RED + 1; i < FACTION_RED + 50; i++ )
+		{
+			if( GetStatusInfo(GetUnitStatusIndex(GetUnit(i)))->is_debuff )
+				continue;
+			
+			DEC_STATUS(i)
+		}
+	}
+	
+	else if( FACTION_GREEN == gRAMChapterData.chapterPhaseIndex )
+	{
+		for( int i = FACTION_GREEN + 1; i < FACTION_GREEN + 20; i++ )
 		{
 			if( GetStatusInfo(GetUnitStatusIndex(GetUnit(i)))->is_debuff )
 				continue;

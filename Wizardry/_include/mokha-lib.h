@@ -12,3 +12,6 @@ int _lib_mod(int a, int b);
 int _lib_div(int a, int b);
 
 const void* GetIconGfx(unsigned icon);
+
+// New draw abs number
+void NewDrawAbsDecNumber(u16 *dest, int color, int number);

@@ -1,6 +1,4 @@
-
 #include "IconDisplay.h"
-// #include "SkillSystem.h"
 
 #define ICON_SHEET(icon) (((icon) >> 8) & 0xFF)
 #define ICON_INDEX(icon) ((icon) & 0xFF)
@@ -19,4 +17,3 @@ const void* GetVanillaIconGfx(unsigned id)
 	extern const u8 gIconGraphics[];
 	return gIconGraphics + 0x80*id;
 }
-

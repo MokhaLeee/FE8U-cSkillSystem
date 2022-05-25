@@ -1303,14 +1303,14 @@ void PrepPickSkill_DrawRightBarTexts(struct Unit* unit, int config){
 		TILEMAP_LOCATED( gBG0TilemapBuffer, 0x1B, 0x1),
 		1, 1, 0 );
 	
-	DrawDecNumber(
+	NewDrawAbsDecNumber(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, 0x12, 0x1),
 		0 == (5 - list->total[PREP_SKLSUB_LEFT_RAM])
 			? TEXT_COLOR_GRAY
 			: TEXT_COLOR_BLUE,
 		5 - list->total[PREP_SKLSUB_LEFT_RAM] );
 	
-	DrawDecNumber(
+	NewDrawAbsDecNumber(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, 0x1B, 0x1),
 		(5 == list->total[PREP_SKLSUB_LEFT_RAM])
 			? TEXT_COLOR_GREEN
@@ -1595,7 +1595,7 @@ static void PrepPickCombatArt_UpdateSkillDesc(struct Proc_PrepPickSkill*);
 
 
 
-const static struct ProcCmd gProc_PrepSkillPickCombatArtList[] = {
+const struct ProcCmd gProc_PrepSkillPickCombatArtList[] = {
 	
 	PROC_NAME	("PREP_SKILLSCREEN_PICK_COMBAT_ARTS"),
 	PROC_SET_END_CB (PrepPickSkill_OnEnd),
@@ -1686,10 +1686,17 @@ void PrepPickCombatArt_InitSkillsList (struct Proc_PrepPickSkill* proc){
 	proc->state = STATE_PREPSUB_NORMAL;
 	proc->list_type = PREP_SKLSUB_RIGHT;
 	proc->list_type_pre = PREP_SKLSUB_RIGHT;
+
 	
-	proc->list_index = 0;
+	proc->list_index = proc->head_line * 6;	// this will be set in function PrepSkill_StartPickSkillScreen
 	proc->list_index_pre = 0;
 	proc->skill_id_pre = 0; // update on desc
+	
+	proc->scroll_type = PREP_SCROLL_NOPE;
+	proc->scroll_diffCur = 0;
+	proc->scroll_step = 0x4;
+	proc->displaying_count = 0;
+	proc->right_disp_reset = 1;
 }
 
 
@@ -1771,6 +1778,15 @@ void PrepPickCombatArt_MainLoop(struct Proc_PrepPickSkill* proc){
 	struct PrepSkillsList* list;
 	int xHand, yHand;
 	
+	if( PREP_SCROLL_NOPE != proc->scroll_type )
+		goto goto_scroll;
+	
+	
+	// Check scroll speed
+	proc->scroll_step = 0 == (L_BUTTON & gKeyStatusPtr->heldKeys)
+		? 4 : 8;
+	
+	
 	list = GetUnitPrepCombatArtsList(proc->unit);
 	
 	
@@ -1832,13 +1848,15 @@ void PrepPickCombatArt_MainLoop(struct Proc_PrepPickSkill* proc){
 		case DPAD_LEFT:
 			if( PREP_SKLSUB_RIGHT == proc->list_type )
 			{
+				
 				if( _lib_mod(proc->list_index, 6) == 0 )
 				{
-					proc->list_type = PREP_SKLSUB_LEFT_CA;
+					proc->list_type = PREP_SKLSUB_LEFT_CA ;
+					
 					proc->list_index = 
-						0 == list->total[PREP_SKLSUB_LEFT_CA]
+						0 == list->total[ PREP_SKLSUB_LEFT_CA  ]
 						? 0
-						: list->total[PREP_SKLSUB_LEFT_CA] - 1;
+						: list->total[ PREP_SKLSUB_LEFT_CA  ] - 1;
 				}
 				else
 				{
@@ -1852,45 +1870,87 @@ void PrepPickCombatArt_MainLoop(struct Proc_PrepPickSkill* proc){
 			break;
 			
 		case DPAD_RIGHT:
-			if( proc->list_index < (list->total[proc->list_type]-1) )
-				proc->list_index++;
-			
-			else if( PREP_SKLSUB_RIGHT != proc->list_type )
-			{
-				proc->list_type = PREP_SKLSUB_RIGHT;
-				proc->list_index = 0;
+
+			if( PREP_SKLSUB_LEFT_CA  == proc->list_type ){
+
+				if( proc->list_index < (list->total[PREP_SKLSUB_LEFT_CA ]-1) )
+					proc->list_index++;
+				else{
+					proc->list_type = PREP_SKLSUB_RIGHT;
+					proc->list_index = 6 * proc->head_line;
+				}
 			}
-		
+			else if( PREP_SKLSUB_RIGHT == proc->list_type ){
+				if( proc->list_index < (list->total[PREP_SKLSUB_RIGHT]-1) ){
+					proc->list_index++;
+					
+					if( _lib_div(proc->list_index, 6) > (proc->head_line + 2) )
+						proc->scroll_type = PREP_SCROLL_DOWN;
+				}
+			}
+
 			break;
 		
 		case DPAD_UP:
-			if( PREP_SKLSUB_RIGHT == proc->list_type )
+			switch( proc->list_type )
 			{
-				if( proc->list_index >= 6 )
-					proc->list_index -= 6;
+				case PREP_SKLSUB_RIGHT:
+					if( proc->list_index >= 6 * (proc->head_line + 1) )
+						proc->list_index -= 6;
+					
+					else if( proc->head_line != 0 ){
+						proc->list_index -= 6;
+						proc->scroll_type = PREP_SCROLL_UP;
+					}
+					
+					break;
+				
+				case PREP_SKLSUB_LEFT_CA :
+					proc->list_type = PREP_SKLSUB_RIGHT;
+					proc->list_index = proc->head_line * 6;
+					break;
+				
+					break;
+					
+				default:
+					break;	
 			}
-			else 
-			{
-				proc->list_type = PREP_SKLSUB_RIGHT;
-				proc->list_index = 0;
-			}
-			
 			break;
 		
 		case DPAD_DOWN:
-			if( PREP_SKLSUB_RIGHT == proc->list_type )
+			switch( proc->list_type )
 			{
-				if( (proc->list_index+6) < list->total[PREP_SKLSUB_RIGHT] )
-					proc->list_index += 6;
-				else if( _lib_div(proc->list_index, 6) < _lib_div(list->total[PREP_SKLSUB_RIGHT], 6) )
-					proc->list_index = list->total[PREP_SKLSUB_RIGHT] - 1;
-				else
-				{
-					proc->list_type = PREP_SKLSUB_LEFT_CA;
-					proc->list_index = 0;
-				}
+				case PREP_SKLSUB_RIGHT:
+					/*
+					 * 1. 下一列不是末尾，直接 +6并进一步做判断：
+					 * 		当前不位于底部则什么都不做
+					 *		位于底部则补一个scrolling
+					 *
+					 * 2. 下一列是末尾，则首先加到末尾处在向上面那样做判断
+					 * 3. 当前是末尾：什么都不做；
+					 */
+					 
+					// end
+					if( _lib_div(proc->list_index, 6) == _lib_div(list->total[PREP_SKLSUB_RIGHT] - 1, 6) )
+						break;
+					
+					// judge for index
+					if( (proc->list_index+6) < list->total[PREP_SKLSUB_RIGHT] )
+						proc->list_index += 6;
+					else
+						proc->list_index = list->total[PREP_SKLSUB_RIGHT] - 1;
+
+					// Judge for scrolling
+					if( _lib_div(proc->list_index, 6) > (proc->head_line + 2) )
+						proc->scroll_type = PREP_SCROLL_DOWN;
+					
+					break;
+				
+				
+				default:
+					break;
+					
 			}
-			
 			break;
 		
 		default:
@@ -1912,25 +1972,30 @@ void PrepPickCombatArt_MainLoop(struct Proc_PrepPickSkill* proc){
 	PlaySoundEffect(0x65);
 	
 	// Draw Hand
-	switch ( proc->list_type )
-	{
+	if( PREP_SCROLL_NOPE == proc->scroll_type ){
+		switch ( proc->list_type )
+		{
+			
+			case PREP_SKLSUB_LEFT_CA :
+				xHand = 0x10 + 0x10 * proc->list_index;
+				yHand = 0x38;
+				break;
+				
+				
+			case PREP_SKLSUB_RIGHT:
+			default:
+				xHand = 0x78 + 0x10 * _lib_mod(proc->list_index, 6);
+				yHand = 0x28 + 0x10 * (_lib_div(proc->list_index, 6) - proc->head_line);
+				break;
+		}
 		
-		case PREP_SKLSUB_LEFT_CA:
-			xHand = 0x10 + 0x10 * proc->list_index;
-			yHand = 0x38;
-			break;
-			
-			
-		case PREP_SKLSUB_RIGHT:
-		default:
-			xHand = 0x78 + 0x10 * _lib_mod(proc->list_index, 6);
-			yHand = 0x28 + 0x10 * _lib_div(proc->list_index, 6);
-			break;
+		PrepDrawHand( xHand, yHand, 0, 0x800);
 	}
 	
-	PrepDrawHand( xHand, yHand, 0, 0x800);
-	
 goto_fail:
+	return;
+
+goto_scroll:
 	return;
 }
 
@@ -2584,14 +2649,14 @@ void PrepPickCombatArt_DrawRightBarTexts(struct Unit* unit, int config){
 		TILEMAP_LOCATED( gBG0TilemapBuffer, 0x1B, 0x1),
 		1, 1, 0 );
 	
-	DrawDecNumber(
+	NewDrawAbsDecNumber(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, 0x12, 0x1),
 		0 == (PREPSKILL_LISTLEN_CA - list->total[PREP_SKLSUB_LEFT_CA])
 			? TEXT_COLOR_GRAY
 			: TEXT_COLOR_BLUE,
 		PREPSKILL_LISTLEN_CA - list->total[PREP_SKLSUB_LEFT_CA] );
 	
-	DrawDecNumber(
+	NewDrawAbsDecNumber(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, 0x1B, 0x1),
 		(PREPSKILL_LISTLEN_CA == list->total[PREP_SKLSUB_LEFT_CA])
 			? TEXT_COLOR_GREEN
@@ -2621,7 +2686,7 @@ void PrepPickCombatArt_DrawTotalSkill(struct Unit* unit){
 			TILEMAP_LOCATED( gBG2TilemapBuffer, 0xF, 0x5),
 			TEXT_COLOR_NORMAL, 0, 0,
 			GetStringFromIndex(ENUM_msg_PrepPickSkill_None) );
-	else		
+/* 	else		
 		for( int i = 0; i < list->total[PREP_SKLSUB_RIGHT]; i++ )
 		{
 			int yOff = i / 6;
@@ -2636,7 +2701,7 @@ void PrepPickCombatArt_DrawTotalSkill(struct Unit* unit){
 				COMBAT_ART_ICON(list->skills_all[i]), 
 				TILEREF(0, STATSCREEN_BGPAL_ITEMICONS) 
 			);
-		}
+		} */
 }
 
 
@@ -2729,7 +2794,7 @@ void PrepPickCombatArt_UpdateSkillDesc(struct Proc_PrepPickSkill* proc){
 		GetStringFromIndex(0x503)
 		);
 	
-	DrawDecNumber(
+	NewDrawAbsDecNumber(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 4, yStart + 2),
 		TEXT_COLOR_BLUE,
 		info->mt );
@@ -2746,7 +2811,7 @@ void PrepPickCombatArt_UpdateSkillDesc(struct Proc_PrepPickSkill* proc){
 		GetStringFromIndex(0x4F4)
 		);
 	
-	DrawDecNumber(
+	NewDrawAbsDecNumber(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 11, yStart + 2),
 		TEXT_COLOR_BLUE,
 		info->hit );
@@ -2763,8 +2828,8 @@ void PrepPickCombatArt_UpdateSkillDesc(struct Proc_PrepPickSkill* proc){
 		GetStringFromIndex(0x4F5)
 		);
 	
-	DrawDecNumber(
-		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 18, yStart + 2),
+	NewDrawAbsDecNumber(
+		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 19, yStart + 2),
 		TEXT_COLOR_BLUE,
 		info->avo );
 	
@@ -2780,7 +2845,7 @@ void PrepPickCombatArt_UpdateSkillDesc(struct Proc_PrepPickSkill* proc){
 		GetStringFromIndex(0x501)
 		);
 	
-	DrawDecNumber(
+	NewDrawAbsDecNumber(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 4, yStart + 4),
 		TEXT_COLOR_BLUE,
 		info->crit );
@@ -2797,10 +2862,10 @@ void PrepPickCombatArt_UpdateSkillDesc(struct Proc_PrepPickSkill* proc){
 		GetStringFromIndex(ENUM_msg_PrepPickSkill_Cost)
 		);
 	
-	DrawDecNumber(
+	NewDrawAbsDecNumber(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart + 11, yStart + 4),
 		TEXT_COLOR_BLUE,
-		info->cost );
+		-info->cost );
 	
 	
 	
@@ -2891,7 +2956,7 @@ void PrepSkill_StartPickSkillScreen(struct Proc_PrepUnit* proc){
 
 void PrepSkill_StartPickCombatArtScreen(struct Proc_PrepUnit* proc){
 	struct Proc_PrepPickSkill* child;
-	
+
 	child = (struct Proc_PrepPickSkill*) 
 		Proc_StartBlocking(gProc_PrepSkillPickCombatArtList, proc);
 	

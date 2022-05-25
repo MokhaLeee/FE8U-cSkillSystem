@@ -6,75 +6,171 @@
 // =========================================================
 
 
-static int AddPrepSkilTotalList(struct PrepSkillsList* list, const int index){
+static void SortTotalList(struct PrepSkillsList* list, u8 tmp_list[0x100]){
 	
-	if( list->total[PREP_SKLSUB_RIGHT] >= PREPSKILL_LISTLEN_ALL )
-		return 0;
+	list->total[PREP_SKLSUB_RIGHT] = 0;
 	
-	for( int i = 0; i < list->total[PREP_SKLSUB_RIGHT]; i++ )
-		if( index == list->skills_all[i] )
-			return 1;
-	
-	list->skills_all[ list->total[PREP_SKLSUB_RIGHT]++ ] = index;
-	return 1;
+	for( int i = 1; i < 0xFF; i++ )
+		if( 1 == tmp_list[i] )
+			list->skills_all[ list->total[PREP_SKLSUB_RIGHT]++ ] = i;
 }
 
 
 static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 	
-	#define ADD_SKILL(aSkill)								\
-		if( SKILL_VALID(aSkill) )							\
-			if( 0 == AddPrepSkilTotalList(list, aSkill) )	\
-				return;
+	#define ADD_SKILL(aSkill) (tmp_list[aSkill] = 1)
 	
 	int WeaponRanks[8];
+	u8 tmp_list[0x100] = {0};
 	const int num_clas = unit->pClassData->number;
 	const int num_char = unit->pCharacterData->number;
 	
 	const struct SkillClassList_t* ListClass = 
 		&ClassSkillRomList[num_clas];
-	
-	list->total[PREP_SKLSUB_RIGHT] = 0;
+
 	
 	// Tmp
-	const u8 skills_tmp[32] = {
-		SID_RangeBonusBMag1,
-		SID_RangeBonusBMag2,
-		SID_RangeBonusBow1,
+	const u8 skills_tmp[0x100] = {
+		SID_RangeBonusBMag1 ,
+		SID_RangeBonusBMag2 ,
+		SID_RangeBonusBow1 ,
 		SID_RangeBonusBow2 ,
-		SID_DefiantStr,
+		SID_DefiantStr ,
 		SID_DefiantMag ,
 		SID_DefiantSkl ,
 		SID_DefiantSpd ,
 		SID_DefiantLck ,
 		SID_DefiantDef ,
-		
+		SID_DefiantRes ,
 		SID_DefiantCrit ,
 		SID_DefiantAvoid ,
+		
+		// Misc Skills
 		SID_LifeAndDeath ,
+		
+		// Range Skills
 		SID_RangeBonusBMag1_ext ,
-		SID_RangeBonusBow1_ext,
-		SID_BlowDarting,
+		SID_RangeBonusBow1_ext ,
+		
+		// Blow Skills
+		SID_BlowDarting ,
 		SID_BlowDeath ,
 		SID_BlowArmored ,
 		SID_BlowFiendish ,
 		SID_BlowWarding ,
-		
 		SID_BlowDuelist ,
-		SID_BlowUncanny ,
+		SID_BlowUncanny,
+		
+		
 		SID_Vantage ,
-		SID_VantageBat,
+		SID_VantageBat ,
 		SID_Desperation ,
 		SID_DesperationBat,
-		SID_QuickRiposte,
+		SID_QuickRiposte ,
+		
 		SID_Lethality ,
 		SID_Crit ,
 		SID_WatchfulEye ,
-		SID_SorceryBlade,
-		SID_FuryPlus,
+		
+		SID_CritSword ,
+		SID_CritAxe ,
+		SID_CritLance ,
+		SID_CritBow ,
+		SID_CritBMag ,
+		SID_CritWMag ,
+		
+		SID_Avoid ,			// 回避
+		SID_AvoidSword ,		// 剑回避
+		
+		
+		SID_SwordBreaker ,
+		SID_AxeBreaker ,
+		SID_LanceBreaker ,
+		SID_BowBreaker ,
+		SID_TomeBreaker ,
+		SID_FistBreaker ,
+		
+		// Battle Status: Faire
+		SID_FaireSword ,
+		SID_FaireLance ,
+		SID_FaireAxe ,
+		SID_FaireBow ,
+		SID_FaireBMag ,
+		
+		SID_CloseCounter ,	// 近反
+		SID_CounterAttack ,	// 远反
+		
+		// Misc
+		SID_WaryFighter ,		// 防阵
+		
+		// Battle Order
+		SID_DoubleLion ,		// 狮子连斩
+		
+		SID_Canto ,			// 再动
+		SID_AlertStance ,		// 警戒
+		SID_AlertStancePlus ,	// 警戒+
+		
+		// Rally Skills
+		SID_RallyStr ,
+		SID_RallyMag ,
+		SID_RallySkl ,
+		SID_RallySpd ,
+		SID_RallyLck ,
+		SID_RallyDef ,
+		SID_RallyRes ,
+		SID_RallyMov ,
+		SID_RallySpectrum ,
+		
+		// Menu Skills
+		SID_Dance ,			// 舞蹈
+		SID_LockTouch ,		// 开锁
+		SID_Summon ,			// 召唤
+		SID_Supply ,			// 运输队
+		SID_Steal ,			// 偷盗
+		
+		// Pre-Phase
+		SID_Renewal ,			// 回复
+		SID_ArmorMarch ,		// 重装行军
+		
+		
+		// Stance Skills
+		SID_StanceBracing ,	// 金刚明镜架势
+		SID_StanceDarting ,	// 飞燕架势
+		SID_StanceFierce ,	// 鬼神架势
+		SID_StanceKestrel ,	// 鬼神飞燕架势
+		SID_StanceMirror ,	// 鬼神明镜架势
+		SID_StanceReady ,		// 飞燕金刚架势
+		SID_StanceSteady ,	// 金刚架势
+		SID_StanceSturdy ,	// 鬼神金刚架势
+		SID_StanceSwift ,		// 飞燕明镜架势
+		SID_StanceWarding ,	// 明镜架势
+		
+		// Move Skills
+		SID_Pass ,				// 穿越
+		SID_RuinedBladePlus ,		// 破败之刃+
+		
+		// Battle Status
+		SID_RuinedBlade ,			// 破败之刃
+		SID_InfinityEdge ,		// 无尽之刃
+		SID_HeavyBlade ,			// 刚剑
+		SID_HeavyBladePlus ,		// 刚剑+
+		SID_FlashingBlade ,		// 柔剑
+		SID_FlashingBladePlus ,	// 柔剑+
+		SID_LunaAttack ,			// 月光
+		SID_SorceryBlade ,		// 魔道之刃
+		
+		// Unit Status
+		SID_Fury ,				// 狮子奋迅
+		SID_FuryPlus ,			// 狮子奋迅+
+		SID_FortressDef ,			// 防守壁垒
+		SID_FortressRes ,			// 魔防壁垒
+		
+		// Exp Skills
+		SID_Discipline ,			// 天才
+		SID_RoyalLineage ,		// 血统
 	};
 	
-	for( int i = 0; i < 32; i++ )
+	for( int i = 0; i < 0x100; i++ )
 		ADD_SKILL(skills_tmp[i]);
 	
 	
@@ -428,21 +524,81 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 			break;
 	}
 	
+	SortTotalList(list, tmp_list);
 	#undef ADD_SKILL
 }
 
 static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* list){
-	#define ADD_SKILL(aSkill)								\
-		if( SKILL_VALID(aSkill) )							\
-			if( 0 == AddPrepSkilTotalList(list, aSkill) )	\
-				return;
+	#define ADD_SKILL(aSkill) (tmp_list[aSkill] = 1)
 	
-	int WeaponRanks[7];
+	int WeaponRanks[8];
+	u8 tmp_list[0x100] = {0};
 	const int num_clas = unit->pClassData->number;
 	const int num_char = unit->pCharacterData->number;
 	
 	list->total[PREP_SKLSUB_RIGHT] = 0;
-
+	
+	const u8 skills_tmp[49] = {
+		CA_WrathStrike,
+		CA_Grounder ,
+		CA_Soulblade,
+		CA_BaneOfMonsters,
+		CA_Sunder ,
+		
+		CA_Hexblade ,
+		CA_HazeSlice  ,
+		CA_FinesseBlade,
+		CA_Windsweep ,
+		CA_SwordDance ,
+		
+		CA_Assassinate ,
+		CA_Subdue,
+		CA_FoudroyantStrike,
+		CA_SublimeHeaven ,
+		CA_RupturedHeaven ,
+		
+		CA_HeavensFall,
+		CA_TempestLance ,
+		CA_Knightkneeler ,
+		CA_ShatterSlash,
+		CA_MonsterPiercer ,
+		
+		CA_HitAndRun,
+		CA_SwiftStrikes ,
+		CA_FrozenLance ,
+		CA_GlowingEmber ,
+		CA_Vengeance,
+		
+		CA_LanceJab,
+		CA_Smash,
+		CA_HelmSplitter ,
+		CA_MonsterBreaker,
+		CA_FocusedStrike,
+		
+		CA_WildAbandon,
+		CA_Spike ,
+		CA_DiamondAxe ,
+		CA_LightningAxe,
+		CA_ArmoredStrike ,
+		
+		CA_WarMasterStrike ,
+		CA_FlickeringFlower,
+		CA_CurvedShot,
+		CA_Deadeye ,
+		CA_Encloser,
+		
+		CA_HeavyDraw,
+		CA_MonsterBlast,
+		
+		CA_PointBlankVolley ,
+		CA_WardArrow ,
+		CA_HuntersVolley ,
+		CA_EncloserPlus,
+	};
+	
+	for( int i = 0; i < 49; i++ )
+		ADD_SKILL(skills_tmp[i]);
+	
 	
 	for( int i = 0; i < 7; i++ )
 		WeaponRanks[i] = GetWeaponLevelFromExp(unit->ranks[i]);
@@ -665,6 +821,9 @@ static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* lis
 			break;
 	}
 	
+	
+	SortTotalList(list, tmp_list);
+	
 	#undef ADD_SKILL
 	
 }
@@ -774,7 +933,28 @@ struct PrepSkillsList* GetUnitPrepSkillsList(struct Unit* unit){
 // W.I.P.
 struct PrepSkillsList* MakeUnitPrepCombatArtsList(struct Unit* unit){
 	
-	MakeLeftLists(unit, gpPrepSkillList);
+	// MakeLeftLists(unit, gpPrepSkillList);
+	
+	struct PrepSkillsList* prepList = gpPrepSkillList;
+	const u8 * combatArt_list = GetCombatArtList(unit);
+	
+	InitPrepSkillsList();
+	
+	prepList->unit_index = unit->index;
+	prepList->total[PREP_SKLSUB_LEFT_CA] = 0;
+	prepList->total[PREP_SKLSUB_RIGHT] = 0;
+	
+	// Combat Arts
+	if( NULL == combatArt_list )
+	{
+		prepList->total[PREP_SKLSUB_LEFT_CA] = 0;
+	}
+	else
+		for( int i = 0; i < PREPSKILL_LISTLEN_CA; i++ )
+			if( SKILL_VALID(combatArt_list[i]) )
+				prepList->skills_CombatArt[ prepList->total[PREP_SKLSUB_LEFT_CA]++ ]
+					= combatArt_list[i];
+	
 	MakeTotalListCombatArt(unit, gpPrepSkillList);
 	return gpPrepSkillList;
 }

@@ -594,9 +594,9 @@ int HitCountCalc_CombatArt(struct BattleUnit* actor, int cur){
 // COMBAT_ART_ICON
 // For Icon Display
 const void* GetCombatArtIconGfx(int index){
-	
+
 	extern const void* GetFE16MasteryIconGfx(int index);
-	
+
 	if( !SKILL_VALID(index) )
 		return 0;
 	

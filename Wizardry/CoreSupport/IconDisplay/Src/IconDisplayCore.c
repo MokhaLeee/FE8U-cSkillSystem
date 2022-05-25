@@ -11,7 +11,7 @@ u16 GetIconTileIndex(int icon) {
 	// Check if icon is already loaded
 	slot = GetIconUsedSlot(icon);
 	
-	if ( 0 != slot )
+	if (0 != slot)
 		return GetIconGfxTileIndex(slot);
 
 	// Register new icon
@@ -63,7 +63,7 @@ void ClearIcon(unsigned icon) {
 }
 
 unsigned GetIconUsedSlot(unsigned icon) {
-	// Here IDRIconUsageLookup == &gIconIndexToDataLookup = &sIconStTable
+	
 	u16* it  = IDRIconUsageLookup;
 	u16* end = IDRIconUsageLookup + MAX_SIMULTANEOUS_ICONS;
 

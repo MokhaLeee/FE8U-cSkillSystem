@@ -87,6 +87,7 @@ struct Proc_PrepPickSkill{
 };
 
 extern const struct ProcCmd gProc_PrepSkillPickSkillList[];
+extern const struct ProcCmd gProc_PrepSkillPickCombatArtList[];
 
 // need gpPrepSkillList!
 extern struct PrepSkillsList* gpPrepSkillList;

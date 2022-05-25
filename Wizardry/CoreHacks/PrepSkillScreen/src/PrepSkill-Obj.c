@@ -5,13 +5,16 @@ static void (*PrepDrawHand)(int x, int y, int, int) = (const void*) 0x80AD51D;
 
 static void PrepSkillObj_OnInit(ProcPtr proc);
 static void PrepSkillObj_OnUpdate(void);
-static void PrepCombatArtObj_OnUpdate(ProcPtr);
+static void PrepCombatArtObj_OnUpdate(void);
 
 // Sub Update Skill
 static void PrepSkillObj_PrepareTotalListIcons(struct Proc_PrepPickSkill*);
 static void PrepSkillObj_DrawTotalListIcons(struct Proc_PrepPickSkill*);
 static void PrepSkillObj_ScrollTotalListIcons(struct Proc_PrepPickSkill*);
-static void PrepSkillObj_UpdateSkillsLabel(struct Unit*, struct PrepSkillsList*, struct Proc_PrepPickSkill*);
+static void PrepSkillObj_UpdateLabel(struct Unit*, struct PrepSkillsList*, struct Proc_PrepPickSkill*);
+
+static void PrepCombatArtObj_PrepareTotalListIcons(struct Proc_PrepPickSkill*);
+static void PrepCombatArtObj_UpdateLabel(struct Unit*, struct PrepSkillsList*, struct Proc_PrepPickSkill*);
 
 // ========================================
 // ================ Main ==================
@@ -98,10 +101,8 @@ void PrepSkillObj_OnUpdate(void){
 	PrepSkillObj_DrawTotalListIcons(proc);
 	
 	if( GetGameClock() & (1 << 5) )
-		return;
-	
-	
-	PrepSkillObj_UpdateSkillsLabel(unit, list, proc);
+		PrepSkillObj_UpdateLabel(unit, list, proc);
+
 }
 
 inline int OBJ_DEST(int i){
@@ -134,7 +135,7 @@ void PrepSkillObj_PrepareTotalListIcons(struct Proc_PrepPickSkill* proc){
 	}
 	
 	proc->displaying_count = count;
-	
+	proc->right_disp_reset = 0;
 }
 
 void PrepSkillObj_DrawTotalListIcons(struct Proc_PrepPickSkill* proc){
@@ -177,6 +178,7 @@ void PrepSkillObj_ScrollTotalListIcons(struct Proc_PrepPickSkill* proc){
 			
 		proc->scroll_diffCur = 0;
 		proc->scroll_type = PREP_SCROLL_NOPE;
+		proc->right_disp_reset = 1;
 		
 		// I have no idea why failed on update hand
 		PrepDrawHand( 
@@ -236,7 +238,7 @@ void PrepSkillObj_ScrollTotalListIcons(struct Proc_PrepPickSkill* proc){
 
 
 
-void PrepSkillObj_UpdateSkillsLabel(struct Unit* unit, struct PrepSkillsList* list, struct Proc_PrepPickSkill* proc){
+void PrepSkillObj_UpdateLabel(struct Unit* unit, struct PrepSkillsList* list, struct Proc_PrepPickSkill* proc){
 	
 	// RAM 
 	for( int i = 0; i < list->total[PREP_SKLSUB_LEFT_RAM]; i++ )
@@ -299,27 +301,83 @@ void PrepSkillObj_UpdateSkillsLabel(struct Unit* unit, struct PrepSkillsList* li
 // =======================================================
 
 
-void PrepCombatArtObj_OnUpdate(ProcPtr proc){
-	
-	struct Unit* unit;
-	struct PrepSkillsList* list;
+void PrepCombatArtObj_OnUpdate(){
 	
 	// Skill tips
 	if( !IsPrepSkillListValid() )
 		return;
 	
 	// On Init
-	list = gpPrepSkillList;
-	unit = GetUnit(list->unit_index);
+	struct PrepSkillsList* list = gpPrepSkillList;
+	struct Unit* unit = GetUnit(list->unit_index);
+	struct Proc_PrepPickSkill* proc = Proc_Find(gProc_PrepSkillPickCombatArtList);
+	
+	
+	// Check Scrolling
+	if( PREP_SCROLL_NOPE != proc->scroll_type ){
+		PrepSkillObj_ScrollTotalListIcons(proc);
+		return;
+	}
+	
+	
+	if( proc->right_disp_reset )
+		PrepCombatArtObj_PrepareTotalListIcons(proc);
+	
+	
+	PrepSkillObj_DrawTotalListIcons(proc);
 	
 	
 	if( GetGameClock() & (1 << 5) )
-		return;
+		PrepCombatArtObj_UpdateLabel(unit, list, proc);
 	
+}
+
+
+void PrepCombatArtObj_PrepareTotalListIcons(struct Proc_PrepPickSkill* proc){
+	
+	struct PrepSkillsList* list = gpPrepSkillList;
+	
+	u8 count = 0;
+	
+	for( int i = proc->head_line * 6; i < list->total[PREP_SKLSUB_RIGHT]; i++ ){
+		
+		u8 index = list->skills_all[i];
+		
+		if( !SKILL_VALID(index) )
+			continue;
+		
+		
+		void *dest = count < 0x10
+			? OBJ_VRAM0 + OBJ_DEST(count)
+			: OBJ_VRAM0 + OBJ_DEST(count + 0x10);
+		
+		CopyTileGfxForObj( GetCombatArtIconGfx(index), dest, 2, 2);
+		
+		count++;
+		
+		if( count >= 18 )
+			break;
+	}
+	
+	proc->displaying_count = count;
+	proc->right_disp_reset = 0;
+	
+}
+
+
+
+
+
+
+void PrepCombatArtObj_UpdateLabel(struct Unit* unit, struct PrepSkillsList* list, struct Proc_PrepPickSkill* proc){
 	
 	// Right
-	for( int i = 0; i < list->total[PREP_SKLSUB_RIGHT]; i++ )				
-		if( isPrepCombatArtRAM(unit, list->skills_all[i]) )
+	for( int i = 0; i < proc->displaying_count; i++ )
+	{
+		u8 num = i + 6 * proc->head_line;
+		u8 skill_id = list->skills_all[num];
+				
+		if( isPrepCombatArtRAM(unit, skill_id) )
 			PutSprite(5, 
 				0x80 + 0x10 * _lib_mod(i, 6), 
 				0x28 + 0x10 * _lib_div(i, 6),
@@ -327,17 +385,10 @@ void PrepCombatArtObj_OnUpdate(ProcPtr proc){
 				OAM2_PAL(SKILLOBJ_PAL) + 
 					OAM2_LAYER(0b01) + 
 					OAM2_CHR(SKILLOBJ_VOBJ / 0x20));
-
+	}
 				
 	
-	
-	
-	
 }
-
-
-
-
 
 
 

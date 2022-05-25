@@ -1,23 +1,20 @@
-#ifndef ICON_DISPLAY_INCLUDED
-#define ICON_DISPLAY_INCLUDED
+#ifndef HAX_ICONDISPLAY
+#define HAX_ICONDISPLAY
 
-#ifndef _FE8_
-	ERROR this is for FE8 etc
-#endif
 
 
 // =================
 // ICON DISPLAY CORE
 // =================
 
+{
 
-
-#include "Src/IconDisplayCore.lyn.event"
+#include "src/IconDisplayCore.lyn.event"
 
 IDRIconUsageLookup:
 	WORD $02026A90
 
-
+}
 
 // =================
 // ICON DISPLAY USER
@@ -42,11 +39,9 @@ IDRIconUsageLookup:
 #endif
 
 IDRIconGetters:
-	POIN GetVanillaIconGfx 			// Sheet #0, vanilla
-//	POIN GetSkillIconGfx			// Sheet #1, Skill Icons
-//	POIN GetIconSheet_FE16WpnType	// Sheet #2, StatusScreen Page3
+	POIN GetVanillaIconGfx 
 	ORG (IDRIconGetters + 4 * ICON_SHEET_COUNT)
 
 #define InjectIconSheet(aSheetIndex, aIconGetterFunc) "PUSH; ORG IDRIconGetters + 4 * (aSheetIndex); POIN (aIconGetterFunc); POP"
 
-#endif // ICON_DISPLAY_INCLUDED
+#endif // HAX_ICONDISPLAY

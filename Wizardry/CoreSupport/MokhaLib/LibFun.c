@@ -36,3 +36,19 @@ int _lib_div(int a, int b){
 }
 
 
+void NewDrawAbsDecNumber(u16 *dest, int color, int number){
+	
+	extern void DrawSpecialUiChar(u16*, int, int);
+	extern void DrawUiNumber(u16*, int, int);
+	
+	if (number < 0 || number == 255){
+		DrawSpecialUiChar(dest - 1, color, 20);
+		number = ABS(number);
+		dest += 1;
+	}
+	
+	if( number < 10 )
+		DrawUiNumber(dest - 1, color, number);
+	else
+		DrawUiNumber(dest, color, number);
+}

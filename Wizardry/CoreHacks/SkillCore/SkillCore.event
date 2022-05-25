@@ -38,9 +38,9 @@ SkillTester:
 // ====================================================
 //                   Skill Icon Display
 // ====================================================
-#ifndef ICON_DISPLAY_INCLUDED
+#ifndef HAX_ICONDISPLAY
 	ERROR Need core-support of Patch: IconDisplay from StanHash/SkillsLite!
-#endif // ICON_DISPLAY_INCLUDED
+#endif // HAX_ICONDISPLAY
 
 InjectIconSheet(ICON_SHEET_SKILLS, GetSkillIconGfx)
 
