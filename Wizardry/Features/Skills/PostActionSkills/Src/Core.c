@@ -7,7 +7,7 @@ int CantoHackCore(ProcPtr proc, struct Unit* unit){
 		return 0;
 	
 	int stat_select = (US_DEAD | US_CANTOING | US_HAS_MOVED_AI) & unit->state;
-	
+
 	if( 0 != stat_select )
 		return 0;
 	
@@ -41,3 +41,6 @@ void PostActionSkill_AlertStance(ProcPtr proc){
 	MU_EndAll();
 	StartStatusClearFx(gActiveUnit, proc);
 }
+
+
+

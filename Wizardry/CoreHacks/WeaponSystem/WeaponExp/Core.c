@@ -107,12 +107,3 @@ u16 GetWTypeMokhaIconIndex(u8 wType){
 }
 
 
-u8 GetClassRankExpGain(u8 class_id){
-	
-	u8 rank_exp = GetClassRomDataExpa(class_id)->RankExp;
-	
-	return rank_exp == 0
-		? 0x20
-		: rank_exp;
-
-}

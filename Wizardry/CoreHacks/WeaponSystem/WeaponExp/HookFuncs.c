@@ -23,7 +23,7 @@ void B2U_WRanks(struct Unit* unit, struct BattleUnit* bu){
 	SET_NEW_EXP(ITYPE_RIDE);
 	SET_NEW_EXP(ITYPE_FLY);
 	SET_NEW_EXP(ITYPE_HEAVY);
-	SET_NEW_EXP(ITYPE_CLASS);
+	
 	
 	#undef SET_NEW_EXP
 }

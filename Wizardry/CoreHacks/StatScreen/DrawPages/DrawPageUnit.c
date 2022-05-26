@@ -20,7 +20,7 @@ void DisplayPage0(void){
 	DrawPage1_Texts();
 	DrawPage1_NumBar(unit);
 	
-	DisplayBwl();
+	// DisplayBwl();
 }
 
 

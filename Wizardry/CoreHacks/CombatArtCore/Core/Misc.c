@@ -82,7 +82,6 @@ void LoadUnit_CombatArt(struct Unit* unit){
 				return;
 	
 	struct NewBwlData* bwl;
-	int WeaponRanks[8];
 	const int num_clas = unit->pClassData->number;
 	const int num_char = unit->pCharacterData->number;
 	
@@ -97,10 +96,26 @@ void LoadUnit_CombatArt(struct Unit* unit){
 		bwl->combatArts[i] = 0;
 	
 	
-
+	u8 WeaponRanks[0x12];
 	
-	for( int i = 0; i < 8; i++ )
-		WeaponRanks[i] = GetWeaponLevelFromExp(unit->ranks[i]);
+	#define SET_WTYPE_RANK(wtype){		\
+		WeaponRanks[wtype] = 			\
+			GetWeaponLevelFromExp( GetWExp(unit, wtype) );	\
+	}
+	
+	SET_WTYPE_RANK(ITYPE_SWORD);
+	SET_WTYPE_RANK(ITYPE_LANCE);
+	SET_WTYPE_RANK(ITYPE_AXE);
+	SET_WTYPE_RANK(ITYPE_BOW);
+	
+	SET_WTYPE_RANK(ITYPE_BMAG);
+	SET_WTYPE_RANK(ITYPE_WMAG);
+	
+	SET_WTYPE_RANK(ITYPE_RIDE);
+	SET_WTYPE_RANK(ITYPE_FLY);
+	SET_WTYPE_RANK(ITYPE_HEAVY);
+
+	#undef SET_WTYPE_RANK
 	
 	switch( WeaponRanks[ITYPE_SWORD] ){
 		case WPN_LEVEL_S:

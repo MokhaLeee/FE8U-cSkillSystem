@@ -1,6 +1,9 @@
 ## msg_umCAname
 战技[X]
 
+## msg_mssCAname
+战技[X]
+
 ## msg_umCAdesc
 战技: 通过提高武器损耗[NL]
 获得强力一击。无法追击，[NL]

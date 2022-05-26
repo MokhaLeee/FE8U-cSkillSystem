@@ -15,7 +15,8 @@ enum{
 
 struct UnitExpa{
 	
-	/* 00 */ u8 pad_00[0x10 - 0x00];
+	/* 00 */ u8 MasterClassList[0xA];	// in ClassRank
+	/* 0A */ u8 pad_0A[0x10 - 0x0A];
 };
 
 extern struct UnitExpa *gpUnitExpaData;

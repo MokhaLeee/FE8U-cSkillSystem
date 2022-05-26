@@ -4,7 +4,13 @@
 #include "Core/Core.lyn.event"
 #include "Core/Misc.lyn.event"
 
-// Draw Pages
+// Text colors
+#include "Data/NewPalette.event"
+
+// ====================================================
+//                       Draw Pages
+// ====================================================
+
 #include "DrawPages/DrawPageLeft.lyn.event"
 PROTECT $086E44 $086FAC
 
@@ -18,16 +24,37 @@ PROTECT $087484 $087698
 PROTECT $087788 $08784C			// DisplayWeaponExp
 PROTECT $08784C $0878CC			// DisplayPage2
 
+
+
+
+// ====================================================
+//                       Skill Page
+// ====================================================
+
+#include "DrawSkills/DrawSkill.lyn.event"
+#include "DrawSkills/SkillsRText.lyn.event"
+
+
+
+
+
+
 // Help Box
 #include "HelpBox/HelpBox.event"
 
-// More Palette
-#include "Data/NewPalette.event"
+
 
 // Page two "atk & avo & hit window"
 ALIGN 4
 Page2SubWindow:
 	#incbin "Data/Page2SubWindow.tsa.lz"
+
+
+// Rework on Stat-Obj-Texts
+ALIGN 4
+Gfx_StatScreenObj:
+	#incbin "Data/Gfx_StatScreenObj.4bpp.lz"
+
 
 PUSH
 	
@@ -36,7 +63,8 @@ PUSH
 	BYTE $48
 	PROTECT $088384 $08843A
 	
-	
+	ORG $088650
+	POIN Gfx_StatScreenObj
 POP
 
 #endif // STATUS_SCREEN

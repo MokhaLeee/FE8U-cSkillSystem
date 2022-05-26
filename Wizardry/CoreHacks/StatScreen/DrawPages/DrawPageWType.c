@@ -78,6 +78,8 @@ void DisplayWeaponExp(int num, int x, int y, int wtype)
 
 void DisplayPage2(void)
 {
+	extern void DrawSkillPage(void);
+	
 	DisplayWeaponExp(0, 0x01, 0x01, ITYPE_SWORD);
 	DisplayWeaponExp(1, 0x01, 0x03, ITYPE_LANCE);
 	DisplayWeaponExp(2, 0x01, 0x05, ITYPE_AXE);
@@ -89,5 +91,8 @@ void DisplayPage2(void)
 	DisplayWeaponExp(7, 0x09, 0x05, ITYPE_FLY);
 	DisplayWeaponExp(8, 0x09, 0x07, ITYPE_HEAVY);
 	DisplayClassExp(9, 0x09, 0x09, ITYPE_CLASS);
+	
 	// DisplaySupportList();
+	
+	DrawSkillPage();
 }

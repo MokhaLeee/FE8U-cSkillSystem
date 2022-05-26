@@ -20,7 +20,6 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 	
 	#define ADD_SKILL(aSkill) (tmp_list[aSkill] = 1)
 	
-	int WeaponRanks[8];
 	u8 tmp_list[0x100] = {0};
 	const int num_clas = unit->pClassData->number;
 	const int num_char = unit->pCharacterData->number;
@@ -179,19 +178,42 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 	
 	
 	// Class Normal List
-	for( int i = 0; i < 2; i++ ){
-		
+	for( int i = 0; i < 2; i++ )		
 		ADD_SKILL(ListClass->default_ram_skill[i]);
-		
-		if( unit->level >= 10 )
-			ADD_SKILL(ListClass->master_ram_skill[i]);
 
+	
+	
+	// Unit mastered classes
+	for( int i = 1; i <= 0x50; i++)
+		if( IsClassMastered(unit, i) ){
+			
+			ADD_SKILL( ClassSkillRomList[i].default_ram_skill[0] );
+			ADD_SKILL( ClassSkillRomList[i].default_ram_skill[1] );
+			ADD_SKILL( ClassSkillRomList[i].master_ram_skill[0] );
+			ADD_SKILL( ClassSkillRomList[i].master_ram_skill[1] );
+		}
+	
+	int WeaponRanks[0x12];
+	
+	#define SET_WTYPE_RANK(wtype){		\
+		WeaponRanks[wtype] = 			\
+			GetWeaponLevelFromExp( GetWExp(unit, wtype) );	\
 	}
 	
+	SET_WTYPE_RANK(ITYPE_SWORD);
+	SET_WTYPE_RANK(ITYPE_LANCE);
+	SET_WTYPE_RANK(ITYPE_AXE);
+	SET_WTYPE_RANK(ITYPE_BOW);
 	
+	SET_WTYPE_RANK(ITYPE_BMAG);
+	SET_WTYPE_RANK(ITYPE_WMAG);
 	
-	for( int i = 0; i < 8; i++ )
-		WeaponRanks[i] = GetWeaponLevelFromExp(unit->ranks[i]);
+	SET_WTYPE_RANK(ITYPE_RIDE);
+	SET_WTYPE_RANK(ITYPE_FLY);
+	SET_WTYPE_RANK(ITYPE_HEAVY);
+
+	#undef SET_WTYPE_RANK
+
 	
 	switch( WeaponRanks[ITYPE_SWORD] ){
 		case WPN_LEVEL_S:
@@ -411,12 +433,9 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 			break;
 	}
 	
-	int max = WeaponRanks[ITYPE_ANIMA];
-	max = (max < WeaponRanks[ITYPE_LIGHT]) ? max : WeaponRanks[ITYPE_LIGHT];
-	max = (max < WeaponRanks[ITYPE_DARK]) ? max : WeaponRanks[ITYPE_DARK];
 
 	
-	switch( max ){
+	switch( WeaponRanks[ITYPE_BMAG] ){
 		case WPN_LEVEL_S:
 			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].S[0]);
 			ADD_SKILL(LevelSkillBMag_ClassList[num_clas].S[1]);
@@ -471,7 +490,7 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 	
 	
 	
-	switch( WeaponRanks[ITYPE_STAFF] ){
+	switch( WeaponRanks[ITYPE_WMAG] ){
 		case WPN_LEVEL_S:
 			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].S[0]);
 			ADD_SKILL(LevelSkillWMag_ClassList[num_clas].S[1]);
@@ -531,7 +550,6 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* list){
 	#define ADD_SKILL(aSkill) (tmp_list[aSkill] = 1)
 	
-	int WeaponRanks[8];
 	u8 tmp_list[0x100] = {0};
 	const int num_clas = unit->pClassData->number;
 	const int num_char = unit->pCharacterData->number;
@@ -599,9 +617,28 @@ static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* lis
 	for( int i = 0; i < 49; i++ )
 		ADD_SKILL(skills_tmp[i]);
 	
+	u8 WeaponRanks[0x12];
 	
-	for( int i = 0; i < 7; i++ )
-		WeaponRanks[i] = GetWeaponLevelFromExp(unit->ranks[i]);
+	#define SET_WTYPE_RANK(wtype){		\
+		WeaponRanks[wtype] = 			\
+			GetWeaponLevelFromExp( GetWExp(unit, wtype) );	\
+	}
+	
+	SET_WTYPE_RANK(ITYPE_SWORD);
+	SET_WTYPE_RANK(ITYPE_LANCE);
+	SET_WTYPE_RANK(ITYPE_AXE);
+	SET_WTYPE_RANK(ITYPE_BOW);
+	
+	SET_WTYPE_RANK(ITYPE_BMAG);
+	SET_WTYPE_RANK(ITYPE_WMAG);
+	
+	SET_WTYPE_RANK(ITYPE_RIDE);
+	SET_WTYPE_RANK(ITYPE_FLY);
+	SET_WTYPE_RANK(ITYPE_HEAVY);
+
+	#undef SET_WTYPE_RANK
+	
+	
 	
 	switch( WeaponRanks[ITYPE_SWORD] ){
 		case WPN_LEVEL_S:

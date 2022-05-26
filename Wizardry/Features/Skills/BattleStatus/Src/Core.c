@@ -118,3 +118,8 @@ void BC_BattleStatusSkills(struct BattleUnit* act, struct BattleUnit* tar){
 
 
 
+
+
+
+
+

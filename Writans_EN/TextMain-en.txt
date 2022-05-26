@@ -5,9 +5,6 @@
 #0xD4C msgCharmName
 Charm[X]
 
-## msg_Silencer
-Silencer[X]
-
 #include strings-en/StatusScreen.txt
 #include strings-en/Menu.txt
 #include strings-en/Skills_Blow.txt
@@ -33,6 +30,13 @@ Silencer[X]
 #include strings-en/CombatArt_Axe.txt
 #include strings-en/CombatArt_Bow.txt
 #include strings-en/UnitStatus.txt
+
+## msg_Silencer
+Silencer[X]
+
+## msg_SilencerDesc
+Silencer Rate:[NL]
+Chance that diectly kill the foe[X]
 
 
 ## msg_end

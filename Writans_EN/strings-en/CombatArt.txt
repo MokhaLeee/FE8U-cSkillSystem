@@ -1,6 +1,9 @@
 ## msg_umCAname
  Combat Art[X]
 
+## msg_mssCAname
+Arts[X]
+
 ## msg_umCAdesc
 Combat Art:[NL]
 Gains battle bonus[NL]

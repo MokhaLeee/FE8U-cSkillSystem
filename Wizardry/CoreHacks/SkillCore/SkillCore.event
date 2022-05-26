@@ -18,7 +18,7 @@ ALIGN 4
 // Common WIP Icon
 ALIGN 4
 SkillIcon_WIP:
-	#incbin "SkillIcon_WIP.4bpp"
+	#incbin "Data/SkillIcon_WIP.4bpp"
 
 
 
@@ -46,20 +46,7 @@ InjectIconSheet(ICON_SHEET_SKILLS, GetSkillIconGfx)
 
 
 
-// ====================================================
-//                      Stat Screen
-//                       Skill Page
-// ====================================================
 
-#include "SkillPage/DrawSkill.lyn.event"
-#include "SkillPage/rText.lyn.event"
-
-PUSH
-// Null draw-Bwl to draw skill-page
-	ORG $086FAC
-	jumpToHack(DrawSkillPage)
-	PROTECT $86FAC $870A0
-POP
 
 
 

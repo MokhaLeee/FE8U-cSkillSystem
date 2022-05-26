@@ -5,9 +5,6 @@
 #0xD4C msgCharmName
 魅力[X]
 
-## msg_Silencer
-瞬杀[X]
-
 #include strings-cn/StatusScreen.txt
 #include strings-cn/Menu.txt
 #include strings-cn/Skills_Blow.txt
@@ -34,6 +31,12 @@
 #include strings-cn/CombatArt_Bow.txt
 #include strings-cn/UnitStatus.txt
 
+## msg_Silencer
+瞬杀[X]
+
+## msg_SilencerDesc
+瞬杀概率:[NL]
+有几率直接杀死对方[X]
 
 ## msg_end
 0[X]

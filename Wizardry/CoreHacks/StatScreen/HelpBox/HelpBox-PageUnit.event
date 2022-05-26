@@ -9,7 +9,7 @@ ALIGN 4
 RText_PageUnit:
 	// Line 1
 	HB_P0_Str:
-	RMenu(HB_P0_Skill0,HB_P0_Mag,HB_P0_Name,HB_P0_Lck,0x66,0x18,0x546)
+	RMenu(HB_P0_Res,HB_P0_Mag,HB_P0_Name,HB_P0_Lck,0x66,0x18,0x546)
 	
 	HB_P0_Mag:
 	RMenu(HB_P0_Str,HB_P0_Skl,HB_P0_Name,HB_P0_Mov,0x66,0x28,0x547)
@@ -24,12 +24,12 @@ RText_PageUnit:
 	RMenu(HB_P0_Spd,HB_P0_Res,HB_P0_Name,HB_P0_Trv,0x66,0x58,0x54B)
 	
 	HB_P0_Res:
-	RMenu(HB_P0_Def,HB_P0_Skill0,HB_P0_Class,HB_P0_Stat,0x66,0x68,0x54C)
+	RMenu(HB_P0_Def,HB_P0_Str,HB_P0_Class,HB_P0_Stat,0x66,0x68,0x54C)
 	
 	
 	// Line 2
 	HB_P0_Lck:
-	RMenu(HB_P0_Skill2,HB_P0_Mov,HB_P0_Str,HB_P0_Name,0xA6,0x18,0x54A)
+	RMenu(HB_P0_Stat,HB_P0_Mov,HB_P0_Str,HB_P0_Name,0xA6,0x18,0x54A)
 	
 	HB_P0_Mov:
 	RMenu(HB_P0_Lck,HB_P0_Con,HB_P0_Mag,HB_P0_Name,0xA6,0x28,0x54D)
@@ -44,7 +44,7 @@ RText_PageUnit:
 	RMenu(HB_P0_Aid,HB_P0_Stat,HB_P0_Def,HB_P0_Name,0xA6,0x58,0x550)
 	
 	HB_P0_Stat:
-	RMenu(HB_P0_Trv,HB_P0_Skill2,HB_P0_Res,HB_P0_Class,0xA6,0x68,0x552,ConditionGetter)
+	RMenu(HB_P0_Trv,HB_P0_Lck,HB_P0_Res,HB_P0_Class,0xA6,0x68,0x552,ConditionGetter)
 	
 	
 	// Left
@@ -61,4 +61,4 @@ RText_PageUnit:
 	RMenu(HB_P0_Class,HB_P0_HP,HB_P0_Level,HB_P0_Res,0x26,0x78,0x543)
 	
 	HB_P0_HP:
-	RMenu(HB_P0_Level,HB_P0_Name,HB_P0_Skill6,HB_P0_Res,0x6,0x88,0x544)
+	RMenu(HB_P0_Level,HB_P0_Name,HB_P0_Stat,HB_P0_Res,0x6,0x88,0x544)

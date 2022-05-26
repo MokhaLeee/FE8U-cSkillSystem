@@ -9,10 +9,14 @@ InjectSkillInfo(SKILLID_Canto, SkillInfo_Canto)
 InjectSkillInfo(SKILLID_AlertStance, SkillInfo_AlertStance)
 InjectSkillInfo(SKILLID_AlertStancePlus, SkillInfo_AlertStancePlus)
 
+
 PUSH
 	ORG $01D248
 	jumpToHack(CantoHackASM)
 	PROTECT $01D244 $01D300
+	
+	// Besides, there is another check canto,
+	// inside function HandlePostActionTraps
 POP
 
 ALIGN 4

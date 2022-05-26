@@ -14,12 +14,13 @@ void ClearBattleHitExt(){
 
 
 void ResetBattleFlagExt(void){
-	
+	// At the end of Post-Action
 	gpBattleFlagExt->isCombat = 0;
 	gpBattleFlagExt->combatArt_hitted = 0;
 	gpBattleFlagExt->combatArt_id = 0;
 	gpBattleFlagExt->combat_unit = 0;
 	gpBattleFlagExt->hit_count = 0;
+	gpBattleFlagExt->doubleLion_activited = 0;
 
 }
 

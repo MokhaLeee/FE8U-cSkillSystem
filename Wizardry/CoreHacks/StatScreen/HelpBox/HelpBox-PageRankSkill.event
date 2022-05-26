@@ -1,0 +1,60 @@
+PUSH
+ORG $889F8
+POIN RText_PageRankSkill
+POP
+
+// See more in SkillCore/SkillPage/rText.c
+
+ALIGN 4
+RText_PageRankSkill:
+	// Line 1
+	HB_P2_Sword:
+	RMenu(HB_P2_Art0,HB_P2_Lance,HB_P2_Name,HB_P2_WMag,0x66,0x18,0x561)
+	
+	HB_P2_Lance:
+	RMenu(HB_P2_Sword,HB_P2_Axe,HB_P2_Name,HB_P2_Ride,0x66,0x28,0x562)
+	
+	HB_P2_Axe:
+	RMenu(HB_P2_Lance,HB_P2_Bow,HB_P2_Name,HB_P2_Fly,0x66,0x38,0x563)
+	
+	HB_P2_Bow:
+	RMenu(HB_P2_Axe,HB_P2_BMag,HB_P2_Name,HB_P2_Heavy,0x66,0x48,0x564)
+	
+	HB_P2_BMag:
+	RMenu(HB_P2_Bow,HB_P2_Skill0,HB_P2_Name,HB_P2_ClassR,0x66,0x58,ssReasonDesc)
+	
+	
+	
+	// Line 2
+	HB_P2_WMag:
+	RMenu(HB_P2_Art2,HB_P2_Ride,HB_P2_Sword,HB_P2_Name,0xA6,0x18,ssFaithDesc)
+	
+	HB_P2_Ride:
+	RMenu(HB_P2_WMag,HB_P2_Fly,HB_P2_Lance,HB_P2_Name,0xA6,0x28,ssRidingDesc)
+	
+	HB_P2_Fly:
+	RMenu(HB_P2_Ride,HB_P2_Heavy,HB_P2_Axe,HB_P2_Name,0xA6,0x38,ssFlyingDesc)
+	
+	HB_P2_Heavy:
+	RMenu(HB_P2_Fly,HB_P2_ClassR,HB_P2_Bow,HB_P2_Name,0xA6,0x48,ssHeavyDesc)
+	
+	HB_P2_ClassR:
+	RMenu(HB_P2_Heavy,HB_P2_Skill2,HB_P2_BMag,HB_P2_Name,0xA6,0x58,ssClassRDesc)
+	
+	
+	
+	// Left
+	HB_P2_Name:
+	RMenu(HB_P2_HP,HB_P2_Class,HB_P2_ClassR,HB_P2_BMag,0x18,0x50,0x0,NameDescGetter)
+	
+	HB_P2_Class:
+	RMenu(HB_P2_Name,HB_P2_Level,HB_P2_ClassR,HB_P2_BMag,0x6,0x68,0x6E8,ClassDescGetter)
+	
+	HB_P2_Level:
+	RMenu(HB_P2_Class,HB_P2_HP,HB_P2_Skill5,HB_P2_Exp,0x6,0x78,0x542)
+	
+	HB_P2_Exp:
+	RMenu(HB_P2_Class,HB_P2_HP,HB_P2_Level,HB_P2_Skill0,0x26,0x78,0x543)
+	
+	HB_P2_HP:
+	RMenu(HB_P2_Level,HB_P2_Name,HB_P2_Art4,HB_P2_Art0,0x6,0x88,0x544)

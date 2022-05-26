@@ -47,6 +47,8 @@ struct BattleFlagExt{
 			// for post-action debuff
 			 u8 combatArt_hitted : 1;
 			 
+			 // for DoubleLion self-dmg
+			 u8 doubleLion_activited : 1;
 
 	/* 01 */ u8 combatArt_id;
 	/* 02 */ u8 combat_unit;	// unit index of combat art actor 

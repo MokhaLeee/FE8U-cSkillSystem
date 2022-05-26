@@ -34,3 +34,12 @@ int CheckSkillDoubleLion(struct BattleUnit* actor){
 int CheckSkillRuinedBladePlus(struct BattleUnit* actor){
 	return (*SkillTester)(&actor->unit, SID_RuinedBladePlus);
 }
+
+
+// Pre-Battle
+void BC_SetDouleLionFlag(struct BattleUnit* actor, struct BattleUnit* target){
+	
+	if( CheckSkillDoubleLion(actor) )
+		gpBattleFlagExt->doubleLion_activited = 1;
+			
+}

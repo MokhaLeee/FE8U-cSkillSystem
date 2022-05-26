@@ -2,7 +2,7 @@
 // Pre-Battle Calc
 ALIGN 4
 PreBattleCalcLoopTable:
-	// (struct BattleUnit* attacker, struct BattleUnit* defender)
+	// (struct BattleUnit* actor, struct BattleUnit* target)
 	
 	// Init on first(if it has attr bonus)
 	POIN BC_Init
@@ -13,7 +13,7 @@ PreBattleCalcLoopTable:
 	POIN BC_BlowBonus
 	POIN BC_StanceBonus
 	POIN BC_BattleStatusSkills
-	
+	POIN BC_SetDouleLionFlag
 	
 	// Common calc 
 	POIN BC_Lethality BC_Atk BC_AS BC_DefRes BC_Hit BC_Avo BC_Crit BC_Dodge
@@ -37,7 +37,7 @@ BattleHitsCountCalcLoop:
 // Battle Triangle
 ALIGN 4
 BattleTriangleBonusCalcLoopTable:
-	// (struct BattleUnit* attacker, struct BattleUnit* defender)
+	// (struct BattleUnit* actor, struct BattleUnit* target)
 	
 	POIN WTA_SwordBreaker WTA_AxeBreaker WTA_LanceBreaker
 	POIN WTA_BowBreaker WTA_TomeBreaker

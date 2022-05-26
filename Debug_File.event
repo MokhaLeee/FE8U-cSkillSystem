@@ -58,7 +58,7 @@ PUSH
 	
 	// call prep-screen in prologue
 	ORG $9EECB4
-	PREP
+	// PREP
 	
 	// Make Fire be a mag-booster
 	ORG $8AEEF1

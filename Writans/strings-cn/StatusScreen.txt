@@ -27,22 +27,25 @@ Hit, and Avoid. (5 x Charm%).[X]
 Brawling mastery level[X]
 
 ## ssReasonDesc
-Reason mastery level[X]
+黑魔法等级[X]
 
 ## ssFaithDesc
-Faith mastery level[X]
+白魔法等级[X]
 
 ## ssAuthorityDesc
 Authority mastery level[X]
 
 ## ssRidingDesc
-Riding mastery level[X]
+骑行技能等级[X]
 
 ## ssFlyingDesc
-Flying mastery level[X]
+飞行技能等级[X]
 
 ## ssHeavyDesc
-Heavy Armor mastery level[X]
+重装技能等级[X]
 
 ## msgCharmDesc
 Nothing but just for test LOL[X]
+
+## ssClassRDesc
+当前职业熟练度[X]

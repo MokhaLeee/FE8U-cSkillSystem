@@ -46,3 +46,6 @@ Heavy Armor mastery level[X]
 
 ## msgCharmDesc
 Nothing but just for test LOL[X]
+
+## ssClassRDesc
+Class Skils Level[X]

@@ -4,10 +4,14 @@ PostActionLoopTable:
 	// void (*)(ProcPtr)
 	
 	// POIN PostAction_Template
+	POIN PostAction_DmgAct
+	POIN PostAction_DmgTar
 	POIN PostAction_CombatArtDebuff
 	POIN PostActionSkill_AlertStance
 	
+	
 	// End
+	POIN PostAction_VanillaExecTrap
 	POIN ResetBattleFlagExt
 	WORD 0
 	

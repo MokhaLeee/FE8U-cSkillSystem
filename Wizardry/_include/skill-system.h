@@ -57,10 +57,10 @@ struct LevelBasedSkillList_t{
 };
 
 // Level-based class skills
-extern const struct LevelBasedSkillList_t LevelSkillSword_ClassList[], LevelSkillLance_ClassList[], LevelSkillAxe_ClassList[], LevelSkillBow_ClassList[], LevelSkillBMag_ClassList[], LevelSkillWMag_ClassList[];
+extern const struct LevelBasedSkillList_t LevelSkillSword_ClassList[], LevelSkillLance_ClassList[], LevelSkillAxe_ClassList[], LevelSkillBow_ClassList[], LevelSkillBMag_ClassList[], LevelSkillWMag_ClassList[], LevelSkillRide_ClassList[], LevelSkillFly_ClassList[], LevelSkillHeavy_ClassList[];
 
 // Level-based unit skills
-extern const struct LevelBasedSkillList_t LevelSkillSword_CharList[], LevelSkillLance_CharList[], LevelSkillAxe_CharList[], LevelSkillBow_CharList[], LevelSkillBMag_CharList[], LevelSkillWMag_CharList[];
+extern const struct LevelBasedSkillList_t LevelSkillSword_CharList[], LevelSkillLance_CharList[], LevelSkillAxe_CharList[], LevelSkillBow_CharList[], LevelSkillBMag_CharList[], LevelSkillWMag_CharList[], LevelSkillRide_CharList[], LevelSkillFly_CharList[], LevelSkillHeavy_CharList[];
 
 
 

@@ -1,0 +1,24 @@
+
+#define HB_P1_Item5 	$A00E10
+#define HB_P1_Atk 		$A00E2C
+#define HB_P1_Class		$A00D30
+#define HB_P1_Rng		$A00E64
+
+
+ALIGN 4
+HB_P1_Silenser:
+	RMenu(HB_P1_Item5,HB_P1_Atk,HB_P1_Class,HB_P1_Rng,0x76,0x68,msg_SilencerDesc)
+
+PUSH
+	ORG 1 * 4 + HB_P1_Item5
+	POIN HB_P1_Silenser
+	
+	ORG 0 * 4 + HB_P1_Atk
+	POIN HB_P1_Silenser
+	
+	ORG 4 * 4 + HB_P1_Class
+	// POIN HB_P1_Silenser
+	
+	ORG 3 * 4 + HB_P1_Rng
+	// POIN HB_P1_Silenser
+POP
