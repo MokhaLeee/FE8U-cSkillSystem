@@ -3,6 +3,7 @@
 
 #include "src/Core.lyn.event"
 #include "src/Misc.lyn.event"
+#include "src/RomDataExpa.lyn.event"
 #include "asm/UnitExpaInit.lyn.event"
 
 PUSH

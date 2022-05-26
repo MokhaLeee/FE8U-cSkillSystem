@@ -11,6 +11,12 @@ int _IsPointer(u32 it){
 // simple mod a%b
 int _lib_mod(int a, int b){
 	
+	a = ABS(a);
+	b = ABS(b);
+	
+	if( 0 == b )
+		return a;
+	
 	if( a < b )
 		return a;
 	
@@ -25,6 +31,12 @@ int _lib_mod(int a, int b){
 int _lib_div(int a, int b){
 
 	int res = 0;
+
+	a = ABS(a);
+	b = ABS(b);
+	
+	if( 0 == b )
+		return 0;
 	
 	if( a < b )
 		return 0;

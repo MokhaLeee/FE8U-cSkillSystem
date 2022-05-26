@@ -14,6 +14,9 @@ PROTECT $087184 $087484
 #include "DrawPages/DrawPageItem.lyn.event"
 PROTECT $087484 $087698
 
+#include "DrawPages/DrawPageWType.lyn.event"
+PROTECT $087788 $08784C			// DisplayWeaponExp
+PROTECT $08784C $0878CC			// DisplayPage2
 
 // Help Box
 #include "HelpBox/HelpBox.event"

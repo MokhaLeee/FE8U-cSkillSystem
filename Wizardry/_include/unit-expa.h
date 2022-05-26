@@ -21,5 +21,31 @@ struct UnitExpa{
 extern struct UnitExpa *gpUnitExpaData;
 
 
+
 int UnitHasExpaData(struct Unit*);
 struct UnitExpa* GetUnitExpa(struct Unit*);
+
+
+
+
+// Rom Data Expa
+
+
+struct UnitRomDataExpa{
+	u8 rank_ride;
+	u8 rank_fly;
+	u8 rank_heavy;
+
+};
+
+
+struct ClassRomDataExpa{
+	u8 rank_ride;
+	u8 rank_fly;
+	u8 rank_heavy;
+	u8 RankExp;		// lower class will gain more bonus
+};
+
+
+const struct UnitRomDataExpa *GetUnitRomDataExpa(u8 char_id);
+const struct ClassRomDataExpa *GetClassRomDataExpa(u8 class_id);

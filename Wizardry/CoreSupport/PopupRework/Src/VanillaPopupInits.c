@@ -32,6 +32,8 @@ POPR_INIT_WRANK_DECL(Elder, 7)
 
 #undef POPR_INIT_WRANK_DECL
 
+/* Now in Weapon System
+
 int PopR_InitWRankUp(void) {
 	// Check Active Unit
 	if (BattleUnit_ShouldDisplayWRankUp(&gBattleActor)) {
@@ -44,10 +46,9 @@ int PopR_InitWRankUp(void) {
 		SetPopupWType(gBattleTarget.weaponType);
 		return TRUE;
 	}
-	SetPopupWType(gBattleActor.weaponType);
 
 	return FALSE;
-}
+} */
 
 int PopR_InitWeaponBroke(void) {
 	// Check Active Unit

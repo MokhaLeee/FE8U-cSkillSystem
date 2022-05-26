@@ -38,7 +38,11 @@ ALIGN 4
 
 
 // Weapon System
-#include "WeaponSystem/NewWRanksROM.lyn.event"
+
+
+// Unit Expa
+#include "UnitExpa/UnitRomDataExpa.lyn.event"
+#include "UnitExpa/ClassRomDataExpa.lyn.event"
 
 
 

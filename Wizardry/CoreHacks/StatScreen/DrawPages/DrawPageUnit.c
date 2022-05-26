@@ -7,7 +7,7 @@ typedef struct Unit Unit;
 extern void DrawStatScreenBar(u16 BarId, u8 x, u8 y, s8 ValueBase, s8 ValueReal, s8 MaxValue); // 0x80870BC
 extern void DrawUiSmallNumber(u16* a, int b, int c);
 extern u16 gBmFrameTmap0[0x280];
-static void (*DisplayBwl)(void) = (const void*)0x8086FAD;
+
 
 static void DrawPage1_Texts();
 static void DrawPage1_NumBar(struct Unit*);
