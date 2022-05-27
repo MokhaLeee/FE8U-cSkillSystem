@@ -432,7 +432,7 @@ void PrepPickSkill_MainLoop(struct Proc_PrepPickSkill* proc){
 				
 				case PREP_SKLSUB_LEFT_RAM:
 					proc->list_type = PREP_SKLSUB_RIGHT;
-					proc->list_index = 0;
+					proc->list_index = proc->head_line * 6;
 					break;
 				
 				case PREP_SKLSUB_LEFT_ROM:

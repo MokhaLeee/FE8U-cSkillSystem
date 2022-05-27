@@ -1024,7 +1024,7 @@ void PrepItemBooster_DrawPopup(struct Proc_PrepItemBoost* proc, int x, int y, u1
 	struct TextHandle* th;
 	
 	str = (0 == msg_id)
-		? "Unit Status Up\0"
+		? GetStringFromIndex(ENUM_msg_ItemUnitStatusUp)
 		: GetStringFromIndex(msg_id);
 	
 	

@@ -485,9 +485,9 @@ void PostAction_CombatArtDebuff(ProcPtr proc){
 	
 	if( info->is_gravity )
 	{
-		MU_EndAll();
-		SMS_UpdateFromGameData();
-		
+		// MU_EndAll();
+		// SMS_UpdateFromGameData();
+
 		if( !info->AOE_Debuff )
 		{
 			StartMapAnim_Gravity(unit_tar, proc);
@@ -508,8 +508,8 @@ void PostAction_CombatArtDebuff(ProcPtr proc){
 	
 	else if( info->debuff_atk )
 	{
-		MU_EndAll();
-		SMS_UpdateFromGameData();
+		// MU_EndAll();
+		// SMS_UpdateFromGameData();
 		
 		if( !info->AOE_Debuff ){
 			StartMapAnim_Gravity(unit_tar, proc);
@@ -530,8 +530,8 @@ void PostAction_CombatArtDebuff(ProcPtr proc){
 	
 	else if( info->debuff_def )
 	{
-		MU_EndAll();
-		SMS_UpdateFromGameData();
+		// MU_EndAll();
+		// SMS_UpdateFromGameData();
 		
 		if( !info->AOE_Debuff ){
 			StartMapAnim_Gravity(unit_tar, proc);
@@ -551,8 +551,8 @@ void PostAction_CombatArtDebuff(ProcPtr proc){
 	
 	else if( info->debuff_res )
 	{
-		MU_EndAll();
-		SMS_UpdateFromGameData();
+		// MU_EndAll();
+		// SMS_UpdateFromGameData();
 		
 		if( !info->AOE_Debuff ){
 			StartMapAnim_Gravity(unit_tar, proc);
@@ -572,8 +572,8 @@ void PostAction_CombatArtDebuff(ProcPtr proc){
 	
 	else if( info->debuff_Silence )
 	{
-		MU_EndAll();
-		SMS_UpdateFromGameData();
+		// MU_EndAll();
+		// SMS_UpdateFromGameData();
 		
 		if( !info->AOE_Debuff ){
 			StartMapAnim_Gravity(unit_tar, proc);

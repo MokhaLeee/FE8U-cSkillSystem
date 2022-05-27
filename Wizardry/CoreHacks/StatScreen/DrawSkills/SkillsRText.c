@@ -103,25 +103,25 @@ const struct HelpBoxInfo HB_P2_Skill5 =
 
 const struct HelpBoxInfo HB_P2_Skill6 =
 {
-    &HB_P2_Skill1, &HB_P2_Art1, &HB_P2_Skill5, &HB_P2_Skill7,
+    &HB_P2_Skill1, &HB_P2_Art0, &HB_P2_Skill5, &HB_P2_Skill7,
     0x90, 0x80, 6, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
 const struct HelpBoxInfo HB_P2_Skill7 =
 {
-    &HB_P2_Skill2, &HB_P2_Art2, &HB_P2_Skill6, &HB_P2_Skill8,
+    &HB_P2_Skill2, &HB_P2_Art0, &HB_P2_Skill6, &HB_P2_Skill8,
     0xA0, 0x80, 7, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
 const struct HelpBoxInfo HB_P2_Skill8 =
 {
-    &HB_P2_Skill3, &HB_P2_Art3, &HB_P2_Skill7, &HB_P2_Skill9,
+    &HB_P2_Skill3, &HB_P2_Art0, &HB_P2_Skill7, &HB_P2_Skill9,
     0xB0, 0x80, 8, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
 const struct HelpBoxInfo HB_P2_Skill9 =
 {
-    &HB_P2_Skill4, &HB_P2_Art4, &HB_P2_Skill8, &HB_P2_Level,
+    &HB_P2_Skill4, &HB_P2_Art0, &HB_P2_Skill8, &HB_P2_Level,
     0xC0, 0x80, 9, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
@@ -190,24 +190,24 @@ const struct HelpBoxInfo HB_P2_Art0 =
 
 const struct HelpBoxInfo HB_P2_Art1 =
 {
-	&HB_P2_Skill6, &HB_P2_Sword, &HB_P2_Art0, &HB_P2_Art2,
+	&HB_P2_Skill5, &HB_P2_Sword, &HB_P2_Art0, &HB_P2_Art2,
 	0x90, 0x90, 1, HbRedirect_Art, HbPopuplate_Art,
 };
 
 const struct HelpBoxInfo HB_P2_Art2 =
 {
-	&HB_P2_Skill7, &HB_P2_WMag, &HB_P2_Art1, &HB_P2_Art3,
+	&HB_P2_Skill5, &HB_P2_WMag, &HB_P2_Art1, &HB_P2_Art3,
 	0xA0, 0x90, 2, HbRedirect_Art, HbPopuplate_Art,
 };
 
 const struct HelpBoxInfo HB_P2_Art3 =
 {
-	&HB_P2_Skill8, &HB_P2_WMag, &HB_P2_Art2, &HB_P2_Art4,
+	&HB_P2_Skill5, &HB_P2_WMag, &HB_P2_Art2, &HB_P2_Art4,
 	0xB0, 0x90, 3, HbRedirect_Art, HbPopuplate_Art,
 };
 
 const struct HelpBoxInfo HB_P2_Art4 =
 {
-    &HB_P2_Skill9, &HB_P2_WMag, &HB_P2_Art3, &HB_P2_HP,
+    &HB_P2_Skill5, &HB_P2_WMag, &HB_P2_Art3, &HB_P2_HP,
     0xC0, 0x90, 4, HbRedirect_Art, HbPopuplate_Art,
 };

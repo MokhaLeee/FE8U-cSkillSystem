@@ -21,6 +21,7 @@ Charm[X]
 #include strings-en/Skills_Defiant.txt
 #include strings-en/Skills_UnitStatus.txt
 #include strings-en/Skills_Exp.txt
+#include strings-en/Skills_WeaponLv.txt
 #include strings-en/Skills_Misc.txt
 
 #include strings-en/PrepScreen.txt
@@ -38,6 +39,18 @@ Silencer[X]
 Silencer Rate:[NL]
 Chance that diectly kill the foe[X]
 
+## msg_ItemEffectApplied
+Item Effect Applied![X]
+## msg_ItemUnitStatusUp
+Unit Status Up[X]
+
+## msgItemName_MagBooster
+Mag Booster[X]
+## msgItemDesc_MagBooster
+Increases Mag by 2 points.[NL]
+Vanishes after use.[X]
+## msgItemUseDesc_MagBooster
+Raise Mag[X]
 
 ## msg_end
 0[X]

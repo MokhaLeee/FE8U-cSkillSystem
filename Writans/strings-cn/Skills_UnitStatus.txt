@@ -35,3 +35,50 @@
 攻击-3，魔防+5[X]
 
 
+## msg_SN_StrBonus
+力量+2[X]
+## msg_SD_StrBonus
+力量+2: [NL]
+角色力量值 +2[X]
+
+## msg_SN_MagBonus
+魔力+2[X]
+## msg_SD_MagBonus
+魔力+2: [NL]
+角色魔力值 +2[X]
+
+## msg_SN_SklBonus
+技术+2[X]
+## msg_SD_SklBonus
+技术+2: [NL]
+角色技术值 +2[X]
+
+## msg_SN_SpdBonus
+速度+2[X]
+## msg_SD_SpdBonus
+速度+2: [NL]
+角色速度值 +2[X]
+
+## msg_SN_LukBonus
+幸运+2[X]
+## msg_SD_LukBonus
+幸运+2: [NL]
+角色幸运值 +2[X]
+
+## msg_SN_DefBonus
+防御+2[X]
+## msg_SD_DefBonus
+防御+2: [NL]
+角色防御值 +2[X]
+
+## msg_SN_ResBonus
+魔防+2[X]
+## msg_SD_ResBonus
+魔防+2: [NL]
+角色魔防值 +2[X]
+
+## msg_SN_MovBonus
+移动+2[X]
+## msg_SD_MovBonus
+移动+2: [NL]
+角色移动值 +2[X]

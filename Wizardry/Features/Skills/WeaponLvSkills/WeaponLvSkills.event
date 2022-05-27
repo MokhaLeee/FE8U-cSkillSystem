@@ -1,0 +1,78 @@
+// Src
+#include "Src/Infos.lyn.event"
+#include "Src/Core.lyn.event"
+
+InjectSkillInfo(SKILLID_SwordLv1, SkillInfo_SwordLv1)
+InjectSkillInfo(SKILLID_SwordLv2, SkillInfo_SwordLv2)
+InjectSkillInfo(SKILLID_SwordLv3, SkillInfo_SwordLv3)
+InjectSkillInfo(SKILLID_SwordLv4, SkillInfo_SwordLv4)
+InjectSkillInfo(SKILLID_SwordLv5, SkillInfo_SwordLv5)
+
+InjectSkillInfo(SKILLID_LanceLv1, SkillInfo_LanceLv1)
+InjectSkillInfo(SKILLID_LanceLv2, SkillInfo_LanceLv2)
+InjectSkillInfo(SKILLID_LanceLv3, SkillInfo_LanceLv3)
+InjectSkillInfo(SKILLID_LanceLv4, SkillInfo_LanceLv4)
+InjectSkillInfo(SKILLID_LanceLv5, SkillInfo_LanceLv5)
+
+InjectSkillInfo(SKILLID_AxeLv1, SkillInfo_AxeLv1)
+InjectSkillInfo(SKILLID_AxeLv2, SkillInfo_AxeLv2)
+InjectSkillInfo(SKILLID_AxeLv3, SkillInfo_AxeLv3)
+InjectSkillInfo(SKILLID_AxeLv4, SkillInfo_AxeLv4)
+InjectSkillInfo(SKILLID_AxeLv5, SkillInfo_AxeLv5)
+
+InjectSkillInfo(SKILLID_BowLv1, SkillInfo_BowLv1)
+InjectSkillInfo(SKILLID_BowLv2, SkillInfo_BowLv2)
+InjectSkillInfo(SKILLID_BowLv3, SkillInfo_BowLv3)
+InjectSkillInfo(SKILLID_BowLv4, SkillInfo_BowLv4)
+InjectSkillInfo(SKILLID_BowLv5, SkillInfo_BowLv5)
+
+InjectSkillInfo(SKILLID_BMagLv1, SkillInfo_BMagLv1)
+InjectSkillInfo(SKILLID_BMagLv2, SkillInfo_BMagLv2)
+InjectSkillInfo(SKILLID_BMagLv3, SkillInfo_BMagLv3)
+InjectSkillInfo(SKILLID_BMagLv4, SkillInfo_BMagLv4)
+InjectSkillInfo(SKILLID_BMagLv5, SkillInfo_BMagLv5)
+
+InjectSkillInfo(SKILLID_WMagLv1, SkillInfo_WMagLv1)
+InjectSkillInfo(SKILLID_WMagLv2, SkillInfo_WMagLv2)
+InjectSkillInfo(SKILLID_WMagLv3, SkillInfo_WMagLv3)
+InjectSkillInfo(SKILLID_WMagLv4, SkillInfo_WMagLv4)
+InjectSkillInfo(SKILLID_WMagLv5, SkillInfo_WMagLv5)
+
+
+
+ALIGN 4
+SI_SwordLv1:	#incbin "Icons/SwordLv1.4bpp"
+SI_SwordLv2:	#incbin "Icons/SwordLv2.4bpp"
+SI_SwordLv3:	#incbin "Icons/SwordLv3.4bpp"
+SI_SwordLv4:	#incbin "Icons/SwordLv4.4bpp"
+SI_SwordLv5:	#incbin "Icons/SwordLv5.4bpp"
+
+SI_LanceLv1:	#incbin "Icons/LanceLv1.4bpp"
+SI_LanceLv2:	#incbin "Icons/LanceLv2.4bpp"
+SI_LanceLv3:	#incbin "Icons/LanceLv3.4bpp"
+SI_LanceLv4:	#incbin "Icons/LanceLv4.4bpp"
+SI_LanceLv5:	#incbin "Icons/LanceLv5.4bpp"
+
+SI_AxeLv1:		#incbin "Icons/AxeLv1.4bpp"
+SI_AxeLv2:		#incbin "Icons/AxeLv2.4bpp"
+SI_AxeLv3:		#incbin "Icons/AxeLv3.4bpp"
+SI_AxeLv4:		#incbin "Icons/AxeLv4.4bpp"
+SI_AxeLv5:		#incbin "Icons/AxeLv5.4bpp"
+
+SI_BowLv1:		#incbin "Icons/BowLv1.4bpp"
+SI_BowLv2:		#incbin "Icons/BowLv2.4bpp"
+SI_BowLv3:		#incbin "Icons/BowLv3.4bpp"
+SI_BowLv4:		#incbin "Icons/BowLv4.4bpp"
+SI_BowLv5:		#incbin "Icons/BowLv5.4bpp"
+
+SI_BMagLv1:		#incbin "Icons/BMagLv1.4bpp"
+SI_BMagLv2:		#incbin "Icons/BMagLv2.4bpp"
+SI_BMagLv3:		#incbin "Icons/BMagLv3.4bpp"
+SI_BMagLv4:		#incbin "Icons/BMagLv4.4bpp"
+SI_BMagLv5:		#incbin "Icons/BMagLv5.4bpp"
+
+SI_WMagLv1:		#incbin "Icons/WMagLv1.4bpp"
+SI_WMagLv2:		#incbin "Icons/WMagLv2.4bpp"
+SI_WMagLv3:		#incbin "Icons/WMagLv3.4bpp"
+SI_WMagLv4:		#incbin "Icons/WMagLv4.4bpp"
+SI_WMagLv5:		#incbin "Icons/WMagLv5.4bpp"

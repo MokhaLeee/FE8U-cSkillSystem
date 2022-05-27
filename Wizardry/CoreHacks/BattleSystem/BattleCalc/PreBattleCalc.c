@@ -86,7 +86,7 @@ void BC_AS(struct BattleUnit* actor, struct BattleUnit* target){
 
 
 void BC_DefRes(struct BattleUnit* actor, struct BattleUnit* target){
-	
+
 	// Check Luna
 	if( IA_NEGATE_DEFENSE & target->weaponAttributes )
 		actor->battleDefense += 0;
@@ -104,8 +104,6 @@ void BC_DefRes(struct BattleUnit* actor, struct BattleUnit* target){
 
 	else
 		actor->battleDefense += actor->terrainDefense + actor->unit.def;
-	
-	
 	
 	// Minus zero
 	if( actor->battleDefense < 0 )

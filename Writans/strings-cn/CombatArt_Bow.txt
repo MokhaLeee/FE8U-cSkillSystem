@@ -71,3 +71,19 @@
 重压箭+[X]
 ## msg_CAD_EncloserPlus
 封禁敌方及其相邻单位的移动[X]
+
+## msg_CAN_WaningShotPlus
+弱化箭+[X]
+## msg_CAD_WaningShotPlus
+敌方及其相邻单位攻击-5[X]
+
+
+## msg_CAN_BreakShotPlus
+破甲箭+[X]
+## msg_CAD_BreakShotPlus
+敌方及其相邻单位防御-5[X]
+
+## msg_CAN_WardArrowPlus
+封魔矢+[X]
+## msg_CAD_WardArrowPlus
+敌方及其相邻单位无法使用魔法[X]

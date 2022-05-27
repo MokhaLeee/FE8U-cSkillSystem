@@ -13,6 +13,7 @@ ALIGN 4
 OnPromoteFuncList:
 	POIN MLU_PromoGain_Vanilla
 	POIN MLU_PromoGain_Mag
+	POIN MLU_PromoGain_WExp
 	WORD 0
 
 

@@ -141,6 +141,56 @@ enum{
 	// Exp Skills
 	SID_Discipline = 0x8C,			// 天才
 	SID_RoyalLineage = 0x8D,		// 血统
+	
+	
+	
+	// Weapon Lv Skills
+	SID_SwordLv1 = 0x90,
+	SID_SwordLv2 = 0x91,
+	SID_SwordLv3 = 0x92,
+	SID_SwordLv4 = 0x93,
+	SID_SwordLv5 = 0x94,
+	
+	SID_LanceLv1 = 0x95,
+	SID_LanceLv2 = 0x96,
+	SID_LanceLv3 = 0x97,
+	SID_LanceLv4 = 0x98,
+	SID_LanceLv5 = 0x99,
+	
+	SID_AxeLv1 = 0x9A,
+	SID_AxeLv2 = 0x9B,
+	SID_AxeLv3 = 0x9C,
+	SID_AxeLv4 = 0x9D,
+	SID_AxeLv5 = 0x9E,
+	
+	SID_BowLv1 = 0x9F,
+	SID_BowLv2 = 0xA0,
+	SID_BowLv3 = 0xA1,
+	SID_BowLv4 = 0xA2,
+	SID_BowLv5 = 0xA3,
+	
+	SID_BMagLv1 = 0xA4,
+	SID_BMagLv2 = 0xA5,
+	SID_BMagLv3 = 0xA6,
+	SID_BMagLv4 = 0xA7,
+	SID_BMagLv5 = 0xA8,
+	
+	SID_WMagLv1 = 0xA9,
+	SID_WMagLv2 = 0xAA,
+	SID_WMagLv3 = 0xAB,
+	SID_WMagLv4 = 0xAC,
+	SID_WMagLv5 = 0xAD,
+	
+	
+	// Unit Simple Status
+	SID_StrBonus = 0xAE,
+	SID_MagBonus = 0xAF,
+	SID_SklBonus = 0xB0,
+	SID_SpdBonus = 0xB1,
+	SID_LukBonus = 0xB2,
+	SID_DefBonus = 0xB3,
+	SID_ResBonus = 0xB4,
+	SID_MovBonus = 0xB5,
 };
 
 

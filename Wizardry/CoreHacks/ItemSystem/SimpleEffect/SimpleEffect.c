@@ -85,7 +85,7 @@ static void PrepSimpleItemProc_OnInit(struct Proc_ItemSimple* proc){
 	UnitUpdateUsedItem(proc->unit, parent->item_slot);
 	
 	str = (NULL == proc->str)
-		? "Item Effect Applied"
+		? GetStringFromIndex(ENUM_msg_ItemEffectApplied)
 		: proc->str;
 	
 	icon_id = GetItemIconId(proc->item);
@@ -223,7 +223,7 @@ static void ActionSimpleItemProc_ExecEffect(struct Proc_ItemSimple* proc){
 		proc,
 		GetItemIconId(proc->item),
 		(0 == proc->str)
-			? "Item Effect Applied"
+			? GetStringFromIndex(ENUM_msg_ItemEffectApplied)
 			: proc->str
 	);
 	

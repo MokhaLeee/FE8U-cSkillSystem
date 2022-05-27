@@ -17,6 +17,15 @@ InjectSkillInfo(SKILLID_DefiantLck, SkillInfo_DefiantLck)
 InjectSkillInfo(SKILLID_DefiantDef, SkillInfo_DefiantDef)
 InjectSkillInfo(SKILLID_DefiantRes, SkillInfo_DefiantRes)
 
+InjectSkillInfo(SKILLID_StrBonus, SkillInfo_StrBonus)
+InjectSkillInfo(SKILLID_MagBonus, SkillInfo_MagBonus)
+InjectSkillInfo(SKILLID_SklBonus, SkillInfo_SklBonus)
+InjectSkillInfo(SKILLID_SpdBonus, SkillInfo_SpdBonus)
+InjectSkillInfo(SKILLID_LukBonus, SkillInfo_LukBonus)
+InjectSkillInfo(SKILLID_DefBonus, SkillInfo_DefBonus)
+InjectSkillInfo(SKILLID_ResBonus, SkillInfo_ResBonus)
+InjectSkillInfo(SKILLID_MovBonus, SkillInfo_MovBonus)
+
 
 // Misc Skills
 ALIGN 4
@@ -57,3 +66,12 @@ SI_FortressDef:
 
 SI_FortressRes:
 	#incbin "Icons/FortressRes.4bpp"	
+
+SI_StrBonus:	#incbin "Icons/StrBonus.4bpp"
+SI_MagBonus:	#incbin "Icons/MagBonus.4bpp"
+SI_SklBonus:	#incbin "Icons/SklBonus.4bpp"
+SI_SpdBonus:	#incbin "Icons/SpdBonus.4bpp"
+SI_LukBonus:	#incbin "Icons/LukBonus.4bpp"
+SI_DefBonus:	#incbin "Icons/DefBonus.4bpp"
+SI_ResBonus:	#incbin "Icons/ResBonus.4bpp"
+SI_MovBonus:	#incbin "Icons/MovBonus.4bpp"

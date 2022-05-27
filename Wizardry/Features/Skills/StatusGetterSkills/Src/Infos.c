@@ -1,7 +1,7 @@
 #include "gbafe-chax.h"
 
 
-extern const u16 SI_LifeAndDeath[], SI_DefiantStr[], SI_DefiantMag[], SI_DefiantSkl[], SI_DefiantSpd[], SI_DefiantLck[], SI_DefiantDef[], SI_DefiantRes[], SI_Fury[], SI_FuryPlus[], SI_FortressDef[], SI_FortressRes[];
+extern const u16 SI_LifeAndDeath[], SI_DefiantStr[], SI_DefiantMag[], SI_DefiantSkl[], SI_DefiantSpd[], SI_DefiantLck[], SI_DefiantDef[], SI_DefiantRes[], SI_Fury[], SI_FuryPlus[], SI_FortressDef[], SI_FortressRes[], SI_StrBonus[], SI_MagBonus[], SI_SklBonus[], SI_SpdBonus[], SI_LukBonus[], SI_DefBonus[], SI_ResBonus[], SI_MovBonus[];
 
 
 const struct SkillInfo SkillInfo_LifeAndDeath = {
@@ -107,5 +107,67 @@ const struct SkillInfo SkillInfo_DefiantRes = {
 	.msg_desc = ENUM_msg_SD_DefiantRes,
 	.msg_name = ENUM_msg_SN_DefiantRes,
 	.icon = SI_DefiantRes,
+	
+};
+
+
+
+
+
+
+const struct SkillInfo SkillInfo_StrBonus = {
+	
+	.msg_desc = ENUM_msg_SD_StrBonus,
+	.msg_name = ENUM_msg_SN_StrBonus,
+	.icon = SI_StrBonus,
+	
+};
+const struct SkillInfo SkillInfo_MagBonus = {
+	
+	.msg_desc = ENUM_msg_SD_MagBonus,
+	.msg_name = ENUM_msg_SN_MagBonus,
+	.icon = SI_MagBonus,
+	
+};
+const struct SkillInfo SkillInfo_SklBonus = {
+	
+	.msg_desc = ENUM_msg_SD_SklBonus,
+	.msg_name = ENUM_msg_SN_SklBonus,
+	.icon = SI_SklBonus,
+	
+};
+const struct SkillInfo SkillInfo_SpdBonus = {
+	
+	.msg_desc = ENUM_msg_SD_SpdBonus,
+	.msg_name = ENUM_msg_SN_SpdBonus,
+	.icon = SI_SpdBonus,
+	
+};
+const struct SkillInfo SkillInfo_LukBonus = {
+	
+	.msg_desc = ENUM_msg_SD_LukBonus,
+	.msg_name = ENUM_msg_SN_LukBonus,
+	.icon = SI_LukBonus,
+	
+};
+const struct SkillInfo SkillInfo_DefBonus = {
+	
+	.msg_desc = ENUM_msg_SD_DefBonus,
+	.msg_name = ENUM_msg_SN_DefBonus,
+	.icon = SI_DefBonus,
+	
+};
+const struct SkillInfo SkillInfo_ResBonus = {
+	
+	.msg_desc = ENUM_msg_SD_ResBonus,
+	.msg_name = ENUM_msg_SN_ResBonus,
+	.icon = SI_ResBonus,
+	
+};
+const struct SkillInfo SkillInfo_MovBonus = {
+	
+	.msg_desc = ENUM_msg_SD_MovBonus,
+	.msg_name = ENUM_msg_SN_MovBonus,
+	.icon = SI_MovBonus,
 	
 };

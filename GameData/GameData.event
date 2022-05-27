@@ -18,6 +18,10 @@
 #include "Constants.event"
 #include "Indices.event"
 
+// Item Data Fix
+ALIGN 4
+#include "ItemData/ItemDataFix.event"
+
 // Str-Mag split
 ALIGN 4
 #include "StrMag/MagCharEditor.event"

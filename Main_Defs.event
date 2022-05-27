@@ -18,7 +18,8 @@
 	// If commented, will not load game-intro gfx
 	#define _USE_GAME_INTRO_GFX_
 	
-	
+	// If uncommented, unit will use all types of weapon event wExp = 0
+	// #define _UNIT_CAN_USE_ALL_WEAPON_
 	
 	// For Icon Display
 	#define ICON_SHEET_SKILLS 0x1

@@ -144,8 +144,23 @@ SI_InfinityEdge:
 
 SI_LunaAttack:
 	#incbin "Icons/LunaAttack.4bpp"
-	
+
+SI_SorceryBlade:
+	#incbin "Icons/SorceryBlade.4bpp"
 
 // 刚 & 柔剑
+SI_HeavyBlade:
+	#incbin "Icons/HeavyBlade.4bpp"
 
-	
+SI_HeavyBladePlus:
+	#incbin "Icons/HeavyBladePlus.4bpp"
+
+SI_FlashingBlade:
+	#incbin "Icons/FlashingBlade.4bpp"
+
+SI_FlashingBladePlus:
+	#incbin "Icons/FlashingBladePlus.4bpp"
+
+
+
+// Weapon Level

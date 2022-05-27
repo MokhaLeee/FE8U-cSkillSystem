@@ -6,11 +6,7 @@ _thumb(_debug_)
 
 
 
-ALIGN 4
-Boost_Item_BC:
-	BYTE 0 0 0 0
-	BYTE 0 0 0 0 0
-	BYTE 2 0 0 0
+
 	
 
 // For Debug
@@ -64,12 +60,7 @@ PUSH
 	ORG $8AEEF1
 	// BYTE 2
 	
-	// 0xBC dura
-	ORG $80B594
-	BYTE 1
 	
-	ORG $80B58C
-	POIN Boost_Item_BC
 POP
 
 

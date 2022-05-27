@@ -17,6 +17,11 @@ PUSH
 	ORG $23E8C
 	jumpToHack(PickUsabilityHackASM)
 	PROTECT $023E7C $023EB2		// PickCommandUsability
+	
+	ORG $3D4C4
+	jumpToHack(StealAiUsabilityHackASM)
+	PROTECT $03D450 $03D6B4		// AiTryDoOffensiveAction
+	
 POP
 
 PROTECT $023194 $0231CC		// DanceCommandUsability

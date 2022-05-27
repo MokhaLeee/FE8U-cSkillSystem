@@ -97,4 +97,31 @@ PickUsabilityHackASM:
 	.L5_NoPick:
 	ldr		r0, =#0x8023E95
 	bx		r0
+
+
+
+.align
+.ltorg	
+.global	StealAiUsabilityHackASM
+.type 	StealAiUsabilityHackASM, function
+
+StealAiUsabilityHackASM:
+	@ hacked function
+	@ ORG 803D4C4
 	
+	push	{r3}
+	blh		CheckStealUsabilityCore
+	cmp		r0, #1
+	beq		.L6_Steal
+	b		.L7_NoSteal
+
+	.L6_Steal:
+	pop		{r3}
+	ldr		r0, =#0x803D4D7
+	bx		r0
+
+	.L7_NoSteal:
+	pop		{r3}
+	ldr		r0, =#0x803D4FB
+	bx		r0
+		

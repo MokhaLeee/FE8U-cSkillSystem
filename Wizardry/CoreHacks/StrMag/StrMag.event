@@ -20,6 +20,8 @@ ITEM_MAG_BOOSTER_ID:
 	#define ItemIcon_Mag_Booster 0xCA
 #endif
 
+
+
 PUSH
 	ORG ( $5926F4 + ItemIcon_Mag_Booster * 0x80 )
 	#incbin "data/SpiritDust.dmp"
@@ -27,11 +29,24 @@ PUSH
 	// Item_Mag_Booster Icon
 	ORG $809B10 + Item_Mag_Booster * 36 + 0x1D
 	BYTE ItemIcon_Mag_Booster
+
+/*	// Now in GameData
+
+	// 0xBC dura
+	ORG $80B594
+	BYTE 1
 	
+	ORG $80B58C
+	POIN Boost_Item_BC 
+*/
 POP
 
 
-
+ALIGN 4
+Boost_Item_BC:
+	BYTE 0 0 0 0
+	BYTE 0 0 0 0 0
+	BYTE 2 0 0 0
 
 
 

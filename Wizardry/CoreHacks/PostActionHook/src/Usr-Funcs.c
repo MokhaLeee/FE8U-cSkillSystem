@@ -35,7 +35,7 @@ void PostAction_VanillaExecTrap(ProcPtr proc){
 
 
 // ==============================================
-//               Self Hurt
+//                  Self Hurt
 // ==============================================
 
 extern const struct ProcCmd gProc_89A3288[];
@@ -75,7 +75,6 @@ void PostAction_DmgAct(ProcPtr proc){
 	
 	switch(gActionData.unitActionType){
 		case 0x2:	// combat
-		case 0x3:	// staff
 			
 			// Fury
 			
@@ -123,7 +122,6 @@ void PostAction_DmgTar(ProcPtr proc){
 	// Fury
 	switch(gActionData.unitActionType){
 		case 0x2:	// combat
-		case 0x3:	// staff
 			
 			if( (*SkillTester)(unit, SID_Fury) )
 				dmg += 6;

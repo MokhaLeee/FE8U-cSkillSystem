@@ -4,6 +4,11 @@
 extern const u16 SI_Lethality[], SI_Crit[], SI_WatchfulEye[], SI_CritSword[], SI_CritAxe[], SI_CritLance[], SI_CritBow[], SI_CritBMag[], SI_CritWMag[], SI_FaireSword[], SI_FaireLance[], SI_FaireAxe[], SI_FaireBow[], SI_FaireBMag[], SI_Avoid[], SI_AvoidSword[], SI_DefiantCrit[], SI_DefiantAvoid[], SI_RuinedBlade[], SI_RuinedBladePlus[], SI_InfinityEdge[], SI_LunaAttack[];
 
 
+
+
+
+
+
 const struct SkillInfo SkillInfo_Lethality = {
 	
 	.msg_desc = ENUM_msg_SD_Lethality,
@@ -212,12 +217,12 @@ const struct SkillInfo SkillInfo_InfinityEdge = {
 	
 };
 
-
+extern const u16 SI_SorceryBlade[];
 const struct SkillInfo SkillInfo_SorceryBlade = {
 	
 	.msg_desc = ENUM_msg_SD_SorceryBlade,
 	.msg_name = ENUM_msg_SN_SorceryBlade,
-	// .icon = SI_SorceryBlade,
+	.icon = SI_SorceryBlade,
 	
 };
 
@@ -232,37 +237,42 @@ const struct SkillInfo SkillInfo_LunaAttack = {
 
 
 // 刚柔剑
-
+extern const u16 SI_HeavyBlade[];
 const struct SkillInfo SkillInfo_HeavyBlade = {
 	
 	.msg_desc = ENUM_msg_SD_HeavyBlade,
 	.msg_name = ENUM_msg_SN_HeavyBlade,
-	// .icon = SI_HeavyBlade,
+	.icon = SI_HeavyBlade,
 	
 };
 
+extern const u16 SI_HeavyBladePlus[];
 const struct SkillInfo SkillInfo_HeavyBladePlus = {
 	
 	.msg_desc = ENUM_msg_SD_HeavyBladePlus,
 	.msg_name = ENUM_msg_SN_HeavyBladePlus,
-	// .icon = SI_HeavyBladePlus,
+	.icon = SI_HeavyBladePlus,
 	
 };
 
-
+extern const u16 SI_FlashingBlade[];
 const struct SkillInfo SkillInfo_FlashingBlade = {
 	
 	.msg_desc = ENUM_msg_SD_FlashingBlade,
 	.msg_name = ENUM_msg_SN_FlashingBlade,
-	// .icon = SI_FlashingBlade,
+	.icon = SI_FlashingBlade,
 	
 };
 
-
+extern const u16 SI_FlashingBladePlus[];
 const struct SkillInfo SkillInfo_FlashingBladePlus = {
 	
 	.msg_desc = ENUM_msg_SD_FlashingBladePlus,
 	.msg_name = ENUM_msg_SN_FlashingBladePlus,
-	// .icon = SI_FlashingBladePlus,
+	.icon = SI_FlashingBladePlus,
 	
 };
+
+
+
+

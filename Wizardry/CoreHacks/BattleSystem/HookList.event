@@ -8,7 +8,7 @@ PreBattleCalcLoopTable:
 	POIN BC_Init
 	POIN BC_UnitStatus
 	POIN BC_CombatArtBonus
-	
+	POIN BC_WeaponLvSkills
 	POIN BC_WTA_Bonus
 	POIN BC_BlowBonus
 	POIN BC_StanceBonus

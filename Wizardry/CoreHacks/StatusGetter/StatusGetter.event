@@ -58,6 +58,7 @@ ConModify:
 
 MovModify:
 	POIN MovGetter_UnitStatus
+	POIN MovGetter_Skills
 	WORD 0
 
 AidModify:

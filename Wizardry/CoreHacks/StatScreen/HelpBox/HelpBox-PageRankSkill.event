@@ -27,7 +27,7 @@ RText_PageRankSkill:
 	
 	// Line 2
 	HB_P2_WMag:
-	RMenu(HB_P2_Art2,HB_P2_Ride,HB_P2_Sword,HB_P2_Name,0xA6,0x18,ssFaithDesc)
+	RMenu(HB_P2_Art0,HB_P2_Ride,HB_P2_Sword,HB_P2_Name,0xA6,0x18,ssFaithDesc)
 	
 	HB_P2_Ride:
 	RMenu(HB_P2_WMag,HB_P2_Fly,HB_P2_Lance,HB_P2_Name,0xA6,0x28,ssRidingDesc)
@@ -39,7 +39,7 @@ RText_PageRankSkill:
 	RMenu(HB_P2_Fly,HB_P2_ClassR,HB_P2_Bow,HB_P2_Name,0xA6,0x48,ssHeavyDesc)
 	
 	HB_P2_ClassR:
-	RMenu(HB_P2_Heavy,HB_P2_Skill2,HB_P2_BMag,HB_P2_Name,0xA6,0x58,ssClassRDesc)
+	RMenu(HB_P2_Heavy,HB_P2_Skill0,HB_P2_BMag,HB_P2_Name,0xA6,0x58,ssClassRDesc)
 	
 	
 	

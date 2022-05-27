@@ -104,6 +104,44 @@ void LoadUnit_WRanks(struct Unit* unit){
 }
 
 
+// ==============================================
+//              For ModLU Promotion
+// ==============================================
+
+void MLU_PromoGain_WExp(struct Unit* unit, u8 promClassId){
+	
+	#define SET_WXEP(wtype){							\
+		wexp = GetWExp(unit, wtype)						\
+			+ GetClassBaseWExp(promClassId, wtype)		\
+			- GetClassBaseWExp(baseClassId, wtype);		\
+		wexp = wexp > 0 ? wexp : 0;						\
+		wexp = wexp > WPN_EXP_S ? WPN_EXP_S : wexp;		\
+		SetWExp(unit, wtype, wexp);						\
+	}
+	
+	int wexp;
+	int baseClassId = unit->pClassData->number;
+	const struct ClassData* promotedClass = GetClassData(promClassId);
+
+	// Remove base class' base wexp from unit wexp
+	SET_WXEP(ITYPE_SWORD);
+	SET_WXEP(ITYPE_LANCE);
+	SET_WXEP(ITYPE_AXE);
+	SET_WXEP(ITYPE_BOW);
+	
+	SET_WXEP(ITYPE_BMAG);
+	SET_WXEP(ITYPE_WMAG);
+	SET_WXEP(ITYPE_RIDE);
+	SET_WXEP(ITYPE_FLY);
+	SET_WXEP(ITYPE_HEAVY);
+	
+	SetWExp(unit, ITYPE_CLASS, 0);
+    unit->pClassData = promotedClass;
+	
+	#undef SET_WXEP
+
+}
+
 
 
 // ==============================================

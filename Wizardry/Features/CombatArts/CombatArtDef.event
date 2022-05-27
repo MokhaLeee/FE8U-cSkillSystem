@@ -65,7 +65,9 @@
 	#define eCA_HuntersVolley 0x6A		// 猎箭齐发
 	
 	#define eCA_EncloserPlus 0x70		// 重压箭+
-	
+	#define eCA_WaningShotPlus 0x71		// 弱化箭+
+	#define eCA_BreakShotPlus 0x72		// 破甲箭+
+	#define eCA_WardArrowPlus 0x73		// 封魔矢+
 	
 	
 	// Fist: 0x80

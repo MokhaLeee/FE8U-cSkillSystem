@@ -10,3 +10,9 @@ int ShouldSkipGameStartIntro(){
 	
 	return gUnknown_0300001A;
 }
+
+
+
+void GameIntro_GotoMainMenu(ProcPtr proc){
+	*(u8*)(proc + 0x29) = 2;
+}

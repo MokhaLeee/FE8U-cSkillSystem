@@ -1,5 +1,12 @@
 #include "gbafe-chax.h"
 
+inline int GetMax(int a0, int a1, int a2){
+	int max = a0 > a1 ? a0 : a1;
+	max = max > a2 ? max : a2;
+	
+	return max;
+}
+
 static u8* GetWRankAt(struct Unit* unit, u8 wType){
 	
 	switch (wType){
@@ -50,6 +57,47 @@ u8 GetWExp(struct Unit* unit, const u8 wType){
 }
 
 
+int GetClassBaseWExp(u8 class_id, const u8 wType){
+	
+	const struct ClassRomDataExpa *ClassExpa = GetClassRomDataExpa(class_id);
+	
+	switch(wType){
+		
+		case ITYPE_SWORD:
+		case ITYPE_LANCE:
+		case ITYPE_AXE:
+		case ITYPE_BOW:
+		case ITYPE_WMAG:
+			return gClassData[class_id].baseRanks[wType];
+			break;
+			
+		case ITYPE_BMAG:
+			return GetMax(
+				gClassData[class_id].baseRanks[ITYPE_ANIMA],
+				gClassData[class_id].baseRanks[ITYPE_LIGHT],
+				gClassData[class_id].baseRanks[ITYPE_DARK]
+				);
+			break;
+		
+		case ITYPE_RIDE:
+			return ClassExpa->rank_ride;
+			break;
+			
+		case ITYPE_FLY:
+			return ClassExpa->rank_fly;
+			break;
+			
+		case ITYPE_HEAVY:
+			return ClassExpa->rank_heavy;
+			break;
+			
+		default:
+			return 0;
+			break;
+	}
+}
+
+
 void SetWExp(struct Unit* unit, const u8 wType, u8 exp){
 	
 	if( NULL == GetWRankAt(unit, wType) )
@@ -62,7 +110,14 @@ void SetWExp(struct Unit* unit, const u8 wType, u8 exp){
 }
 
 void AddWExp(struct Unit* unit, const u8 wType, u8 exp){
-	SetWExp(unit, wType, exp + GetWExp(unit, wType) );
+	
+	int new_exp = exp + GetWExp(unit, wType);
+	
+	SetWExp(unit, wType, 
+		new_exp > 0
+			? new_exp
+			: 0
+	);
 }
 
 

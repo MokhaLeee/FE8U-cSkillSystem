@@ -54,14 +54,34 @@ s8 CanUnitUseWeapon(struct Unit* unit, int item) {
 }
 
 
+s8 CanUnitUseStaff(struct Unit* unit, int item) {
+	if (item == 0)
+		return FALSE;
+
+	if (!(GetItemAttributes(item) & IA_STAFF))
+		return FALSE;
+
+	if (unit->statusIndex == UNIT_STATUS_SLEEP)
+		return FALSE;
+
+	if (unit->statusIndex == UNIT_STATUS_BERSERK)
+		return FALSE;
+
+	if (unit->statusIndex == UNIT_STATUS_SILENCED)
+		return FALSE;
+	
+	return GetWExp(unit, GetItemType(item)) >= GetItemRequiredExp(item);
+	
+}
+
 
 int GetItemRequiredExp(int item) {
 	
 	int rank_exp = GetItemData(ITEM_INDEX(item))->weaponRank;
 	
-	if( rank_exp < WPN_EXP_D )
-		return 0;
-	else
+	if( 0 == gCanUnitUseAllTypeWeapon )
 		return rank_exp;
+	else
+		return rank_exp < WPN_EXP_D ? 0 : rank_exp;
 
 }

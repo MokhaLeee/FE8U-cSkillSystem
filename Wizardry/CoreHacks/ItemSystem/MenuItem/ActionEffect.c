@@ -173,7 +173,7 @@ void ExecStatBooster(ProcPtr proc) {
 		m4aSongNumStart(0x5A);
 	
 	// Put Popup
-	DrawMapItemEffectPopUp( proc, GetItemIconId(item), "Unit Status Up");
+	DrawMapItemEffectPopUp( proc, GetItemIconId(item), GetStringFromIndex(ENUM_msg_ItemUnitStatusUp));
 	
 }
 

@@ -68,6 +68,9 @@ enum{
 	CA_HuntersVolley = 0x6A,		// 猎箭齐发
 	
 	CA_EncloserPlus = 0x70,			// 重压箭+
+	CA_WaningShotPlus = 0x71,		// 弱化箭+
+	CA_BreakShotPlus = 0x72,		// 破甲箭+
+	CA_WardArrowPlus = 0x73,		// 封魔矢+
 	
 	// Fist: 0x80
 	

@@ -237,3 +237,65 @@ const struct CombatArtInfo CAInfo_EncloserPlus = {
 
 
 
+const struct CombatArtInfo CAInfo_WaningShotPlus = {
+	
+	.msg_name = ENUM_msg_CAN_WaningShotPlus,
+	.msg_desc = ENUM_msg_CAD_WaningShotPlus,
+	.icon = CombatArtIcon_DebuffBow,
+	.weapon_type = ITYPE_BOW,
+	.is_lengency = 0,
+	.is_magic = 0,
+	.eff_fly = 1,
+	.cost = 5,
+	.mt = 0,
+	.hit = 20,
+	.avo = 0,
+	.crit = 0,
+	.range_bouns = 2,
+	.debuff_atk = 1,
+	.AOE_Debuff = 1,
+};
+
+
+
+const struct CombatArtInfo CAInfo_BreakShotPlus = {
+	
+	.msg_name = ENUM_msg_CAN_BreakShotPlus,
+	.msg_desc = ENUM_msg_CAD_BreakShotPlus,
+	.icon = CombatArtIcon_DebuffBow,
+	.weapon_type = ITYPE_BOW,
+	.is_lengency = 0,
+	.is_magic = 0,
+	.eff_fly = 1,
+	.cost = 5,
+	.mt = 0,
+	.hit = 20,
+	.avo = 0,
+	.crit = 0,
+	.range_bouns = 2,
+	.debuff_def = 1,
+	.AOE_Debuff = 1,
+};
+
+
+const struct CombatArtInfo CAInfo_WardArrowPlus = {
+	
+	.msg_name = ENUM_msg_CAN_WardArrowPlus,
+	.msg_desc = ENUM_msg_CAD_WardArrowPlus,
+	.icon = CombatArtIcon_DebuffBow,
+	.weapon_type = ITYPE_BOW,
+	.is_lengency = 0,
+	.is_magic = 0,
+	.eff_fly = 1,
+	.cost = 5,
+	.mt = 0,
+	.hit = 20,
+	.avo = 0,
+	.crit = 0,
+	.range_bouns = 2,
+	.debuff_Silence = 1,
+	.AOE_Debuff = 1,
+};
+
+
+

@@ -10,7 +10,7 @@ extern const struct CombatArtInfo CAInfo_TempestLance, CAInfo_Knightkneeler, CAI
 extern const struct CombatArtInfo CAInfo_Smash, CAInfo_HelmSplitter, CAInfo_MonsterBreaker, CAInfo_FocusedStrike, CAInfo_WildAbandon, CAInfo_Spike, CAInfo_DiamondAxe, CAInfo_LightningAxe, CAInfo_ArmoredStrike, CAInfo_WarMasterStrike, CAInfo_FlickeringFlower;
 
 // Bow
-extern const struct CombatArtInfo CAInfo_CurvedShot, CAInfo_Deadeye, CAInfo_Encloser, CAInfo_HeavyDraw, CAInfo_MonsterBlast, CAInfo_SchismShot, CAInfo_BreakShot, CAInfo_WaningShot, CAInfo_PointBlankVolley, CAInfo_WardArrow, CAInfo_HuntersVolley, CAInfo_EncloserPlus;
+extern const struct CombatArtInfo CAInfo_CurvedShot, CAInfo_Deadeye, CAInfo_Encloser, CAInfo_HeavyDraw, CAInfo_MonsterBlast, CAInfo_SchismShot, CAInfo_BreakShot, CAInfo_WaningShot, CAInfo_PointBlankVolley, CAInfo_WardArrow, CAInfo_HuntersVolley, CAInfo_EncloserPlus, CAInfo_WaningShotPlus, CAInfo_BreakShotPlus, CAInfo_WardArrowPlus;
 
 struct CombatArtInfo const* const CombatArtInfoTable[0x100] = {
 	
@@ -74,8 +74,9 @@ struct CombatArtInfo const* const CombatArtInfoTable[0x100] = {
 	[CA_HuntersVolley] = &CAInfo_HuntersVolley,
 	
 	[CA_EncloserPlus] = &CAInfo_EncloserPlus,
-	
-	
+	[CA_WaningShotPlus] = &CAInfo_WaningShotPlus,
+	[CA_BreakShotPlus] = &CAInfo_BreakShotPlus,
+	[CA_WardArrowPlus] = &CAInfo_WardArrowPlus,
 	
 	// Fist
 	

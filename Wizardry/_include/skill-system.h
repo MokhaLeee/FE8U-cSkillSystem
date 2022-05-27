@@ -29,7 +29,7 @@ struct SkillClassList_t{
 	/* 00 */ u8 default_rom_skill[2];
 	/* 04 */ u8 master_rom_skill[2];
 	/* 08 */ u8 default_ram_skill[2];
-	/* 0C */ u8 master_ram_skill[2];
+	/* 0C */ u8 master_ram_skill[4];
 	/* 10 */
 };
 
@@ -46,13 +46,13 @@ extern const struct SkillCharacterList_t CharacterSkillRomList[];
 
 
 struct LevelBasedSkillList_t{
-	
-	/* 00 */ u8 E[2];
-	/* 02 */ u8 D[2];
-	/* 04 */ u8 C[2];
-	/* 06 */ u8 B[2];
-	/* 08 */ u8 A[2];
-	/* 0A */ u8 S[2];
+
+	/* 00 */ u8 E[3];
+	/* 02 */ u8 D[3];
+	/* 04 */ u8 C[3];
+	/* 06 */ u8 B[3];
+	/* 08 */ u8 A[3];
+	/* 0A */ u8 S[3];
 	/* 0C */
 };
 

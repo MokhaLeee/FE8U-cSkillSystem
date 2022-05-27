@@ -71,3 +71,19 @@ Hunter's Volley[X]
 Encloser+[X]
 ## msg_CAD_EncloserPlus
 Enimy and adjacent units cannot move[X]
+
+## msg_CAN_WaningShotPlus
+Waning Shot+[X]
+## msg_CAD_WaningShotPlus
+Enimy and adjacent units Atk-5[X]
+
+
+## msg_CAN_BreakShotPlus
+Break Shot+[X]
+## msg_CAD_BreakShotPlus
+Enimy and adjacent units Def-5[X]
+
+## msg_CAN_WardArrowPlus
+Ward Arrow+[X]
+## msg_CAD_WardArrowPlus
+Enimy and adjacent units cannot use magic[X]

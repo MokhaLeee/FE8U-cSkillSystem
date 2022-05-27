@@ -80,4 +80,19 @@ POP
 
 
 
+// Staff Range Fix
+#include "StaffRange/StaffRange.lyn.event"
+PROTECT $25e7c $25EAC // MakeTargetListForAdjacentHeal
+PROTECT $25eb0 $25EFC // MakeTargetListForRangedHeal
+PROTECT $25fe8 $26018 // MakeTargetListForRestore
+PROTECT $2606c $260A0 // MakeTargetListForBarrier
+PROTECT $260d8 $26100 // MakeTargetListForRescueStaff
+PROTECT $261e4 $2620C // MakeTargetListForSilence
+PROTECT $2620c $26230 // MakeTargetListForSleep
+PROTECT $26234 $2625C // MakeTargetListForBerserk
+PROTECT $26294 $262C8 // MakeTargetListForWarp
+PROTECT $262c8 $262F8 // MakeTargetListForUnlock
+PROTECT $26354 $26388 // MakeTargetListForHammerne
+
+
 #endif // MAP_MASTER_MOKHA

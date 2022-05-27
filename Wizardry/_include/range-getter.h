@@ -23,7 +23,7 @@ BmMapFill(gBmMapMovement, NU_MOVE_MAP);
 AddMapMaster(x, y, mask, NU_MOVE_MAP);
 ************************/
 void AddMapMaster(int x, int y, u32 mask, int null_vall);
-void ForEachUnitMaster( void(func)(struct Unit*), u8*** work_map, int null_val);
+void ForEachUnitMaster( void(*func)(struct Unit*), u8*** work_map, int null_val);
 
 
 

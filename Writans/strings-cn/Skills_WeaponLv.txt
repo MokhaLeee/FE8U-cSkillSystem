@@ -1,0 +1,205 @@
+## msg_SN_SwordLv1
+剑术Lv1[X]
+## msg_SD_SwordLv1
+剑术Lv1:[NL]
+装备剑时，回避+3，必杀+3[X]
+
+## msg_SN_SwordLv2
+剑术Lv2[X]
+## msg_SD_SwordLv2
+剑术Lv2:[NL]
+装备剑时，回避+5，必杀+5[X]
+
+## msg_SN_SwordLv3
+剑术Lv3[X]
+## msg_SD_SwordLv3
+剑术Lv3:[NL]
+装备剑时，回避+7，必杀+7[X]
+
+## msg_SN_SwordLv4
+剑术Lv4[X]
+## msg_SD_SwordLv4
+剑术Lv4:[NL]
+装备剑时，回避+10，必杀+10[X]
+
+## msg_SN_SwordLv5
+剑术Lv5[X]
+## msg_SD_SwordLv5
+剑术Lv5:[NL]
+装备剑时，回避+15，必杀+10[NL]
+瞬杀+10[X]
+
+
+
+
+
+
+
+## msg_SN_LanceLv1
+枪术Lv1[X]
+## msg_SD_LanceLv1
+枪术Lv1:[NL]
+装备枪时，命中+3，防御+1[X]
+
+## msg_SN_LanceLv2
+枪术Lv2[X]
+## msg_SD_LanceLv2
+枪术Lv2:[NL]
+装备枪时，命中+6，防御+2[X]
+
+## msg_SN_LanceLv3
+枪术Lv3[X]
+## msg_SD_LanceLv3
+枪术Lv3:[NL]
+装备枪时，命中+9，防御+3[X]
+
+## msg_SN_LanceLv4
+枪术Lv4[X]
+## msg_SD_LanceLv4
+枪术Lv4:[NL]
+装备枪时，命中+12，防御+4[X]
+
+## msg_SN_LanceLv5
+枪术Lv5[X]
+## msg_SD_LanceLv5
+枪术Lv5:[NL]
+装备枪时，命中+20，防御+5[X]
+
+
+
+
+
+
+
+## msg_SN_AxeLv1
+斧术Lv1[X]
+## msg_SD_AxeLv1
+斧术Lv1:[NL]
+装备斧时，攻击+1，必杀+2[X]
+
+## msg_SN_AxeLv2
+斧术Lv2[X]
+## msg_SD_AxeLv2
+斧术Lv2:[NL]
+装备斧时，攻击+2，必杀+4[X]
+
+## msg_SN_AxeLv3
+斧术Lv3[X]
+## msg_SD_AxeLv3
+斧术Lv3:[NL]
+装备斧时，攻击+3，必杀+6[X]
+
+## msg_SN_AxeLv4
+斧术Lv4[X]
+## msg_SD_AxeLv4
+斧术Lv4:[NL]
+装备斧时，攻击+4，必杀+8[X]
+
+## msg_SN_AxeLv5
+斧术Lv5[X]
+## msg_SD_AxeLv5
+斧术Lv5:[NL]
+装备斧时，攻击+5，必杀+15[X]
+
+
+
+
+
+## msg_SN_BowLv1
+箭术Lv1[X]
+## msg_SD_BowLv1
+箭术Lv1:[NL]
+装备弓时，命中+5[X]
+
+## msg_SN_BowLv2
+箭术Lv2[X]
+## msg_SD_BowLv2
+箭术Lv2:[NL]
+装备弓时，命中+10[X]
+
+## msg_SN_BowLv3
+箭术Lv3[X]
+## msg_SD_BowLv3
+箭术Lv3:[NL]
+装备弓时，命中+15[X]
+
+## msg_SN_BowLv4
+箭术Lv4[X]
+## msg_SD_BowLv4
+箭术Lv4:[NL]
+装备弓时，命中+20[X]
+
+## msg_SN_BowLv5
+箭术Lv5[X]
+## msg_SD_BowLv5
+箭术Lv5:[NL]
+弓射程+1，装备弓时，命中+25[X]
+
+
+
+
+
+## msg_SN_BMagLv1
+理学Lv1[X]
+## msg_SD_BMagLv1
+理学Lv1:[NL]
+装备黑魔法时，攻击+1，命中+3[X]
+
+## msg_SN_BMagLv2
+理学Lv2[X]
+## msg_SD_BMagLv2
+理学Lv2:[NL]
+装备黑魔法时，攻击+2，命中+6[X]
+
+## msg_SN_BMagLv3
+理学Lv3[X]
+## msg_SD_BMagLv3
+理学Lv3:[NL]
+装备黑魔法时，攻击+3，命中+9[X]
+
+## msg_SN_BMagLv4
+理学Lv4[X]
+## msg_SD_BMagLv4
+理学Lv4:[NL]
+装备黑魔法时，攻击+4，命中+12[X]
+
+## msg_SN_BMagLv5
+理学Lv5[X]
+## msg_SD_BMagLv5
+理学Lv5:[NL]
+装备黑魔法时，攻击+7，命中+15[X]
+
+
+
+
+
+## msg_SN_WMagLv1
+信仰Lv1[X]
+## msg_SD_WMagLv1
+信仰Lv1:[NL]
+携带白魔法时，回避+5[X]
+
+## msg_SN_WMagLv2
+信仰Lv2[X]
+## msg_SD_WMagLv2
+信仰Lv2:[NL]
+携带白魔法时，回避+10[X]
+
+## msg_SN_WMagLv3
+信仰Lv3[X]
+## msg_SD_WMagLv3
+信仰Lv3:[NL]
+携带白魔法时，回避+15[X]
+
+## msg_SN_WMagLv4
+信仰Lv4[X]
+## msg_SD_WMagLv4
+信仰Lv4:[NL]
+携带白魔法时，回避+20[X]
+
+## msg_SN_WMagLv5
+信仰Lv5[X]
+## msg_SD_WMagLv5
+信仰Lv5:[NL]
+白魔法射程+5，携带[NL]
+白魔法时，回避+25[X]

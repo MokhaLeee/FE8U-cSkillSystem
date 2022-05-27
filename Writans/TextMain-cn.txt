@@ -21,6 +21,7 @@
 #include strings-cn/Skills_Defiant.txt
 #include strings-cn/Skills_UnitStatus.txt
 #include strings-cn/Skills_Exp.txt
+#include strings-cn/Skills_WeaponLv.txt
 #include strings-cn/Skills_Misc.txt
 
 #include strings-cn/PrepScreen.txt
@@ -37,6 +38,19 @@
 ## msg_SilencerDesc
 瞬杀概率:[NL]
 有几率直接杀死对方[X]
+
+## msg_ItemEffectApplied
+道具效果生效 ![X]
+
+## msg_ItemUnitStatusUp
+角色能力提升[X]
+
+## msgItemName_MagBooster
+魔力药水[X]
+## msgItemDesc_MagBooster
+使用后角色魔力值+2[X]
+## msgItemUseDesc_MagBooster
+提升魔力[X]
 
 ## msg_end
 0[X]

@@ -223,9 +223,14 @@ void UpdateUnitDuringBattle(struct Unit* unit, struct BattleUnit* bu) {
 
 int GetWeaponLevelFromExp(int wexp) {
 	
-	if (wexp < WPN_EXP_D)
+	if (wexp < WPN_EXP_D){
+		if( 0 == gCanUnitUseAllTypeWeapon )
+			if( wexp < WPN_LEVEL_E )
+				return WPN_LEVEL_0;
+	
 		return WPN_LEVEL_E;
-
+	}
+	
 	if (wexp < WPN_EXP_C)
 		return WPN_LEVEL_D;
 

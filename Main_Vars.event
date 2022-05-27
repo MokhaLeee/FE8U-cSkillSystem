@@ -72,5 +72,15 @@ GAME_INTRO_GFX_SHOW_At:
 	#else
 	WORD 0
 	#endif
-	
+
+// if 1, unit can use weapon even if he has no wExp of its wType
+gCanUnitUseAllTypeWeapon:
+	#ifdef _UNIT_CAN_USE_ALL_WEAPON_
+	BYTE 1
+	#else
+	BYTE 0
+	#endif
+
+
+ALIGN 4	
 #endif // VALUE_GLOBAL

@@ -1,0 +1,5 @@
+
+PUSH
+	ORG $80B580
+	#include "src/ItemBC.lyn.event"
+POP

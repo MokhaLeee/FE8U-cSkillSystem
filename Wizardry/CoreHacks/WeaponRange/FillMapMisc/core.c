@@ -27,7 +27,7 @@ void FillMapForSingleItem(struct Unit* unit, u16 item){
 	
 	int rngMin = RangeMinGetter(item,unit);
 	int rngMax = MaxRangeFilter(unit,item);
-	
+
 	MapAddInRange(x,y,rngMax,1);
 	
 	if( 0!=rngMin )
@@ -125,17 +125,18 @@ void AddMapMaster(int x, int y, u32 mask, int null_vall) {
 
 
 
-void ForEachUnitMaster( void(func)(struct Unit*), u8*** work_map, int null_val) {
+
+void ForEachUnitMaster( void(*func)(struct Unit*), u8*** work_map, int null_val) {
 	
 	if ( (gBmMapSize.x < 0) || (gBmMapSize.y < 0) )
 		return;
 	
 	for( int y = 0; y < gBmMapSize.y; y++ )
-		for( int x = 0; x < gBmMapSize.x; x++ )
-		{
-			if( null_val == *work_map[y][x] )
-				continue;
+		for( int x = 0; x < gBmMapSize.x; x++ ){
 			
+			if( null_val == (*work_map)[y][x] )
+				continue;
+
 			if( gBmMapUnit[y][x] )
 				func( GetUnit(gBmMapUnit[y][x]) );
 		}

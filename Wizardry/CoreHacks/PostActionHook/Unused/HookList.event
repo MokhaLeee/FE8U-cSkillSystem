@@ -1,0 +1,16 @@
+ALIGN 4
+PostActionLoopTable:
+	
+	// void (*)(ProcPtr)
+	
+	// POIN PostAction_Template
+	POIN PostAction_DmgAct
+	POIN PostAction_DmgTar
+	POIN PostAction_CombatArtDebuff
+	POIN PostActionSkill_AlertStance
+	
+	
+	// End
+	POIN ResetBattleFlagExt
+	WORD 0
+	

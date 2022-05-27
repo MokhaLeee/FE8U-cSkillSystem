@@ -1,0 +1,239 @@
+## msg_SN_SwordLv1
+Sword Lv1[X]
+## msg_SD_SwordLv1
+Sword Lv1:[NL]
+Grants Avo+3, Crit+3[NL]
+when unit equips sword[X]
+
+## msg_SN_SwordLv2
+Sword Lv2[X]
+## msg_SD_SwordLv2
+Sword Lv2:[NL]
+Grants Avo+5, Crit+5[NL]
+when unit equips sword[X]
+
+
+## msg_SN_SwordLv3
+Sword Lv3[X]
+## msg_SD_SwordLv3
+Sword Lv3:[NL]
+Grants Avo+7, Crit+7[NL]
+when unit equips sword[X]
+
+
+## msg_SN_SwordLv4
+Sword Lv4[X]
+## msg_SD_SwordLv4
+Sword Lv4:[NL]
+Grants Avo+10, Crit+10[NL]
+when unit equips sword[X]
+
+
+## msg_SN_SwordLv5
+Sword Lv5[X]
+## msg_SD_SwordLv5
+Sword Lv5:[NL]
+Grants Avo+15, Crit+10, Sil[NL]
++10 when unit equips sword[X]
+
+
+
+
+
+
+
+
+## msg_SN_LanceLv1
+Lance Lv1[X]
+## msg_SD_LanceLv1
+Lance Lv1:[NL]
+Grants Hit+3, Battle Def[NL]
++1 when unit equips lance[X]
+
+
+## msg_SN_LanceLv2
+Lance Lv2[X]
+## msg_SD_LanceLv2
+Lance Lv2:[NL]
+Grants Hit+6, Battle Def[NL]
++2 when unit equips lance[X]
+
+## msg_SN_LanceLv3
+Lance Lv3[X]
+## msg_SD_LanceLv3
+Lance Lv3:[NL]
+Grants Hit+9, Battle Def[NL]
++3 when unit equips lance[X]
+
+## msg_SN_LanceLv4
+Lance Lv4[X]
+## msg_SD_LanceLv4
+Lance Lv4:[NL]
+Grants Hit+12, Battle Def[NL]
++4 when unit equips lance[X]
+
+## msg_SN_LanceLv5
+Lance Lv5[X]
+## msg_SD_LanceLv5
+Lance Lv5:[NL]
+Grants Hit+20, Battle Def[NL]
++5 when unit equips lance[X]
+
+
+
+
+
+
+
+## msg_SN_AxeLv1
+Axe Lv1[X]
+## msg_SD_AxeLv1
+Axe Lv1:[NL]
+Grants Atk+1, Crit+2[NL]
+when unit equips Axe[X]
+
+## msg_SN_AxeLv2
+Axe Lv2[X]
+## msg_SD_AxeLv2
+Axe Lv2:[NL]
+Grants Atk+2, Crit+4[NL]
+when unit equips Axe[X]
+
+## msg_SN_AxeLv3
+Axe Lv3[X]
+## msg_SD_AxeLv3
+Axe Lv3:[NL]
+Grants Atk+3, Crit+6[NL]
+when unit equips Axe[X]
+
+## msg_SN_AxeLv4
+Axe Lv4[X]
+## msg_SD_AxeLv4
+Axe Lv4:[NL]
+Grants Atk+4, Crit+8[NL]
+when unit equips Axe[X]
+
+## msg_SN_AxeLv5
+Axe Lv5[X]
+## msg_SD_AxeLv5
+Axe Lv5:[NL]
+Grants Atk+5, Crit+15[NL]
+when unit equips Axe[X]
+
+
+
+
+
+## msg_SN_BowLv1
+Bow Lv1[X]
+## msg_SD_BowLv1
+Bow Lv1:[NL]
+Grants Hit+5[NL]
+when unit equips Bow[X]
+
+## msg_SN_BowLv2
+Bow Lv2[X]
+## msg_SD_BowLv2
+Bow Lv2:[NL]
+Grants Hit+10[NL]
+when unit equips Bow[X]
+
+## msg_SN_BowLv3
+Bow Lv3[X]
+## msg_SD_BowLv3
+Bow Lv3:[NL]
+Grants Hit+15[NL]
+when unit equips Bow[X]
+
+## msg_SN_BowLv4
+Bow Lv4[X]
+## msg_SD_BowLv4
+Bow Lv4:[NL]
+Grants Hit+20[NL]
+when unit equips Bow[X]
+
+## msg_SN_BowLv5
+Bow Lv5[X]
+## msg_SD_BowLv5
+Bow Lv5:[NL]
+Bow range+1, grants Hit[NL]
++25 when unit equips Bow[X]
+
+
+
+
+
+## msg_SN_BMagLv1
+Reason Lv1[X]
+## msg_SD_BMagLv1
+Reason Lv1:[NL]
+Grants Atk+1, Hit+3[NL]
+when unit equips B.Mag[X]
+
+## msg_SN_BMagLv2
+Reason Lv2[X]
+## msg_SD_BMagLv2
+Reason Lv2:[NL]
+Grants Atk+2, Hit+6[NL]
+when unit equips B.Mag[X]
+
+## msg_SN_BMagLv3
+Reason Lv3[X]
+## msg_SD_BMagLv3
+Reason Lv3:[NL]
+Grants Atk+3, Hit+9[NL]
+when unit equips B.Mag[X]
+
+## msg_SN_BMagLv4
+Reason Lv4[X]
+## msg_SD_BMagLv4
+Reason Lv4:[NL]
+Grants Atk+4, Hit+12[NL]
+when unit equips B.Mag[X]
+
+## msg_SN_BMagLv5
+Reason Lv5[X]
+## msg_SD_BMagLv5
+Reason Lv5:[NL]
+Grants Atk+7, Hit+15[NL]
+when unit equips B.Mag[X]
+
+
+
+
+
+## msg_SN_WMagLv1
+Faith Lv1[X]
+## msg_SD_WMagLv1
+Faith Lv1:[NL]
+Grants Avo+5 when[NL]
+unit carries W.Mag[X]
+
+## msg_SN_WMagLv2
+Faith Lv2[X]
+## msg_SD_WMagLv2
+Faith Lv2:[NL]
+Grants Avo+10 when[NL]
+unit carries W.Mag[X]
+
+## msg_SN_WMagLv3
+Faith Lv3[X]
+## msg_SD_WMagLv3
+Faith Lv3:[NL]
+Grants Avo+15 when[NL]
+unit carries W.Mag[X]
+
+## msg_SN_WMagLv4
+Faith Lv4[X]
+## msg_SD_WMagLv4
+Faith Lv4:[NL]
+Grants Avo+20 when[NL]
+unit carries W.Mag[X]
+
+## msg_SN_WMagLv5
+Faith Lv5[X]
+## msg_SD_WMagLv5
+Faith Lv5:[NL]
+Staff Range + 5, Grants Avo[NL]
++25 when unit carries W.Mag[X]
+

@@ -158,5 +158,51 @@
 #define SKILLID_RoyalLineage 0x8D			// 血统
 
 
+// Weapon Lv Skills
+#define SKILLID_SwordLv1 0x90
+#define SKILLID_SwordLv2 0x91
+#define SKILLID_SwordLv3 0x92
+#define SKILLID_SwordLv4 0x93
+#define SKILLID_SwordLv5 0x94
+	
+#define SKILLID_LanceLv1 0x95
+#define SKILLID_LanceLv2 0x96
+#define SKILLID_LanceLv3 0x97
+#define SKILLID_LanceLv4 0x98
+#define SKILLID_LanceLv5 0x99
+	
+#define SKILLID_AxeLv1 0x9A
+#define SKILLID_AxeLv2 0x9B
+#define SKILLID_AxeLv3 0x9C
+#define SKILLID_AxeLv4 0x9D
+#define SKILLID_AxeLv5 0x9E
+	
+#define SKILLID_BowLv1 0x9F
+#define SKILLID_BowLv2 0xA0
+#define SKILLID_BowLv3 0xA1
+#define SKILLID_BowLv4 0xA2
+#define SKILLID_BowLv5 0xA3
+	
+#define SKILLID_BMagLv1 0xA4
+#define SKILLID_BMagLv2 0xA5
+#define SKILLID_BMagLv3 0xA6
+#define SKILLID_BMagLv4 0xA7
+#define SKILLID_BMagLv5 0xA8
+	
+#define SKILLID_WMagLv1 0xA9
+#define SKILLID_WMagLv2 0xAA
+#define SKILLID_WMagLv3 0xAB
+#define SKILLID_WMagLv4 0xAC
+#define SKILLID_WMagLv5 0xAD
+
+
+#define SKILLID_StrBonus 0xAE
+#define SKILLID_MagBonus 0xAF
+#define SKILLID_SklBonus 0xB0
+#define SKILLID_SpdBonus 0xB1
+#define SKILLID_LukBonus 0xB2
+#define SKILLID_DefBonus 0xB3
+#define SKILLID_ResBonus 0xB4
+#define SKILLID_MovBonus 0xB5
 
 #endif // SKILL_ID_DEFINITIONS

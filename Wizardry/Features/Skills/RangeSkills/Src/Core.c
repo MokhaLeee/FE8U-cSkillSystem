@@ -2,32 +2,41 @@
 
 int RangeMaxGetter_SkillBonus(struct Unit* unit, u16 item, int cur){
 	
-	const int type = GetItemType(item);
+	const int wtype = GetItemType(item);
 	
-	if( ITYPE_BOW == type )
-	{
-		if( (*SkillTester)(unit, SID_RangeBonusBow1) )
-			cur += 1;
+	switch(wtype){
 		
-		if( (*SkillTester)(unit, SID_RangeBonusBow1_ext) )
-			cur += 1;
+		case ITYPE_BOW:
+			if( (*SkillTester)(unit, SID_RangeBonusBow1) )
+				cur += 1;
+			
+			if( (*SkillTester)(unit, SID_RangeBonusBow1_ext) )
+				cur += 1;
+			
+			if( (*SkillTester)(unit, SID_RangeBonusBow2) )
+				cur += 2;
+			
+			break;
 		
-		if( (*SkillTester)(unit, SID_RangeBonusBow2) )
-			cur += 2;
+		case ITYPE_ANIMA:
+		case ITYPE_LIGHT:
+		case ITYPE_DARK:
+			if( (*SkillTester)(unit, SID_RangeBonusBMag1) )
+				cur += 1;
+			
+			if( (*SkillTester)(unit, SID_RangeBonusBMag1_ext) )
+				cur += 1;
+			
+			if( (*SkillTester)(unit, SID_RangeBonusBMag2) )
+				cur += 2;
+			
+			break;
+		
+		default:
+			break;
 	}
 	
 	
-	if( (ITYPE_ANIMA==type) || (ITYPE_LIGHT==type) || (ITYPE_DARK==type) )
-	{
-		if( (*SkillTester)(unit, SID_RangeBonusBMag1) )
-			cur += 1;
-		
-		if( (*SkillTester)(unit, SID_RangeBonusBMag1_ext) )
-			cur += 1;
-		
-		if( (*SkillTester)(unit, SID_RangeBonusBMag2) )
-			cur += 2;
-	}
 	
 	return cur;
 }

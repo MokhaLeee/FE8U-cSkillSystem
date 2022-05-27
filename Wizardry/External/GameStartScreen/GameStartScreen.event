@@ -24,6 +24,10 @@ PUSH
 	ORG $001C68
 	jumpToHack(ShouldSkipGameStartIntro)
 	
+	// Skip Game Intro Anime
+	ORG $591724
+	_6C_CALL_ROUTINE( GameIntro_GotoMainMenu )
+	
 	// Tiles ptr
 	ORG $0CC2D0
 	POIN GameIntroGfx_Tiles
