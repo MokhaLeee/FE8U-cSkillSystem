@@ -1,5 +1,7 @@
 #include "gbafe-chax.h"
 
+extern const u16 CombatArtIcon_DebuffLance[], CombatArtIcon_AtkLance[], CombatArtIcon_MagLance[], CombatArtIcon_CritLance[];
+
 // =================================================
 //                      Lance
 // =================================================
@@ -34,6 +36,7 @@ const struct CombatArtInfo CAInfo_Knightkneeler = {
 	.avo = 0,
 	.crit = 10,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkLance,
 };
 
 
@@ -51,6 +54,7 @@ const struct CombatArtInfo CAInfo_ShatterSlash = {
 	.avo = 0,
 	.crit = 0,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_DebuffLance,
 };
 
 
@@ -68,6 +72,7 @@ const struct CombatArtInfo CAInfo_MonsterPiercer = {
 	.avo = 0,
 	.crit = 10,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkLance,
 };
 
 
@@ -101,6 +106,7 @@ const struct CombatArtInfo CAInfo_SwiftStrikes = {
 	.avo = 0,
 	.crit = 0,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkLance,
 };
 
 
@@ -118,6 +124,7 @@ const struct CombatArtInfo CAInfo_FrozenLance = {
 	.avo = 0,
 	.crit = 0,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_MagLance,
 };
 
 
@@ -135,6 +142,7 @@ const struct CombatArtInfo CAInfo_GlowingEmber = {
 	.avo = 0,
 	.crit = 10,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkLance,
 };
 
 
@@ -152,6 +160,7 @@ const struct CombatArtInfo CAInfo_Vengeance = {
 	.avo = 0,
 	.crit = 10,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkLance,
 };
 
 
@@ -169,4 +178,5 @@ const struct CombatArtInfo CAInfo_LanceJab = {
 	.avo = 0,
 	.crit = 10,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkLance,
 };

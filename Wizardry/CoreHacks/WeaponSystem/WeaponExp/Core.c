@@ -151,7 +151,7 @@ u16 GetWTypeMokhaIconIndex(u8 wType){
 			break;
 		
 		case ITYPE_CLASS:
-			return  MASTERY_ICON( MASTERY_ICON_STAR );
+			return  MASTERY_ICON( MASTERY_ICON_AUTH); // MASTERY_ICON_STAR );
 			break;
 			
 		default:

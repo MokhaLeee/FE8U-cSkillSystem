@@ -28,7 +28,7 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 		&ClassSkillRomList[num_clas];
 
 	
-	// Tmp
+	/* // Tmp
 	const u8 skills_tmp[0x100] = {
 		
 		// Simple Bonus
@@ -218,7 +218,7 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 	};
 	
 	for( int i = 0; i < 0x100; i++ )
-		ADD_SKILL(skills_tmp[i]);
+		ADD_SKILL(skills_tmp[i]); */
 	
 	
 	
@@ -239,6 +239,8 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 			ADD_SKILL( ClassSkillRomList[i].default_ram_skill[1] );
 			ADD_SKILL( ClassSkillRomList[i].master_ram_skill[0] );
 			ADD_SKILL( ClassSkillRomList[i].master_ram_skill[1] );
+			ADD_SKILL( ClassSkillRomList[i].master_ram_skill[2] );
+			ADD_SKILL( ClassSkillRomList[i].master_ram_skill[3] );
 		}
 	
 	int WeaponRanks[0x12];
@@ -766,7 +768,7 @@ static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* lis
 	
 	list->total[PREP_SKLSUB_RIGHT] = 0;
 	
-	const u8 skills_tmp[0x100] = {
+	/* const u8 skills_tmp[0x100] = {
 		CA_WrathStrike,
 		CA_Grounder ,
 		CA_Soulblade,
@@ -829,7 +831,7 @@ static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* lis
 	};
 	
 	for( int i = 0; i < 0x100; i++ )
-		ADD_SKILL(skills_tmp[i]);
+		ADD_SKILL(skills_tmp[i]); */
 	
 	u8 WeaponRanks[0x12];
 	

@@ -6,13 +6,13 @@
 	// =====================================================
 	
 	// If uncommented, will load "Debug_File.event"
-	#define _DEBUG_
+	// #define _DEBUG_
 	
 	// If uncommented, will use chinese texts
-	#define _CHINESE_
+	// #define _CHINESE_
 	
 	// If commented, will load "Chapters" folder and Portraits
-	// #define _USE_VANILLA_CHAPTER_
+	#define _USE_VANILLA_CHAPTER_
 	
 	
 	// If commented, will not load game-intro gfx

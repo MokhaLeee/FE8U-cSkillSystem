@@ -29,10 +29,10 @@ enum{
 	SID_BlowDarting = 0x12,
 	SID_BlowDeath = 0x13,
 	SID_BlowArmored = 0x14,
-	SID_BlowFiendish = 0x15,
+	SID_BlowFiendish = 0x15,	// Mag+6
 	SID_BlowWarding = 0x16,
 	SID_BlowDuelist = 0x17,
-	SID_BlowUncanny = 0x18,
+	SID_BlowUncanny = 0x18,		// Hit +30
 	
 	
 	SID_Vantage = 0x20,			// 待伏
@@ -43,7 +43,7 @@ enum{
 	
 	SID_Lethality = 0x25,		// 瞬杀
 	SID_Crit = 0x26,			// 必杀
-	SID_WatchfulEye = 0x27,
+	SID_WatchfulEye = 0x27,		// 命中
 	
 	SID_CritSword = 0x28,
 	SID_CritAxe = 0x29,

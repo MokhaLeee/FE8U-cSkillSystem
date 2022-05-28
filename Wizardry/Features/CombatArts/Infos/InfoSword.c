@@ -1,5 +1,7 @@
 #include "gbafe-chax.h"
 
+extern const u16 CombatArtIcon_DebuffSword[], CombatArtIcon_AtkSword[], CombatArtIcon_MagSword[], CombatArtIcon_CritSword[];
+
 // =================================================
 //                      Sword
 // =================================================
@@ -34,6 +36,7 @@ const struct CombatArtInfo CAInfo_Grounder = {
 	.avo = 0,
 	.crit = 5,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkSword,
 };
 
 
@@ -52,6 +55,7 @@ const struct CombatArtInfo CAInfo_Soulblade = {
 	.avo = 0,
 	.crit = 0,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_MagSword,
 };
 
 
@@ -69,6 +73,7 @@ const struct CombatArtInfo CAInfo_BaneOfMonsters = {
 	.avo = 0,
 	.crit = 10,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkSword,
 };
 
 
@@ -86,6 +91,7 @@ const struct CombatArtInfo CAInfo_Sunder = {
 	.avo = 0,
 	.crit = 15,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_CritSword,
 };
 
 
@@ -121,6 +127,7 @@ const struct CombatArtInfo CAInfo_Hexblade = {
 	.avo = 0,
 	.crit = 0,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_MagSword,
 };
 
 
@@ -139,6 +146,7 @@ const struct CombatArtInfo CAInfo_FinesseBlade = {
 	.avo = 10,
 	.crit = 0,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkSword,
 };
 
 
@@ -176,6 +184,7 @@ const struct CombatArtInfo CAInfo_SwordDance = {
 	.avo = 20,
 	.crit = 0,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkSword,
 };
 
 
@@ -195,6 +204,7 @@ const struct CombatArtInfo CAInfo_Assassinate = {
 	.avo = 10,
 	.crit = 15,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_CritSword,
 };
 
 
@@ -214,6 +224,7 @@ const struct CombatArtInfo CAInfo_Subdue = {
 	.avo = 0,
 	.crit = 0,
 	.range_bouns = 0,
+	
 };
 
 
@@ -234,6 +245,7 @@ const struct CombatArtInfo CAInfo_FoudroyantStrike = {
 	.avo = 0,
 	.crit = 30,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkSword,
 };
 
 
@@ -252,6 +264,7 @@ const struct CombatArtInfo CAInfo_SublimeHeaven = {
 	.avo = 0,
 	.crit = 20,
 	.range_bouns = 1,
+	.icon = CombatArtIcon_AtkSword,
 };
 
 
@@ -270,6 +283,7 @@ const struct CombatArtInfo CAInfo_RupturedHeaven = {
 	.avo = 0,
 	.crit = 10,
 	.range_bouns = 1,
+	.icon = CombatArtIcon_AtkSword,
 };
 
 
@@ -288,4 +302,5 @@ const struct CombatArtInfo CAInfo_HeavensFall = {
 	.avo = 0,
 	.crit = 10,
 	.range_bouns = 1,
+	.icon = CombatArtIcon_AtkSword,
 };

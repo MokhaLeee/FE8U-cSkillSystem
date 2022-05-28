@@ -5,10 +5,13 @@ u8 GetClassRankExpGain(u8 class_id){
 	
 	u8 rank_exp = GetClassRomDataExpa(class_id)->RankExp;
 	
-	return rank_exp == 0
-		? 0x20
-		: rank_exp;
-
+	if( rank_exp > 0 )
+		return rank_exp;
+	
+	if( CA_PROMOTED & gClassData[class_id].attributes )
+		return 4;
+	else
+		return 0x10;
 }
 
 

@@ -1,7 +1,7 @@
 #include "gbafe-chax.h"
 
 // Icons
-extern const u16 CombatArtIcon_DebuffBow[];
+extern const u16 CombatArtIcon_DebuffBow[], CombatArtIcon_AtkBow[], CombatArtIcon_MagBow[], CombatArtIcon_CritBow[];
 
 // =================================================
 //                       Bow
@@ -56,6 +56,7 @@ const struct CombatArtInfo CAInfo_Encloser = {
 	.crit = 0,
 	.range_bouns = 1,
 	.is_gravity = 1,
+	.icon = CombatArtIcon_DebuffBow,
 };
 
 const struct CombatArtInfo CAInfo_HeavyDraw = {
@@ -90,6 +91,7 @@ const struct CombatArtInfo CAInfo_MonsterBlast = {
 	.avo = 0,
 	.crit = 10,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkBow,
 };
 
 
@@ -108,6 +110,7 @@ const struct CombatArtInfo CAInfo_SchismShot = {
 	.crit = 0,
 	.range_bouns = 1,
 	.debuff_res = 1,
+	.icon = CombatArtIcon_MagBow,
 };
 
 
@@ -126,6 +129,7 @@ const struct CombatArtInfo CAInfo_BreakShot = {
 	.crit = 0,
 	.range_bouns = 1,
 	.debuff_def = 1,
+	.icon = CombatArtIcon_DebuffBow,
 };
 
 
@@ -144,6 +148,7 @@ const struct CombatArtInfo CAInfo_WaningShot = {
 	.crit = 0,
 	.debuff_atk = 1,
 	.range_bouns = 1,
+	.icon = CombatArtIcon_DebuffBow,
 };
 
 
@@ -163,6 +168,7 @@ const struct CombatArtInfo CAInfo_PointBlankVolley = {
 	.double_attack = 1,
 	.range_bouns = 0,
 	.unnormal_range = 1,
+	.icon = CombatArtIcon_AtkBow,
 };
 
 
@@ -181,6 +187,7 @@ const struct CombatArtInfo CAInfo_WardArrow = {
 	.crit = 0,
 	.debuff_Silence = 1,
 	.range_bouns = 1,
+	.icon = CombatArtIcon_DebuffBow,
 };
 
 
@@ -199,6 +206,7 @@ const struct CombatArtInfo CAInfo_HuntersVolley = {
 	.crit = 10,
 	.double_attack = 1,
 	.range_bouns = 1,
+	.icon = CombatArtIcon_AtkBow,
 };
 
 

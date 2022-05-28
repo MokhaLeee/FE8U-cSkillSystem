@@ -1,5 +1,7 @@
 #include "gbafe-chax.h"
 
+extern const u16 CombatArtIcon_DebuffAxe[], CombatArtIcon_AtkAxe[], CombatArtIcon_MagAxe[], CombatArtIcon_CritAxe[];
+
 const struct CombatArtInfo CAInfo_Smash = {
 	
 	.msg_name = ENUM_msg_CAN_Smash,
@@ -13,6 +15,7 @@ const struct CombatArtInfo CAInfo_Smash = {
 	.avo = 0,
 	.crit = 20,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_CritAxe,
 };
 
 
@@ -30,6 +33,7 @@ const struct CombatArtInfo CAInfo_HelmSplitter = {
 	.avo = 0,
 	.crit = 5,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkAxe,
 };
 
 
@@ -47,6 +51,7 @@ const struct CombatArtInfo CAInfo_MonsterBreaker = {
 	.avo = 0,
 	.crit = 0,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkAxe,
 };
 
 
@@ -63,6 +68,7 @@ const struct CombatArtInfo CAInfo_FocusedStrike = {
 	.avo = 0,
 	.crit = 0,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkAxe,
 };
 
 
@@ -79,6 +85,7 @@ const struct CombatArtInfo CAInfo_WildAbandon = {
 	.avo = 0,
 	.crit = 30,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_CritAxe,
 };
 
 
@@ -111,6 +118,7 @@ const struct CombatArtInfo CAInfo_DiamondAxe = {
 	.avo = 0,
 	.crit = 0,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkAxe,
 };
 
 
@@ -128,6 +136,7 @@ const struct CombatArtInfo CAInfo_LightningAxe = {
 	.avo = 0,
 	.crit = 0,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_MagAxe,
 };
 
 
@@ -145,6 +154,7 @@ const struct CombatArtInfo CAInfo_ArmoredStrike = {
 	.avo = 0,
 	.crit = 0,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkAxe,
 };
 
 
@@ -162,6 +172,7 @@ const struct CombatArtInfo CAInfo_WarMasterStrike = {
 	.avo = 0,
 	.crit = 10,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_AtkAxe,
 };
 
 
@@ -179,6 +190,7 @@ const struct CombatArtInfo CAInfo_FlickeringFlower = {
 	.avo = 0,
 	.crit = 10,
 	.range_bouns = 0,
+	.icon = CombatArtIcon_DebuffAxe,
 };
 
 

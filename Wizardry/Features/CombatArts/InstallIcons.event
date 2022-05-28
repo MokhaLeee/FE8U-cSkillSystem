@@ -1,5 +1,24 @@
 ALIGN 4
-CombatArtIcon_DebuffBow:
-	#incbin "Icons/DebuffBowArt.4bpp"
+CombatArtIcon_DebuffSword:	#incbin "Icons/SwordArtDebuff.4bpp"
+CombatArtIcon_AtkSword:		#incbin "Icons/SwordArtAtk.4bpp"
+CombatArtIcon_MagSword:		#incbin "Icons/SwordArtMag.4bpp"
+CombatArtIcon_CritSword:		#incbin "Icons/SwordArtCrit.4bpp"
 
+
+CombatArtIcon_DebuffLance:	#incbin "Icons/LanceArtDebuff.4bpp"
+CombatArtIcon_AtkLance:		#incbin "Icons/LanceArtAtk.4bpp"
+CombatArtIcon_MagLance:		#incbin "Icons/LanceArtMag.4bpp"
+CombatArtIcon_CritLance:		#incbin "Icons/LanceArtCrit.4bpp"
+
+
+CombatArtIcon_DebuffAxe:	#incbin "Icons/AxeArtDebuff.4bpp"
+CombatArtIcon_AtkAxe:		#incbin "Icons/AxeArtAtk.4bpp"
+CombatArtIcon_MagAxe:		#incbin "Icons/AxeArtMag.4bpp"
+CombatArtIcon_CritAxe:		#incbin "Icons/AxeArtCrit.4bpp"
+
+
+CombatArtIcon_DebuffBow:	#incbin "Icons/BowArtDebuff.4bpp"
+CombatArtIcon_AtkBow:		#incbin "Icons/BowArtAtk.4bpp"
+CombatArtIcon_MagBow:		#incbin "Icons/BowArtMag.4bpp"
+CombatArtIcon_CritBow:		#incbin "Icons/BowArtCrit.4bpp"
 

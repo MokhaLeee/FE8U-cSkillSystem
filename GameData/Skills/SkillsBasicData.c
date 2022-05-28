@@ -6,47 +6,26 @@
 const struct SkillCharacterList_t CharacterSkillRomList[0x100] = {
 	
 	[CHARACTER_EIRIKA] = {
-		.rom_skill[0] = SID_Fury,
-		.rom_skill[1] = SID_RuinedBladePlus,
+		.rom_skill[0] = SID_Supply,
+		.rom_skill[1] = SID_RoyalLineage,
 	},
 	
 	[CHARACTER_EPHRAIM] = {
 		.rom_skill[0] = SID_Supply,
-		.rom_skill[1] = 0,
+		.rom_skill[1] = SID_RoyalLineage,
 	},
 	
 	
 	[CHARACTER_SETH] = {
-		.rom_skill[0] = SID_RuinedBlade,
-		.rom_skill[1] = SID_InfinityEdge,
+		.rom_skill[0] = SID_RoyalLineage,
 	},
 	
-	[CHARACTER_INNES] = {
-		.rom_skill[0] = SID_BlowDeath,
-		.rom_skill[1] = SID_DoubleLion,
-
+	[CHARACTER_MYRRH] = {
+		.rom_skill[0] = SID_RoyalLineage,
 	},
 	
-	
-	[CHARACTER_PABLO] = {
-		.rom_skill[0] = SID_QuickRiposte,
-		.rom_skill[1] = SID_VantageBat,
-	},
-	
-	[CHARACTER_CAELLACH_CC] = {
-		.rom_skill[0] = SID_QuickRiposte,
-		.rom_skill[1] = SID_WaryFighter,
-	},
-	
-	[CHARACTER_CAELLACH] = {
-		.rom_skill[0] = SID_QuickRiposte,
-		.rom_skill[1] = SID_WaryFighter,
-	},
-	
-	[CHARACTER_RIEV] = {
-		.rom_skill[0] = SID_VantageBat,
-		.rom_skill[1] = SID_Vantage,
-
+	[CHARACTER_TANA] = {
+		.rom_skill[0] = SID_LunaAttack,
 	},
 };
 
@@ -68,6 +47,8 @@ const struct SkillClassList_t ClassSkillRomList[0x100] = {
 		.default_ram_skill[1] = 0,
 		.master_ram_skill[0] = 0,
 		.master_ram_skill[1] = 0,
+		.master_ram_skill[2] = 0,
+		.master_ram_skill[3] = 0,
 	},
 	
 	[CLASS_EPHRAIM_LORD] = {
@@ -102,299 +83,419 @@ const struct SkillClassList_t ClassSkillRomList[0x100] = {
 		.master_ram_skill[1] = SID_Desperation,
 	},
 	
-	[CLASS_CAVALIER] = {
-		.default_rom_skill[0] = SID_Canto,
-	},
 	
-	[CLASS_CAVALIER_F] = {
-		.default_rom_skill[0] = SID_Canto,
-	},
-	
-	[CLASS_PALADIN] = {
-		.default_rom_skill[0] = SID_Canto,
-		
-		.default_ram_skill[0] = SID_BlowArmored,
+	// 剑
+	[CLASS_MYRMIDON] = {
+		.default_ram_skill[0] = SID_SpdBonus,
+		.default_ram_skill[1] = 0,
+		.master_ram_skill[0] = SID_Fury,
 		.master_ram_skill[1] = SID_BlowDeath,
+		.master_ram_skill[2] = SID_FlashingBlade,
 	},
-	
-	[CLASS_PALADIN_F] = {
-		.default_rom_skill[0] = SID_Canto,
-		
-		.default_ram_skill[0] = SID_BlowArmored,
+	[CLASS_MYRMIDON_F] = {
+		.default_ram_skill[0] = SID_SpdBonus,
+		.default_ram_skill[1] = 0,
+		.master_ram_skill[0] = SID_Fury,
 		.master_ram_skill[1] = SID_BlowDeath,
+		.master_ram_skill[2] = SID_FlashingBlade,
 	},
 	
-	[CLASS_ARMOR_KNIGHT] = {
-		.master_ram_skill[0] = SID_StanceSturdy,
-		.master_ram_skill[1] = SID_WaryFighter,
+	[CLASS_MERCENARY] = {
+		.default_ram_skill[0] = SID_StrBonus,
+		.default_ram_skill[1] = 0,
+		.master_ram_skill[0] = SID_Fury,
+		.master_ram_skill[1] = SID_BlowDeath,
+		.master_ram_skill[2] = SID_HeavyBlade,
 	},
-	
-	[CLASS_ARMOR_KNIGHT_F] = {
-		.master_ram_skill[0] = SID_StanceSturdy,
-		.master_ram_skill[1] = SID_WaryFighter,
-	},
-	
-	[CLASS_GENERAL] = {
-		.default_rom_skill[0] = SID_StanceSturdy,
-		.default_rom_skill[1] = SID_WaryFighter,
-
-		.master_ram_skill[0] = SID_QuickRiposte,
-	},
-	
-	[CLASS_GENERAL_F] = {
-		.default_rom_skill[0] = SID_StanceSturdy,
-		.default_rom_skill[1] = SID_WaryFighter,
-
-		.master_ram_skill[0] = SID_QuickRiposte,
+	[CLASS_MERCENARY_F] = {
+		.default_ram_skill[0] = SID_StrBonus,
+		.default_ram_skill[1] = 0,
+		.master_ram_skill[0] = SID_Fury,
+		.master_ram_skill[1] = SID_BlowDeath,
+		.master_ram_skill[2] = SID_HeavyBlade,
 	},
 	
 	[CLASS_THIEF] = {
 		.default_rom_skill[0] = SID_Steal,
-		.master_ram_skill[0] = SID_Pass,
-		.master_ram_skill[1] = SID_LockTouch,
-	},
-	
-	
-	[CLASS_MERCENARY] = {
-		.master_ram_skill[0] = SID_Avoid,
-	},
-	
-	[CLASS_MERCENARY_F] = {
-		.master_ram_skill[0] = SID_Avoid,
-	},
-	
-	[CLASS_HERO] = {
-		.default_rom_skill[0] = SID_Avoid,
-		.default_rom_skill[1] = 0,
-		.master_rom_skill[0] = 0,
-		.master_rom_skill[1] = 0,
-		
-		.default_ram_skill[0] = SID_StanceSturdy,
-		.default_ram_skill[1] = SID_StanceReady,
-		.master_ram_skill[0] = SID_BlowDeath,
-		.master_ram_skill[1] = 0,
-	},
-	
-	[CLASS_HERO_F] = {
-		.default_rom_skill[0] = SID_Avoid,
-		.default_rom_skill[1] = 0,
-		.master_rom_skill[0] = 0,
-		.master_rom_skill[1] = 0,
-		
-		.default_ram_skill[0] = SID_StanceSturdy,
-		.default_ram_skill[1] = SID_StanceReady,
-		.master_ram_skill[0] = SID_BlowDeath,
-		.master_ram_skill[1] = 0,
-	},
-	
-	
-	
-	[CLASS_MYRMIDON] = {
-		.master_ram_skill[0] = SID_Avoid,
-	},
-	
-	[CLASS_MYRMIDON_F] = {
-		.master_ram_skill[0] = SID_Avoid,
+		.default_ram_skill[0] = SID_SpdBonus,
+		.default_ram_skill[1] = 0,
+		.master_ram_skill[0] = SID_Fury,
+		.master_ram_skill[1] = SID_BlowDeath,
+		.master_ram_skill[2] = SID_FlashingBlade,
+		.master_ram_skill[2] = SID_Steal,
 	},
 	
 	[CLASS_SWORDMASTER] = {
-		.default_rom_skill[0] = SID_Avoid,
+		.default_rom_skill[0] = SID_DefiantAvoid,
 		.default_rom_skill[1] = SID_Crit,
-		.master_rom_skill[0] = SID_Lethality,
+		.master_rom_skill[0] = 0,
 		.master_rom_skill[1] = 0,
 		
-		.default_ram_skill[0] = SID_Desperation,
-		.default_ram_skill[1] = SID_BlowDarting,
-		.master_ram_skill[0] = SID_BlowDeath,
-		.master_ram_skill[1] = SID_AlertStancePlus,
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_ram_skill[1] = SID_DefiantCrit,
+		.master_ram_skill[0] = SID_RuinedBladePlus,
+		.master_ram_skill[1] = SID_InfinityEdge,
+		.master_ram_skill[2] = SID_DefiantStr,
+		.master_ram_skill[3] = SID_FlashingBladePlus,
 	},
-	
 	[CLASS_SWORDMASTER_F] = {
-		.default_rom_skill[0] = SID_Avoid,
+		.default_rom_skill[0] = SID_DefiantAvoid,
 		.default_rom_skill[1] = SID_Crit,
-		.master_rom_skill[0] = SID_Lethality,
-		.master_rom_skill[1] = SID_DefiantCrit,
+		.master_rom_skill[0] = 0,
+		.master_rom_skill[1] = 0,
 		
-		.default_ram_skill[0] = SID_Desperation,
-		.default_ram_skill[1] = SID_BlowDarting,
-		.master_ram_skill[0] = SID_BlowDeath,
-		.master_ram_skill[1] = SID_AlertStancePlus,
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_ram_skill[1] = SID_DefiantCrit,
+		.master_ram_skill[0] = SID_RuinedBladePlus,
+		.master_ram_skill[1] = SID_InfinityEdge,
+		.master_ram_skill[2] = SID_DefiantStr,
+		.master_ram_skill[3] = SID_FlashingBladePlus,
 	},
 	
+	[CLASS_HERO] = {
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_ram_skill[1] = SID_DefiantStr,
+		.master_ram_skill[0] = SID_HeavyBladePlus,
+	},
+	[CLASS_HERO_F] = {
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_ram_skill[1] = SID_DefiantStr,
+		.master_ram_skill[0] = SID_HeavyBladePlus,
+	},
 	
 	[CLASS_ASSASSIN] = {
 		.default_rom_skill[0] = SID_Lethality,
-		.default_rom_skill[1] = SID_LifeAndDeath,
-		.master_rom_skill[0] = SID_Crit,
-		.master_rom_skill[1] = SID_DefiantCrit,
+		.default_rom_skill[1] = 0,
+		.master_rom_skill[0] = 0,
+		.master_rom_skill[1] = 0,
 		
 		.default_ram_skill[0] = SID_Pass,
-		.default_ram_skill[1] = SID_BlowDarting,
-		.master_ram_skill[0] = 0,
-		.master_ram_skill[1] = SID_AlertStancePlus,
+		.default_ram_skill[1] = SID_Crit,
+		.master_ram_skill[0] = SID_Lethality,
+		.master_ram_skill[1] = SID_DefiantCrit,
+		.master_ram_skill[2] = SID_FuryPlus,
+		.master_ram_skill[3] = SID_FlashingBladePlus,
 	},
-	
-	
 	[CLASS_ASSASSIN_F] = {
 		.default_rom_skill[0] = SID_Lethality,
-		.default_rom_skill[1] = SID_LifeAndDeath,
-		.master_rom_skill[0] = SID_Crit,
-		.master_rom_skill[1] = SID_DefiantCrit,
+		.default_rom_skill[1] = 0,
+		.master_rom_skill[0] = 0,
+		.master_rom_skill[1] = 0,
 		
 		.default_ram_skill[0] = SID_Pass,
-		.default_ram_skill[1] = SID_BlowDarting,
-		.master_ram_skill[0] = 0,
+		.default_ram_skill[1] = SID_Crit,
+		.master_ram_skill[0] = SID_Lethality,
+		.master_ram_skill[1] = SID_DefiantCrit,
+		.master_ram_skill[2] = SID_FuryPlus,
+		.master_ram_skill[3] = SID_FlashingBladePlus,
+	},
+	
+	[CLASS_ROGUE] = {
+		.default_rom_skill[0] = SID_LockTouch,
+		.default_rom_skill[1] = SID_Steal,
+		.master_rom_skill[0] = 0,
+		.master_rom_skill[1] = 0,
+		
+		.default_ram_skill[0] = SID_Pass,
+		.default_ram_skill[1] = SID_DefiantSpd,
+		.master_ram_skill[0] = SID_DefiantAvoid,
 		.master_ram_skill[1] = SID_AlertStancePlus,
+		.master_ram_skill[2] = SID_FlashingBladePlus,
+		.master_ram_skill[3] = 0,
 	},
 	
 	
-	[CLASS_ARCHER] = {
-		.master_ram_skill[0] = SID_RangeBonusBow1,
+	
+	
+	
+	// 斧
+	[CLASS_FIGHTER] = {	
+		.default_ram_skill[0] = SID_StrBonus,
+		.master_ram_skill[0] = SID_Fury,
+		.master_ram_skill[1] = SID_BlowDeath,
+		.master_ram_skill[2] = SID_HeavyBlade,
+	},
+	[CLASS_BRIGAND] = {
+		.default_ram_skill[0] = SID_StrBonus,
+		.master_ram_skill[0] = SID_Fury,
+		.master_ram_skill[1] = SID_BlowDeath,
+		.master_ram_skill[2] = SID_HeavyBlade,
+	},
+	[CLASS_PIRATE] = {
+		.default_ram_skill[0] = SID_StrBonus,
+		.master_ram_skill[0] = SID_Fury,
+		.master_ram_skill[1] = SID_BlowDeath,
+		.master_ram_skill[2] = SID_HeavyBlade,
 	},
 	
-	[CLASS_ARCHER_F] = {
-		.master_ram_skill[0] = SID_RangeBonusBow1,
-	},
-	
-	[CLASS_SNIPER] = {
-		.default_rom_skill[0] = SID_RangeBonusBow2,
+	[CLASS_WARRIOR] = {
+		.default_rom_skill[0] = SID_BowLv5,
+		.default_rom_skill[1] = 0,
+		.master_rom_skill[0] = 0,
+		.master_rom_skill[1] = 0,
 		
-		.default_ram_skill[0] = SID_WatchfulEye,
-		.master_ram_skill[1] = SID_BlowUncanny,
+		.default_ram_skill[0] = SID_DefiantStr,
+		.default_ram_skill[1] = SID_DefiantCrit,
+		.master_ram_skill[0] = SID_InfinityEdge,
+		.master_ram_skill[1] = SID_HeavyBladePlus,
+		.master_ram_skill[2] = 0,
+		.master_ram_skill[3] = 0,
 	},
-	
-	[CLASS_SNIPER_F] = {
-		.default_rom_skill[0] = SID_RangeBonusBow2,
+	[CLASS_BERSERKER] = {
+		.default_rom_skill[0] = SID_Crit,
+		.default_rom_skill[1] = SID_InfinityEdge,
+		.master_rom_skill[0] = 0,
+		.master_rom_skill[1] = 0,
 		
-		.default_ram_skill[0] = SID_WatchfulEye,
-		.master_ram_skill[1] = SID_BlowUncanny,
+		.default_ram_skill[0] = SID_DefiantStr,
+		.default_ram_skill[1] = SID_DefiantCrit,
+		.master_ram_skill[0] = SID_HeavyBladePlus,
+		.master_ram_skill[1] = 0,
+		.master_ram_skill[2] = 0,
+		.master_ram_skill[3] = 0,
 	},
 	
-	[CLASS_RANGER] = {
+	
+	// 飞行
+	[CLASS_PEGASUS_KNIGHT] = {
 		.default_rom_skill[0] = SID_Canto,
-		.default_rom_skill[1] = SID_BlowDarting,
-		
-		.default_ram_skill[0] = SID_Pass,
-		.master_ram_skill[1] = SID_RangeBonusBow2,
+		.default_ram_skill[0] = SID_SpdBonus,
+		.master_ram_skill[0] = SID_FlashingBlade,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowDeath,
 	},
-	
-	[CLASS_RANGER_F] = {
-		.default_rom_skill[0] = SID_Canto,
-		.default_rom_skill[1] = SID_BlowDarting,
-		
-		.default_ram_skill[0] = SID_Pass,
-		.master_ram_skill[1] = SID_RangeBonusBow2,
-	},
-	
-	
 	[CLASS_WYVERN_RIDER] = {
 		.default_rom_skill[0] = SID_Canto,
-		.master_ram_skill[0] = SID_StanceSturdy,
+		.default_ram_skill[0] = SID_DefBonus,
+		.master_ram_skill[0] = SID_HeavyBlade,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowDeath,
 	},
-	
 	[CLASS_WYVERN_RIDER_F] = {
 		.default_rom_skill[0] = SID_Canto,
-		.master_ram_skill[0] = SID_StanceSturdy,
+		.default_ram_skill[0] = SID_DefBonus,
+		.master_ram_skill[0] = SID_HeavyBlade,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowDeath,
 	},
 	
-	
-	[CLASS_WYVERN_LORD] = {
-		.default_rom_skill[0] = SID_Canto,
-		.default_rom_skill[1] = 0,
-		.master_rom_skill[0] = 0,
-		.master_rom_skill[1] = 0,
+	[CLASS_FALCON_KNIGHT] = {
+		.default_rom_skill[0] = SID_DefiantAvoid,
+		.default_rom_skill[1] = SID_Canto,
+		.master_rom_skill[0] = SID_AlertStancePlus,
 		
 		.default_ram_skill[0] = SID_StanceSturdy,
-		.default_ram_skill[1] = SID_Renewal,
-		.master_ram_skill[0] = SID_QuickRiposte,
-		.master_ram_skill[1] = 0,
+		.default_ram_skill[1] = SID_DefiantCrit,
+		.master_ram_skill[0] = SID_FlashingBladePlus,
 	},
-	
-	
+	[CLASS_WYVERN_LORD] = {
+		.default_rom_skill[1] = SID_Canto,
+		
+		.default_ram_skill[0] = SID_StanceSturdy,
+		.default_ram_skill[1] = SID_DefiantCrit,
+		.master_ram_skill[0] = SID_HeavyBladePlus,
+	},
 	[CLASS_WYVERN_LORD_F] = {
 		.default_rom_skill[0] = SID_Canto,
-		.default_rom_skill[1] = 0,
-		.master_rom_skill[0] = 0,
-		.master_rom_skill[1] = 0,
 		
 		.default_ram_skill[0] = SID_StanceSturdy,
-		.default_ram_skill[1] = SID_Renewal,
+		.default_ram_skill[1] = SID_DefiantCrit,
+		.master_ram_skill[0] = SID_HeavyBladePlus,
+	},
+	[CLASS_WYVERN_KNIGHT] = {
+		.default_rom_skill[0] = SID_Canto,
+		.default_rom_skill[1] = SID_Crit,
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_ram_skill[1] = SID_DefiantCrit,
+		.master_ram_skill[0] = SID_InfinityEdge,
+	},
+	[CLASS_WYVERN_KNIGHT_F] = {
+		.default_rom_skill[0] = SID_Canto,
+		.default_rom_skill[1] = SID_Crit,
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_ram_skill[1] = SID_DefiantCrit,
+		.master_ram_skill[0] = SID_InfinityEdge,
+	},
+	
+	
+	// 骑行
+	[CLASS_CAVALIER] = {
+		.default_rom_skill[0] = SID_Canto,
+		.master_ram_skill[0] = SID_Canto,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowDeath,
+	},
+	[CLASS_CAVALIER_F] = {
+		.default_rom_skill[0] = SID_Canto,
+		.master_ram_skill[0] = SID_Canto,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowDeath,
+	},
+	[CLASS_ARMOR_KNIGHT] = {
+		.default_ram_skill[0] = SID_DefBonus,
+		.default_ram_skill[1] = SID_FortressDef,
+		.master_ram_skill[0] = SID_Canto,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_HeavyBlade,
+	},
+	[CLASS_ARMOR_KNIGHT_F] = {
+		.default_ram_skill[0] = SID_DefBonus,
+		.default_ram_skill[1] = SID_FortressDef,
+		.master_ram_skill[0] = SID_Canto,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_HeavyBlade,
+	},
+	[CLASS_PALADIN] = {
+		.default_rom_skill[0] = SID_DefiantStr,
+		.default_rom_skill[1] = SID_Canto,
+		.master_ram_skill[0] = SID_HeavyBladePlus,
+	},
+	[CLASS_PALADIN_F] = {
+		.default_rom_skill[0] = SID_DefiantStr,
+		.default_rom_skill[1] = SID_Canto,
+		.master_ram_skill[0] = SID_HeavyBladePlus,
+	},
+	[CLASS_GENERAL] = {
+		.default_ram_skill[0] = SID_DoubleLion,
+		.default_ram_skill[1] = SID_DefiantStr,
 		.master_ram_skill[0] = SID_QuickRiposte,
-		.master_ram_skill[1] = 0,
+	},
+	[CLASS_GENERAL_F] = {
+		.default_ram_skill[0] = SID_DoubleLion,
+		.default_ram_skill[1] = SID_DefiantStr,
+		.master_ram_skill[0] = SID_QuickRiposte,
+	},
+	[CLASS_GREAT_KNIGHT] = {
+		.default_ram_skill[0] = SID_DoubleLion,
+		.default_ram_skill[1] = SID_DefiantStr,
+		.master_ram_skill[0] = SID_QuickRiposte,
+	},
+	[CLASS_GREAT_KNIGHT_F] = {
+		.default_ram_skill[0] = SID_DoubleLion,
+		.default_ram_skill[1] = SID_DefiantStr,
+		.master_ram_skill[0] = SID_QuickRiposte,
 	},
 	
 	
-	[CLASS_WYVERN_KNIGHT_F] = {
+	
+	// 弓手
+	[CLASS_ARCHER_F] = {
+		.default_ram_skill[0] = SID_SklBonus,
+		.master_ram_skill[0] = SID_BlowUncanny,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowDeath,
+	},
+	[CLASS_ARCHER] = {
+		.default_ram_skill[0] = SID_SklBonus,
+		.master_ram_skill[0] = SID_BlowUncanny,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowDeath,
+	},
+	[CLASS_SNIPER_F] = {
+		.default_ram_skill[0] = SID_WatchfulEye,
+		.master_ram_skill[0] = SID_RangeBonusBow2,
+	},
+	[CLASS_SNIPER] = {
+		.default_ram_skill[0] = SID_WatchfulEye,
+		.master_ram_skill[0] = SID_RangeBonusBow2,
+	},
+	[CLASS_RANGER_F] = {
 		.default_rom_skill[0] = SID_Canto,
-		.default_rom_skill[1] = SID_Avoid,
-		.master_rom_skill[0] = SID_DefiantCrit,
-		.master_rom_skill[1] = 0,
-		
-		.default_ram_skill[0] = 0,
-		.default_ram_skill[1] = 0,
-		.master_ram_skill[0] = SID_BlowDeath,
-		.master_ram_skill[1] = SID_BlowDarting,
+		.default_ram_skill[0] = SID_WatchfulEye,
+		.master_ram_skill[0] = SID_FlashingBladePlus,
 	},
-	
-	[CLASS_WYVERN_KNIGHT_F] = {
+	[CLASS_RANGER] = {
 		.default_rom_skill[0] = SID_Canto,
-		.default_rom_skill[1] = SID_Avoid,
-		.master_rom_skill[0] = SID_DefiantCrit,
-		.master_rom_skill[1] = 0,
-		
-		.default_ram_skill[0] = 0,
-		.default_ram_skill[1] = 0,
-		.master_ram_skill[0] = SID_BlowDeath,
-		.master_ram_skill[1] = SID_BlowDarting,
+		.default_ram_skill[0] = SID_WatchfulEye,
+		.master_ram_skill[0] = SID_FlashingBladePlus,
 	},
 	
-	
+	// 魔法
 	[CLASS_MAGE] = {
+		.default_ram_skill[0] = SID_MagBonus,
 		.master_ram_skill[0] = SID_RangeBonusBMag1,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowFiendish,
 	},
-	
 	[CLASS_MAGE_F] = {
+		.default_ram_skill[0] = SID_MagBonus,
 		.master_ram_skill[0] = SID_RangeBonusBMag1,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowFiendish,
+	},
+	[CLASS_MONK] = {
+		.default_ram_skill[0] = SID_MagBonus,
+		.master_ram_skill[0] = SID_RangeBonusBMag1,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowFiendish,
+	},
+	[CLASS_SHAMAN] = {
+		.default_ram_skill[0] = SID_MagBonus,
+		.master_ram_skill[0] = SID_RangeBonusBMag1,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowFiendish,
+	},
+	[CLASS_SHAMAN_F] = {
+		.default_ram_skill[0] = SID_MagBonus,
+		.master_ram_skill[0] = SID_RangeBonusBMag1,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowFiendish,
 	},
 	
 	[CLASS_SAGE] = {
-		.default_rom_skill[0] = SID_RangeBonusBMag2,
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_rom_skill[0] = SID_DefiantMag,
+		.master_ram_skill[0] = SID_BlowUncanny,
+		.master_ram_skill[1] = SID_RangeBonusBMag2,
 	},
 	
 	[CLASS_SAGE_F] = {
-		.default_rom_skill[0] = SID_RangeBonusBMag2,
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_rom_skill[0] = SID_DefiantMag,
+		.master_ram_skill[0] = SID_BlowUncanny,
+		.master_ram_skill[1] = SID_RangeBonusBMag2,
 	},
 	
 	[CLASS_MAGE_KNIGHT] = {
-		.master_ram_skill[0] = SID_RangeBonusBMag2,
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_rom_skill[0] = SID_DefiantMag,
+		.master_ram_skill[0] = SID_BlowUncanny,
+		.master_ram_skill[1] = SID_RangeBonusBMag2,
 	},
 	
 	[CLASS_MAGE_KNIGHT] = {
-		.master_ram_skill[0] = SID_RangeBonusBMag2,
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_rom_skill[0] = SID_DefiantMag,
+		.master_ram_skill[0] = SID_BlowUncanny,
+		.master_ram_skill[1] = SID_RangeBonusBMag2,
 	},
 	
 	[CLASS_BISHOP] = {
-		.default_rom_skill[0] = SID_RangeBonusBMag2,
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_rom_skill[0] = SID_DefiantMag,
+		.master_ram_skill[0] = SID_BlowUncanny,
+		.master_ram_skill[1] = SID_RangeBonusBMag2,
 	},
 	
 	[CLASS_BISHOP_F] = {
-		.default_rom_skill[0] = SID_RangeBonusBMag2,
-	},
-	
-	[CLASS_SHAMAN] = {
-		.master_ram_skill[0] = SID_RangeBonusBMag1,
-	},
-	
-	[CLASS_SHAMAN_F] = {
-		.master_ram_skill[0] = SID_RangeBonusBMag1,
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_rom_skill[0] = SID_DefiantMag,
+		.master_ram_skill[0] = SID_BlowUncanny,
+		.master_ram_skill[1] = SID_RangeBonusBMag2,
 	},
 	
 	[CLASS_DRUID] = {
-		.default_rom_skill[0] = SID_RangeBonusBMag2,
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_rom_skill[0] = SID_DefiantMag,
+		.master_ram_skill[0] = SID_BlowUncanny,
+		.master_ram_skill[1] = SID_RangeBonusBMag2,
 	},
 	
 	[CLASS_DRUID_F] = {
-		.default_rom_skill[0] = SID_RangeBonusBMag2,
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_rom_skill[0] = SID_DefiantMag,
+		.master_ram_skill[0] = SID_BlowUncanny,
+		.master_ram_skill[1] = SID_RangeBonusBMag2,
 	},
 	
 	
@@ -408,89 +509,44 @@ const struct SkillClassList_t ClassSkillRomList[0x100] = {
 		.master_ram_skill[0] = SID_RangeBonusBMag2,
 	},
 	
-	[CLASS_ROGUE] = {
-		.default_rom_skill[0] = SID_LockTouch,
-		.default_rom_skill[1] = SID_Steal,
-	},
 	
 	
-	[CLASS_GREAT_KNIGHT] = {
-		.default_rom_skill[0] = SID_StanceSturdy,
-		.master_ram_skill[0] = SID_WaryFighter,
-	},
-	
-	[CLASS_GREAT_KNIGHT_F] = {
-		.default_rom_skill[0] = SID_StanceSturdy,
-		.master_ram_skill[0] = SID_WaryFighter,
-	},
-	
-	[CLASS_MANAKETE_2] = {
-		.default_rom_skill[0] = SID_QuickRiposte,
-		.default_rom_skill[1] = SID_CounterAttack,
-	},
-	
-	[CLASS_MANAKETE_MYRRH] = {
-		.master_rom_skill[0] = SID_QuickRiposte,
-		.master_rom_skill[1] = SID_CounterAttack,
-	},
-	
-	[CLASS_FIGHTER] = {
-		.master_ram_skill[0] = SID_Crit,
-	},
-	
-	[CLASS_WARRIOR] = {
-		.default_rom_skill[0] = SID_Crit,
-		.master_ram_skill[0] = SID_BlowDeath,
-	},
-	
-	
-	[CLASS_BRIGAND] = {
-		.master_ram_skill[0] = SID_Crit,
-	},
-	
-	[CLASS_PIRATE] = {
-		.master_ram_skill[0] = SID_Crit,
-	},
-	
-	[CLASS_BERSERKER] = {
-		.default_rom_skill[0] = SID_Crit,
-		.master_ram_skill[0] = SID_BlowDeath,
-	},
-	
-	[CLASS_MONK] = {
+	// 白魔
+	[CLASS_CLERIC] = {
+		.default_ram_skill[0] = SID_MagBonus,
+		.default_ram_skill[1] = SID_LukBonus,
 		.master_ram_skill[0] = SID_RangeBonusBMag1,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowFiendish,
+	},
+	[CLASS_PRIEST] = {
+		.default_ram_skill[0] = SID_MagBonus,
+		.default_ram_skill[1] = SID_LukBonus,
+		.master_ram_skill[0] = SID_RangeBonusBMag1,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowFiendish,
+	},
+	[CLASS_TROUBADOUR] = {
+		.default_ram_skill[0] = SID_MagBonus,
+		.default_ram_skill[1] = SID_LukBonus,
+		.master_ram_skill[0] = SID_RangeBonusBMag1,
+		.master_ram_skill[1] = SID_Fury,
+		.master_ram_skill[2] = SID_BlowFiendish,
+		.master_ram_skill[3] = SID_Canto,
+	},
+	[CLASS_VALKYRIE] = {
+		.default_ram_skill[0] = SID_FuryPlus,
+		.default_ram_skill[1] = SID_DefiantAvoid,
+		.default_rom_skill[0] = SID_DefiantMag,
+		.default_rom_skill[1] = SID_Canto,
+		.master_ram_skill[0] = SID_BlowUncanny,
+		.master_ram_skill[1] = SID_RangeBonusBMag2,
+		.master_ram_skill[2] = SID_FlashingBladePlus,
 	},
 	
-	
+	// 特殊
 	[CLASS_DANCER] = {
 		.default_rom_skill[0] = SID_Dance,
-	},
-	
-	[CLASS_BARD] = {
-		.default_rom_skill[0] = SID_Dance,
-	},
-	
-	
-	[CLASS_PEGASUS_KNIGHT] = {
-		.default_ram_skill[0] = SID_Avoid,
-		.master_ram_skill[0] = SID_AlertStance,
-	},
-	
-	[CLASS_FALCON_KNIGHT] = {
-		.default_rom_skill[0] = SID_Avoid,
-		.default_ram_skill[0] = SID_AlertStancePlus,
-		.master_ram_skill[0] = SID_AvoidSword,
-	},
-	
-	
-	[CLASS_TROUBADOUR] = {
-		.master_ram_skill[0] = SID_AlertStance,
-	},
-	
-	[CLASS_VALKYRIE] = {
-		.default_rom_skill[0] = SID_Avoid,
-		.default_ram_skill[0] = SID_AlertStancePlus,
-		.master_ram_skill[0] = SID_AvoidSword,
 	},
 	
 	[CLASS_NECROMANCER] = {
