@@ -1513,7 +1513,7 @@ void PrepPickSkill_UpdateSkillDesc(struct Proc_PrepPickSkill* proc){
 	
 	if( skill_id == proc->skill_id_pre )
 		return;
-	_debug_(proc->skill_id_pre);
+
 	TileMap_FillRect(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart, yStart),
 		0x10, 0x6 , 0 );

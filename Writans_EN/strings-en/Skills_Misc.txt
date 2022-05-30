@@ -1,5 +1,3 @@
-## msg_SN_Pass
-Pass[X]
 
 ## msg_SD_Pass
 Pass:[NL]

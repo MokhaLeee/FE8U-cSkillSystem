@@ -1,75 +1,36 @@
-## msg_SN_DefiantCrit
-Defiant Crit[X]
-
 ## msg_SD_DefiantCrit
 Defiant Crit: [NL]
 Crit rate +50%,[NL]
 if HP <25%[X]
-
-
-
-## msg_SN_DefiantAvoid
-Defiant Avoid[X]
 
 ## msg_SD_DefiantAvoid
 Defiant Avoid: [NL]
 Avoid rate +30%,[NL]
 if HP <25%[X]
 
-
-
-## msg_SN_DefiantStr
-Defiant Str[X]
-
 ## msg_SD_DefiantStr
 Defiant Str: [NL]
 Pow +7 if HP <25%[X]
-
-
-
-## msg_SN_DefiantMag
-Defiant Mag[X]
 
 ## msg_SD_DefiantMag
 Defiant Mag: [NL]
 Mag +7 if HP <25%[X]
 
-
-
-## msg_SN_DefiantSkl
-Defiant Skl[X]
-
 ## msg_SD_DefiantSkl
 Defiant Skl: [NL]
 Skl +7 if HP <25%[X]
-
-
-## msg_SN_DefiantSpd
-Defiant Spd[X]
 
 ## msg_SD_DefiantSpd
 Defiant Spd: [NL]
 Spd +7 if HP <25%[X]
 
-
-## msg_SN_DefiantLck
-Defiant Luk[X]
-
 ## msg_SD_DefiantLck
 Defiant Luk: [NL]
 Luk +7 if HP <25%[X]
 
-
-## msg_SN_DefiantDef
-Defiant Def[X]
-
 ## msg_SD_DefiantDef
 Defiant Def: [NL]
 Def +7 if HP <25%[X]
-
-
-## msg_SN_DefiantRes
-Defiant Res[X]
 
 ## msg_SD_DefiantRes
 Defiant Res: [NL]

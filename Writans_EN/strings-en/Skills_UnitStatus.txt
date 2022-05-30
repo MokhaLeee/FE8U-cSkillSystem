@@ -1,27 +1,18 @@
-## msg_SN_LifeAndDeath
-Life And Death[X]
 
 ## msg_SD_LifeAndDeath
 Life And Death:[NL]
 Pow and Mag +5[NL]
 Def and Res -5[X]
 
-## msg_SN_Fury
-Fury[X]
 ## msg_SD_Fury
 Fury: [NL]
 Unit Status+3, HP-6 after combat[X]
 
 
-## msg_SN_FuryPlus
-Fury+[X]
 ## msg_SD_FuryPlus
 Fury+: [NL]
 Unit Status+4, HP-8 after combat[X]
 
-
-## msg_SN_FortressDef
-Fortress Def[X]
 ## msg_SD_FortressDef
 Fortress Def: [NL]
 Str and Mag -3, Def +5[X]
@@ -29,59 +20,40 @@ Str and Mag -3, Def +5[X]
 
 
 
-## msg_SN_FortressRes
-Fortress Res[X]
 ## msg_SD_FortressRes
 Fortress Res: [NL]
 Str and Mag -3, Res +5[X]
 
 
 
-
-## msg_SN_StrBonus
-Str+2[X]
 ## msg_SD_StrBonus
 Str+2: [NL]
 Unit grants bonus Str+2[X]
 
-## msg_SN_MagBonus
-Mag+2[X]
 ## msg_SD_MagBonus
 Mag+2: [NL]
 Unit grants bonus Mag+2[X]
 
-## msg_SN_SklBonus
-Skl+2[X]
 ## msg_SD_SklBonus
 Skl+2: [NL]
 Unit grants bonus Skl+2[X]
 
-## msg_SN_SpdBonus
-Spd+2[X]
 ## msg_SD_SpdBonus
 Spd+2: [NL]
 Unit grants bonus Spd+2[X]
 
-## msg_SN_LukBonus
-Luk+2[X]
 ## msg_SD_LukBonus
 Luk+2: [NL]
 Unit grants bonus Luk+2[X]
 
-## msg_SN_DefBonus
-Def+2[X]
 ## msg_SD_DefBonus
 Def+2: [NL]
 Unit grants bonus Def+2[X]
 
-## msg_SN_ResBonus
-Res+2[X]
 ## msg_SD_ResBonus
 Res+2: [NL]
 Unit grants bonus Res+2[X]
 
-## msg_SN_MovBonus
-Mov+2[X]
 ## msg_SD_MovBonus
 Mov+2: [NL]
 Unit grants bonus Mov+2[X]

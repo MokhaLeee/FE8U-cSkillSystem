@@ -1,81 +1,43 @@
-## msg_SN_DefiantCrit
-必杀觉醒[X]
 
 ## msg_SD_DefiantCrit
 必杀觉醒: [NL]
 若角色HP低于25%，[NL]
 必杀概率+50%[X]
 
-
-
-## msg_SN_DefiantAvoid
-回避觉醒[X]
-
 ## msg_SD_DefiantAvoid
 回避觉醒: [NL]
 若角色HP低于25%，[NL]
 回避概率+30%[X]
-
-
-
-## msg_SN_DefiantStr
-力量觉醒[X]
 
 ## msg_SD_DefiantStr
 力量觉醒: [NL]
 若角色HP低于25%，[NL]
 力量+7[X]
 
-
-
-## msg_SN_DefiantMag
-魔力觉醒[X]
-
 ## msg_SD_DefiantMag
 魔力觉醒: [NL]
 若角色HP低于25%，[NL]
 魔力+7[X]
-
-
-
-## msg_SN_DefiantSkl
-技术觉醒[X]
 
 ## msg_SD_DefiantSkl
 技术觉醒: [NL]
 若角色HP低于25%，[NL]
 技术+7[X]
 
-
-## msg_SN_DefiantSpd
-速度觉醒[X]
-
 ## msg_SD_DefiantSpd
 速度觉醒: [NL]
 若角色HP低于25%，[NL]
 速度+7[X]
-
-
-## msg_SN_DefiantLck
-幸运觉醒[X]
 
 ## msg_SD_DefiantLck
 幸运觉醒: [NL]
 若角色HP低于25%，[NL]
 幸运+7[X]
 
-
-## msg_SN_DefiantDef
-防守觉醒[X]
-
 ## msg_SD_DefiantDef
 防守觉醒: [NL]
 若角色HP低于25%，[NL]
 防御+7[X]
-
-
-## msg_SN_DefiantRes
-魔防觉醒[X]
 
 ## msg_SD_DefiantRes
 魔防觉醒: [NL]

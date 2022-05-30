@@ -5,177 +5,107 @@
 攻击造成必杀时有几率，[NL]
 直接杀死对方，技%[X]
 
-## msg_SN_Crit
-必杀[X]
 ## msg_SD_Crit
 必杀: [NL]
 必杀概率提升15%[X]
 
-
-## msg_SN_WatchfulEye
-命中+[X]
 ## msg_SD_WatchfulEye
 命中+: [NL]
 命中概率+20%[X]
 
-
-
-
-## msg_SN_CritSword
-剑必杀+10[X]
 ## msg_SD_CritSword
 剑必杀+10: [NL]
 装备武器为剑时,[NL]
 必杀概率提升10%[X]
 
-
-## msg_SN_CritAxe
-斧必杀+10[X]
 ## msg_SD_CritAxe
 斧必杀+10: [NL]
 装备武器为斧时,[NL]
 必杀概率提升10%[X]
 
-
-## msg_SN_CritLance
-枪必杀+10[X]
 ## msg_SD_CritLance
 枪必杀+10: [NL]
 装备武器为枪时,[NL]
 必杀概率提升10%[X]
 
-
-## msg_SN_CritBow
-弓必杀+10[X]
 ## msg_SD_CritBow
 弓必杀+10: [NL]
 装备武器为弓时,[NL]
 必杀概率提升10%[X]
 
-
-## msg_SN_CritBMag
-黑魔法必杀+10[X]
 ## msg_SD_CritBMag
 黑魔法必杀+10: [NL]
 装备武器为黑魔法时,[NL]
 必杀概率提升10%[X]
 
-
-## msg_SN_CritWMag
-白魔法必杀+10[X]
 ## msg_SD_CritWMag
 白魔法必杀+10: [NL]
 装备武器为白魔法时,[NL]
 必杀概率提升10%[X]
 
-
-
-## msg_SN_FaireSword
-剑术专家[X]
 ## msg_SD_FaireSword
 剑术专家: [NL]
 装备武器为剑时,[NL]
 攻击+5[X]
 
-
-## msg_SN_FaireLance
-枪术专家[X]
 ## msg_SD_FaireLance
 枪术专家: [NL]
 装备武器为枪时,[NL]
 攻击+5[X]
 
-
-## msg_SN_FaireAxe
-斧术专家[X]
 ## msg_SD_FaireAxe
 斧术专家: [NL]
 装备武器为斧时,[NL]
 攻击+5[X]
 
-
-## msg_SN_FaireBow
-箭术专家[X]
 ## msg_SD_FaireBow
 箭术专家: [NL]
 装备武器为弓时,[NL]
 攻击+5[X]
 
-
-## msg_SN_FaireBMag
-黑魔法专家[X]
 ## msg_SD_FaireBMag
 黑魔法专家: [NL]
 装备武器为魔法时,[NL]
 攻击+5[X]
 
-
-## msg_SN_Avoid
-回避+10[X]
 ## msg_SD_Avoid
 回避+10: [NL]
 角色回避率+10%[X]
 
-
-## msg_SN_AvoidSword
-剑回避+20[X]
 ## msg_SD_AvoidSword
 剑回避+20: [NL]
 装备武器为剑时,[NL]
 回避率+20%[X]
 
-
-
-## msg_SN_RuinedBlade
-破败之刃[X]
 ## msg_SD_RuinedBlade
 破败之刃: [NL]
 攻击-5，速度+5，攻击时[NL]
 额外造成5点真实伤害[X]
 
-
-## msg_SN_RuinedBladePlus
-破败之刃+[X]
 ## msg_SD_RuinedBladePlus
 破败之刃+:[NL]
 速度+5，额外造成5点真实伤[NL]
 害，攻击次数+1但无法暴击[X]
 
-
-## msg_SN_InfinityEdge
-无尽之刃[X]
 ## msg_SD_InfinityEdge
 无尽之刃: [NL]
 暴击造成300%伤害[X]
 
-
-
-## msg_SN_HeavyBlade
-刚剑[X]
 ## msg_SD_HeavyBlade
 刚剑: [NL]
 攻击高于敌方时，[NL]
 暴击几率+15%[X]
 
-
-## msg_SN_FlashingBlade
-柔剑[X]
 ## msg_SD_FlashingBlade
 柔剑: [NL]
 攻速高于敌方时，[NL]
 暴击几率+15%[X]
 
-
-## msg_SN_HeavyBladePlus
-刚剑+[X]
 ## msg_SD_HeavyBladePlus
 刚剑+: [NL]
 攻击+5， 攻击高于[NL]
 敌方时，暴击几率+25%[X]
 
-
-## msg_SN_FlashingBladePlus
-柔剑+[X]
 ## msg_SD_FlashingBladePlus
 柔剑+: [NL]
 伤害+3，攻速高于[NL]
@@ -189,10 +119,6 @@
 攻击附带敌方防御力[NL]
 25%的真实伤害[X]
 
-
-
-## msg_SN_SorceryBlade
-魔道之刃[X]
 ## msg_SD_SorceryBlade
 魔道之刃: [NL]
 攻击敌方防御或[NL]

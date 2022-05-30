@@ -1,55 +1,28 @@
-## msg_SN_SwordBreaker
-Sword Breaker[X]
 
 ## msg_SD_SwordBreaker
 Sword Breaker:[NL]
 Hit, avoid +20% if[NL]
 attack sowrd with lance[X]
 
-
-
-
-## msg_SN_AxeBreaker
-Axe Breaker[X]
-
 ## msg_SD_AxeBreaker
 Axe Breaker:[NL]
 Hit, avoid +20% if[NL]
 attack axe with sword[X]
-
-
-
-## msg_SN_LanceBreaker
-Lance Breaker[X]
 
 ## msg_SD_LanceBreaker
 Lance Breaker:[NL]
 Hit, avoid +20% if[NL]
 attack lance with axe[X]
 
-
-
-## msg_SN_BowBreaker
-Bow Breaker[X]
-
 ## msg_SD_BowBreaker
 Bow Breaker: [NL]
 Hit, avoid +20% if[NL]
 attack bow with B.mag[X]
 
-
-
-## msg_SN_FistBreaker
-Fist Breaker[X]
-
 ## msg_SD_FistBreaker
 Fist Breaker:[NL]
 Hit, avoid +20% if[NL]
 attack fist with bow[X]
-
-
-## msg_SN_TomeBreaker
-Tome Breaker[X]
 
 ## msg_SD_TomeBreaker
 Tome Breaker: [NL]

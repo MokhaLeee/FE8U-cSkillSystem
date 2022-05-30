@@ -3,7 +3,7 @@ PUSH
 ORG CURRENTOFFSET+$0;SkillInfo_RoyalLineage:
 ORG CURRENTOFFSET+$8;SkillInfo_Discipline:
 POP
-WORD $E3F0E40
+WORD $E07
 POIN SI_RoyalLineage
-WORD $E3D0E3E
+WORD $E06
 POIN SI_Discipline

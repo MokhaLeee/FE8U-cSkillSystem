@@ -1,13 +1,8 @@
-## msg_SN_Discipline
-Discipline[X]
+
 ## msg_SD_Discipline
 Discipline:[NL]
 Unit gets weapon exp x2[X]
 
-
-
-## msg_SN_RoyalLineage
-Royal Lineage[X]
 ## msg_SD_RoyalLineage
 Royal Lineage:[NL]
 Unit Get additional 25% exp[X]

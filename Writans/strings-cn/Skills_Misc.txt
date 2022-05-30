@@ -1,5 +1,3 @@
-## msg_SN_Pass
-穿越[X]
 
 ## msg_SD_Pass
 穿越:[NL]
