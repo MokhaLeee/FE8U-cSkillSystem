@@ -1,0 +1,75 @@
+
+
+#include "EAstdlib.event"
+#include "Extensions/Hack Installation.txt"
+
+#ifndef FreeSpace
+	#define FreeSpace $B2A610
+	ORG FreeSpace
+#endif	
+
+
+// ==================================================
+//                 Edit by yourself
+// ==================================================
+
+#include "usr-func/usr-func.lyn.event"
+
+
+
+
+
+
+// ==================================================
+//               Don't Edit Below
+// ==================================================
+
+#include "src/ItemUsability.lyn.event"
+#include "src/PromoInit.lyn.event"
+#include "src/PromoMain.lyn.event"
+#include "src/PromoDisp.lyn.event"
+#include "src/PromoMenu.lyn.event"
+#include "src/PromoHackASM.lyn.event"
+
+// Hack
+PUSH
+	// Make promo anim always shows the item anime
+	ORG $CD0A8
+	jumpToHack(PromoDispMainLoopHackASM)
+	
+	
+	// New Menu-Promotion items
+	ORG $B129EC
+	POIN MenuItems_NewPromotion
+	
+	// Geometry
+	ORG $B12A60
+	BYTE 1 0 9 0
+	
+	// Null the promote anime weapon
+	ORG $2F6A0
+	BYTE 0x00 0x20 0x00 0x20
+	
+	// not show UI name
+	ORG $CD1C0
+	SHORT 0 0
+	
+	// Null Trainee promote
+	ORG $CC710
+	SHORT $E06D
+	
+	// Null Prep Trainee auto promotion
+	ORG $59DC0C
+	SHORT 0xE 0 0 0
+	SHORT 0xE 0 0 0
+	SHORT 0xE 0 0 0
+	SHORT 0xE 0 0 0
+	SHORT 0xE 0 0 0
+	SHORT 0xE 0 0 0
+POP
+
+PROTECT $291A8 $29408	// CanUnitUsePromotionItem
+PROTECT $CC6D4 $CC904	// sub_80CC6D4 (in promo-init)
+PROTECT $CC5B4 $CC624	// sub_80CC5B4 (in promo-main)
+PROTECT $CCD48 $CCF60	// PromotionDisplay_Init
+PROTECT $CD042 $CD1D4

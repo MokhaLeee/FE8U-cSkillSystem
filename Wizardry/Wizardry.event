@@ -99,6 +99,10 @@ ALIGN 4
 // Expand Unit-Status to 6 bits
 #include "CoreHacks/UnitStatus/UnitStatusCore.event"
 
+// Expand unit promotion routine menu list
+// Enable hackers to diy on which character & class and item
+#include "CoreHacks/PromotionList/PromotionRework.event"
+
 
 
 // ============================

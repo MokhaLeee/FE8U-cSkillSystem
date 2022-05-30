@@ -225,7 +225,8 @@ static int NormalJudge_MetisStome(struct Unit* unit, uint16_t item){
 
 
 
-
+//  Now in PromotionList
+/* 
 s8 CanUnitUsePromotionItem(struct Unit* unit, int item)
 {
 	#define CHECK_LIST(it)                       \
@@ -316,7 +317,7 @@ s8 CanUnitUsePromotionItem(struct Unit* unit, int item)
 	return FALSE;
 
 	#undef CHECK_LIST
-}
+} */
 
 
 // Item Menu

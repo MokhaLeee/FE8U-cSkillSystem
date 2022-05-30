@@ -1098,7 +1098,8 @@ void PrepPickSkil_ConfirmReplaceSkillIdle(struct Proc_PrepPickSkill* proc){
 		{
 			RemoveSkill(proc->unit, proc->skill_id_pre);
 			AddSkill( proc->unit, GetUnitPrepSkillsList(proc->unit)->skills_all[proc->list_index_replace]);
-			
+			// <?>
+			proc->skill_id_pre = 0;
 			TileMap_FillRect(
 				TILEMAP_LOCATED( gBG0TilemapBuffer, 0x0F, 0x06),
 				0x2, 0x2 , 0 );
@@ -1512,7 +1513,7 @@ void PrepPickSkill_UpdateSkillDesc(struct Proc_PrepPickSkill* proc){
 	
 	if( skill_id == proc->skill_id_pre )
 		return;
-	
+	_debug_(proc->skill_id_pre);
 	TileMap_FillRect(
 		TILEMAP_LOCATED( gBG0TilemapBuffer, xStart, yStart),
 		0x10, 0x6 , 0 );

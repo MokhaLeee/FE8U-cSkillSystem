@@ -38,6 +38,9 @@ gpPrepSkillList:
 	WORD 0x2027380		// 0x130
 
 
+
+
+
 // RecoverableRN2
 ALIGN 4
 gpRneState:
@@ -62,6 +65,11 @@ BattleHitExtCur:
 
 BattleHitExtArray:
 	WORD 0x3003F4C // size = 0x70; End = 0x3003FBC
+
+
+
+gpRamPromoTmpList:
+	WORD 0x030005B0		// 0x10
 
 
 // if 0, null game-intro-gfx

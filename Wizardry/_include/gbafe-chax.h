@@ -33,6 +33,7 @@
 #include "unit-status.h"
 #include "stat-screen.h"
 #include "weapon-system.h"
+#include "promotion-rework.h"
 
 #include "gbafe16-features.h"
 #include "../Features/Skills/SkillsDef.h"

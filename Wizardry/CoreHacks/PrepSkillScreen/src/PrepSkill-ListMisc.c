@@ -1158,7 +1158,27 @@ static void MakeLeftLists(struct Unit* unit, struct PrepSkillsList* prepList){
 // =========================================================
 
 void InitPrepSkillsList(void){
-	ResetCommonSpace();
+	
+	struct PrepSkillsList* list = gpPrepSkillList;
+	
+	list->unit_index = 0;
+	
+	for(int i = 0; i < PREP_SKLSUB_MAXLIST; i++)
+		list->total[i] = 0;
+	
+	for(int i = 0; i < PREPSKILL_LISTLEN_RAM; i++)
+		list->skills_ram[i] = 0;
+	
+	for(int i = 0; i < PREPSKILL_LISTLEN_ROM; i++)
+		list->skills_rom[i] = 0;
+	
+	for(int i = 0; i < PREPSKILL_LISTLEN_CA; i++)
+		list->skills_CombatArt[i] = 0;
+	
+	list->skills_battalion = 0;
+	
+	for(int i = 0; i < PREPSKILL_LISTLEN_ALL; i++)
+		list->skills_all[i] = 0;
 }
 
 
