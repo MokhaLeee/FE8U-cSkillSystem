@@ -140,7 +140,10 @@ void PrepSkillObj_PrepareTotalListIcons(struct Proc_PrepPickSkill* proc){
 
 void PrepSkillObj_DrawTotalListIcons(struct Proc_PrepPickSkill* proc){
 
-
+	
+	if( 0 == proc->displaying_count )
+		return;
+	
 	// Put Objs
 	int count = 0;
 	

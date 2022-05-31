@@ -225,14 +225,18 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 	
 	
 	
+	
 	// Class Normal List
-	for( int i = 0; i < 2; i++ )		
+	for( int i = 0; i < 2; i++ ){	
 		ADD_SKILL(ListClass->default_ram_skill[i]);
-
+		
+		// Add rom skills pls
+		ADD_SKILL(ListClass->default_rom_skill[i]);
+	}
 	
 	
 	// Unit mastered classes
-	for( int i = 1; i <= 0x50; i++)
+	for( int i = 1; i <= 0x50; i++){
 		if( IsClassMastered(unit, i) ){
 			
 			ADD_SKILL( ClassSkillRomList[i].default_ram_skill[0] );
@@ -241,7 +245,13 @@ static void MakeTotalListSkill(struct Unit* unit, struct PrepSkillsList* list){
 			ADD_SKILL( ClassSkillRomList[i].master_ram_skill[1] );
 			ADD_SKILL( ClassSkillRomList[i].master_ram_skill[2] );
 			ADD_SKILL( ClassSkillRomList[i].master_ram_skill[3] );
+			
+			// Add rom skills pls
+			ADD_SKILL(ListClass->master_rom_skill[0]);
+			ADD_SKILL(ListClass->master_rom_skill[1]);
 		}
+	}
+	
 	
 	int WeaponRanks[0x12];
 	
