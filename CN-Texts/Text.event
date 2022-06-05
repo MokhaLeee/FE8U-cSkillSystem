@@ -1605,6 +1605,10 @@ __TEXTPROCESS2BD:
 #incbin ".TextEntries\__InstallVanillaString__2BD.fetxt.dmp"
 setText($2BD, __TEXTPROCESS2BD)
 
+__TEXTPROCESS2BE:
+#incbin ".TextEntries\__InstallVanillaString__2BE.fetxt.dmp"
+setText($2BE, __TEXTPROCESS2BE)
+
 __TEXTPROCESS2BF:
 #incbin ".TextEntries\__InstallVanillaString__2BF.fetxt.dmp"
 setText($2BF, __TEXTPROCESS2BF)
@@ -3184,6 +3188,10 @@ setText($45E, __TEXTPROCESS45E)
 __TEXTPROCESS462:
 #incbin ".TextEntries\__InstallVanillaString__462.fetxt.dmp"
 setText($462, __TEXTPROCESS462)
+
+__TEXTPROCESS464:
+#incbin ".TextEntries\__InstallVanillaString__464.fetxt.dmp"
+setText($464, __TEXTPROCESS464)
 
 __TEXTPROCESS466:
 #incbin ".TextEntries\__InstallVanillaString__466.fetxt.dmp"

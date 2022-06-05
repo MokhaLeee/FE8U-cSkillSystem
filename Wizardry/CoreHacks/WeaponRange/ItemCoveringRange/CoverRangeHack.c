@@ -22,3 +22,9 @@ int new_IsItemCoveringRange(int item, int range, struct Unit* unit) {
 
 
 
+// 
+int CouldStationaryUnitBeInRangeHeuristic(struct Unit* actor, struct Unit* target, u16 item){
+	
+	return ( RangeMaxGetter(item, actor) + MovGetter(actor) )
+		>= RECT_DISTANCE(actor->xPos, actor->yPos, target->xPos, target->yPos);
+}

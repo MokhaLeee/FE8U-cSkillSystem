@@ -126,7 +126,7 @@ u16 PromoDispMainLoopHackCore(struct Proc_PromoDisp* proc){
 	if( 0xFFFF == anime_id )
 		if( 0 != AnimDef[2] )
 		{
-			anime_id = AnimDef[2];
+			anime_id = AnimDef[2] - 1;
 			wType = AnimDef[3];
 		}
 	

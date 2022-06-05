@@ -590,7 +590,8 @@ void PostAction_CombatArtDebuff(ProcPtr proc){
 		}
 		return;
 	}
-
+	
+	gpBattleFlagExt->combatArt_hitted = 0;
 }
 
 

@@ -64,13 +64,14 @@ PROTECT $171E8 $1723A // GetUnitWeaponReachBits
 PROTECT $1723C $172F6 // GetUnitItemUseReachBits
 PROTECT $172F8 $1737A // GetUnitStaffReachBits
 
-
-
-
+#include "FillMapMisc/Cp.lyn.event"
+PROTECT $3D880 $3D8CC // AiFillUnitStandingRangeWithWeapon
+PROTECT $3E1EC $3E238 // AiGetUnitReachWeightWithEquippedWeapon
 
 
 // Is Item Covering Range
 #include "ItemCoveringRange/CoverRangeHack.lyn.event"
+PROTECT $3AC3C $3AC8C
 
 PUSH
 	ORG $016B8C
