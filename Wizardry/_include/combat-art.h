@@ -3,7 +3,7 @@
 
 // For ROM Table, see skill-system.h
 // Level-based class combat-arts
-extern const struct LevelBasedSkillList_t LevelCASword_ClassList[], LevelCALance_ClassList[], LevelCAAxe_ClassList[], LevelCABow_ClassList[], LevelCABMag_ClassList[], LevelCAWMag_ClassList[];
+extern const struct LevelBasedSkillList_t LevelCASword_ClassList[], LevelCALance_ClassList[], LevelCAAxe_ClassList[], LevelCABow_ClassList[];
 
 // Level-based unit combat-art
 extern const struct LevelBasedSkillList_t LevelCASword_CharList[], LevelCALance_CharList[], LevelCAAxe_CharList[], LevelCABow_CharList[];

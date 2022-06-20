@@ -48,12 +48,12 @@ extern const struct SkillCharacterList_t CharacterSkillRomList[];
 struct LevelBasedSkillList_t{
 
 	/* 00 */ u8 E[3];
-	/* 02 */ u8 D[3];
-	/* 04 */ u8 C[3];
-	/* 06 */ u8 B[3];
-	/* 08 */ u8 A[3];
-	/* 0A */ u8 S[3];
-	/* 0C */
+	/* 03 */ u8 D[3];
+	/* 06 */ u8 C[3];
+	/* 09 */ u8 B[3];
+	/* 0C */ u8 A[3];
+	/* 0F */ u8 S[3];
+	/* 12 */
 };
 
 // Level-based class skills

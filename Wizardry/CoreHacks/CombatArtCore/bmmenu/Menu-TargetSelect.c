@@ -585,6 +585,8 @@ u8 CombatArtWeaponSelect_Effect(struct MenuProc* menu, struct MenuItemProc* menu
 	u16 weapon = gActiveUnit->items[menu_item->itemNumber];
 	
 	EquipUnitItemSlot(gActiveUnit, menu_item->itemNumber);
+	gActionData.itemSlotIndex = 0;
+	
 	ClearBg0Bg1();
 	MakeTargetListForWeapon(gActiveUnit, weapon);
 	

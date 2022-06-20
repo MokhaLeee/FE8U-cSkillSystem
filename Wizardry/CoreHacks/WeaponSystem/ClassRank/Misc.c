@@ -11,7 +11,7 @@ u8 GetClassRankExpGain(u8 class_id){
 	if( CA_PROMOTED & gClassData[class_id].attributes )
 		return 4;
 	else
-		return 0x10;
+		return 0x8;
 }
 
 

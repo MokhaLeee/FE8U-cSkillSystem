@@ -1,0 +1,133 @@
+#cSkillSys wType-Ride based character skills
+#
+
+1
+FE8U-cSkillSys wType(Ride) based character Skills
+0xE4A7EC
+256
+18
+FE8 Character Editor.txt
+NULL
+
+E Skill 0
+0
+1
+NEHU
+NULL
+
+E Skill 1
+1
+1
+NEHU
+NULL
+
+E Skill 2
+2
+1
+NEHU
+NULL
+
+
+
+D Skill 0
+3
+1
+NEHU
+NULL
+
+D Skill 1
+4
+1
+NEHU
+NULL
+
+D Skill 2
+5
+1
+NEHU
+NULL
+
+
+
+
+
+C Skill 0
+6
+1
+NEHU
+NULL
+
+C Skill 1
+7
+1
+NEHU
+NULL
+
+C Skill 2
+8
+1
+NEHU
+NULL
+
+
+
+B Skill 0
+9
+1
+NEHU
+NULL
+
+B Skill 1
+10
+1
+NEHU
+NULL
+
+B Skill 2
+11
+1
+NEHU
+NULL
+
+
+
+
+A Skill 0
+12
+1
+NEHU
+NULL
+
+A Skill 1
+13
+1
+NEHU
+NULL
+
+A Skill 2
+14
+1
+NEHU
+NULL
+
+
+
+
+
+S Skill 0
+15
+1
+NEHU
+NULL
+
+S Skill 1
+16
+1
+NEHU
+NULL
+
+S Skill 2
+17
+1
+NEHU
+NULL

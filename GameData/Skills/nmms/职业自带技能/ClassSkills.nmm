@@ -1,0 +1,74 @@
+#cSkillSys class skills
+#
+
+1
+FE8U-cSkillSys class Skills
+0xE477EC
+256
+10
+FE8 Class Editor.txt
+NULL
+
+Default ROM Skill 0
+0
+1
+NEHU
+NULL
+
+Default ROM Skill 1
+1
+1
+NEHU
+NULL
+
+
+Master ROM Skill 0
+2
+1
+NEHU
+NULL
+
+Master ROM Skill 1
+3
+1
+NEHU
+NULL
+
+
+
+Default RAM Skill 0
+4
+1
+NEHU
+NULL
+
+Default RAM Skill 1
+5
+1
+NEHU
+NULL
+
+
+Master RAM Skill 0
+6
+1
+NEHU
+NULL
+
+Master RAM Skill 1
+7
+1
+NEHU
+NULL
+
+Master RAM Skill 2
+8
+1
+NEHU
+NULL
+
+Master RAM Skill 3
+9
+1
+NEHU
+NULL

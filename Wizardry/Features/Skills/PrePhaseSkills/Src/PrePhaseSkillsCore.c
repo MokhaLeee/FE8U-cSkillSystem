@@ -9,7 +9,7 @@ void JudgePrePhaseRenewal(struct Unit* unit, u8 terrain){
 	if( HpMaxGetter(unit) <= HpCurGetter(unit) )
 		return;
 	
-	heal_amount += GetTerrainHealAmount(terrain);
+	heal_amount += _lib_div(GetTerrainHealAmount(terrain) * HpMaxGetter(unit), 100);
 	
 	if( (*SkillTester)(unit, SID_Renewal) )
 		heal_amount += _lib_div( HpMaxGetter(unit) * 3, 10);
