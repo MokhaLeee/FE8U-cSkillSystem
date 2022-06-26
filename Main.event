@@ -25,7 +25,7 @@ ORG FreeSpaceText
 		ALIGN 4
 		#include "Writans_EN/Text.event"
 	#endif
-	
+
 ASSERT (FreeSpaceTextEnd - CURRENTOFFSET)	
 #undef IN_TEXT_RANGE
 

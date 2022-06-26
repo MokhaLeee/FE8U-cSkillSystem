@@ -1,4 +1,4 @@
-
+#include "Tools/Tool Helpers.txt"
 
 {
 
@@ -5856,4 +5856,4 @@ setText($734, __TEXTPROCESS734)
 
 }
 
-#endif // TEXT_INSTALLER_CN_TEXTS___INSTALLVANILLASTRING___TXT
+
