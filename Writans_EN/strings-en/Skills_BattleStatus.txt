@@ -99,7 +99,7 @@ foe, critical rate +15%[X]
 
 ## msg_SD_FlashingBlade
 Flashing Blade: [NL]
-If unit's AS is higher than
+If unit's AS is higher than[NL]
 foe, critical rate +15% [X]
 
 ## msg_SD_HeavyBladePlus
