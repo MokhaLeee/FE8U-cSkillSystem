@@ -5,12 +5,10 @@
 // Gravity
 #include "Gravity/Gravity.lyn.event"
 
+
 ALIGN 4
 Gfx_Gravity:
 	#incbin "Gravity/Gfx_Gravity.4bpp.lz"
-
-
-
 
 
 #endif // MAP_ANIM_INSTALLED

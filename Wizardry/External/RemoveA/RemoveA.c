@@ -1,8 +1,8 @@
-#include "gbafe-chax.h"
+#include "gbafe.h"
 #include <string.h>
 
-void PrependArticleToString(char *str, const char *insert_str, s8 c)
-{
+void PrependArticleToString(char *str, const char *insert_str, s8 c){
+	
 	int len = strlen(str);
 	
 	if( insert_str != NULL )
@@ -18,8 +18,8 @@ void PrependArticleToString(char *str, const char *insert_str, s8 c)
 		return;
 	}
 	
-	else
-	{
+	else{
+		
 		for( int i = len; i >= 0; i--)
 			str[i + 1] = str[i];
 		

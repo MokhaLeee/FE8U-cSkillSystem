@@ -7,7 +7,7 @@ _thumb(_debug_)
 
 
 
-	
+/* 	
 
 // For Debug
 PUSH
@@ -62,6 +62,6 @@ PUSH
 	
 	
 POP
-
+ */
 
 #endif // _DEBUG_

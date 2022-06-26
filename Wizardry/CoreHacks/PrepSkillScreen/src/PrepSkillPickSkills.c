@@ -1172,7 +1172,7 @@ void PrepPickSkil_CancelOnSkill(struct Proc_PrepPickSkill* proc){
 		case PREP_SKLSUB_RIGHT:
 		default:
 			xHand = 0x78 + 0x10 * _lib_mod(proc->list_index, 6);
-			yHand = 0x28 + 0x10 * _lib_div(proc->list_index, 6);
+			yHand = 0x28 + 0x10 * (_lib_div(proc->list_index, 6) - proc->head_line);
 			break;
 	}
 	

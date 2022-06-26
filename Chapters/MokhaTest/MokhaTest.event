@@ -6,6 +6,8 @@ EventPointerTable(7,MyPrologue)
 	ORG FreeSpace
 #endif
 
+ALIGN 4
+#include "src/Ch0.lyn.event"
 
 ALIGN 32
 MyPrologue:
@@ -68,6 +70,10 @@ LOAD1 1 PlayerUnits
 ENUN
 LOAD1 1 EnemyUnits
 ENUN
+
+#ifdef _DEBUG_
+	ASMC EventCh0_DebugAllies
+#endif // _DEBUG_
 
 PREP
 ENDA

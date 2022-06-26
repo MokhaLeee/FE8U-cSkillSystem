@@ -6,10 +6,10 @@
 	// =====================================================
 	
 	// If uncommented, will load "Debug_File.event"
-	// #define _DEBUG_
+	#define _DEBUG_
 	
 	// If uncommented, will use chinese texts
-	#define _CHINESE_
+	// #define _CHINESE_
 	
 	// If commented, will load "Chapters" folder and Portraits
 	// #define _USE_VANILLA_CHAPTER_
@@ -20,6 +20,14 @@
 	
 	// If uncommented, unit will use all types of weapon even wExp = 0
 	// #define _UNIT_CAN_USE_ALL_WEAPON_
+	
+	
+	
+	
+	
+	// =====================================================
+	// -------------------  User Defs ----------------------
+	// =====================================================
 	
 	// For Icon Display
 	#define ICON_SHEET_SKILLS 0x1
