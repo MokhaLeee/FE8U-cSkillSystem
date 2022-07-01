@@ -5,7 +5,14 @@ static int CanUnitUsePromoItemVanilla(u8 charId, u8 classId, u8 itemId);
 
 
 const u8 *GetUnitPromoList(u8 charId, u8 classId, u8 itemId){
-
+	
+	/*
+	 *
+	 * If you want not to return a RO-Data( Read-Only), then you can also use gCommonSpace 
+	 * See Wizardry/_include/common-space.h
+	 * For now, gpRamPromoTmpList is also defined in Main_Vars.event
+	 */
+	
 	return BuildVanillaPromoList(charId, classId, itemId);
 }
 

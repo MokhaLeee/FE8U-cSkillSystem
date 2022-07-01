@@ -73,6 +73,18 @@ int CanUnitWithWeaponUseCombatArt(struct Unit* unit, u16 weapon, u8 index){
 
 
 // remove skill
+
+void ResetUnitCombatArts(struct Unit* unit){
+	u8* list = GetCombatArtList(unit);
+	
+	if( NULL == list )
+		return;
+	
+	for( int i = 0; i < 5; i++ )
+		list[i] = 0;
+	
+}
+
 int RemoveCombatArt(struct Unit* unit, const u8 index){
 	
 	u8* list = GetCombatArtList(unit);

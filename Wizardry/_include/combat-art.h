@@ -75,6 +75,7 @@ int UnitHasCombatArt(struct Unit* unit);
 int CanUnitUseCombatArt(struct Unit* unit, u8 index);
 int CanUnitWithWeaponUseCombatArt(struct Unit* unit, u16 weapon, u8 index);
 
+void ResetUnitCombatArts(struct Unit*);
 int RemoveCombatArt(struct Unit*, const u8 index);
 int AddCombatArt(struct Unit*, const u8 index);
 

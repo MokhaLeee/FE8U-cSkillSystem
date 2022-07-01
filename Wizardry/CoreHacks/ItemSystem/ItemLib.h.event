@@ -1,0 +1,22 @@
+#ifndef ITEM_SYSTEM_REWORK_LIB_EVENT
+#define ITEM_SYSTEM_REWORK_LIB_EVENT
+
+
+// If you want to make an item as promotion item,
+// Don't forget to set its promotion list in:
+// Wizardry/CoreHacks/PromotionList/usr-func/usr-func.c
+
+#define MakePromotionItem(itemIndex) "InjectItemPrepUsability(itemIndex, CanUnitUsePromotionItem); InjectItemMenuUsability(itemIndex, CanUnitUsePromotionItem)"
+
+
+
+// SimpleItem: You can make your own item effect(such as strength bonus, or give a weapon, etc..) and the game will show a pop-up window to show text_id defined string.
+// It will use ItemMenuEffectTable to store msg then put routine & 0x80000000 to make system identify the item as SimpleItem. 
+// int (*usability)(struct Unit*, u16 item)
+// void (*effect)(struct Unit*, u16 item)
+
+#define SimpleItemEffect(item, usability, effect, text_id) "InjectItemPrepUsability(item,usability); PUSH; ORG ItemPrepEffectTable+item*4; POIN effect | 1 | (1<<28); POP;InjectItemMenuUsability(item, usability); PUSH; ORG ItemMenuEffectTable+item*4; WORD text_id; ORG ItemActionEffectTable+item*4;  POIN effect | 1 | (1 << 28); POP"
+
+
+
+#endif // ITEM_SYSTEM_REWORK_LIB_EVENT

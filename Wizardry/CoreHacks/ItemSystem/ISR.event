@@ -38,16 +38,11 @@
 
 
 
-// usability: int (*)(struct Unit*, u16 item)
-// effect: void (*)(struct Unit*, u16 item)
-// use ItemMenuEffectTable to store msg
-// then put routine & 0x80000000 
-#define SimpleItemEffect(item, usability, effect, text_id) "InjectItemPrepUsability(item,usability); PUSH; ORG ItemPrepEffectTable+item*4; POIN effect | 1 | (1<<28); POP;InjectItemMenuUsability(item, usability); PUSH; ORG ItemMenuEffectTable+item*4; WORD text_id; ORG ItemActionEffectTable+item*4;  POIN effect | 1 | (1 << 28); POP"
 
 
-SimpleItemEffect(Fire, ReturnTRUE, ReturnTRUE, 0x212)
 
 
+#include "ItemLib.h.event"
 
 #endif // ITEM_EFFECT_REWORK
 

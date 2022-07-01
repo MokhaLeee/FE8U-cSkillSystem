@@ -30,7 +30,7 @@ static void DisplayClassExp(int num, int x, int y, int wtype){
 		gBmFrameTmap1 + TILEMAP_INDEX(x + 2, y + 1), 
 		TILEREF(0, STATSCREEN_BGPAL_6),
 		0x22, 
-		_lib_div(wexp*34, WPN_EXP_S-1), 
+		_lib_div(wexp >= WPN_EXP_S ? 0 : wexp*34, WPN_EXP_S-1), 
 		0);
 }
 
