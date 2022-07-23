@@ -48,7 +48,7 @@ enum{
 
 
 
-const static struct ProcCmd newProcCmd_PrepAtMenu[] = {
+const struct ProcCmd newProcCmd_PrepAtMenu[] = {
 	
 	PROC_NAME	("PREP_NEW_ATMENU"),
 	PROC_CALL	(newPrepMenu_OnInit),

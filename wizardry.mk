@@ -63,6 +63,7 @@ SDEPFLAGS = --MD "$(CACHE_DIR)/$(notdir $*).d"
 CFILES := $(shell find -type f -name '*.c')
 SFILES := $(shell find -type f -name '*.s')
 
+export OBJ_TARGET := $(CFILES:.c=.o)
 ASM_C_GENERATED := $(CFILES:.c=.o) $(SFILES:.s=.o) $(CFILES:.c=.asm)
 ASM_C_GENERATED += $(ASM_C_GENERATED:.o=.dmp) $(ASM_C_GENERATED:.o=.lyn.event)
 

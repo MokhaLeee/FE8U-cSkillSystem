@@ -41,6 +41,32 @@ POIN newProcCmd_PrepMain
 // ORG $08D09C
 // SHORT $E01C
 
+ORG $046E08
+POIN newProcCmd_PrepAtMenu
+
+ORG $095278
+POIN newProcCmd_PrepAtMenu
+
+ORG $096464
+POIN newProcCmd_PrepAtMenu
+
+ORG $096480
+POIN newProcCmd_PrepAtMenu
+
+ORG $0966C4
+POIN newProcCmd_PrepAtMenu
+
+ORG $09D5D0
+POIN newProcCmd_PrepAtMenu
+
+ORG $09EAD4
+POIN newProcCmd_PrepAtMenu
+
+ORG $09EBA4
+POIN newProcCmd_PrepAtMenu
+
+ORG $09F14C
+POIN newProcCmd_PrepAtMenu
 POP
 
 

@@ -6,6 +6,8 @@
 
 *******************************/
 
+extern struct SkillFastTesterList *gpSkillFastList0, *gpSkillFastList1;
+
 
 struct SkillFastTesterList* GetOrMakeSklFastList(struct Unit* unit) {
 	

@@ -1097,7 +1097,6 @@ static void MakeTotalListCombatArt(struct Unit* unit, struct PrepSkillsList* lis
 static void MakeLeftLists(struct Unit* unit, struct PrepSkillsList* prepList){
 	
 	const u8 * combatArt_list = GetCombatArtList(unit);
-	struct SkillFastTesterList* skill_list = GetOrMakeSklFastList(unit);
 	
 	InitPrepSkillsList();
 	
@@ -1126,7 +1125,7 @@ static void MakeLeftLists(struct Unit* unit, struct PrepSkillsList* prepList){
 	
 	
 	// ROM Skills
-	for( int i = 0; i < skill_list->cnt; i++ )
+/* 	for( int i = 0; i < skill_list->cnt; i++ )
 	{
 		if( !isPrepSkillEquippedRAM(unit, skill_list->skills[i]) )
 		{
@@ -1139,8 +1138,22 @@ static void MakeLeftLists(struct Unit* unit, struct PrepSkillsList* prepList){
 			
 			prepList->total[PREP_SKLSUB_LEFT_ROM]++;
 		}
-	}
+	} */
 	
+	for (int i = 0; i < SKILL_MAX_COUNT; i++){
+		
+		if ( 0 != (*SkillTester)(unit, i) )
+			if( 0 == isPrepSkillEquippedRAM(unit, i) ){
+				int count = prepList->total[PREP_SKLSUB_LEFT_ROM];
+			
+				if( count >= PREPSKILL_LISTLEN_ROM )
+					break;
+				
+				prepList->skills_rom[count] = i;
+				
+				prepList->total[PREP_SKLSUB_LEFT_ROM]++;
+			}		
+	}
 	
 	
 	// Combat Arts

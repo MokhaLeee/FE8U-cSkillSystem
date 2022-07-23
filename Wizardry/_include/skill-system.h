@@ -90,8 +90,8 @@ extern const u16 SkillIcon_WIP[];
  * @return non-zero if the unit has the given skill
  */
 extern int (*SkillTester) (struct Unit*, const u8 skill_id);
-int JudgeSkill(struct Unit*, const u8 skill_id);
-int JudgeSkillFast(struct Unit*, const u8 skill_id);
+// int JudgeSkill(struct Unit*, const u8 skill_id);
+// int JudgeSkillFast(struct Unit*, const u8 skill_id);
 
 
 
@@ -102,8 +102,6 @@ struct SkillFastTesterList{
 	/* 02 */ u8 skills[MAX_CNT_FAST_LIST];
 	/* End up to 0x20 */
 };
-
-extern struct SkillFastTesterList *gpSkillFastList0, *gpSkillFastList1;
 
 struct SkillFastTesterList* GetOrMakeSklFastList(struct Unit*);
 int GetSklFastListLen(struct Unit*);

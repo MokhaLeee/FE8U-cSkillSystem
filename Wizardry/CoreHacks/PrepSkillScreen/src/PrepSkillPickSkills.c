@@ -191,7 +191,7 @@ void PrepPickSkill_InitSkillsList (struct Proc_PrepPickSkill* proc){
 	InitPrepSkillsList();
 	ResetSkillFastList();
 	
-	GetOrMakeSklFastList(proc->unit);
+	// GetOrMakeSklFastList(proc->unit);
 	MakeUnitPrepSkillsList(proc->unit);
 	
 	proc->state = STATE_PREPSUB_NORMAL;
@@ -1681,7 +1681,7 @@ void PrepPickCombatArt_InitSkillsList (struct Proc_PrepPickSkill* proc){
 	InitPrepSkillsList();
 	ResetSkillFastList();
 	
-	GetOrMakeSklFastList(proc->unit);
+	// GetOrMakeSklFastList(proc->unit);
 	MakeUnitPrepCombatArtsList(proc->unit);
 	
 	proc->state = STATE_PREPSUB_NORMAL;
