@@ -1,7 +1,0 @@
-ALIGN 4
-PUSH
-ORG CURRENTOFFSET+$0;StatusInfo_ExposeRes:
-POP
-WORD $EB30EB2
-POIN Gfx_UnitStatus_ExposeRes
-WORD $0 $0 $0 $10001 $0 $FB $0 $0

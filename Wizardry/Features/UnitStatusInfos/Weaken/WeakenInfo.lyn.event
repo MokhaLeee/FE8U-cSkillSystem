@@ -1,7 +1,0 @@
-ALIGN 4
-PUSH
-ORG CURRENTOFFSET+$0;StatusInfo_Weaken:
-POP
-WORD $EB50EB4
-POIN Gfx_UnitStatus_Weaken
-WORD $0 $0 $0 $FB010001 $FB $0 $0 $0
