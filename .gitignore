@@ -37,6 +37,7 @@ $RECYCLE.BIN/
 # python cache
 __pycache__
 Tools/EventAssembler*
+.vscode*
 
 
 # =========================
